@@ -11,9 +11,6 @@ type Props = {
     className?: string;
 };
 
-// to allow for `await`, mark the function as async
-function getLocation() {}
-
 export default function BookAppointmentButton({ className }: Props) {
     const [openDialog, setOpenDialog] = useState(false);
     const [openBookTypeDialog, setOpenBookTypeDialog] = useState(false);
@@ -21,24 +18,15 @@ export default function BookAppointmentButton({ className }: Props) {
 
     const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
 
-    var success = (position: GeolocationPosition) => {
+    const success = useCallback((position: GeolocationPosition) => {
         setLocation({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
         });
-    };
-
-    // If permission is already granted, get location
-    useEffect(() => {
-        navigator.permissions.query({ name: "geolocation" }).then((permissionStatus) => {
-            if (permissionStatus.state === "granted") {
-                getLocation();
-            }
-        });
     }, []);
 
     // Prompt for location if permission is not granted
-    var getLocation = useCallback(() => {
+    const getLocation = useCallback(() => {
         if (navigator.geolocation) {
             navigator.permissions.query({ name: "geolocation" }).then((permissionStatus) => {
                 if (permissionStatus.state === "denied") {
@@ -60,7 +48,7 @@ export default function BookAppointmentButton({ className }: Props) {
         } else {
             setOpenBookTypeDialog(true);
         }
-    }, [getLocation]);
+    }, [location, getLocation]);
 
     const onContinueClick = useCallback(() => {
         setOpenBookTypeDialog(true);
@@ -74,6 +62,15 @@ export default function BookAppointmentButton({ className }: Props) {
         // TODO: Redirect
         setOpenBookTypeDialog(false);
     }, []);
+
+    // If permission is already granted, get location
+    useEffect(() => {
+        navigator.permissions.query({ name: "geolocation" }).then((permissionStatus) => {
+            if (permissionStatus.state === "granted") {
+                getLocation();
+            }
+        });
+    }, [getLocation]);
 
     return (
         <>
