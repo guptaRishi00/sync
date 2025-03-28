@@ -5,6 +5,8 @@ import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
+import ProfileCard from "@/components/prefabs/profile-card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { CircleCheck } from "lucide-react";
 import Image from "next/image";
 export default async function AboutPage() {
@@ -123,6 +125,54 @@ function HeroSection() {
 }
 
 function MeetOurExpertSection() {
+    const profiles = [
+        {
+            name: "Dr. Name",
+            designation: "Role of the Doctor",
+            about: "Dr. Vinod Kumar has trained extensively in the UK and has qualifications and skills in various psychotherapeutic modalities. He trained and worked in the National Health Service (UK), from 1997 to 2011 on a substantive basis. He completed his core training and specialist training in psychiatry leading to gaining MRC Psych and Certificate of completion of specialist training with Royal College of psychiatry endorsement in Liaison psychiatry and Eating disorders. Since, 2011 Dr. Vinod Kumar has worked in various settings in Bangalore and has been the Head of the Centre, Mpower, Bangalore, since January 2019.",
+            facebook: "https://www.facebook.com",
+            linkedin: "https://www.linkedin.com",
+            instagram: "https://www.instagram.com",
+            profileImage: "/images/expert-dr-2.jpg",
+        },
+        {
+            name: "Dr.Vinod Kumar",
+            designation: "Psychiatrist & Head - SyNC",
+            about: "Dr. Vinod Kumar has trained extensively in the UK and has qualifications and skills in various psychotherapeutic modalities. He trained and worked in the National Health Service (UK), from 1997 to 2011 on a substantive basis. He completed his core training and specialist training in psychiatry leading to gaining MRC Psych and Certificate of completion of specialist training with Royal College of psychiatry endorsement in Liaison psychiatry and Eating disorders. Since, 2011 Dr. Vinod Kumar has worked in various settings in Bangalore and has been the Head of the Centre, Mpower, Bangalore, since January 2019.",
+            facebook: "https://www.facebook.com",
+            linkedin: "https://www.linkedin.com",
+            instagram: "https://www.instagram.com",
+            profileImage: "/images/expert-dr-1.jpg",
+        },
+        {
+            name: "Dr. Name",
+            designation: "Role of the Doctor",
+            about: "Dr. Vinod Kumar has trained extensively in the UK and has qualifications and skills in various psychotherapeutic modalities. He trained and worked in the National Health Service (UK), from 1997 to 2011 on a substantive basis. He completed his core training and specialist training in psychiatry leading to gaining MRC Psych and Certificate of completion of specialist training with Royal College of psychiatry endorsement in Liaison psychiatry and Eating disorders. Since, 2011 Dr. Vinod Kumar has worked in various settings in Bangalore and has been the Head of the Centre, Mpower, Bangalore, since January 2019.",
+            facebook: "https://www.facebook.com",
+            linkedin: "https://www.linkedin.com",
+            instagram: "https://www.instagram.com",
+            profileImage: "/images/expert-dr-2.jpg",
+        },
+        {
+            name: "Dr.Vinod Kumar",
+            designation: "Psychiatrist & Head - SyNC",
+            about: "Dr. Vinod Kumar has trained extensively in the UK and has qualifications and skills in various psychotherapeutic modalities. He trained and worked in the National Health Service (UK), from 1997 to 2011 on a substantive basis. He completed his core training and specialist training in psychiatry leading to gaining MRC Psych and Certificate of completion of specialist training with Royal College of psychiatry endorsement in Liaison psychiatry and Eating disorders. Since, 2011 Dr. Vinod Kumar has worked in various settings in Bangalore and has been the Head of the Centre, Mpower, Bangalore, since January 2019.",
+            facebook: "https://www.facebook.com",
+            linkedin: "https://www.linkedin.com",
+            instagram: "https://www.instagram.com",
+            profileImage: "/images/expert-dr-1.jpg",
+        },
+        {
+            name: "Dr. Name",
+            designation: "Role of the Doctor",
+            about: "Dr. Vinod Kumar has trained extensively in the UK and has qualifications and skills in various psychotherapeutic modalities. He trained and worked in the National Health Service (UK), from 1997 to 2011 on a substantive basis. He completed his core training and specialist training in psychiatry leading to gaining MRC Psych and Certificate of completion of specialist training with Royal College of psychiatry endorsement in Liaison psychiatry and Eating disorders. Since, 2011 Dr. Vinod Kumar has worked in various settings in Bangalore and has been the Head of the Centre, Mpower, Bangalore, since January 2019.",
+            facebook: "https://www.facebook.com",
+            linkedin: "https://www.linkedin.com",
+            instagram: "https://www.instagram.com",
+            profileImage: "/images/expert-dr-2.jpg",
+        },
+    ];
+
     return (
         <section className="section flex flex-col items-center py-8">
             <div className="relative flex items-center gap-2">
@@ -138,7 +188,27 @@ function MeetOurExpertSection() {
                 />
             </div>
 
-            <div className="p-12 text-5xl font-bold tracking-wide">TODO</div>
+            <div className="w-full p-12">
+                <Carousel
+                    opts={{
+                        align: "start",
+                    }}
+                    className="flex w-full flex-col gap-4"
+                >
+                    <CarouselContent className="">
+                        {profiles.map((profile, index) => (
+                            <CarouselItem key={index} className="grow md:basis-1/2 lg:basis-1/3">
+                                <ProfileCard {...profile} />
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+
+                    <div className="bg-green flex items-center justify-center gap-4 [&>button]:relative! [&>button]:top-0! [&>button]:left-0! [&>button]:translate-0!">
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </div>
+                </Carousel>
+            </div>
         </section>
     );
 }
