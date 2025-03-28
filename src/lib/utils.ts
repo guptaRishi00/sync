@@ -53,8 +53,8 @@ export function formatDateTime(date: Dayjs | string): string {
 }
 
 export function frameMetadata(title: string, description?: string): Metadata {
-    title = `SyNC | ${title}`;
-    description = description || "Effortlessly organize, preview, and share images stored in Google Drive with Lobster.";
+    title = title ? `SyNC | ${title}` : "SyNC";
+    description = description || "We pioneer in providing services for optimizing your brain health like no one does.";
     return { title, description } as Metadata;
 }
 

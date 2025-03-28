@@ -2,15 +2,15 @@ import BookAppointmentButton from "@/components/prefabs/book-appointment-button"
 import DecorImage from "@/components/prefabs/decor-image";
 import ExportServiceCard from "@/components/prefabs/export-service-card";
 import Header from "@/components/prefabs/header";
-import SimpleCard from "@/components/prefabs/simple-card";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, CirclePlay, Mail, Quote } from "lucide-react";
+import { ArrowUpRight, CirclePlay, Quote } from "lucide-react";
 import Image from "next/image";
 
+import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
+import Footer from "@/components/prefabs/footer";
+import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 
 export default function HomePage() {
     return (
@@ -65,26 +65,7 @@ export default function HomePage() {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <footer className="section flex flex-col items-center justify-between gap-4 md:flex-row">
-                    <div className="flex items-center gap-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50">
-                            <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"></path>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50">
-                            <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,0.5-3,2 v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"></path>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50">
-                            <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50">
-                            <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-                        </svg>
-                    </div>
-                    <div className="flex flex-col items-center md:items-end">
-                        <h4 className="text-center text-lg font-bold">© SyNC Positive Psychiatry Foundation | All rights reserved</h4>
-                        <p>Powered by Hashigo Technologies</p>
-                    </div>
-                </footer>
+                <Footer />
             </main>
         </>
     );
@@ -319,64 +300,6 @@ function QuoteSection() {
     );
 }
 
-function HealthRequirementSection() {
-    return (
-        <section className="section flex flex-col gap-12">
-            <div className="flex flex-col-reverse items-center justify-between gap-4 md:flex-row">
-                <div className="flex w-full flex-col gap-4 md:max-w-1/2">
-                    <h2 className="relative text-3xl md:text-5xl">
-                        Your health requirements are our first focus.
-                        <DecorImage
-                            src="/images/decor-smile.png"
-                            alt="Decor Smile"
-                            size={[28, 28]}
-                            className="right-0 bottom-0 -translate-x-full"
-                        />
-                    </h2>
-                    <p>
-                        Looking to speak with a professional, check your test score, <br />
-                        or learn about various disorders?
-                    </p>
-                </div>
-
-                <div className="relative m-8 aspect-1321/570 h-fit w-full grow">
-                    <Image src="/images/home-decore-1.png" alt="Hero Thumbnail" fill className="h-full w-full object-cover" />
-                </div>
-            </div>
-
-            <div className="grid w-full grid-cols-1 gap-8 text-white sm:grid-cols-2 lg:grid-cols-4">
-                <SimpleCard
-                    title="Lorem Ipsum"
-                    description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                    imagePath="/images/home-decore-2.png"
-                    className="bg-secondary-light"
-                />
-
-                <SimpleCard
-                    title="Lorem Ipsum"
-                    description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                    imagePath="/images/home-decore-3.png"
-                    className="bg-secondary"
-                />
-
-                <SimpleCard
-                    title="Lorem Ipsum"
-                    description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                    imagePath="/images/home-decore-4.png"
-                    className="bg-primary"
-                />
-
-                <SimpleCard
-                    title="Lorem Ipsum"
-                    description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                    imagePath="/images/home-decore-2.png"
-                    className="bg-accent"
-                />
-            </div>
-        </section>
-    );
-}
-
 function VibeSection() {
     return (
         <section className="section flex flex-col items-center justify-center gap-12 p-8 md:min-h-dvh">
@@ -404,97 +327,6 @@ function VibeSection() {
                     <CarouselPrevious variant="default" />
                     <CarouselNext variant="default" />
                 </Carousel>
-            </div>
-        </section>
-    );
-}
-
-function ConnectToSyncSection() {
-    return (
-        <section className="section relative flex flex-col items-center gap-12 md:gap-16">
-            <div className="bg-background flex items-center gap-4 rounded-2xl px-4">
-                <div className="bg-primary rounded-sm p-2">
-                    <h2 className="text-xl font-bold md:text-3xl">Connect</h2>
-                </div>
-                <h2 className="relative text-xl font-bold md:text-3xl">to SyNC</h2>
-            </div>
-
-            <div className="relative grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-0">
-                <div className="embed-map-responsive overflow-hidden rounded-2xl md:rounded-r-none">
-                    <div className="embed-map-container">
-                        <iframe
-                            className="embed-map-frame"
-                            frameBorder={0}
-                            scrolling="no"
-                            marginHeight={0}
-                            marginWidth={0}
-                            src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Sync%20positive&t=&z=15&ie=UTF8&iwloc=B&output=embed"
-                        />
-                        <a
-                            href="https://sprunkiretake.net"
-                            style={{
-                                fontSize: "2px!important",
-                                color: "gray!important",
-                                position: "absolute",
-                                bottom: 0,
-                                left: 0,
-                                zIndex: 1,
-                                maxHeight: 1,
-                                overflow: "hidden",
-                            }}
-                        >
-                            sprunki retake
-                        </a>
-                    </div>
-                    <style
-                        dangerouslySetInnerHTML={{
-                            __html: ".embed-map-responsive{position:relative;text-align:right;width:100%;padding-bottom:66.66666666666666%;}.embed-map-container{overflow:hidden;background:none!important;width:100%;height:100%;position:absolute;top:0;left:0;}.embed-map-frame{width:100%!important;height:100%!important;position:absolute;top:0;left:0;}",
-                        }}
-                    />
-                </div>
-
-                <div className="bg-secondary/20 flex flex-col gap-4 rounded-2xl p-8 md:rounded-l-none">
-                    <div className="flex gap-4">
-                        <Input placeholder="Enter your Name" className="bg-background" size={48} />
-                        <Input type="email" placeholder="Enter your Email Address" className="bg-background" />
-                    </div>
-
-                    <Input placeholder="Enter your Subject" className="bg-background" />
-
-                    <Textarea placeholder="Message" className="bg-background grow" />
-
-                    <Button className="w-full">Book an Appointment</Button>
-                </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-4">
-                <div className="relative">
-                    <Mail className="fill-primary stroke-background size-16"></Mail>
-                    <DecorImage
-                        src="/images/decor-highlight-circle-2.png"
-                        alt="Decor Highlight Circle 2"
-                        size={[180, 180]}
-                        className="absolute top-1/2 left-1/2 w-[160%] max-w-none -translate-1/2"
-                    />
-                </div>
-                <h2 className="flex gap-4 text-xl font-bold md:text-3xl">
-                    Join
-                    <span className="text-secondary-light">SyNC</span>
-                    <span className="relative">
-                        Newsletter
-                        <DecorImage
-                            src="/images/decor-highlight-circle-1.png"
-                            alt="Decor Highlight Circle 1"
-                            size={[120, 120]}
-                            className="absolute top-1/2 left-1/2 w-[110%] max-w-none -translate-1/2"
-                        />
-                    </span>
-                </h2>
-            </div>
-
-            <div className="flex">
-                <Input type="email" placeholder="Enter your Email Address" className="bg-background rounded-r-none" size={58} />
-                <Button className="w-fit rounded-l-none">Subscribe</Button>
             </div>
         </section>
     );
