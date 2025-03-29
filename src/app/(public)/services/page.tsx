@@ -350,22 +350,23 @@ function PsychiatricConsultationsSection() {
                                 className="top-0 left-0"
                             />
                         </div>
-                        <p className="inline text-justify">
-                            Child and adolescent psychiatry is a branch of medicine that focuses on the diagnosis, treatment, and prevention
-                            of mental health disorders in children and adolescents. Psychiatrists who specialize in this field are trained
-                            to work with young people, ranging from infancy through adolescence, who are experiencing emotional, behavioral,
-                            or developmental problems.
-                        </p>
-                    </div>
-
-                    <div className="relative">
-                        <DecorImage
-                            src="/images/decor-arrow.png"
-                            alt="Decor Butterfly"
-                            size={[60, 60]}
-                            className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
-                        />
-                        <BookAppointmentButton />
+                        <div>
+                            <p className="inline text-justify">
+                                Child and adolescent psychiatry is a branch of medicine that focuses on the diagnosis, treatment, and
+                                prevention of mental health disorders in children and adolescents. Psychiatrists who specialize in this
+                                field are trained to work with young people, ranging from infancy through adolescence, who are experiencing
+                                emotional, behavioral, or developmental problems.
+                            </p>
+                            <div className="relative mt-8 w-fit">
+                                <DecorImage
+                                    src="/images/decor-arrow.png"
+                                    alt="Decor Butterfly"
+                                    size={[60, 60]}
+                                    className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
+                                />
+                                <BookAppointmentButton />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="relative order-first mr-8 mb-16 aspect-49/50 w-full md:order-last">
