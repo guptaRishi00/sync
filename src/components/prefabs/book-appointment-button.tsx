@@ -92,7 +92,7 @@ export default function BookAppointmentButton({ className }: Props) {
                             />
                         </DialogTitle>
                         <DialogDescription className="text-foreground text-center text-sm font-bold opacity-80 md:text-lg">
-                            At Sync Positive Psychiatry, we aim to connect you with the most suitable services and professionals near you.
+                            At SyNC Positive Psychiatry, we aim to connect you with the most suitable services and professionals near you.
                             By allowing location access, we can provide tailored care options based on your region. Your privacy is
                             important to us, and your information will be used solely to enhance your experience.
                         </DialogDescription>

@@ -77,7 +77,7 @@ function HeroSection() {
                             <br />
                             At{" "}
                             <span className="text-accent relative">
-                                Sync!
+                                SyNC!
                                 <DecorImage
                                     src="/images/decor-butterfly-2.png"
                                     alt="Decor Smile"

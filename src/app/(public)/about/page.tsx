@@ -113,7 +113,7 @@ function HeroSection() {
                             />
                         </h2>
                         <p className="text-muted text-justify text-sm md:text-lg">
-                            Sync Positive Psychiatry is a place where one comes to align and become the best version of themselves. Sync
+                            SyNC Positive Psychiatry is a place where one comes to align and become the best version of themselves. SyNC
                             stands for Synergise, to connect and align your body, mind, and spirit so that you can be ready when the
                             universe comes knocking on your doorstep.
                         </p>
