@@ -1,12 +1,12 @@
 import { frameMetadata } from "@/lib/utils";
 import { Metadata } from "next";
 
-export const metadata: Metadata = frameMetadata("Blogs");
+export const metadata: Metadata = frameMetadata("Blog");
 
 type Props = {
     children: React.ReactNode;
 };
 
-export default function BlogsLayout({ children }: Props) {
+export default function BlogSlugLayout({ children }: Props) {
     return <>{children}</>;
 }
