@@ -3,9 +3,13 @@ import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { CirclePlay, Library, Users, Video } from "lucide-react";
 import Image from "next/image";
+import "./style.css";
 
 export default async function AcademyPage() {
     return (
@@ -17,6 +21,31 @@ export default async function AcademyPage() {
 
             <main className="main relative overflow-x-clip md:min-h-fit!">
                 <WhatToGetSection />
+            </main>
+
+            <main className="main bg-secondary/20 relative flex items-center">
+                {/* academy-bg.png */}
+                <PointsToJoinSection />
+                <DecorImage
+                    src="/images/decor-plant-grow.png"
+                    alt="Decor Table"
+                    size={[500, 500]}
+                    className="right-2 bottom-0 translate-y-1"
+                />
+            </main>
+
+            <main className="main relative overflow-x-clip md:min-h-fit!">
+                <DontMissInformationSection />
+            </main>
+
+            {/* WIP */}
+            <main className="main hidden px-0! md:min-h-fit!">
+                <ScrollCards />
+            </main>
+
+            <main className="main relative flex items-start md:min-h-fit!">
+                {/* academy-bg.png */}
+                <SubscribeSection />
             </main>
 
             <main className="main overflow-hidden py-8">
@@ -232,5 +261,181 @@ function WhatToGetSection() {
     );
 }
 
-// Guidance from experienced tutors
-// Our team of experienced and professional tutors is ready to help you answer questions and provide the guidance you need.
+function PointsToJoinSection() {
+    const points = [
+        "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.",
+        "Lorem ipsum dolor sit amet consectetur. ",
+        "Lorem ipsum dolor sit amet consectetur. Lorem Ipsum dolor sit.",
+        "Lorem ipsum dolor sit amet consectetur. Lorem ipsum.",
+        "Lorem ipsum dolor sit amet consectetur. Lorem Ipsum.",
+    ];
+    return (
+        <section className="section relative flex h-full flex-col items-center justify-center gap-4 py-4 md:flex-row">
+            <div className="relative aspect-square min-h-[50vh] grow">
+                <Image src="/images/academy-bg.png" alt="Academy BG" fill className="h-full w-full" />
+            </div>
+            <div className="flex flex-col gap-4 pr-12">
+                <h2 className="relative text-3xl md:text-5xl">
+                    Lorem Ipsum <span className="text-primary">dolor sit amet</span> consectetur
+                </h2>
+
+                <p className="text-lg">
+                    Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet
+                    consectetur.Lorem ipsum dolor sit amet consectetur.
+                </p>
+
+                <div className="flex flex-col gap-4">
+                    {points.map((point, index) => (
+                        <div key={index} className="flex gap-2 rounded-2xl bg-white p-1">
+                            <span className="bg-primary size-6 shrink-0 rounded-full text-center">{index + 1}</span>
+                            <p className="text-base break-all">{point}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <Button className="w-fit">Join Now</Button>
+            </div>
+        </section>
+    );
+}
+
+function DontMissInformationSection() {
+    return (
+        <section className="section relative flex grow flex-col items-center justify-center gap-6 py-8 md:gap-12">
+            <h2 className="relative text-3xl font-bold md:text-5xl">
+                Lorem Ipsum dolor sit <span className="bg-primary h-fit rounded-sm">amet Consectetur</span>
+                <DecorImage
+                    src="/images/decor-flower.png"
+                    alt="Decor Butterfly"
+                    size={[100, 100]}
+                    className="top-0 right-0 md:left-0 md:-translate-x-full"
+                />
+            </h2>
+
+            <p className="text-muted text-center text-sm md:max-w-3/4 md:text-lg">
+                Lorem Ipsum dolor sit amet ConsecteturLorem Ipsum dolor sit amet ConsecteturLorem Ipsum dolor sit amet ConsecteturLorem
+                Ipsum dolor sit amet Consectetur
+            </p>
+        </section>
+    );
+}
+
+function SubscribeSection() {
+    return (
+        <section className="section relative flex h-full flex-col items-center justify-start gap-8 py-4 md:flex-row">
+            <div className="w-full space-y-6">
+                <div className="relative aspect-1307/497 md:max-w-[40vw]">
+                    <Image src="/images/decor-frame.png" alt="Academy Frame" fill className="h-full w-full" />
+                    <DecorImage
+                        src="/images/decor-smile.png"
+                        alt="Decor Butterfly"
+                        size={[40, 40]}
+                        className="right-0 bottom-0 translate-y-full"
+                    />
+                </div>
+                <h2 className="relative text-3xl font-bold md:text-5xl">
+                    Don&apos;t miss any <br /> information from us<span className="text-accent h-fit rounded-sm">!</span>
+                </h2>
+                <p>Sign up to our regular newsletter for news, insight, new product releases & more.</p>
+                <div className="flex">
+                    <Input type="email" placeholder="Enter your Email Address" className="bg-background w-fit rounded-r-none" size={58} />
+                    <Button className="w-fit rounded-l-none">Subscribe</Button>
+                </div>
+                <p>By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.</p>
+            </div>
+
+            <div className="flex grow flex-col gap-4">
+                <h5 className="text-4xl font-bold">Lorem Ipsum dolor sit amet consec.</h5>
+                <p className="text-base">
+                    Lorem Ipsum dolor sit amet consec.Lorem Ipsum dolor sit amet consec.Lorem Ipsum dolor sit amet consec.Lorem Ipsum dolor
+                    sit amet consec.
+                </p>
+                <Accordion type="single" collapsible>
+                    <AccordionItem value="item-1">
+                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
+                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
+                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
+                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-4">
+                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
+                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-5">
+                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
+                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-6">
+                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
+                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-7">
+                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
+                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                    </AccordionItem>
+                </Accordion>
+            </div>
+        </section>
+    );
+}
+
+function ScrollCards() {
+    const line1 = [
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+        {
+            title: "Lorem Ipsum",
+            description: "Lorem Ipsum dolor sit amet",
+        },
+    ];
+    return (
+        <section className="">
+            <ScrollArea className="scroll-9 mx-auto h-94 w-full gap-20 p-4 whitespace-nowrap">
+                {line1.map((line, index) => (
+                    <span key={index} className="text-secondary bg-secondary-light/40 h-84 rounded-2xl p-2">{line.title}</span>
+                ))}
+                <ScrollBar orientation="horizontal" className="hidden" />
+            </ScrollArea>
+        </section>
+    );
+}

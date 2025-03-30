@@ -1,0 +1,42 @@
+/* .scroll img {
+    height: 200px;
+    min-width: 400px;
+}
+
+.m-scroll {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: scrollText 20s infinite linear;
+    margin: 0;
+    font-size: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    height: 200px;
+}
+
+span {
+    display: inline-block;
+    width: fit-content;
+    margin: 0 20px;
+    padding: 0;
+    color: white;
+}
+
+span.blank {
+    width: 500px !important;
+}
+
+span.FARAL {
+    width: 800px !important;
+}
+
+@keyframes scrollText {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-90%);
+    }
+} */
