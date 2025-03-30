@@ -1,3 +1,4 @@
+import CommonQuoteSection from "@/components/prefabs/common-quote-section";
 import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
 import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
@@ -46,6 +47,10 @@ export default async function AcademyPage() {
             <main className="main relative flex items-start md:min-h-fit!">
                 {/* academy-bg.png */}
                 <SubscribeSection />
+            </main>
+
+            <main className="main bg-secondary/20 md:min-h-fit!">
+                <CommonQuoteSection />
             </main>
 
             <main className="main overflow-hidden py-8">
@@ -432,7 +437,9 @@ function ScrollCards() {
         <section className="">
             <ScrollArea className="scroll-9 mx-auto h-94 w-full gap-20 p-4 whitespace-nowrap">
                 {line1.map((line, index) => (
-                    <span key={index} className="text-secondary bg-secondary-light/40 h-84 rounded-2xl p-2">{line.title}</span>
+                    <span key={index} className="text-secondary bg-secondary-light/40 h-84 rounded-2xl p-2">
+                        {line.title}
+                    </span>
                 ))}
                 <ScrollBar orientation="horizontal" className="hidden" />
             </ScrollArea>

@@ -54,8 +54,8 @@ export default function Header() {
                             Academy
                         </Link>
                         <Separator className="bg-secondary h-[4px]! w-1/2!" />
-                        <Link className="hover:text-primary text-2xl md:text-3xl" href="/blog">
-                            Blog
+                        <Link className="hover:text-primary text-2xl md:text-3xl" href="/blogs">
+                            Blogs
                         </Link>
                     </div>
                 </SheetContent>
