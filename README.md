@@ -34,3 +34,39 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+```tsx
+const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
+
+const success = useCallback((position: GeolocationPosition) => {
+    setLocation({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+    });
+}, []);
+
+// Prompt for location if permission is not granted
+const getLocation = useCallback(() => {
+    if (navigator.geolocation) {
+        navigator.permissions.query({ name: "geolocation" }).then((permissionStatus) => {
+            if (permissionStatus.state === "denied") {
+                window.location.href = "app-settings:location";
+            } else {
+                navigator.geolocation.getCurrentPosition(success);
+            }
+        });
+    } else {
+        // Set Default Location of India
+        setLocation({ latitude: 20.5937, longitude: 78.9629 });
+    }
+}, [success]);
+
+// If permission is already granted, get location
+useEffect(() => {
+    navigator.permissions.query({ name: "geolocation" }).then((permissionStatus) => {
+        if (permissionStatus.state === "granted") {
+            getLocation();
+        }
+    });
+}, [getLocation]);
+```

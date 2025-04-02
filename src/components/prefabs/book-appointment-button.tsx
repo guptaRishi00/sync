@@ -1,11 +1,12 @@
 "use client";
 
+import { redirectToTopperStage } from "@/actions/appointment.action";
 import DecorImage from "@/components/prefabs/decor-image";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 type Props = {
     className?: string;
@@ -16,39 +17,28 @@ export default function BookAppointmentButton({ className }: Props) {
     const [openBookTypeDialog, setOpenBookTypeDialog] = useState(false);
     const [openFollowupDialog, setOpenFollowupDialog] = useState(false);
 
-    const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
+    const [country, setCountry] = useState<string | undefined>(undefined);
 
-    const success = useCallback((position: GeolocationPosition) => {
-        setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-        });
+
+    const getCountryByIp = useCallback(() => {
+        async function fetchAPI() {
+            var ipApiResponse = await fetch("http://ip-api.com/json");
+            var jsonBody = await ipApiResponse.json();
+
+            var getCountryByIp = jsonBody["country"];
+            getCountryByIp && setCountry(getCountryByIp);
+        }
+        fetchAPI();
     }, []);
 
-    // Prompt for location if permission is not granted
-    const getLocation = useCallback(() => {
-        if (navigator.geolocation) {
-            navigator.permissions.query({ name: "geolocation" }).then((permissionStatus) => {
-                if (permissionStatus.state === "denied") {
-                    window.location.href = "app-settings:location";
-                } else {
-                    navigator.geolocation.getCurrentPosition(success);
-                }
-            });
-        } else {
-            // Set Default Location of India
-            setLocation({ latitude: 20.5937, longitude: 78.9629 });
-        }
-    }, [success]);
-
     const onBookAppointmentClick = useCallback(() => {
-        if (location.latitude === 0) {
-            getLocation();
+        if (!country) {
+            getCountryByIp();
             setOpenDialog(true);
         } else {
             setOpenBookTypeDialog(true);
         }
-    }, [location, getLocation]);
+    }, [country]);
 
     const onContinueClick = useCallback(() => {
         setOpenBookTypeDialog(true);
@@ -59,18 +49,15 @@ export default function BookAppointmentButton({ className }: Props) {
         if (type === "follow-up") {
             setOpenFollowupDialog(true);
         }
-        // TODO: Redirect
+
+        // Redirect
+        (async function redirect() {
+            const urlType = type === "with-assessment" ? "as" : "pa";
+            await redirectToTopperStage(urlType, country);
+        })();
+
         setOpenBookTypeDialog(false);
     }, []);
-
-    // If permission is already granted, get location
-    useEffect(() => {
-        navigator.permissions.query({ name: "geolocation" }).then((permissionStatus) => {
-            if (permissionStatus.state === "granted") {
-                getLocation();
-            }
-        });
-    }, [getLocation]);
 
     return (
         <>
@@ -98,7 +85,7 @@ export default function BookAppointmentButton({ className }: Props) {
                         </DialogDescription>
                     </DialogHeader>
                     <DialogFooter className="relative mt-4 w-full">
-                        <Button type="submit" className="mx-auto w-2/3" disabled={location.latitude === 0} onClick={onContinueClick}>
+                        <Button type="submit" className="mx-auto w-2/3" disabled={!country} onClick={onContinueClick}>
                             Continue
                         </Button>
                     </DialogFooter>
