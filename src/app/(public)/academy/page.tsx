@@ -4,6 +4,7 @@ import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
+import JoinNewsLetter from "@/components/prefabs/join-newsletter";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -57,8 +58,10 @@ export default async function AcademyPage() {
                 <HealthRequirementSection />
             </main>
 
-            <main className="main relative overflow-hidden py-12">
+            <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
+
+                <JoinNewsLetter />
 
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"

@@ -4,6 +4,7 @@ import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
+import JoinNewsLetter from "@/components/prefabs/join-newsletter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 
@@ -35,8 +36,10 @@ export default async function ServicesPage() {
                 <HealthRequirementSection />
             </main>
 
-            <main className="main relative overflow-hidden py-12">
+            <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
+
+                <JoinNewsLetter />
 
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"

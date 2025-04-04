@@ -19,13 +19,12 @@ export default function BookAppointmentButton({ className }: Props) {
 
     const [country, setCountry] = useState<string | undefined>(undefined);
 
-
     const getCountryByIp = useCallback(() => {
         async function fetchAPI() {
-            var ipApiResponse = await fetch("http://ip-api.com/json");
-            var jsonBody = await ipApiResponse.json();
+            const ipApiResponse = await fetch("http://ip-api.com/json");
+            const jsonBody = await ipApiResponse.json();
 
-            var getCountryByIp = jsonBody["country"];
+            const getCountryByIp = jsonBody["country"];
             getCountryByIp && setCountry(getCountryByIp);
         }
         fetchAPI();
@@ -38,26 +37,29 @@ export default function BookAppointmentButton({ className }: Props) {
         } else {
             setOpenBookTypeDialog(true);
         }
-    }, [country]);
+    }, [country, getCountryByIp]);
 
     const onContinueClick = useCallback(() => {
         setOpenBookTypeDialog(true);
         setOpenDialog(false);
     }, []);
 
-    const onBookTypeClick = useCallback((type: "with-assessment" | "without-assessment" | "follow-up") => {
-        if (type === "follow-up") {
-            setOpenFollowupDialog(true);
-        }
+    const onBookTypeClick = useCallback(
+        (type: "with-assessment" | "without-assessment" | "follow-up") => {
+            if (type === "follow-up") {
+                setOpenFollowupDialog(true);
+            }
 
-        // Redirect
-        (async function redirect() {
-            const urlType = type === "with-assessment" ? "as" : "pa";
-            await redirectToTopperStage(urlType, country);
-        })();
+            // Redirect
+            (async function redirect() {
+                const urlType = type === "with-assessment" ? "as" : "pa";
+                await redirectToTopperStage(urlType, country);
+            })();
 
-        setOpenBookTypeDialog(false);
-    }, []);
+            setOpenBookTypeDialog(false);
+        },
+        [country],
+    );
 
     return (
         <>

@@ -5,6 +5,7 @@ import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
+import JoinNewsLetter from "@/components/prefabs/join-newsletter";
 import ProfileCard from "@/components/prefabs/profile-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { CircleCheck } from "lucide-react";
@@ -33,8 +34,10 @@ export default async function AboutPage() {
                 <HealthRequirementSection />
             </main>
 
-            <main className="main relative overflow-hidden py-12">
+            <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
+
+                <JoinNewsLetter />
 
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"
@@ -224,9 +227,6 @@ function VisionSection() {
     ];
     return (
         <section className="section grid min-h-svh grid-flow-col grid-cols-1 grid-rows-6 gap-6 py-12 md:grid-cols-3 md:grid-rows-2 [&>div]:overflow-hidden [&>div]:rounded-2xl">
-            <div className="relative row-span-2">
-                <Image src="/images/about-vision.jpg" alt="Hero Vision" fill className="object-cover" />
-            </div>
             <div className="bg-primary-light flex flex-col items-start justify-start gap-4 p-6">
                 <h2 className="text-xl font-bold md:text-3xl">Mission</h2>
                 <p>
@@ -234,14 +234,7 @@ function VisionSection() {
                     nibh quis eget habitasse
                 </p>
             </div>
-            <div className="bg-primary flex flex-col items-start justify-start gap-4 p-6">
-                <h2 className="text-xl font-bold md:text-3xl">Vision</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur. Aliquet bibendum lorem rhoncus eleifend porttitor. Vivamus quis quam donec ipsum
-                    nibh quis eget habitasse
-                </p>
-            </div>
-            <div className="row-span-2 flex flex-col items-start justify-between gap-4 bg-white p-6">
+            <div className="col-span-2 flex flex-col items-start justify-between gap-4 bg-white p-6">
                 <div className="flex flex-col items-start justify-start gap-4">
                     <h2 className="text-xl font-bold md:text-3xl">Why Choose Us?</h2>
 
@@ -256,6 +249,16 @@ function VisionSection() {
                 </div>
 
                 <BookAppointmentButton className="place-self-end" />
+            </div>
+            <div className="bg-primary flex flex-col items-start justify-start gap-4 p-6">
+                <h2 className="text-xl font-bold md:text-3xl">Vision</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur. Aliquet bibendum lorem rhoncus eleifend porttitor. Vivamus quis quam donec ipsum
+                    nibh quis eget habitasse
+                </p>
+            </div>
+            <div className="relative row-span-2">
+                <Image src="/images/about-vision.jpg" alt="Hero Vision" fill className="object-cover" />
             </div>
         </section>
     );
