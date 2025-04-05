@@ -3,7 +3,7 @@ import DecorImage from "./decor-image";
 
 export default function FeedbackSection() {
     return (
-        <section className="section py-8 md:py-12">
+        <section className="section py-8 md:pt-12">
             <div className="relative z-10 w-full rounded-2xl bg-[#0059B8] md:aspect-video lg:bg-transparent">
                 <Image src="/images/home-bg-testimonial.png" alt="Testimonials Background" fill className="absolute -z-50 object-contain" />
                 <Image

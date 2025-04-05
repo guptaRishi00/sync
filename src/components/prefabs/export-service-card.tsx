@@ -12,7 +12,7 @@ type Props = {
 export default function ExportServiceCard({ imagePath, title, description, isBookAppointment }: Props) {
     return (
         <div className="flex w-full flex-col justify-start gap-2">
-            <div className="relative aspect-3/2 w-full overflow-hidden rounded-2xl">
+            <div className="relative aspect-387/267 w-full overflow-hidden rounded-2xl">
                 <Image loading="lazy" alt={title} fill src={imagePath as string} className="object-cover" />
             </div>
 
@@ -22,8 +22,8 @@ export default function ExportServiceCard({ imagePath, title, description, isBoo
                 </>
             ) : (
                 <>
-                    <h3 className="text-lg font-bold">{title}</h3>
-                    <p className={cn("text-muted text-sm", !title && "mt-2")}>{description}</p>
+                    <h3 className="font-popins text-lg font-semibold md:text-2xl">{title}</h3>
+                    <p className={cn("text-muted font-popins text-sm font-medium", !title && "mt-2")}>{description}</p>
                 </>
             )}
         </div>

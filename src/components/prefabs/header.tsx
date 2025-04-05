@@ -17,7 +17,7 @@ export default function Header() {
     return (
         <div className="flex items-center justify-between">
             {/* logo */}
-            <div className="relative aspect-533/196 w-20 cursor-pointer md:w-24" onClick={onLogoClick}>
+            <div className="relative aspect-135/44 w-20 cursor-pointer md:w-34" onClick={onLogoClick}>
                 <Image src="/images/logo.png" alt="SYNC" fill className="object-contain" />
             </div>
 
@@ -37,7 +37,7 @@ export default function Header() {
                         <SheetDescription className="hidden"></SheetDescription>
                     </SheetHeader>
 
-                    <div className="relative flex flex-col items-center gap-6 md:gap-8">
+                    <div className="font-popins relative flex flex-col items-center gap-6 md:gap-8">
                         <Link className="hover:text-primary text-2xl md:text-3xl" href="/">
                             Home
                         </Link>

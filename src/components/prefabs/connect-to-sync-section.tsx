@@ -5,11 +5,11 @@ import { Textarea } from "@/components/ui/textarea";
 export default function ConnectToSyncSection() {
     return (
         <section className="section relative flex flex-col items-center gap-12 md:gap-16">
-            <div className="bg-background flex items-center gap-4 rounded-2xl px-4">
-                <div className="bg-primary rounded-sm p-2">
-                    <h2 className="text-xl font-bold md:text-3xl">Connect</h2>
+            <div className="bg-background font-popins flex items-center gap-4 rounded-2xl px-4 text-2xl font-semibold md:text-4xl">
+                <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
+                    <h2 className="">Connect</h2>
                 </div>
-                <h2 className="relative text-xl font-bold md:text-3xl">to SyNC</h2>
+                <h2 className="">to SyNC</h2>
             </div>
 
             <div className="relative grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-0">
@@ -48,15 +48,15 @@ export default function ConnectToSyncSection() {
 
                 <div className="bg-secondary/20 flex flex-col gap-4 rounded-2xl p-8 md:rounded-l-none">
                     <div className="flex gap-4">
-                        <Input placeholder="Enter your Name" className="bg-background" size={48} />
-                        <Input type="email" placeholder="Enter your Email Address" className="bg-background" />
+                        <Input placeholder="Enter your Name" className="bg-background border-secondary h-16" size={48} />
+                        <Input type="email" placeholder="Enter your Email Address" className="bg-background border-secondary h-16" />
                     </div>
 
-                    <Input placeholder="Enter your Subject" className="bg-background" />
+                    <Input placeholder="Enter your Subject" className="bg-background border-secondary h-16" />
 
-                    <Textarea placeholder="Message" className="bg-background grow" />
+                    <Textarea placeholder="Message" className="bg-background border-secondary h-16 grow" />
 
-                    <Button className="w-full">Book an Appointment</Button>
+                    <Button className="w-full py-6">Send your message</Button>
                 </div>
             </div>
         </section>

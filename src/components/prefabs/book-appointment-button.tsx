@@ -63,7 +63,10 @@ export default function BookAppointmentButton({ className }: Props) {
 
     return (
         <>
-            <Button className={cn("w-fit rounded-xs", className)} onClick={onBookAppointmentClick}>
+            <Button
+                className={cn("font-popins text-foreground w-fit rounded-xs px-10 py-6 font-bold md:text-lg", className)}
+                onClick={onBookAppointmentClick}
+            >
                 Book an Appointment
             </Button>
 
