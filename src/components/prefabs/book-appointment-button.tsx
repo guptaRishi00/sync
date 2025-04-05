@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useCallback, useState } from "react";
+import { Checkbox } from "../ui/checkbox";
 
 type Props = {
     className?: string;
@@ -16,6 +17,7 @@ export default function BookAppointmentButton({ className }: Props) {
     const [openDialog, setOpenDialog] = useState(false);
     const [openBookTypeDialog, setOpenBookTypeDialog] = useState(false);
     const [openFollowupDialog, setOpenFollowupDialog] = useState(false);
+    const [isTermsAccepted, setIsTermsAccepted] = useState(false);
 
     const [country, setCountry] = useState<string | undefined>(undefined);
 
@@ -33,10 +35,8 @@ export default function BookAppointmentButton({ className }: Props) {
     const onBookAppointmentClick = useCallback(() => {
         if (!country) {
             getCountryByIp();
-            setOpenDialog(true);
-        } else {
-            setOpenBookTypeDialog(true);
         }
+        setOpenDialog(true);
     }, [country, getCountryByIp]);
 
     const onContinueClick = useCallback(() => {
@@ -48,6 +48,8 @@ export default function BookAppointmentButton({ className }: Props) {
         (type: "with-assessment" | "without-assessment" | "follow-up") => {
             if (type === "follow-up") {
                 setOpenFollowupDialog(true);
+                setOpenBookTypeDialog(false);
+                return;
             }
 
             // Redirect
@@ -71,10 +73,10 @@ export default function BookAppointmentButton({ className }: Props) {
             </Button>
 
             <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-                <DialogContent className="h-148 overflow-hidden sm:max-w-[625px]">
+                <DialogContent className="h-148 overflow-auto sm:max-w-[825px] md:overflow-hidden">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                    <DialogHeader className="flex flex-col items-center gap-6 pt-12">
-                        <DialogTitle className="relative text-xl font-bold md:text-3xl">
+                    <DialogHeader className="flex flex-col items-center gap-12 pt-12">
+                        <DialogTitle className="font-popins relative text-2xl font-bold md:text-4xl">
                             Help Us Personalize Your Care
                             <DecorImage
                                 src="/images/decor-smile.png"
@@ -83,14 +85,32 @@ export default function BookAppointmentButton({ className }: Props) {
                                 className="right-0 bottom-0 translate-x-full translate-y-1/2"
                             />
                         </DialogTitle>
-                        <DialogDescription className="text-foreground text-center text-sm font-bold opacity-80 md:text-lg">
+                        <DialogDescription className="text-foreground font-popins text-center text-base font-medium md:w-3/4 md:text-xl">
                             At SyNC Positive Psychiatry, we aim to connect you with the most suitable services and professionals near you.
                             By allowing location access, we can provide tailored care options based on your region. Your privacy is
                             important to us, and your information will be used solely to enhance your experience.
                         </DialogDescription>
+
+                        <div className="flex items-center justify-center gap-4">
+                            <Checkbox
+                                id="terms"
+                                className="bg-white"
+                                checked={isTermsAccepted}
+                                defaultChecked={false}
+                                onCheckedChange={(state) => setIsTermsAccepted(state === true)}
+                            />
+                            <label htmlFor="terms" className="text-[#9D6937]">
+                                I Agree to the Terms & Conditions
+                            </label>
+                        </div>
                     </DialogHeader>
-                    <DialogFooter className="relative mt-4 w-full">
-                        <Button type="submit" className="mx-auto w-2/3" disabled={!country} onClick={onContinueClick}>
+                    <DialogFooter className="relative w-full">
+                        <Button
+                            type="submit"
+                            className="font-popins mx-auto px-8 py-6 text-2xl font-semibold md:w-1/3"
+                            disabled={!country || !isTermsAccepted}
+                            onClick={onContinueClick}
+                        >
                             Continue
                         </Button>
                     </DialogFooter>
@@ -98,16 +118,16 @@ export default function BookAppointmentButton({ className }: Props) {
                         src="/images/decor-leaves.png"
                         alt="Decor Leaves"
                         size={[186, 186]}
-                        className="right-0 bottom-0 translate-x-1/5 translate-y-1/4 opacity-80"
+                        className="right-0 bottom-0 translate-x-1/5 translate-y-1/4 opacity-70"
                     />
                 </DialogContent>
             </Dialog>
 
             <Dialog open={openBookTypeDialog} onOpenChange={setOpenBookTypeDialog}>
-                <DialogContent className="h-148 overflow-hidden sm:max-w-[625px]">
+                <DialogContent className="h-148 overflow-auto sm:max-w-[825px] md:overflow-hidden">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
                     <DialogHeader className="flex flex-col items-center gap-2 pt-12 md:gap-6">
-                        <DialogTitle className="relative text-lg font-bold md:text-3xl">
+                        <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
                             Choose How You’d Like to Book
                             <DecorImage
                                 src="/images/decor-smile.png"
@@ -116,7 +136,7 @@ export default function BookAppointmentButton({ className }: Props) {
                                 className="right-0 bottom-0 translate-x-full translate-y-1/2"
                             />
                         </DialogTitle>
-                        <DialogDescription className="text-foreground text-center text-sm font-bold opacity-80 md:text-lg">
+                        <DialogDescription className="text-foreground font-popins text-center text-lg font-normal opacity-80 md:text-2xl">
                             Select the option that best fits your current need
                         </DialogDescription>
                     </DialogHeader>
@@ -149,10 +169,10 @@ export default function BookAppointmentButton({ className }: Props) {
             </Dialog>
 
             <Dialog open={openFollowupDialog} onOpenChange={setOpenFollowupDialog}>
-                <DialogContent className="h-148 overflow-hidden sm:max-w-[625px]">
+                <DialogContent className="h-148 overflow-auto sm:max-w-[825px] md:overflow-hidden">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                    <DialogHeader className="flex h-full flex-col items-center gap-6 pt-12">
-                        <DialogTitle className="relative text-xl font-bold md:text-3xl">
+                    <DialogHeader className="flex h-full flex-col items-center gap-6 py-12">
+                        <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
                             Follow-Up Appointment
                             <DecorImage
                                 src="/images/decor-smile.png"
@@ -161,10 +181,10 @@ export default function BookAppointmentButton({ className }: Props) {
                                 className="right-0 bottom-0 translate-x-full translate-y-1/2"
                             />
                         </DialogTitle>
-                        <DialogDescription className="text-foreground text-center text-sm font-bold opacity-80 md:text-lg">
+                        <DialogDescription className="text-foreground font-popins text-center text-lg font-normal opacity-80 md:text-2xl">
                             We’re here to assist you with your follow-up scheduling
                         </DialogDescription>
-                        <div className="bg-secondary-light flex flex-col items-center justify-center gap-6 rounded-2xl p-12 text-white">
+                        <div className="flex grow flex-col items-center justify-center gap-6 rounded-2xl bg-[#AC9D81] p-12 text-white md:px-32">
                             <span className="z-20">
                                 For follow-up consultations, we kindly request you to reach out to our team via WhatsApp. This will help us
                                 assist you faster and find the most convenient slot for you.
