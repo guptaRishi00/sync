@@ -6,13 +6,13 @@ import Image from "next/image";
 export default function CommonQuoteSection() {
     return (
         <section className="section relative flex flex-col items-center gap-6 py-8 md:flex-row">
-            <div className="relative aspect-3/2 h-fit w-full grow md:m-16">
+            <div className="relative aspect-519/352 h-fit w-full grow md:m-16">
                 <Image src="/images/academy-quote-bg.jpg" alt="Hero Thumbnail" fill className="right-0 left-0 rounded-2xl object-cover" />
             </div>
 
-            <div className="flex w-full grow flex-col justify-center gap-4 md:max-w-1/2">
-                <Quote className="fill-foreground size-16" />
-                <p className="relative">
+            <div className="flex w-full grow flex-col justify-center gap-8 md:max-w-1/2">
+                <Quote className="fill-foreground size-14" />
+                <p className="font-popins relative text-lg font-medium">
                     Taking inspiration directly from the founders of Positive Psychology Abraham Maslow and Martin Seligman, we believe in
                     human greatness and the ability of each person to realize their best self. We will support you to live your life to the
                     fullest.
@@ -23,7 +23,7 @@ export default function CommonQuoteSection() {
                         className="bottom-0 left-0 translate-y-2/3"
                     />
                 </p>
-                <Button className="mt-2 w-fit">SyNC Positive.</Button>
+                <Button className="font-inter mt-2 w-fit font-medium">SyNC Positive.</Button>
             </div>
 
             <DecorImage
