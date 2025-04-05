@@ -69,7 +69,7 @@ function HeroSection() {
             </div>
 
             <div className="flex flex-col items-start gap-2 md:items-start">
-                <h2 className="relative inline text-3xl font-bold md:text-5xl">
+                <h2 className="font-popins relative inline text-3xl font-semibold md:text-5xl">
                     SyNC <span className="text-accent">Positive</span> Psychatry
                     <DecorImage
                         src="/images/decor-smile.png"
@@ -79,7 +79,7 @@ function HeroSection() {
                     />
                 </h2>
 
-                <p className="text-muted text-justify text-sm md:text-lg">
+                <p className="text-muted font-popins text-justify text-sm font-medium md:text-lg">
                     103-C, 30th Cross Rd, 7th Block, Jayanagar, Bengaluru, Karnataka 560070, India
                 </p>
             </div>
@@ -106,7 +106,7 @@ function HeroSection() {
                         />
                     </div>
                     <div className="flex flex-col justify-center gap-4">
-                        <h2 className="relative w-fit text-xl md:text-3xl">
+                        <h2 className="font-popins relative w-fit text-2xl font-semibold md:text-4xl">
                             About the clinic
                             <DecorImage
                                 src="/images/decor-love-primary.png"
@@ -115,7 +115,7 @@ function HeroSection() {
                                 className="top-0 right-0 translate-x-full md:-translate-y-full"
                             />
                         </h2>
-                        <p className="text-muted text-justify text-sm md:text-lg">
+                        <p className="text-muted font-popins text-justify text-sm font-normal md:text-lg">
                             SyNC Positive Psychiatry is a place where one comes to align and become the best version of themselves. SyNC
                             stands for Synergise, to connect and align your body, mind, and spirit so that you can be ready when the
                             universe comes knocking on your doorstep.
@@ -178,10 +178,10 @@ function MeetOurExpertSection() {
 
     return (
         <section className="section flex flex-col items-center py-8">
-            <div className="relative flex items-center gap-2">
-                <h2 className="text-xl font-bold md:text-3xl">Meet our</h2>
-                <div className="bg-primary rounded-sm p-2">
-                    <h2 className="text-xl font-bold md:text-3xl">expert doctors</h2>
+            <div className="font-popins relative flex items-center gap-2 font-semibold">
+                <h2 className="text-2xl font-bold md:text-4xl">Meet our</h2>
+                <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
+                    <h2 className="text-2xl font-bold md:text-4xl">expert doctors</h2>
                 </div>
                 <DecorImage
                     src="/images/decor-love-primary.png"
@@ -227,20 +227,20 @@ function VisionSection() {
     ];
     return (
         <section className="section grid min-h-svh grid-flow-col grid-cols-1 grid-rows-6 gap-6 py-12 md:grid-cols-3 md:grid-rows-2 [&>div]:overflow-hidden [&>div]:rounded-2xl">
-            <div className="bg-primary-light flex flex-col items-start justify-start gap-4 p-6">
-                <h2 className="text-xl font-bold md:text-3xl">Mission</h2>
-                <p>
+            <div className="bg-primary-light flex flex-col items-start justify-start gap-4 p-6 md:p-12">
+                <h2 className="font-popins text-3xl font-semibold md:text-5xl">Mission</h2>
+                <p className="font-popins text-lg font-normal">
                     Lorem ipsum dolor sit amet consectetur. Aliquet bibendum lorem rhoncus eleifend porttitor. Vivamus quis quam donec ipsum
                     nibh quis eget habitasse
                 </p>
             </div>
-            <div className="col-span-2 flex flex-col items-start justify-between gap-4 bg-white p-6">
+            <div className="col-span-2 flex flex-col items-start justify-between gap-4 bg-white p-6 md:p-12">
                 <div className="flex flex-col items-start justify-start gap-4">
-                    <h2 className="text-xl font-bold md:text-3xl">Why Choose Us?</h2>
+                    <h2 className="font-popins text-3xl font-semibold md:text-5xl">Why Choose Us?</h2>
 
                     <ul className="flex list-none flex-col items-start gap-3">
                         {whyChooseUsList.map((item, index) => (
-                            <li key={index} className="flex items-center gap-2 text-sm md:text-lg">
+                            <li key={index} className="font-popins flex items-center gap-2 text-lg font-normal">
                                 <CircleCheck size={14} className="stroke-secondary-light" />
                                 {item}
                             </li>
@@ -250,9 +250,9 @@ function VisionSection() {
 
                 <BookAppointmentButton className="place-self-end" />
             </div>
-            <div className="bg-primary flex flex-col items-start justify-start gap-4 p-6">
-                <h2 className="text-xl font-bold md:text-3xl">Vision</h2>
-                <p>
+            <div className="bg-primary flex flex-col items-start justify-start gap-4 p-6 md:p-12">
+                <h2 className="font-popins text-3xl font-semibold md:text-5xl">Vision</h2>
+                <p className="font-popins text-lg font-normal">
                     Lorem ipsum dolor sit amet consectetur. Aliquet bibendum lorem rhoncus eleifend porttitor. Vivamus quis quam donec ipsum
                     nibh quis eget habitasse
                 </p>

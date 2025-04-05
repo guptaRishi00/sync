@@ -29,9 +29,9 @@ export default function ProfileCard({ name, designation, about, profileImage, fa
 
                 <div className="group-hover:text-secondary group-hover:fill-secondary relative z-20 flex h-fit grow flex-col items-start justify-between gap-2 rounded-2xl fill-white p-4 text-white group-hover:bg-white">
                     <div>
-                        <h4 className="text-xl font-bold">{name}</h4>
-                        <p className="mb-4 text-sm">{designation}</p>
-                        <p className={cn("hidden text-justify text-sm", showDetails ? "block" : "")}>{about}</p>
+                        <h4 className="font-popins text-xl font-semibold">{name}</h4>
+                        <p className="font-popins mb-4 text-sm font-normal">{designation}</p>
+                        <p className={cn("font-popins hidden text-justify text-sm font-normal", showDetails ? "block" : "")}>{about}</p>
                     </div>
 
                     <div className="flex items-center gap-4 [&>svg]:size-6">

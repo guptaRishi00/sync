@@ -21,8 +21,8 @@ export default function CommitmentToPatientSection() {
     ];
     return (
         <section className="section flex flex-col gap-6 py-8">
-            <div className="flex w-full flex-col gap-4">
-                <h2 className="relative w-full text-3xl tracking-normal break-normal md:text-5xl">
+            <div className="font-popins flex w-full flex-col gap-4">
+                <h2 className="relative w-full text-3xl font-semibold tracking-normal break-normal md:text-5xl">
                     Commitment to <br className="md:hidden" />
                     <span className="relative">
                         Patient Care
@@ -35,7 +35,7 @@ export default function CommitmentToPatientSection() {
                         />
                     </span>
                 </h2>
-                <p>Lorem ipsum dolor sit amet consecetetur.</p>
+                <p className="text-lg font-normal">Lorem ipsum dolor sit amet consecetetur.</p>
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
