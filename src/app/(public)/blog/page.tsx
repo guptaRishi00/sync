@@ -75,7 +75,7 @@ function HeroSection({ latestPost }: { latestPost: BlogPost }) {
             </div>
 
             <div className="">
-                <div className="relative aspect-4/5 md:aspect-video">
+                <div className="relative aspect-4/5 md:aspect-1212/600">
                     <Image src={latestPost.image} fill alt={latestPost.title} className="rounded-2xl object-cover" />
                     <div className="absolute bottom-0 flex flex-col gap-4 overflow-hidden rounded-2xl bg-white p-4 md:left-6 md:w-96 md:translate-y-1/6 lg:w-112">
                         <BlogHeaderCard post={latestPost} />
@@ -97,8 +97,8 @@ function BlogListSection({ posts }: { posts: BlogPost[] }) {
             </div>
 
             <div className="flex w-full justify-center">
-                <Button variant="secondary" className="text-white">
-                    Load All Post
+                <Button variant="secondary" className="font-inter rounded-sm px-6 py-4 font-medium text-white">
+                    View All Post
                 </Button>
             </div>
         </section>

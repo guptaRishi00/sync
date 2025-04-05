@@ -207,8 +207,8 @@ function MeetOurExpertSection() {
                     </CarouselContent>
 
                     <div className="bg-green flex items-center justify-center gap-4 [&>button]:relative! [&>button]:top-0! [&>button]:left-0! [&>button]:translate-0!">
-                        <CarouselPrevious />
-                        <CarouselNext />
+                        <CarouselPrevious variant="default" />
+                        <CarouselNext variant="default" />
                     </div>
                 </Carousel>
             </div>

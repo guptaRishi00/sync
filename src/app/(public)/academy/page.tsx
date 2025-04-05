@@ -298,7 +298,7 @@ function PointsToJoinSection() {
 
                 <div className="flex flex-col gap-6">
                     {points.map((point, index) => (
-                        <div key={index} className="font-popins flex gap-2 rounded-2xl bg-white p-1 text-base font-medium">
+                        <div key={index} className="font-popins flex gap-2 rounded-2xl bg-white p-2 text-base font-medium">
                             <span className="bg-primary size-6 shrink-0 rounded-full text-center">{index + 1}</span>
                             <p className="text-base break-all">{point}</p>
                         </div>

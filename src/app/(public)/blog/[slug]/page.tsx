@@ -73,22 +73,22 @@ function HeroSection({ post, latestPosts }: { post: BlogPost; latestPosts: BlogP
             </div>
 
             <div className="flex grow flex-col gap-4">
-                <span className="bg-primary w-fit rounded-sm px-2 py-1 text-xs font-bold">{post.type}</span>
-                <h4 className="text-2xl font-bold tracking-wide">{post.title}</h4>
+                <span className="bg-primary font-popins w-fit rounded-sm px-2 py-1 text-xs font-medium">{post.type}</span>
+                <h4 className="font-popins text-4xl font-semibold tracking-wide">{post.title}</h4>
 
                 <div className="flex h-fit flex-col gap-6 md:flex-row">
                     <div className="flex h-fit grow flex-col gap-6">
                         <div className="text-muted flex items-center gap-4 text-sm">
-                            <div className="relative size-8 shrink-0 overflow-hidden rounded-full">
+                            <div className="relative size-9 shrink-0 overflow-hidden rounded-full">
                                 <Image src={post.authorImage} alt={post.author} fill />
                             </div>
-                            <p>{post.author}</p>
-                            <p>{post.date.format("MMMM DD, YYYY")}</p>
+                            <p className="font-popins text-sm font-normal">{post.author}</p>
+                            <p className="font-popins text-sm font-normal">{post.date.format("MMMM DD, YYYY")}</p>
                         </div>
                         <div className="relative aspect-5/3 w-full">
                             <Image src={post.image} alt={post.title} fill className="rounded-xl object-cover" />
                         </div>
-                        <p className="text-justify">
+                        <p className="font-inter text-muted text-justify">
                             Lorem ipsum dolor sit amet consectetur. Duis felis aenean ullamcorper in. Lectus ipsum justo eget commodo
                             dictumst urna. Malesuada at ut quis mi sit augue. In orci et neque nisl et eu mauris donec mi. Arcu lectus
                             fringilla fermentum eu elementum eget viverra accumsan. Aliquet in massa volutpat id diam auctor arcu. Justo
@@ -108,8 +108,8 @@ function HeroSection({ post, latestPosts }: { post: BlogPost; latestPosts: BlogP
                             malesuada.
                         </p>
 
-                        <h4 className="text-2xl font-bold tracking-wide">Lorem Ipsum Dolor Sit</h4>
-                        <p className="text-justify">
+                        <h4 className="font-inter text-muted text-2xl font-bold tracking-wide">Lorem Ipsum Dolor Sit</h4>
+                        <p className="font-inter text-muted text-justify">
                             Lorem ipsum dolor sit amet consectetur. Duis felis aenean ullamcorper in. Lectus ipsum justo eget commodo
                             dictumst urna. Malesuada at ut quis mi sit augue. In orci et neque nisl et eu mauris donec mi. Arcu lectus
                             fringilla fermentum eu elementum eget viverra accumsan. Aliquet in massa volutpat id diam auctor arcu. Justo
@@ -151,7 +151,7 @@ function HeroSection({ post, latestPosts }: { post: BlogPost; latestPosts: BlogP
                         </p>
                     </div>
                     <div className="flex min-w-1/4 flex-col gap-6">
-                        <h3 className="text-2xl font-bold">Latest Post</h3>
+                        <h3 className="font-popins text-2xl font-bold">Latest Post</h3>
 
                         <div className="grid-col-1 mb-4 grid gap-6">
                             {latestPosts && latestPosts.map((post) => <BlogCard key={post.slug} post={post} />)}
