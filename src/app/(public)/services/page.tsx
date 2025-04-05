@@ -72,10 +72,10 @@ function HeroSection() {
 
             <div className="md:grow"></div>
 
-            <div className="grid grow grid-cols-1 grid-rows-2 gap-6 md:grid-cols-2 md:grid-rows-1">
+            <div className="grid grow grid-cols-1 grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1">
                 <div className="flex grow flex-col gap-6">
                     <div className="">
-                        <h2 className="relative inline text-3xl font-bold md:text-5xl">
+                        <h2 className="font-popins relative inline text-5xl font-semibold md:text-7xl">
                             What we do
                             <br />
                             At{" "}
@@ -91,8 +91,8 @@ function HeroSection() {
                         </h2>
                     </div>
                     <div className="bg-primary relative grow rounded-2xl p-8">
-                        <h2 className="text-xl font-bold md:text-3xl">Mission</h2>
-                        <p className="z-50 md:pb-34">
+                        <h2 className="font-popins text-3xl font-semibold md:text-5xl">Lorem Ipsum</h2>
+                        <p className="font-popins z-50 mt-6 text-2xl leading-10 font-medium md:pb-34">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                             industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                             scrambled it to make a type specimen book.
@@ -101,7 +101,7 @@ function HeroSection() {
                         <DecorImage
                             src="/images/home-decore-3.png"
                             alt="Decor Highlight"
-                            size={[120, 120]}
+                            size={[200, 200]}
                             className="right-0 bottom-0 z-10 translate-x-1/3"
                         />
                     </div>
@@ -158,18 +158,22 @@ function EvaluationMethodologiesSection() {
 
     return (
         <section className="section relative flex grow flex-col items-center justify-center gap-6 md:gap-12">
-            <h2 className="relative text-3xl font-bold md:text-5xl">
+            <h2 className="font-popins relative text-3xl font-semibold md:text-5xl">
                 Our Evaluation <br className="md:hidden" />
                 <span className="bg-primary rounded-sm px-1">Methodologies</span>
             </h2>
-            <p className="text-muted text-center text-sm md:text-lg">
+            <p className="text-muted font-popins text-center text-sm font-normal md:text-lg">
                 Lorem Ipsum dolor sit amet consectetur Lorem <br /> Ipsum dolor sit amet consectetur
             </p>
 
-            <Tabs defaultValue="screening" className="w-full md:w-146">
+            <Tabs defaultValue="screening" className="w-full md:w-146 lg:w-246">
                 <TabsList className="text-secondary relative mx-auto h-16 bg-white p-3 md:gap-12">
                     {content.map((item) => (
-                        <TabsTrigger className="data-[state=active]:bg-primary" value={item.section} key={item.section}>
+                        <TabsTrigger
+                            className="data-[state=active]:bg-primary font-popins px-8 py-4 text-lg font-medium"
+                            value={item.section}
+                            key={item.section}
+                        >
                             {item.title}
                         </TabsTrigger>
                     ))}
@@ -192,7 +196,7 @@ function EvaluationMethodologiesSection() {
                     <TabsContent
                         key={item.section}
                         value={item.section}
-                        className="from-primary-light to-primary relative w-full rounded-2xl bg-linear-90 p-5"
+                        className="from-primary-light to-primary font-popins relative w-full rounded-2xl bg-linear-90 p-8 text-2xl md:p-16"
                     >
                         <p className="">{item.description}</p>
                         <ul className="mt-2 list-none space-y-1.5">
@@ -203,14 +207,14 @@ function EvaluationMethodologiesSection() {
                             ))}
                         </ul>
 
-                        <div className="border-primary absolute bottom-0 left-1/2 w-38 -translate-x-1/2 translate-y-1/2 rounded-2xl border-3 bg-white p-3 text-center">
+                        <div className="border-primary absolute bottom-0 left-1/2 w-48 -translate-x-1/2 translate-y-1/2 rounded-2xl border-3 bg-white p-3 text-center">
                             {item.title}
                         </div>
 
                         <DecorImage
                             src="/images/decor-plant-1.png"
                             alt="Decor Highlight"
-                            size={[80, 80]}
+                            size={[120, 120]}
                             className="right-0 bottom-0 z-40 translate-y-1/6"
                         />
 
@@ -238,7 +242,7 @@ function ConsultationSection() {
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-8 md:gap-12">
             <h2 className="relative text-3xl font-bold md:mb-4 md:text-5xl">
-                <span className="bg-primary rounded-sm px-1">Consultation</span>
+                <span className="bg-primary font-popins rounded-sm px-4 text-5xl font-semibold">Consultation</span>
             </h2>
 
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">
@@ -260,7 +264,7 @@ function ConsultationSection() {
                 </div>
 
                 <div className="relative flex flex-col items-start justify-center gap-8">
-                    <h2 className="relative text-3xl tracking-normal break-normal md:text-5xl">
+                    <h2 className="font-popins relative text-2xl font-semibold tracking-normal break-normal md:text-4xl">
                         Consulation
                         <Image
                             src="/images/decor-highlight-2.png"
@@ -272,12 +276,12 @@ function ConsultationSection() {
                         <DecorImage
                             src="/images/decor-smile-primary.png"
                             alt="Decor Smile"
-                            size={[58, 58]}
+                            size={[100, 100]}
                             className="top-0 left-0 -translate-y-full"
                         />
                     </h2>
                     <div className="flex">
-                        <p className="inline text-justify">
+                        <p className="font-popins inline text-justify text-sm font-medium md:leading-7">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                             industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                             scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
@@ -299,7 +303,7 @@ function ConsultationSection() {
                         <DecorImage
                             src="/images/decor-arrow.png"
                             alt="Decor Butterfly"
-                            size={[60, 60]}
+                            size={[67, 67]}
                             className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
                         />
                         <BookAppointmentButton />
@@ -312,7 +316,7 @@ function ConsultationSection() {
             <DecorImage
                 src="/images/decor-leaves-1.png"
                 alt="Decor Butterfly"
-                size={[180, 180]}
+                size={[240, 240]}
                 className="invisible bottom-0 left-0 z-10 translate-y-1/2 md:visible"
             />
         </section>
@@ -322,13 +326,13 @@ function ConsultationSection() {
 function PsychiatricConsultationsSection() {
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-8 md:gap-12">
-            <h2 className="relative text-3xl font-bold md:mb-4 md:text-5xl">
-                Psychiatric <span className="bg-primary rounded-sm px-1">Consultation</span>
+            <h2 className="font-popins relative text-3xl font-semibold md:mb-4 md:text-5xl">
+                Psychiatric <span className="bg-primary rounded-sm px-4">Consultation</span>
             </h2>
 
             <div className="mb-10 grid w-full grid-cols-1 md:grid-cols-[60fr_40fr] md:gap-12">
                 <div className="relative flex flex-col items-start justify-center gap-8">
-                    <h2 className="relative text-3xl tracking-normal break-normal md:text-5xl">
+                    <h2 className="font-popins relative text-2xl font-semibold tracking-normal break-normal md:text-4xl">
                         Child Psychiatry
                         <Image
                             src="/images/decor-highlight-2.png"
@@ -340,7 +344,7 @@ function PsychiatricConsultationsSection() {
                         <DecorImage
                             src="/images/decor-smile-primary.png"
                             alt="Decor Smile"
-                            size={[58, 58]}
+                            size={[100, 100]}
                             className="top-0 left-0 -translate-y-full"
                         />
                     </h2>
@@ -354,7 +358,7 @@ function PsychiatricConsultationsSection() {
                             />
                         </div>
                         <div>
-                            <p className="inline text-justify">
+                            <p className="font-popins inline text-justify text-sm font-medium md:leading-7">
                                 Child and adolescent psychiatry is a branch of medicine that focuses on the diagnosis, treatment, and
                                 prevention of mental health disorders in children and adolescents. Psychiatrists who specialize in this
                                 field are trained to work with young people, ranging from infancy through adolescence, who are experiencing
@@ -393,7 +397,7 @@ function PsychiatricConsultationsSection() {
             <DecorImage
                 src="/images/decor-leaves-1.png"
                 alt="Decor Butterfly"
-                size={[180, 180]}
+                size={[240, 240]}
                 className="invisible right-0 bottom-0 z-10 translate-y-1/2 md:visible"
             />
         </section>
@@ -403,8 +407,8 @@ function PsychiatricConsultationsSection() {
 function CounsellingAndPsychotherapy() {
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-8 md:gap-12">
-            <h2 className="relative text-3xl font-bold md:mb-4 md:text-5xl">
-                <span className="bg-primary rounded-sm px-1">Counselling</span> and Psychotherapy
+            <h2 className="font-popins relative text-3xl font-semibold md:mb-4 md:text-5xl">
+                <span className="bg-primary rounded-sm px-4">Counselling</span> and Psychotherapy
             </h2>
 
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">
@@ -426,7 +430,7 @@ function CounsellingAndPsychotherapy() {
                 </div>
 
                 <div className="relative flex flex-col items-start justify-center gap-8">
-                    <h2 className="relative text-3xl tracking-normal break-normal md:text-5xl">
+                    <h2 className="font-popins relative text-2xl font-semibold tracking-normal break-normal md:text-4xl">
                         Individual Psychotherapy
                         <Image
                             src="/images/decor-highlight-2.png"
@@ -438,12 +442,12 @@ function CounsellingAndPsychotherapy() {
                         <DecorImage
                             src="/images/decor-smile-primary.png"
                             alt="Decor Smile"
-                            size={[58, 58]}
+                            size={[100, 100]}
                             className="top-0 left-0 -translate-y-full"
                         />
                     </h2>
                     <div className="flex">
-                        <p className="inline text-justify">
+                        <p className="font-popins inline text-justify text-sm font-medium md:leading-7">
                             A 60-minute session where psychologists take a brief history of your background and identify what struggles you
                             have been going through. By doing so, the psychologist will be able to decide which assessment to administer and
                             which approach to take for treatment. This service is best for people who are starting their mental health
@@ -476,7 +480,7 @@ function CounsellingAndPsychotherapy() {
             <DecorImage
                 src="/images/decor-leaves-1.png"
                 alt="Decor Butterfly"
-                size={[180, 180]}
+                size={[240, 240]}
                 className="invisible right-0 bottom-0 z-10 translate-y-1/2 md:visible"
             />
         </section>
