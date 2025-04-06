@@ -267,7 +267,7 @@ function ConsultationSection() {
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">
                 <div className="relative mr-8 mb-16 aspect-49/50 w-full">
                     <Image
-                        src="/images/services-bg-1.jpg"
+                        src="/images/decor-missin-bg.png"
                         fill
                         sizes="100vw"
                         alt="Service BG"
@@ -298,34 +298,34 @@ function ConsultationSection() {
                         size={[100, 100]}
                         className="top-0 left-0 -translate-y-full"
                     />
-                    <div className="flex">
+                    <div className="flex flex-col">
                         <p className="font-popins inline text-justify text-base font-medium md:leading-7">
                             Personalized mental health support designed to help individuals, couples, and groups navigate emotional
                             challenges, improve communication, and build lasting resilience.
-                            <ul className="mt-4">
-                                <li className="font-bold">
-                                    1. Individual Psychotherapy
-                                    <p className="font-normal">
-                                        Explore your thoughts, emotions, and behaviors in a safe, one-on-one space with a licensed therapist
-                                        to enhance self-awareness and well-being.
-                                    </p>
-                                </li>
-                                <li className="font-bold">
-                                    2. Marriage and Couples Counselling
-                                    <p className="font-normal">
-                                        Work through relationship challenges and everyday stressors with your partner in a supportive
-                                        setting guided by a professional counselor.
-                                    </p>
-                                </li>
-                                <li className="font-bold">
-                                    3. Group Coaching for ADHD
-                                    <p className="font-normal">
-                                        Join a focused, coach-led group to strengthen executive functioning, reduce procrastination, and
-                                        manage ADHD-related struggles effectively.
-                                    </p>
-                                </li>
-                            </ul>
                         </p>
+                        <ul className="mt-4">
+                            <li className="font-bold">
+                                1. Individual Psychotherapy
+                                <p className="font-normal">
+                                    Explore your thoughts, emotions, and behaviors in a safe, one-on-one space with a licensed therapist to
+                                    enhance self-awareness and well-being.
+                                </p>
+                            </li>
+                            <li className="font-bold">
+                                2. Marriage and Couples Counselling
+                                <p className="font-normal">
+                                    Work through relationship challenges and everyday stressors with your partner in a supportive setting
+                                    guided by a professional counselor.
+                                </p>
+                            </li>
+                            <li className="font-bold">
+                                3. Group Coaching for ADHD
+                                <p className="font-normal">
+                                    Join a focused, coach-led group to strengthen executive functioning, reduce procrastination, and manage
+                                    ADHD-related struggles effectively.
+                                </p>
+                            </li>
+                        </ul>
                     </div>
 
                     <div className="relative">
@@ -378,50 +378,50 @@ function PsychiatricConsultationsSection() {
                         className="top-0 left-0 -translate-y-full"
                     />
                     <div className="flex">
-                        <div>
+                        <div className="flex flex-col">
                             <p className="font-popins inline text-justify text-base font-medium md:leading-7">
                                 Comprehensive psychiatric care tailored to individuals across all life stages—children, adults, and the
                                 elderly—focused on diagnosing, treating, and managing a wide range of mental health conditions.
-                                <ul className="mt-4">
-                                    <li className="font-bold">
-                                        1. Child Psychiatry
-                                        <p className="font-normal">
-                                            Specialized support for emotional, behavioral, and developmental issues in children and
-                                            adolescents—from early childhood through teenage years.
-                                        </p>
-                                    </li>
-                                    <li className="font-bold">
-                                        2. Adult Psychiatry
-                                        <p className="font-normal">
-                                            Clinical evaluation and treatment for a wide spectrum of adult mental health concerns, including
-                                            anxiety, depression, mood disorders, and more.
-                                        </p>
-                                    </li>
-                                    <li className="font-bold">
-                                        3. Neurodivergence
-                                        <p className="font-normal">
-                                            Support for conditions like Adult ADHD, OCD, Autism Spectrum Disorder, Dyslexia, and Tourette
-                                            Syndrome, recognizing and respecting different ways of thinking and processing.
-                                        </p>
-                                    </li>
-
-                                    <li className="font-bold">
-                                        4. Eating Disorders and Obesity
-                                        <p className="font-normal">
-                                            Psychiatric care for disordered eating patterns such as anorexia and bulimia, with an emphasis
-                                            on both mental and physical health recovery.
-                                        </p>
-                                    </li>
-
-                                    <li className="font-bold">
-                                        5. Psychiatry of the Elderly
-                                        <p className="font-normal">
-                                            Geriatric-focused mental health services to manage conditions like dementia, late-life
-                                            depression, anxiety, and substance misuse in older adults.
-                                        </p>
-                                    </li>
-                                </ul>
                             </p>
+                            <ul className="mt-4">
+                                <li className="font-bold">
+                                    1. Child Psychiatry
+                                    <p className="font-normal">
+                                        Specialized support for emotional, behavioral, and developmental issues in children and
+                                        adolescents—from early childhood through teenage years.
+                                    </p>
+                                </li>
+                                <li className="font-bold">
+                                    2. Adult Psychiatry
+                                    <p className="font-normal">
+                                        Clinical evaluation and treatment for a wide spectrum of adult mental health concerns, including
+                                        anxiety, depression, mood disorders, and more.
+                                    </p>
+                                </li>
+                                <li className="font-bold">
+                                    3. Neurodivergence
+                                    <p className="font-normal">
+                                        Support for conditions like Adult ADHD, OCD, Autism Spectrum Disorder, Dyslexia, and Tourette
+                                        Syndrome, recognizing and respecting different ways of thinking and processing.
+                                    </p>
+                                </li>
+
+                                <li className="font-bold">
+                                    4. Eating Disorders and Obesity
+                                    <p className="font-normal">
+                                        Psychiatric care for disordered eating patterns such as anorexia and bulimia, with an emphasis on
+                                        both mental and physical health recovery.
+                                    </p>
+                                </li>
+
+                                <li className="font-bold">
+                                    5. Psychiatry of the Elderly
+                                    <p className="font-normal">
+                                        Geriatric-focused mental health services to manage conditions like dementia, late-life depression,
+                                        anxiety, and substance misuse in older adults.
+                                    </p>
+                                </li>
+                            </ul>
                             <div className="relative mt-8 w-fit">
                                 <DecorImage
                                     src="/images/decor-arrow.png"
@@ -436,7 +436,7 @@ function PsychiatricConsultationsSection() {
                 </div>
                 <div className="relative order-first mr-8 mb-16 aspect-49/50 w-full md:order-last">
                     <Image
-                        src="/images/services-bg-2.jpg"
+                        src="/images/patient-care-bg-2.png"
                         fill
                         sizes="100vw"
                         alt="Service BG"
@@ -472,7 +472,7 @@ function CounsellingAndPsychotherapy() {
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">
                 <div className="relative mr-8 mb-16 aspect-49/50 w-full">
                     <Image
-                        src="/images/services-bg-1.jpg"
+                        src="/images/decor-export-service-1.png"
                         fill
                         sizes="100vw"
                         alt="Service BG"
