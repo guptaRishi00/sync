@@ -1,29 +1,31 @@
 import CommitmentCard from "@/components/prefabs/commitment-card";
 import Image from "next/image";
 
+// https://wa.me/8105339647
+
 export default function CommitmentToPatientSection() {
     const commitments = [
         {
-            title: "Patient Safety",
+            title: "Comfort",
             description: "We prioritize patient safety and support, treating every patient like a family member.",
-            imagePath: "/images/about-hero-1.jpg",
+            imagePath: "/images/patient-care-bg-1.png",
         },
         {
-            title: "Ethical Care",
-            description: "If we wouldn’t prescribe the same treatment to our own family, we know we need to rethink our approach.",
-            imagePath: "/images/about-hero-1.jpg",
+            title: "Ethical",
+            description: "Healing is deeply personal. We only recommend care options that we’d trust for our own families.",
+            imagePath: "/images/patient-care-bg-2.png",
         },
         {
-            title: "Empathetic Approach",
-            description: "As professionals who have been in our clients' shoes, we deeply understand their experiences and needs.",
-            imagePath: "/images/about-hero-1.jpg",
+            title: "Empathetic",
+            description: "As professionals who have been in our clients' shoes, we deeply understand their needs.",
+            imagePath: "/images/patient-care-bg-3.png",
         },
     ];
     return (
-        <section className="section flex flex-col gap-6 py-8">
+        <section className="section flex flex-col gap-12 py-12">
             <div className="font-popins flex w-full flex-col gap-4">
-                <h2 className="relative w-full text-3xl font-semibold tracking-normal break-normal md:text-5xl">
-                    Commitment to <br className="md:hidden" />
+                <h2 className="relative w-full text-center text-3xl font-semibold tracking-normal break-normal md:text-5xl">
+                    Our Commitment to <br className="md:hidden" />
                     <span className="relative">
                         Patient Care
                         <Image
@@ -35,7 +37,7 @@ export default function CommitmentToPatientSection() {
                         />
                     </span>
                 </h2>
-                <p className="text-lg font-normal">Lorem ipsum dolor sit amet consecetetur.</p>
+                <p className="hidden text-lg font-normal">Lorem ipsum dolor sit amet consecetetur.</p>
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

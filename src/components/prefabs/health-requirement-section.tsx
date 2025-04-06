@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function HealthRequirementSection() {
     return (
         <section className="section flex flex-col items-center justify-center gap-16 md:min-h-screen">
-            <div className="flex flex-col-reverse items-center justify-between gap-4 md:flex-row">
+            <div className="flex w-full flex-col-reverse items-start justify-between gap-4 md:flex-row">
                 <div className="flex w-full flex-col gap-4 md:max-w-1/2">
-                    <h2 className="font-popins relative text-3xl font-medium md:text-5xl">
-                        Your health requirements are our first focus.
+                    <h2 className="font-popins relative text-3xl leading-16 font-medium md:text-5xl">
+                        Your well-being <br /> is our priority
                         <DecorImage
                             src="/images/decor-smile.png"
                             alt="Decor Smile"
@@ -17,41 +17,40 @@ export default function HealthRequirementSection() {
                         />
                     </h2>
                     <p className="font-popins text-muted text-2xl">
-                        Looking to speak with a professional, check your test score, <br />
-                        or learn about various disorders?
+                        With every step you take toward healing, we’re committed to offering the care and space you need to thrive.
                     </p>
                 </div>
 
-                <div className="relative m-8 aspect-1321/570 h-38 w-full grow">
-                    <Image src="/images/home-decore-1.png" alt="Hero Thumbnail" fill className="h-full w-full object-contain" />
+                <div className="relative aspect-600/252 h-38 w-fit place-self-end self-center">
+                    <Image src="/images/home-decore-1.png" alt="Hero Thumbnail" fill className="w-fit object-contain" />
                 </div>
             </div>
 
             <div className="grid w-full grid-cols-1 gap-8 text-white sm:grid-cols-2 lg:grid-cols-4">
                 <SimpleCard
-                    title="Lorem Ipsum"
-                    description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
+                    title="Specialised care designed for you"
+                    description="Specialized care on neurodivergence and related disorders “focused on you, by us. "
                     imagePath="/images/home-decore-2.png"
-                    className="from-secondary-light to-secondary bg-linear-to-br"
+                    className="from-secondary-light bg-linear-to-br to-[#69482D]"
                 />
 
                 <SimpleCard
-                    title="Lorem Ipsum"
-                    description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
+                    title="Wellness that goes beyond therapy"
+                    description="We trust that the path to wholeness—harmonizing mind, body, emotion, and energy—leads to a life truly lived."
                     imagePath="/images/home-decore-3.png"
                     className="bg-[#AC9D81]"
                 />
 
                 <SimpleCard
-                    title="Lorem Ipsum"
-                    description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
+                    title="Ongoing Care & Connection"
+                    description="Stay in touch, we're here for you. We are committed to walking this journey with you."
                     imagePath="/images/home-decore-4.png"
-                    className="from-primary-light to-primary bg-linear-to-br"
+                    className="from-primary to-primary bg-linear-to-br"
                 />
 
                 <SimpleCard
-                    title="Lorem Ipsum"
-                    description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
+                    title="A Trusted space to Grow and Thrive"
+                    description="A nurturing space of comfort and calm, cultivating your journey."
                     imagePath="/images/home-decore-2.png"
                     className="bg-linear-to-br from-[#1080F8] to-[#1365BE]"
                 />

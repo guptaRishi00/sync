@@ -23,7 +23,7 @@ export default function FeedbackSection() {
 
                         <div className="relative mt-4 aspect-square w-62">
                             <Image
-                                src="/images/qr-code.svg"
+                                src="/images/qr-code.png"
                                 alt="QR Code"
                                 fill
                                 className="stroke-primary absolute -z-50 rounded-2xl object-contain"
@@ -31,7 +31,7 @@ export default function FeedbackSection() {
                         </div>
                     </div>
 
-                    <div className="bg-primary-light [&>h4]:font-inter [&>p]:font-popins relative -z-40 rounded-2xl p-12 shadow-2xl lg:w-1/3 [&>h4]:mb-2 [&>h4]:text-xl [&>h4]:font-semibold md:[&>h4]:text-3xl [&>p]:mb-4 [&>p]:text-base md:[&>p]:text-lg">
+                    <div className="bg-primary-light [&>h4]:font-inter [&>p]:font-popins relative -z-40 rounded-2xl px-16 py-12 shadow-2xl lg:w-136 [&>h4]:mb-2 [&>h4]:text-xl [&>h4]:font-semibold md:[&>h4]:text-3xl [&>p]:mb-4 [&>p]:text-base md:[&>p]:text-lg">
                         <h4 className="">Location</h4>
                         <p className="mb-4 text-lg">
                             103-C, 30th Cross Rd, <br />

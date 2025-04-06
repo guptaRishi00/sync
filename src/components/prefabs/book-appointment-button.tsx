@@ -27,7 +27,7 @@ export default function BookAppointmentButton({ className }: Props) {
             const jsonBody = await ipApiResponse.json();
 
             const getCountryByIp = jsonBody["country"];
-            getCountryByIp && setCountry(getCountryByIp);
+            if (getCountryByIp) setCountry(getCountryByIp);
         }
         fetchAPI();
     }, []);
@@ -66,7 +66,7 @@ export default function BookAppointmentButton({ className }: Props) {
     return (
         <>
             <Button
-                className={cn("font-popins text-foreground w-fit rounded-xs px-10 py-6 font-bold md:text-lg", className)}
+                className={cn("font-popins text-foreground w-fit rounded-xs px-10 py-8 font-bold md:text-lg", className)}
                 onClick={onBookAppointmentClick}
             >
                 Book an Appointment
@@ -74,7 +74,7 @@ export default function BookAppointmentButton({ className }: Props) {
 
             <Dialog open={openDialog} onOpenChange={setOpenDialog}>
                 <DialogContent className="h-148 overflow-auto sm:max-w-[825px] md:overflow-hidden">
-                    <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
+                    <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex flex-col items-center gap-12 pt-12">
                         <DialogTitle className="font-popins relative text-2xl font-bold md:text-4xl">
                             Help Us Personalize Your Care
@@ -125,7 +125,7 @@ export default function BookAppointmentButton({ className }: Props) {
 
             <Dialog open={openBookTypeDialog} onOpenChange={setOpenBookTypeDialog}>
                 <DialogContent className="h-148 overflow-auto sm:max-w-[825px] md:overflow-hidden">
-                    <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
+                    <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex flex-col items-center gap-2 pt-12 md:gap-6">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
                             Choose How You’d Like to Book
@@ -170,8 +170,8 @@ export default function BookAppointmentButton({ className }: Props) {
 
             <Dialog open={openFollowupDialog} onOpenChange={setOpenFollowupDialog}>
                 <DialogContent className="h-148 overflow-auto sm:max-w-[825px] md:overflow-hidden">
-                    <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                    <DialogHeader className="flex h-full flex-col items-center gap-6 py-12">
+                    <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
+                    <DialogHeader className="flex h-full flex-col items-center gap-6 p-12">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
                             Follow-Up Appointment
                             <DecorImage
@@ -184,12 +184,12 @@ export default function BookAppointmentButton({ className }: Props) {
                         <DialogDescription className="text-foreground font-popins text-center text-lg font-normal opacity-80 md:text-2xl">
                             We’re here to assist you with your follow-up scheduling
                         </DialogDescription>
-                        <div className="flex grow flex-col items-center justify-center gap-6 rounded-2xl bg-[#AC9D81] p-12 text-white md:px-32">
+                        <div className="flex grow flex-col items-center justify-between gap-6 rounded-2xl bg-[#AC9D81] py-8 text-2xl text-white md:px-24">
                             <span className="z-20">
                                 For follow-up consultations, we kindly request you to reach out to our team via WhatsApp. This will help us
                                 assist you faster and find the most convenient slot for you.
                             </span>
-                            <Button className="z-10 w-fit px-6 text-lg">
+                            <Button className="z-10 mb-8 w-44 py-6 text-lg">
                                 <svg
                                     className="scale-125"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -231,14 +231,14 @@ export default function BookAppointmentButton({ className }: Props) {
                         src="/images/decor-leaves.png"
                         alt="Decor Leaves"
                         size={[186, 186]}
-                        className="right-0 bottom-0 translate-x-1/5 translate-y-1/4 opacity-80"
+                        className="right-0 bottom-0 hidden translate-x-1/5 translate-y-1/4 opacity-80"
                     />
 
                     <DecorImage
                         src="/images/decor-plant.png"
                         alt="Decor Plant"
                         size={[286, 286]}
-                        className="bottom-0 left-0 z-0 -translate-x-1/4 opacity-60 md:opacity-90"
+                        className="bottom-0 left-0 z-0 -translate-x-1/4 opacity-70"
                     />
                 </DialogContent>
             </Dialog>

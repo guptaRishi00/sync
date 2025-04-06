@@ -28,8 +28,9 @@ export default function VibeSection() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious variant="default" />
-                    <CarouselNext variant="default" />
+
+                    <CarouselPrevious variant="default" className="size-12" />
+                    <CarouselNext variant="default" className="size-12" />
                 </Carousel>
             </div>
         </section>

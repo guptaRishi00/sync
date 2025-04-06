@@ -1,11 +1,26 @@
+"use client";
+
+import { addConnectDetails } from "@/actions/google-sheet.action";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useCallback, useState } from "react";
 
 export default function ConnectToSyncSection() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = useCallback(async (email: string, name: string, subject: string, message: string) => {
+        if (email) {
+            await addConnectDetails(email, name, subject, message);
+        }
+    }, []);
+
     return (
         <section className="section relative flex flex-col items-center gap-12 md:gap-16">
-            <div className="bg-background font-popins flex items-center gap-4 rounded-2xl px-4 text-2xl font-semibold md:text-4xl">
+            <div className="bg-background font-popins flex items-center gap-4 rounded-4xl px-4 text-2xl font-semibold md:text-4xl">
                 <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
                     <h2 className="">Connect</h2>
                 </div>
@@ -46,17 +61,41 @@ export default function ConnectToSyncSection() {
                     />
                 </div>
 
-                <div className="bg-secondary/20 flex flex-col gap-4 rounded-2xl p-8 md:rounded-l-none">
+                <div className="flex flex-col gap-4 rounded-4xl bg-[#EEE3D3] px-8 py-12 md:rounded-l-none">
                     <div className="flex gap-4">
-                        <Input placeholder="Enter your Name" className="bg-background border-secondary h-16" size={48} />
-                        <Input type="email" placeholder="Enter your Email Address" className="bg-background border-secondary h-16" />
+                        <Input
+                            placeholder="Enter your Name"
+                            className="bg-background border-secondary h-16"
+                            size={48}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <Input
+                            type="email"
+                            placeholder="Enter your Email Address"
+                            className="bg-background border-secondary h-16"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
 
-                    <Input placeholder="Enter your Subject" className="bg-background border-secondary h-16" />
+                    <Input
+                        placeholder="Enter your Subject"
+                        className="bg-background border-secondary h-16"
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                    />
 
-                    <Textarea placeholder="Message" className="bg-background border-secondary h-16 grow" />
+                    <Textarea
+                        placeholder="Message"
+                        className="bg-background border-secondary h-16 grow"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                    />
 
-                    <Button className="w-full py-6">Send your message</Button>
+                    <Button className="w-full py-6" onClick={() => handleSubmit(email, name, subject, message)}>
+                        Send your message
+                    </Button>
                 </div>
             </div>
         </section>
