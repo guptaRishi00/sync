@@ -1,8 +1,6 @@
 import CommitmentCard from "@/components/prefabs/commitment-card";
 import Image from "next/image";
 
-// https://wa.me/8105339647
-
 export default function CommitmentToPatientSection() {
     const commitments = [
         {

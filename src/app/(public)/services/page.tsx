@@ -44,8 +44,8 @@ export default async function ServicesPage() {
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"
                     alt="Decor Butterfly"
-                    size={[400, 400]}
-                    className="top-0 right-0 translate-x-1/6 -translate-y-1/4"
+                    size={[600, 600]}
+                    className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
                     src="/images/home-decore-5.png"
@@ -503,40 +503,40 @@ function CounsellingAndPsychotherapy() {
                         size={[100, 100]}
                         className="top-0 left-0 -translate-y-full"
                     />
-                    <div className="flex">
+                    <div className="flex flex-col">
                         <p className="font-popins inline text-justify text-base font-medium md:leading-7">
                             Scientifically designed tools to help uncover patterns in your thoughts, emotions, and behavior—offering
                             valuable insights for diagnosis, treatment planning, and personal understanding.
-                            <ul className="mt-4">
-                                <li className="font-bold">
-                                    1. Cognitive and Intelligence Testing
-                                    <p className="font-normal">
-                                        Assess intellectual functioning, learning abilities, memory, and problem-solving skills.
-                                    </p>
-                                </li>
-                                <li className="font-bold">
-                                    2. Personality Assessments
-                                    <p className="font-normal">
-                                        Understand personality traits, emotional functioning, and behavioral tendencies that influence your
-                                        day-to-day life.
-                                    </p>
-                                </li>
-                                <li className="font-bold">
-                                    3. Neuropsychological Assessments
-                                    <p className="font-normal">
-                                        In-depth evaluation of brain function related to conditions such as ADHD, dementia, or brain injury.
-                                    </p>
-                                </li>
-
-                                <li className="font-bold">
-                                    4. Emotional and Behavioral Assessments
-                                    <p className="font-normal">
-                                        Identify emotional challenges, mood disorders, or behavioral patterns that may impact personal and
-                                        social functioning.
-                                    </p>
-                                </li>
-                            </ul>
                         </p>
+                        <ul className="mt-4">
+                            <li className="font-bold">
+                                1. Cognitive and Intelligence Testing
+                                <p className="font-normal">
+                                    Assess intellectual functioning, learning abilities, memory, and problem-solving skills.
+                                </p>
+                            </li>
+                            <li className="font-bold">
+                                2. Personality Assessments
+                                <p className="font-normal">
+                                    Understand personality traits, emotional functioning, and behavioral tendencies that influence your
+                                    day-to-day life.
+                                </p>
+                            </li>
+                            <li className="font-bold">
+                                3. Neuropsychological Assessments
+                                <p className="font-normal">
+                                    In-depth evaluation of brain function related to conditions such as ADHD, dementia, or brain injury.
+                                </p>
+                            </li>
+
+                            <li className="font-bold">
+                                4. Emotional and Behavioral Assessments
+                                <p className="font-normal">
+                                    Identify emotional challenges, mood disorders, or behavioral patterns that may impact personal and
+                                    social functioning.
+                                </p>
+                            </li>
+                        </ul>
                     </div>
 
                     <div className="relative">

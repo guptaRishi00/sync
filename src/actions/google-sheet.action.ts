@@ -58,7 +58,7 @@ export const addConnectDetails = async (email: string, name: string, subject: st
     );
 };
 
-export const addSubscribtion = async (email: string) => {
+export const addSubscribtion = async (email: string, isStudentSubscription: boolean = false) => {
     const sheets = google.sheets({ version: "v4", auth: getAuth() });
 
     if (!isEmailValid(email)) {
@@ -69,7 +69,7 @@ export const addSubscribtion = async (email: string) => {
     sheets.spreadsheets.values.append(
         {
             spreadsheetId: "1WDdxo3tPWHu5xP0C0QILIxwZBS-eeaYZH-pqHN-GE4Q",
-            range: "Subscribtion!A:A",
+            range: isStudentSubscription ? "StudentSubscription!A:A" : "Subscription!A:A",
             valueInputOption: "RAW",
             requestBody: {
                 values: [[email, formatDateTime(dayjs())]],

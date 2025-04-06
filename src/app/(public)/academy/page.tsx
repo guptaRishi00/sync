@@ -5,9 +5,9 @@ import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
+import SudentSubscription from "@/components/prefabs/student-subscription";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { CirclePlay, Library, Users, Video } from "lucide-react";
 import Image from "next/image";
@@ -17,7 +17,7 @@ export default async function AcademyPage() {
     return (
         <>
             <main className="main relative overflow-x-clip">
-                <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 hidden object-cover opacity-10" />
+                <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
                 <HeroSection />
             </main>
 
@@ -36,7 +36,7 @@ export default async function AcademyPage() {
                 />
             </main>
 
-            <main className="main relative overflow-x-clip md:min-h-fit!">
+            <main className="main relative hidden overflow-x-clip md:min-h-fit!">
                 <DontMissInformationSection />
             </main>
 
@@ -54,7 +54,7 @@ export default async function AcademyPage() {
                 <CommonQuoteSection />
             </main>
 
-            <main className="main overflow-hidden py-8">
+            <main className="main hidden overflow-hidden py-8">
                 <HealthRequirementSection />
             </main>
 
@@ -66,8 +66,8 @@ export default async function AcademyPage() {
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"
                     alt="Decor Butterfly"
-                    size={[400, 400]}
-                    className="top-0 right-0 translate-x-1/6 -translate-y-1/4"
+                    size={[600, 600]}
+                    className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
                     src="/images/home-decore-5.png"
@@ -94,22 +94,23 @@ function HeroSection() {
 
             <div className="grid grow auto-cols-min grid-cols-1 grid-rows-2 gap-6 md:grid-cols-2 md:grid-rows-1">
                 <div className="flex h-fit flex-col justify-center gap-6 md:mt-26 md:self-start">
-                    <h2 className="font-popins relative inline text-5xl font-semibold md:text-7xl">
-                        Lorem Ipsum dolr
+                    <h2 className="font-popins relative inline text-5xl leading-22 font-semibold md:text-7xl">
+                        Grow Your Career in
                         <br />
-                        <span className="text-accent relative">Easily & Fun!</span>
+                        <span className="text-accent relative">Mental Health!</span>
                     </h2>
-                    <p className="text-muted font-popins text-justify text-sm font-medium md:text-lg">
-                        Elementa Academy offers a wide variety of chemistry classes and learning materials designed for all levels, from
-                        beginner to advanced.
+                    <p className="text-muted font-popins pr-16 pb-6 text-justify text-sm font-medium md:text-lg">
+                        Discover a dynamic learning environment designed to shape the next generation of mental health professionals.
+                        Whether you're starting your journey or seeking to deepen your expertise, our programs offer the guidance, tools,
+                        and mentorship you need.
                     </p>
 
                     <div className="flex gap-2">
                         <Button variant="secondary" className="text-background font-popins h-14 w-44 text-lg">
-                            Start Learning
+                            Send Enquiry
                         </Button>
 
-                        <Button variant="default" size="icon" className="h-14 w-14">
+                        <Button variant="default" size="icon" className="hidden h-14 w-14">
                             <CirclePlay className="scale-150" />
                         </Button>
                     </div>
@@ -122,7 +123,7 @@ function HeroSection() {
                     />
                 </div>
 
-                <div className="relative order-first aspect-5/6 h-fit max-h-[80vh] shrink md:order-last md:grow">
+                <div className="relative order-first aspect-5/6 h-fit max-h-[80vh] shrink md:top-8 md:left-20 md:order-last md:grow">
                     <div className="absolute top-1/8 left-1/8 flex flex-col items-start gap-4">
                         <div className="z-10 flex w-fit items-center gap-2 rounded-full bg-white px-3 py-1">
                             <Button variant="default" size="icon" className="rounded-full">
@@ -192,14 +193,14 @@ function HeroSection() {
 
 function WhatToGetSection() {
     return (
-        <section className="section flex flex-col gap-8 py-6">
+        <section className="section flex flex-col gap-12 py-16">
             <div className="font-popins grid w-full grid-cols-1 gap-4 md:grid-cols-[40fr_60fr] md:gap-16">
                 <h2 className="relative inline text-2xl font-semibold md:text-4xl">
                     What do you get at <span className="text-accent relative">SyNC Positive Academy?</span>
                 </h2>
                 <p className="text-muted font-popins text-justify text-sm font-medium md:text-lg">
-                    Elementa Academy offers a wide variety of chemistry classes and learning materials designed for all levels, from
-                    beginner to advanced.
+                    A thoughtfully designed learning environment where aspiring mental health professionals gain real-world insights,
+                    develop clinical confidence, and build meaningful connections within the field.
                 </p>
             </div>
 
@@ -208,18 +209,18 @@ function WhatToGetSection() {
                     <div className="relative mb-8 size-24">
                         <Image src="/images/decor-learning-video.png" alt="User 1" fill className="h-full w-full" />
                     </div>
-                    <h6 className="font-popins w-full text-left text-lg font-bold">Tutorial video</h6>
-                    <p className="font-popins w-full text-left text-sm font-medium">
-                        Watch interesting and informative videos to learn various chemistry topics.
+                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Clinical Training</h6>
+                    <p className="font-popins w-full text-left text-lg font-medium">
+                        Explore therapy sessions and counselor techniques through immersive, real-world video lessons.
                     </p>
                 </div>
                 <div className="relative col-span-2 bg-gradient-to-r from-white to-white">
                     <div className="relative mb-8 size-24">
                         <Image src="/images/decor-learning-quizzes.png" alt="User 1" fill className="h-full w-full" />
                     </div>
-                    <h6 className="font-popins w-full text-left text-lg font-bold">Discussion forum</h6>
-                    <p className="w-1/2 text-left text-sm">
-                        Join online discussion forums to exchange ideas with other students and get help from teachers.
+                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Discussion Forum</h6>
+                    <p className="w-1/2 text-left text-lg">
+                        Share ideas and experiences with fellow learners and mental health experts in a guided online community.
                     </p>
                     <DecorImage
                         src="/images/decor-plant.png"
@@ -232,9 +233,9 @@ function WhatToGetSection() {
                     <div className="relative mb-8 size-24">
                         <Image src="/images/decor-learning-forum.png" alt="User 1" fill className="h-full w-full" />
                     </div>
-                    <h6 className="font-popins w-full text-left text-lg font-bold">Practice and quizzes</h6>
-                    <p className="font-popins w-full text-left text-sm font-medium">
-                        Test your understanding with challenging interactive exercises and quizzes.
+                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Practice and Quizzes</h6>
+                    <p className="font-popins w-full text-left text-lg font-medium">
+                        Test your skills and knowledge with interactive case-based quizzes, reflections, and practical exercises.
                     </p>
                 </div>
 
@@ -242,9 +243,9 @@ function WhatToGetSection() {
                     <div className="relative mb-8 size-24">
                         <Image src="/images/decor-learning-tutor.png" alt="User 1" fill className="h-full w-full" />
                     </div>
-                    <h6 className="font-popins w-full text-left text-lg font-bold">Discussion forum</h6>
-                    <p className="font-popins w-1/2 text-left text-sm font-medium">
-                        Join online discussion forums to exchange ideas with other students and get help from teachers.
+                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Learning Materials</h6>
+                    <p className="font-popins w-1/2 text-left text-lg font-medium">
+                        Access curated notes, toolkits, and mental health resources tailored for students and professionals alike.
                     </p>
                     <DecorImage
                         src="/images/decor-plant-2.png"
@@ -257,9 +258,9 @@ function WhatToGetSection() {
                     <div className="relative mb-8 size-24">
                         <Image src="/images/decor-learning-material.png" alt="User 1" fill className="h-full w-full" />
                     </div>
-                    <h6 className="font-popins w-full text-left text-lg font-bold">Discussion forum</h6>
-                    <p className="font-popins w-1/2 text-left text-sm font-medium">
-                        Join online discussion forums to exchange ideas with other students and get help from teachers.
+                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Expert Guidance</h6>
+                    <p className="font-popins w-1/2 text-left text-lg font-medium">
+                        Connect with licensed professionals for support, mentorship, and answers to your clinical learning queries.
                     </p>
                     <DecorImage
                         src="/images/decor-plant-3.png"
@@ -274,33 +275,35 @@ function WhatToGetSection() {
 }
 
 function PointsToJoinSection() {
-    const points = [
-        "Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.",
-        "Lorem ipsum dolor sit amet consectetur. ",
-        "Lorem ipsum dolor sit amet consectetur. Lorem Ipsum dolor sit.",
-        "Lorem ipsum dolor sit amet consectetur. Lorem ipsum.",
-        "Lorem ipsum dolor sit amet consectetur. Lorem Ipsum.",
-    ];
+    const points = {
+        "Clinical Internships": "Apply your skills in real therapy environments under expert guidance.",
+        "Coaching Workshops": "Join live sessions to build confidence and sharpen your counseling skills.",
+        "Self-paced Modules": "Learn anytime with structured, easy-to-follow lessons.",
+        "Case Discussions": "Analyze real-world cases and improve decision-making.",
+        "Expert Mentorship": "Get guidance from seasoned professionals in mental health.",
+    };
     return (
         <section className="section relative flex h-full flex-col items-center justify-center gap-4 py-4 md:flex-row">
             <div className="relative aspect-square min-h-[50vh] grow">
                 <Image src="/images/academy-bg.png" alt="Academy BG" fill className="h-full w-full" />
             </div>
             <div className="flex flex-col gap-4 pr-12">
-                <h2 className="font-popins relative text-3xl font-semibold md:text-5xl">
-                    Lorem Ipsum <span className="text-primary">dolor sit amet</span> consectetur
-                </h2>
+                <h2 className="font-popins relative text-3xl font-semibold md:text-5xl">Train . Certify . Grow</h2>
 
                 <p className="font-popins text-lg font-normal">
-                    Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet
-                    consectetur.Lorem ipsum dolor sit amet consectetur.
+                    Explore expert-led programs designed for aspiring mental health professionals—practical, flexible, and career-focused.
                 </p>
 
                 <div className="flex flex-col gap-6">
-                    {points.map((point, index) => (
-                        <div key={index} className="font-popins flex gap-2 rounded-2xl bg-white p-2 text-base font-medium">
-                            <span className="bg-primary size-6 shrink-0 rounded-full text-center">{index + 1}</span>
-                            <p className="text-base break-all">{point}</p>
+                    {Object.entries(points).map(([title, description], index) => (
+                        <div key={index} className="font-popins flex items-center gap-6 rounded-2xl bg-white p-4 text-base font-medium">
+                            <span className="bg-primary grid size-12 shrink-0 place-items-center rounded-full text-lg font-semibold">
+                                {index + 1}
+                            </span>
+                            <p className="text-lg break-all">
+                                <b className="mb-4">{title}</b> <br />
+                                {description}
+                            </p>
                         </div>
                     ))}
                 </div>
@@ -315,7 +318,7 @@ function DontMissInformationSection() {
     return (
         <section className="section relative flex grow flex-col items-center justify-center gap-6 py-8 md:gap-12">
             <h2 className="font-popins relative text-3xl font-semibold md:text-5xl">
-                Lorem Ipsum dolor sit <span className="bg-primary h-fit rounded-sm">amet Consectetur</span>
+                Frequently Asked <span className="bg-primary h-fit rounded-sm">Questions</span>
                 <DecorImage
                     src="/images/decor-flower.png"
                     alt="Decor Butterfly"
@@ -325,8 +328,7 @@ function DontMissInformationSection() {
             </h2>
 
             <p className="text-muted font-popins text-center text-sm md:max-w-3/4 md:text-lg">
-                Lorem Ipsum dolor sit amet ConsecteturLorem Ipsum dolor sit amet ConsecteturLorem Ipsum dolor sit amet ConsecteturLorem
-                Ipsum dolor sit amet Consectetur
+                Find quick answers to common questions about our programs, applications, schedules, and support.
             </p>
         </section>
     );
@@ -345,18 +347,12 @@ function SubscribeSection() {
                         className="right-0 bottom-0 translate-y-full"
                     />
                 </div>
-                <h2 className="font-popins relative text-3xl font-bold md:text-5xl">
+                <h2 className="font-popins relative text-3xl leading-16 font-bold md:text-5xl">
                     Don&apos;t miss any <br /> information from us<span className="text-accent h-fit rounded-sm">!</span>
                 </h2>
                 <p className="font-popins font-medium">Sign up to our regular newsletter for news, insight, new product releases & more.</p>
-                <div className="flex">
-                    <Input
-                        type="email"
-                        placeholder="Enter your Email Address"
-                        className="bg-background border-secondary-light h-16 rounded-r-none"
-                        size={58}
-                    />
-                    <Button className="h-16 w-fit rounded-l-none px-8">Submit</Button>
+                <div className="mr-26 flex">
+                    <SudentSubscription />
                 </div>
                 <p className="font-popins text-sm font-normal">
                     By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
@@ -364,39 +360,46 @@ function SubscribeSection() {
             </div>
 
             <div className="font-popins flex grow flex-col gap-4">
-                <h5 className="text-4xl font-bold">Lorem Ipsum dolor sit amet consec.</h5>
+                <h5 className="text-4xl leading-16 font-bold">
+                    Frequently Asked <span className="bg-primary h-fit rounded-sm">Questions</span>
+                </h5>
                 <p className="text-base">
-                    Lorem Ipsum dolor sit amet consec.Lorem Ipsum dolor sit amet consec.Lorem Ipsum dolor sit amet consec.Lorem Ipsum dolor
-                    sit amet consec.
+                    Find quick answers to common questions about our programs, applications, schedules, and support.
                 </p>
                 <Accordion type="single" collapsible className="text-lg">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
-                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                        <AccordionTrigger>1. How long is the internship?</AccordionTrigger>
+                        <AccordionContent>8–12 weeks, based on your schedule.</AccordionContent>
                     </AccordionItem>
+
                     <AccordionItem value="item-2">
-                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
-                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                        <AccordionTrigger>2. Who can apply?</AccordionTrigger>
+                        <AccordionContent>Students in psychology or related fields.</AccordionContent>
                     </AccordionItem>
+
                     <AccordionItem value="item-3">
-                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
-                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                        <AccordionTrigger>3. How do I apply?</AccordionTrigger>
+                        <AccordionContent>Fill out the form on our website.</AccordionContent>
                     </AccordionItem>
+
                     <AccordionItem value="item-4">
-                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
-                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                        <AccordionTrigger>4. Are sessions live or recorded?</AccordionTrigger>
+                        <AccordionContent>Both options are available.</AccordionContent>
                     </AccordionItem>
+
                     <AccordionItem value="item-5">
-                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
-                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                        <AccordionTrigger>5. What do courses cover?</AccordionTrigger>
+                        <AccordionContent>Therapy skills, ethics, assessments, and more.</AccordionContent>
                     </AccordionItem>
+
                     <AccordionItem value="item-6">
-                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
-                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                        <AccordionTrigger>6. Do I get a certificate?</AccordionTrigger>
+                        <AccordionContent>Yes, after successful completion.</AccordionContent>
                     </AccordionItem>
+
                     <AccordionItem value="item-7">
-                        <AccordionTrigger>Lorem Ipsum dolor sit amet consec.?</AccordionTrigger>
-                        <AccordionContent>Lorem Ipsum dolor sit amet consec.?</AccordionContent>
+                        <AccordionTrigger>7. Are coaching sessions paid?</AccordionTrigger>
+                        <AccordionContent>Yes, pricing is listed per course. Internships are free.</AccordionContent>
                     </AccordionItem>
                 </Accordion>
             </div>

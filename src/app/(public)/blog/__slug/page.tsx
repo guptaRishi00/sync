@@ -46,8 +46,8 @@ export default async function BlogSlugPage({ params }: Props) {
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"
                     alt="Decor Butterfly"
-                    size={[400, 400]}
-                    className="top-0 right-0 translate-x-1/6 -translate-y-1/4"
+                    size={[600, 600]}
+                    className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
                     src="/images/home-decore-5.png"

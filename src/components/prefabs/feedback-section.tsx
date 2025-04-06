@@ -40,9 +40,9 @@ export default function FeedbackSection() {
                             Karnataka 560070 <br />
                         </p>
                         <h4>Phone Number</h4>
-                        <p>+91 81053 39647</p>
+                        <p>+91 9980539955</p>
                         <h4>E-Mail</h4>
-                        <p className="pb-42">support@syncpositivepsychatry.com</p>
+                        <p className="pb-42">Connect@SyNCpositivepsychiatry.com</p>
 
                         <DecorImage src="/images/decor-cat.png" alt="Cat Decor" size={[200, 200]} className="right-0 bottom-0" />
                     </div>
