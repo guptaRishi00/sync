@@ -30,32 +30,36 @@ const getAuth = () => {
     return auth;
 };
 
-export const addConnectDetails = async (email: string, name: string, subject: string, message: string) => {
+export const addConnectDetails = async (email: string, name: string, subject: string, message: string): Promise<boolean> => {
     const sheets = google.sheets({ version: "v4", auth: getAuth() });
 
     if (!isEmailValid(email)) {
         console.error("Invalid email address:", email);
         return false;
     }
-
-    sheets.spreadsheets.values.append(
-        {
-            spreadsheetId: "1WDdxo3tPWHu5xP0C0QILIxwZBS-eeaYZH-pqHN-GE4Q",
-            range: "ContactUs!A:A",
-            valueInputOption: "RAW",
-            requestBody: {
-                values: [[name, email, subject, message, formatDateTime(dayjs())]],
+    const promise = new Promise<boolean>((resolve, reject) => {
+        sheets.spreadsheets.values.append(
+            {
+                spreadsheetId: "1WDdxo3tPWHu5xP0C0QILIxwZBS-eeaYZH-pqHN-GE4Q",
+                range: "ContactUs!A:A",
+                valueInputOption: "RAW",
+                requestBody: {
+                    values: [[name, email, subject, message, formatDateTime(dayjs())]],
+                },
             },
-        },
-        (err, result) => {
-            if (err) {
-                console.error("Error adding subscription:", err);
-                return false;
-            }
-            console.log(`${result?.data.updates?.updatedCells} cells appended.`);
-            return true;
-        },
-    );
+            (err, result) => {
+                if (err) {
+                    console.error("Error adding subscription:", err);
+                    reject(false);
+                    return;
+                }
+                console.log(`${result?.data.updates?.updatedCells} cells appended.`);
+                resolve(true);
+            },
+        );
+    });
+
+    return await promise;
 };
 
 export const addSubscribtion = async (email: string, isStudentSubscription: boolean = false) => {
@@ -66,24 +70,28 @@ export const addSubscribtion = async (email: string, isStudentSubscription: bool
         return false;
     }
 
-    sheets.spreadsheets.values.append(
-        {
-            spreadsheetId: "1WDdxo3tPWHu5xP0C0QILIxwZBS-eeaYZH-pqHN-GE4Q",
-            range: isStudentSubscription ? "StudentSubscription!A:A" : "Subscription!A:A",
-            valueInputOption: "RAW",
-            requestBody: {
-                values: [[email, formatDateTime(dayjs())]],
+    const promise = new Promise<boolean>((resolve, reject) => {
+        sheets.spreadsheets.values.append(
+            {
+                spreadsheetId: "1WDdxo3tPWHu5xP0C0QILIxwZBS-eeaYZH-pqHN-GE4Q",
+                range: isStudentSubscription ? "StudentSubscription!A:A" : "Subscription!A:A",
+                valueInputOption: "RAW",
+                requestBody: {
+                    values: [[email, formatDateTime(dayjs())]],
+                },
             },
-        },
-        (err, result) => {
-            if (err) {
-                console.error("Error adding subscription:", err);
-                return false;
-            }
-            console.log(`${result?.data.updates?.updatedCells} cells appended.`);
-            return true;
-        },
-    );
+            (err, result) => {
+                if (err) {
+                    console.error("Error adding subscription:", err);
+                    return false;
+                }
+                console.log(`${result?.data.updates?.updatedCells} cells appended.`);
+                return true;
+            },
+        );
+    });
+
+    return await promise;
 };
 
 const emailRegex =

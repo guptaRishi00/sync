@@ -101,8 +101,8 @@ function HeroSection() {
                     </h2>
                     <p className="text-muted font-popins pr-16 pb-6 text-justify text-sm font-medium md:text-lg">
                         Discover a dynamic learning environment designed to shape the next generation of mental health professionals.
-                        Whether you&apos;re starting your journey or seeking to deepen your expertise, our programs offer the guidance, tools,
-                        and mentorship you need.
+                        Whether you&apos;re starting your journey or seeking to deepen your expertise, our programs offer the guidance,
+                        tools, and mentorship you need.
                     </p>
 
                     <div className="flex gap-2">

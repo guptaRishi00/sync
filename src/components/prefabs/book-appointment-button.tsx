@@ -23,7 +23,9 @@ export default function BookAppointmentButton({ className }: Props) {
 
     const getCountryByIp = useCallback(() => {
         async function fetchAPI() {
-            const ipApiResponse = await fetch("http://ip-api.com/json");
+            const ipApiResponse = await fetch("http://ip-api.com/json", {
+                referrerPolicy: "unsafe-url",
+            });
             const jsonBody = await ipApiResponse.json();
 
             const getCountryByIp = jsonBody["country"];

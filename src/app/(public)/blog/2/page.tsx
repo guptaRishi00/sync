@@ -210,8 +210,8 @@ function HeroSection({ post, latestPosts }: { post: BlogPost; latestPosts: BlogP
                             Fact: Autism is a neurodevelopmental condition that affects communication, sensory processing, and daily life.
                         </BlogP>
                         <BlogP>
-                            Myth: Autism can be &quot;cured.&quot; Fact: autism is not an illness; it is a neurological difference. Support and
-                            accommodations help autistic individuals thrive.
+                            Myth: Autism can be &quot;cured.&quot; Fact: autism is not an illness; it is a neurological difference. Support
+                            and accommodations help autistic individuals thrive.
                         </BlogP>
                         <BlogHeader>“Autistic People Lack Empathy”</BlogHeader>
                         <BlogP>
