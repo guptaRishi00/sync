@@ -14,6 +14,9 @@ type Props = {
 export default function RootLayout({ children }: Props) {
     return (
         <html lang="en" suppressHydrationWarning>
+            <head>
+                <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+            </head>
             <body>
                 <GlobalProvider>{children}</GlobalProvider>
                 <div className="fixed right-12 bottom-34 z-50 flex flex-col-reverse items-end justify-start gap-4">
