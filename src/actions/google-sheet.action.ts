@@ -62,7 +62,7 @@ export const addConnectDetails = async (email: string, name: string, subject: st
     return await promise;
 };
 
-export const addSubscribtion = async (email: string, isStudentSubscription: boolean = false) => {
+export const addSubscribtion = async (email: string, isStudentSubscription: boolean = false): Promise<boolean> => {
     const sheets = google.sheets({ version: "v4", auth: getAuth() });
 
     if (!isEmailValid(email)) {
@@ -83,10 +83,10 @@ export const addSubscribtion = async (email: string, isStudentSubscription: bool
             (err, result) => {
                 if (err) {
                     console.error("Error adding subscription:", err);
-                    return false;
+                    reject(false);
                 }
                 console.log(`${result?.data.updates?.updatedCells} cells appended.`);
-                return true;
+                resolve(true);
             },
         );
     });
