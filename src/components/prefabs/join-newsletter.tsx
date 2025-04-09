@@ -47,12 +47,12 @@ export default function JoinNewsLetter() {
                 <Input
                     type="email"
                     placeholder="Enter your Email Address"
-                    className="bg-background border-secondary-light h-16 rounded-r-none"
-                    size={58}
+                    className="bg-background border-secondary-light h-16 rounded-r-none placeholder:text-base"
+                    size={45}
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                 />
-                <Button className="h-16 w-fit rounded-l-none px-8" onClick={() => handleSubmit(inputValue)}>
+                <Button className="h-16 w-fit rounded-l-none px-8 text-base" onClick={() => handleSubmit(inputValue)}>
                     Submit
                 </Button>
             </div>
@@ -61,7 +61,7 @@ export default function JoinNewsLetter() {
                 <p className="font-popins text-secondary text-center text-sm font-normal italic">
                     Disclaimer : We do not specialize in crisis intervention and emergency services.
                     <br />
-                    We urge you to contact your nearest hospital if you experience distress or thoughts of suicide and self
+                    We urge you to contact your nearest hospital if you experience distress or thoughts of suicide and self harm.
                 </p>
             </div>
         </section>

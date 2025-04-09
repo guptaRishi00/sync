@@ -5,19 +5,23 @@ import DecorImage from "@/components/prefabs/decor-image";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Checkbox } from "../ui/checkbox";
+import { WHATSAPP_LINK } from "./whatsapp-button";
 
 type Props = {
     className?: string;
 };
 
 export default function BookAppointmentButton({ className }: Props) {
-    const [openDialog, setOpenDialog] = useState(false);
+    const [openLocationDialog, setOpenLocationDialog] = useState(false);
     const [openBookTypeDialog, setOpenBookTypeDialog] = useState(false);
     const [openFollowupDialog, setOpenFollowupDialog] = useState(false);
     const [isTermsAccepted, setIsTermsAccepted] = useState(false);
+
+    const [isRedirecting, setIsRedirecting] = useState(false);
 
     const [country, setCountry] = useState<string | undefined>(undefined);
 
@@ -32,16 +36,32 @@ export default function BookAppointmentButton({ className }: Props) {
         fetchAPI();
     }, []);
 
+    useEffect(() => {
+        setIsRedirecting(false);
+    }, []);
+
     const onBookAppointmentClick = useCallback(() => {
         if (!country) {
             getCountryByIp();
         }
-        setOpenDialog(true);
+        setOpenBookTypeDialog(true);
     }, [country, getCountryByIp]);
 
     const onContinueClick = useCallback(() => {
-        setOpenBookTypeDialog(true);
-        setOpenDialog(false);
+        // Redirect
+        if (isRedirecting) return;
+        setIsRedirecting(true);
+
+        (async function redirect() {
+            const urlType = "pa";
+            await redirectToTopperStage(urlType, country);
+            // setOpenLocationDialog(false);
+        })();
+    }, []);
+
+    const onNewPatientClick = useCallback(() => {
+        setOpenLocationDialog(true);
+        setOpenBookTypeDialog(false);
     }, []);
 
     const onBookTypeClick = useCallback(
@@ -72,10 +92,10 @@ export default function BookAppointmentButton({ className }: Props) {
                 Book an Appointment
             </Button>
 
-            <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-                <DialogContent className="h-148 overflow-auto sm:max-w-[825px] md:overflow-hidden">
+            <Dialog open={openLocationDialog} onOpenChange={setOpenLocationDialog}>
+                <DialogContent className="h-158 overflow-auto sm:max-w-[825px] md:overflow-hidden">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
-                    <DialogHeader className="flex flex-col items-center gap-12 pt-12">
+                    <DialogHeader className="flex flex-col items-center pt-8">
                         <DialogTitle className="font-popins relative text-2xl font-bold md:text-4xl">
                             Help Us Personalize Your Care
                             <DecorImage
@@ -85,10 +105,21 @@ export default function BookAppointmentButton({ className }: Props) {
                                 className="right-0 bottom-0 translate-x-full translate-y-1/2"
                             />
                         </DialogTitle>
-                        <DialogDescription className="text-foreground font-popins text-center text-base font-medium md:w-3/4 md:text-xl">
-                            At SyNC Positive Psychiatry, we aim to connect you with the most suitable services and professionals near you.
-                            By allowing location access, we can provide tailored care options based on your region. Your privacy is
-                            important to us, and your information will be used solely to enhance your experience.
+
+                        <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
+                            <video
+                                controls
+                                preload="none"
+                                className="h-full overflow-hidden rounded-2xl object-cover"
+                                poster="/images/home-video.jpg"
+                            >
+                                <source src="/videos/what is sync yt.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <DialogDescription className="text-foreground font-popins my-5 aspect-1920/3 w-full text-center text-sm font-medium md:w-2/3 md:text-base">
+                            SyNC Positive Psychiatry connects you with local care while respecting your privacy.
                         </DialogDescription>
 
                         <div className="flex items-center justify-center gap-4">
@@ -108,10 +139,10 @@ export default function BookAppointmentButton({ className }: Props) {
                         <Button
                             type="submit"
                             className="font-popins mx-auto px-8 py-6 text-2xl font-semibold md:w-1/3"
-                            disabled={!country || !isTermsAccepted}
+                            disabled={!country || !isTermsAccepted || isRedirecting}
                             onClick={onContinueClick}
                         >
-                            Continue
+                            {isRedirecting ? "Redirecting" : "Continue"}
                         </Button>
                     </DialogFooter>
                     <DecorImage
@@ -124,9 +155,9 @@ export default function BookAppointmentButton({ className }: Props) {
             </Dialog>
 
             <Dialog open={openBookTypeDialog} onOpenChange={setOpenBookTypeDialog}>
-                <DialogContent className="h-148 overflow-auto sm:max-w-[825px] md:overflow-hidden">
+                <DialogContent className="flex h-158 flex-col overflow-hidden sm:max-w-[825px]">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
-                    <DialogHeader className="flex flex-col items-center gap-2 pt-12 md:gap-6">
+                    <DialogHeader className="flex flex-col items-center gap-2 pt-8 md:gap-6">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
                             Choose How You’d Like to Book
                             <DecorImage
@@ -141,6 +172,26 @@ export default function BookAppointmentButton({ className }: Props) {
                         </DialogDescription>
                     </DialogHeader>
 
+                    <div className="flex grow flex-col items-center justify-center gap-6">
+                        <div
+                            className="from-secondary-light flex h-38 w-full cursor-pointer items-center justify-between rounded-2xl bg-linear-to-br to-[#69482D] p-12"
+                            onClick={onNewPatientClick}
+                        >
+                            <div></div>
+                            <h6 className="text-4xl font-semibold text-white">New Patient</h6>
+                            <ArrowRight size={42} className="stroke-white" />
+                        </div>
+
+                        <div
+                            className="flex h-38 w-full cursor-pointer items-center justify-between rounded-2xl bg-linear-to-br from-[#1080F8] to-[#1365BE] p-12"
+                            onClick={() => onBookTypeClick("follow-up")}
+                        >
+                            <div></div>
+                            <h6 className="text-4xl font-semibold text-white">Existing Patient</h6>
+                            <ArrowRight size={42} className="stroke-white" />
+                        </div>
+                    </div>
+                    {/* 
                     <div className="bg-secondary-light cursor-pointer rounded-2xl p-6" onClick={() => onBookTypeClick("with-assessment")}>
                         <h5 className="text-sm font-bold text-white md:text-lg">With Assessment</h5>
                         <p className="text-sm text-white">
@@ -157,7 +208,7 @@ export default function BookAppointmentButton({ className }: Props) {
                             For follow-up appointments, please contact our team directly through WhatsApp for quick assistance and
                             scheduling.
                         </p>
-                    </div>
+                    </div> */}
 
                     <DecorImage
                         src="/images/decor-leaves.png"
@@ -169,7 +220,7 @@ export default function BookAppointmentButton({ className }: Props) {
             </Dialog>
 
             <Dialog open={openFollowupDialog} onOpenChange={setOpenFollowupDialog}>
-                <DialogContent className="h-148 overflow-auto sm:max-w-[825px] md:overflow-hidden">
+                <DialogContent className="h-158 overflow-auto sm:max-w-[825px] md:overflow-hidden">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex h-full flex-col items-center gap-6 p-12">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
@@ -185,13 +236,13 @@ export default function BookAppointmentButton({ className }: Props) {
                             We’re here to assist you with your follow-up scheduling
                         </DialogDescription>
                         <div className="flex grow flex-col items-center justify-between gap-6 rounded-2xl bg-[#AC9D81] py-8 text-2xl text-white md:px-24">
-                            <span className="z-20">
+                            <span className="z-20 pt-6">
                                 For follow-up consultations, we kindly request you to reach out to our team via WhatsApp. This will help us
                                 assist you faster and find the most convenient slot for you.
                             </span>
-                            <Button className="z-10 mb-8 w-44 py-6 text-lg">
+                            <Button className="flex gap-4 z-10 mb-8 w-48 py-6 text-lg" onClick={() => window.open(WHATSAPP_LINK)}>
                                 <svg
-                                    className="scale-125"
+                                    className="scale-200"
                                     xmlns="http://www.w3.org/2000/svg"
                                     x="0px"
                                     y="0px"
@@ -222,7 +273,7 @@ export default function BookAppointmentButton({ className }: Props) {
                                         clipRule="evenodd"
                                     ></path>
                                 </svg>
-                                Chat with Us
+                                <span>Chat with Us</span>
                             </Button>
                         </div>
                     </DialogHeader>

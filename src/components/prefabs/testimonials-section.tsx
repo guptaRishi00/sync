@@ -134,7 +134,7 @@ export default function TestimonialsSection() {
                                         </div>
                                     </div>
 
-                                    <p className="text-muted text-sm">{testimonial.description}</p>
+                                    <p className="text-muted text-base">{testimonial.description}</p>
                                 </div>
                             </CarouselItem>
                         ))}

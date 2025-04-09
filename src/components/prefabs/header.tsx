@@ -17,7 +17,7 @@ export default function Header() {
     return (
         <div className="flex items-center justify-between">
             {/* logo */}
-            <div className="relative aspect-135/44 w-20 cursor-pointer md:w-34" onClick={onLogoClick}>
+            <div className="relative aspect-3454/574 w-20 cursor-pointer md:w-34" onClick={onLogoClick}>
                 <Image src="/images/logo.png" alt="SYNC" fill className="object-contain" />
             </div>
 
@@ -31,7 +31,8 @@ export default function Header() {
                         <span className="h-1 w-4/5 rounded-full bg-slate-950" />
                     </div>
                 </SheetTrigger>
-                <SheetContent className="flex w-full flex-col justify-center">
+                <SheetContent className="flex w-1/3 sm:max-w-none flex-col justify-center">
+
                     <SheetHeader>
                         <SheetTitle className="hidden"></SheetTitle>
                         <SheetDescription className="hidden"></SheetDescription>

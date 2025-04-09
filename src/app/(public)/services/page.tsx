@@ -1,11 +1,11 @@
 import BookAppointmentButton from "@/components/prefabs/book-appointment-button";
 import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
 import DecorImage from "@/components/prefabs/decor-image";
+import EvaluationMethodologiesSection from "@/components/prefabs/evalidation-methodologies-section";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 
 export default async function ServicesPage() {
@@ -113,146 +113,6 @@ function HeroSection() {
             </div>
 
             <div className="md:grow"></div>
-        </section>
-    );
-}
-
-function EvaluationMethodologiesSection() {
-    // const _content = [
-    //     {
-    //         section: "screening",
-    //         title: "Your Journey",
-    //         description:
-    //             "This 60-minute talk is designed to capture your genetic profile, neurobiological profile, and life story- in simple terms, the ‘hardware and software’ of your being.",
-    //         points: ["A session with? A one-on-one session with a Therapist", "Where? Join us at our center or connect online."],
-    //     },
-    //     {
-    //         section: "assessments",
-    //         title: "Guided Discovery",
-    //         description: "An essential part of the process is to gain an understanding of the individual.",
-    //         points: [
-    //             "What are these assessments? These check-ins help the therapist understand how you think, feel, and behave.",
-    //             "Why are they required?  These assessments capture the nuances of your mind, providing deeper insight for you and the therapist.",
-    //         ],
-    //     },
-    //     {
-    //         section: "diagnosis",
-    //         title: "Breakthrough",
-    //         description:
-    //             "This is the moment of clarity in your journey—where patterns, challenges, and strengths come into focus. With this clarity, you and the therapist can optimize a path for your well-being.",
-    //         points: [
-    //             "What happens here? You gain insight into the ‘why’ behind your thoughts and behaviors.",
-    //             "Why is it important? It sets the direction for focused, effective healing.",
-    //         ],
-    //     },
-    // ];
-
-    const content = [
-        {
-            section: "screening",
-            title: "Your Journey",
-            description:
-                "This 60-minute talk is designed to capture your genetic profile, neurobiological profile, and life story- in simple terms, the ‘hardware and software’ of your being.",
-            points: ["A one-on-one session with a Therapist", "Join us at our center or connect online."],
-        },
-        {
-            section: "assessments",
-            title: "Guided Discovery",
-            description: "An essential part of the process is to gain an understanding of the individual.",
-            points: [
-                "These check-ins help the therapist understand how you think, feel, and behave.",
-                "These assessments capture the nuances of your mind, providing deeper insight for you and the therapist.",
-            ],
-        },
-        {
-            section: "diagnosis",
-            title: "Breakthrough",
-            description:
-                "This is the moment of clarity in your journey—where patterns, challenges, and strengths come into focus. With this clarity, you and the therapist can optimize a path for your well-being.",
-            points: [
-                "You gain insight into the ‘why’ behind your thoughts and behaviors.",
-                "It sets the direction for focused, effective healing.",
-            ],
-        },
-    ];
-
-    return (
-        <section className="section relative flex grow flex-col items-center justify-center gap-6 md:gap-12">
-            <h2 className="font-popins relative text-3xl font-semibold md:text-5xl">
-                The Process, <span className="bg-primary rounded-sm px-1">Simplified</span>
-            </h2>
-            <p className="text-muted font-popins text-center text-sm font-normal md:text-lg">
-                Your mental health journey doesn’t have to be overwhelming.
-                <br />
-                Here’s a simple, structured path to help you understand yourself better and begin healing.
-            </p>
-
-            <Tabs defaultValue="screening" className="w-full md:w-146 lg:w-246">
-                <TabsList className="text-secondary relative mx-auto h-16 bg-white p-3 md:gap-12">
-                    {content.map((item) => (
-                        <TabsTrigger
-                            className="data-[state=active]:bg-primary font-popins px-8 py-4 text-lg font-medium"
-                            value={item.section}
-                            key={item.section}
-                        >
-                            {item.title}
-                        </TabsTrigger>
-                    ))}
-
-                    <DecorImage
-                        src="/images/decor-butterfly.png"
-                        alt="Decor Butterfly"
-                        size={[44, 44]}
-                        className="top-0 left-0 -translate-full"
-                    />
-                    <DecorImage
-                        src="/images/decor-highlight.png"
-                        alt="Decor Highlight"
-                        size={[12, 12]}
-                        className="top-0 right-0 z-20 translate-x-full -translate-y-full rotate-90"
-                    />
-                </TabsList>
-                <div className="p-1"></div>
-                {content.map((item) => (
-                    <TabsContent
-                        key={item.section}
-                        value={item.section}
-                        className="from-primary-light to-primary font-popins relative w-full rounded-2xl bg-linear-90 p-8 text-2xl md:p-16"
-                    >
-                        <p className="mb-8">{item.description}</p>
-                        <ul className="mt-2 list-none space-y-1.5">
-                            {item.points.map((point, index) => (
-                                <li key={index}>• {point}</li>
-                            ))}
-                        </ul>
-
-                        <div className="border-primary absolute bottom-0 left-1/2 w-68 -translate-x-1/2 translate-y-1/2 rounded-2xl border-3 bg-white p-3 text-center">
-                            {item.title}
-                        </div>
-
-                        <DecorImage
-                            src="/images/decor-plant-1.png"
-                            alt="Decor Highlight"
-                            size={[120, 120]}
-                            className="right-0 bottom-0 z-40 translate-y-1/6"
-                        />
-
-                        <DecorImage
-                            src="/images/decor-butterfly-2.png"
-                            alt="Decor Smile"
-                            size={[100, 100]}
-                            className="border-primary top-1/2 right-0 z-20 translate-x-1/2 -translate-y-1/2 rounded-2xl border-3 bg-white p-4"
-                        />
-
-                        <DecorImage
-                            src="/images/decor-highlight.png"
-                            alt="Decor Highlight"
-                            size={[16, 16]}
-                            className="bottom left-0 z-20 -translate-x-full translate-y-full -rotate-90"
-                        />
-                    </TabsContent>
-                ))}
-            </Tabs>
         </section>
     );
 }

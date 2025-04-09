@@ -65,7 +65,7 @@ export default function ConnectToSyncSection() {
                     <div className="flex gap-4">
                         <Input
                             placeholder="Enter your Name"
-                            className="bg-background border-secondary h-16"
+                            className="bg-background border-secondary h-16 placeholder:text-base"
                             size={48}
                             value={name}
                             onChange={(e) => setName(e.target.value)}
@@ -73,7 +73,7 @@ export default function ConnectToSyncSection() {
                         <Input
                             type="email"
                             placeholder="Enter your Email Address"
-                            className="bg-background border-secondary h-16"
+                            className="bg-background border-secondary h-16 placeholder:text-base"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -81,19 +81,19 @@ export default function ConnectToSyncSection() {
 
                     <Input
                         placeholder="Enter your Subject"
-                        className="bg-background border-secondary h-16"
+                        className="bg-background border-secondary h-16 placeholder:text-base"
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)}
                     />
 
                     <Textarea
                         placeholder="Message"
-                        className="bg-background border-secondary h-16 grow"
+                        className="bg-background border-secondary h-16 grow placeholder:text-base"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                     />
 
-                    <Button className="w-full py-6" onClick={() => handleSubmit(email, name, subject, message)}>
+                    <Button className="w-full py-6 text-base" onClick={() => handleSubmit(email, name, subject, message)}>
                         Send your message
                     </Button>
                 </div>

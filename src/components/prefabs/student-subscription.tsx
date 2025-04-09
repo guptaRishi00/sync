@@ -19,12 +19,12 @@ export default function SudentSubscription() {
             <Input
                 type="email"
                 placeholder="Enter your Email Address"
-                className="bg-background border-secondary-light h-16 rounded-r-none"
-                size={58}
+                className="bg-background border-secondary-light h-16 rounded-r-none placeholder:text-base"
+                size={45}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
-            <Button className="h-16 w-fit rounded-l-none px-8" onClick={() => handleSubmit(email)}>
+            <Button className="h-16 w-fit rounded-l-none px-8 text-base" onClick={() => handleSubmit(email)}>
                 Submit
             </Button>
         </>
