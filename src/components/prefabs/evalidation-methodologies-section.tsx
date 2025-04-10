@@ -13,13 +13,15 @@ export default function EvaluationMethodologiesSection() {
         {
             section: "Assessments",
             title: "Get Guided Discovery",
-            description: "An essential part of the process is to gain an understanding of your being. These check-ins help the therapist understand how you think, feel, and behave while capturing the nuances of your mind.",
+            description:
+                "An essential part of the process is to gain an understanding of your being. These check-ins help the therapist understand how you think, feel, and behave while capturing the nuances of your mind.",
             points: [],
         },
         {
             section: "Diagnosis",
             title: "Breakthrough",
-            description: "This is the moment of clarity in your journey—where patterns, challenges, and strengths come into focus. With this clarity, you and the therapist can optimize a path for your well-being.",
+            description:
+                "This is the moment of clarity in your journey—where patterns, challenges, and strengths come into focus. With this clarity, you and the therapist can optimize a path for your well-being.",
             points: [],
         },
     ];
@@ -65,7 +67,7 @@ export default function EvaluationMethodologiesSection() {
                     <TabsContent
                         key={item.section}
                         value={item.section}
-                        className="from-primary-light to-primary font-popins relative w-full rounded-xl bg-linear-90 p-8 text-xl md:p-16 min-h-80"
+                        className="from-primary-light to-primary font-popins relative min-h-80 w-full rounded-xl bg-linear-90 p-8 text-xl md:p-16"
                     >
                         <p className="mb-8 px-6">{item.description}</p>
                         <ul className="mt-2 list-none space-y-1.5">

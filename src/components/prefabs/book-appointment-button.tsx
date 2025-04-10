@@ -57,7 +57,7 @@ export default function BookAppointmentButton({ className }: Props) {
             await redirectToTopperStage(urlType, country);
             // setOpenLocationDialog(false);
         })();
-    }, []);
+    }, [country, isRedirecting]);
 
     const onNewPatientClick = useCallback(() => {
         setOpenLocationDialog(true);
@@ -240,7 +240,7 @@ export default function BookAppointmentButton({ className }: Props) {
                                 For follow-up consultations, we kindly request you to reach out to our team via WhatsApp. This will help us
                                 assist you faster and find the most convenient slot for you.
                             </span>
-                            <Button className="flex gap-4 z-10 mb-8 w-48 py-6 text-lg" onClick={() => window.open(WHATSAPP_LINK)}>
+                            <Button className="z-10 mb-8 flex w-48 gap-4 py-6 text-lg" onClick={() => window.open(WHATSAPP_LINK)}>
                                 <svg
                                     className="scale-200"
                                     xmlns="http://www.w3.org/2000/svg"

@@ -47,7 +47,7 @@ export default function ExportServiceCard({ imagePath, title, description, isBoo
                     <div className="relative aspect-387/267 w-full overflow-hidden rounded-2xl">
                         <Image loading="lazy" alt={title} fill src={imagePath as string} className="object-cover" />
                     </div>
-                    <h3 className="font-popins text-lg mt-4 font-semibold md:text-2xl">{title}</h3>
+                    <h3 className="font-popins mt-4 text-lg font-semibold md:text-2xl">{title}</h3>
                     <p className={cn("text-muted font-popins text-justify text-base font-medium", !title && "mt-2")}>{description}</p>
                 </>
             )}

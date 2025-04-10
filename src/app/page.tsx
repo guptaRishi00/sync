@@ -200,7 +200,7 @@ function ExpertServicesSection() {
     ];
 
     return (
-        <section className="section flex flex-col items-center gap-12 md:gap-16 pt-4">
+        <section className="section flex flex-col items-center gap-12 pt-4 md:gap-16">
             <div className="font-popins flex items-center gap-4 text-2xl font-semibold md:text-4xl">
                 <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
                     <h2 className="">Expert Services</h2>
@@ -228,8 +228,8 @@ function ExpertServicesSection() {
                 ))}
             </div>
 
-            <div className="flex flex-col-reverse items-start gap-4 md:flex-row my-6">
-                <div className="relative flex flex-col gap-54 pr-12 text-center md:max-w-1/2 md:gap-6 md:text-start mt-8">
+            <div className="my-6 flex flex-col-reverse items-start gap-4 md:flex-row">
+                <div className="relative mt-8 flex flex-col gap-54 pr-12 text-center md:max-w-1/2 md:gap-6 md:text-start">
                     <Button
                         variant="outline"
                         className="hover:bg-background border-primary font-inter w-fit rounded-full bg-white font-normal"
@@ -275,8 +275,8 @@ function ExpertServicesSection() {
                 </div>
             </div>
 
-            <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-3 md:gap-16 mb-8">
-                <Button className="flex h-58  w-full flex-col items-center justify-center rounded-2xl">
+            <div className="mb-8 grid w-full grid-cols-1 gap-8 md:grid-cols-3 md:gap-16">
+                <Button className="flex h-58 w-full flex-col items-center justify-center rounded-2xl">
                     <h4 className="font-sora text-5xl font-bold lg:text-7xl">10+</h4>
                     <p className="font-popins text-lg font-normal text-wrap">Certified Specialists.</p>
                 </Button>
