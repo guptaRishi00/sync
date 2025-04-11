@@ -28,15 +28,15 @@ export default async function BlogSlugPage({ params }: Props) {
                 {post && <HeroSection post={post} latestPosts={latestPosts} />}
             </main>
 
-            <main className="main bg-secondary/10 md:min-h-fit!">
+            <main className="main bg-secondary/10 hidden md:min-h-fit!">
                 <CommonQuoteSection />
             </main>
 
-            <main className="main bg-secondary/20 md:min-h-fit!">
+            <main className="main bg-secondary/20 hidden md:min-h-fit!">
                 <VibeSection />
             </main>
 
-            <main className="main overflow-hidden py-8">
+            <main className="main hidden overflow-hidden py-8">
                 <HealthRequirementSection />
             </main>
 
@@ -68,7 +68,7 @@ export default async function BlogSlugPage({ params }: Props) {
 
 function HeroSection({ post, latestPosts }: { post: BlogPost; latestPosts: BlogPost[] }) {
     return (
-        <section className="relative flex min-h-full grow flex-col gap-4 py-8 sm:py-12 md:py-16">
+        <section className="section relative flex min-h-full grow flex-col gap-4 py-8 sm:py-12 md:py-16">
             {/* Header */}
             <div className="mb-8 w-full">
                 <Header />
@@ -77,16 +77,15 @@ function HeroSection({ post, latestPosts }: { post: BlogPost; latestPosts: BlogP
             <div className="flex grow flex-col gap-4">
                 <span className="bg-primary font-popins w-fit rounded-sm px-2 py-1 text-xs font-medium">{post.type}</span>
                 <h4 className="font-popins text-4xl font-semibold tracking-wide">{post.title}</h4>
-
-                <div className="flex h-fit flex-col gap-6 md:flex-row">
+                <div className="text-muted flex flex-col items-start gap-1 text-sm">
+                    <div className="relative hidden size-9 shrink-0 overflow-hidden rounded-full">
+                        <Image src={post.authorImage} alt={post.author} fill />
+                    </div>
+                    <p className="font-popins text-sm font-normal">{post.author}</p>
+                    <p className="font-popins text-sm font-normal">{post.date.format("MMMM DD, YYYY")}</p>
+                </div>
+                <div className="flex h-fit flex-col gap-10 md:flex-row">
                     <div className="flex h-fit grow flex-col gap-6">
-                        <div className="text-muted flex items-center gap-4 text-sm">
-                            <div className="relative size-9 shrink-0 overflow-hidden rounded-full">
-                                <Image src={post.authorImage} alt={post.author} fill />
-                            </div>
-                            <p className="font-popins text-sm font-normal">{post.author}</p>
-                            <p className="font-popins text-sm font-normal">{post.date.format("MMMM DD, YYYY")}</p>
-                        </div>
                         <div className="relative aspect-5/3 w-full">
                             <Image src={post.image} alt={post.title} fill className="rounded-xl object-cover" />
                         </div>
@@ -202,7 +201,7 @@ function HeroSection({ post, latestPosts }: { post: BlogPost; latestPosts: BlogP
                         </ul>
                     </div>
                     <div className="flex min-w-1/4 flex-col gap-6">
-                        <h3 className="font-popins text-2xl font-bold">Latest Post</h3>
+                        <h3 className="font-popins text-xl font-semibold">Latest Post</h3>
 
                         <div className="grid-col-1 mb-4 grid gap-6">
                             {latestPosts && latestPosts.map((post) => <BlogCard key={post.slug} post={post} />)}

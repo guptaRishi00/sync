@@ -86,7 +86,7 @@ export default function BookAppointmentButton({ className }: Props) {
     return (
         <>
             <Button
-                className={cn("font-popins text-foreground w-fit rounded-xs px-10 py-8 font-bold md:text-lg", className)}
+                className={cn("font-popins text-foreground w-fit rounded-xs px-10 py-8 font-semibold md:text-base", className)}
                 onClick={onBookAppointmentClick}
             >
                 Book an Appointment
@@ -167,28 +167,37 @@ export default function BookAppointmentButton({ className }: Props) {
                                 className="right-0 bottom-0 translate-x-full translate-y-1/2"
                             />
                         </DialogTitle>
-                        <DialogDescription className="text-foreground font-popins text-center text-lg font-normal opacity-80 md:text-2xl">
-                            Select the option that best fits your current need
+                        <DialogDescription className="text-foreground font-popins text-center text-lg leading-8 font-normal opacity-80 md:text-xl">
+                            To get you to the right place, <br />
+                            kindly let us know how you&apos;d like to continue:
                         </DialogDescription>
                     </DialogHeader>
 
-                    <div className="flex grow flex-col items-center justify-center gap-6">
+                    <div className="flex grow flex-col items-center justify-start gap-6 pt-12">
                         <div
-                            className="from-secondary-light flex h-38 w-full cursor-pointer items-center justify-between rounded-2xl bg-linear-to-br to-[#69482D] p-12"
+                            className="from-secondary-light flex h-30 w-2/3 cursor-pointer items-start justify-between rounded-2xl bg-linear-to-br to-[#69482D] px-8 py-4"
                             onClick={onNewPatientClick}
                         >
-                            <div></div>
-                            <h6 className="text-4xl font-semibold text-white">New Patient</h6>
-                            <ArrowRight size={42} className="stroke-white" />
+                            <div className="text-white">
+                                <h6 className="mb-2 text-xl font-semibold">New Client</h6>
+                                <span className="opacity-90">
+                                    I&apos;m engaging with your services for the first time & would like to get started.
+                                </span>
+                            </div>
+                            <div className="grow"></div>
+                            <ArrowRight size={35} className="stroke-white" />
                         </div>
 
                         <div
-                            className="flex h-38 w-full cursor-pointer items-center justify-between rounded-2xl bg-linear-to-br from-[#1080F8] to-[#1365BE] p-12"
+                            className="flex h-30 w-2/3 cursor-pointer items-start justify-between rounded-2xl bg-linear-to-br from-[#1080F8] to-[#1365BE] px-8 py-4"
                             onClick={() => onBookTypeClick("follow-up")}
                         >
-                            <div></div>
-                            <h6 className="text-4xl font-semibold text-white">Existing Patient</h6>
-                            <ArrowRight size={42} className="stroke-white" />
+                            <div className="text-white">
+                                <h6 className="mb-2 text-xl font-semibold">Existing Client</h6>
+                                <span className="opacity-90">I’ve been here before and would like to connect for a follow-up session</span>
+                            </div>
+                            <div className="grow"></div>
+                            <ArrowRight size={35} className="stroke-white" />
                         </div>
                     </div>
                     {/* 

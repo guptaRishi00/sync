@@ -283,8 +283,8 @@ function PointsToJoinSection() {
         "Expert Mentorship": "Get guidance from seasoned professionals in mental health.",
     };
     return (
-        <section className="section relative flex h-full flex-col items-center justify-center gap-4 py-4 md:flex-row">
-            <div className="relative aspect-square min-h-[50vh] grow">
+        <section className="section relative flex h-full flex-col items-center justify-center gap-4 py-12 md:flex-row">
+            <div className="relative aspect-square min-h-[65vh] grow">
                 <Image src="/images/academy-bg.png" alt="Academy BG" fill className="h-full w-full" />
             </div>
             <div className="flex flex-col gap-4 pr-12">
@@ -300,7 +300,7 @@ function PointsToJoinSection() {
                             <span className="bg-primary grid size-12 shrink-0 place-items-center rounded-full text-lg font-semibold">
                                 {index + 1}
                             </span>
-                            <p className="text-lg break-all">
+                            <p className="text-lg text-balance break-all">
                                 <b className="mb-4">{title}</b> <br />
                                 {description}
                             </p>
@@ -308,7 +308,7 @@ function PointsToJoinSection() {
                     ))}
                 </div>
 
-                <Button className="font-popins mt-6 w-fit px-8 py-6">Join Now</Button>
+                <Button className="font-popins mt-6 hidden w-fit px-8 py-6">Join Now</Button>
             </div>
         </section>
     );
@@ -336,9 +336,9 @@ function DontMissInformationSection() {
 
 function SubscribeSection() {
     return (
-        <section className="section relative flex h-full flex-col items-center justify-start gap-8 py-8 md:flex-row md:py-16">
-            <div className="w-full space-y-6">
-                <div className="relative aspect-1307/497 md:max-w-[40vw]">
+        <section className="section relative flex h-full flex-col items-start justify-start gap-12 py-8 md:flex-row md:py-16">
+            <div className="space-y-6">
+                <div className="relative aspect-1307/497 md:max-w-[30vw]">
                     <Image src="/images/decor-frame.png" alt="Academy Frame" fill className="h-full w-full" />
                     <DecorImage
                         src="/images/decor-smile.png"
@@ -354,7 +354,7 @@ function SubscribeSection() {
                 <div className="mr-26 flex">
                     <SudentSubscription />
                 </div>
-                <p className="font-popins text-sm font-normal">
+                <p className="font-popins hidden text-sm font-normal">
                     By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
                 </p>
             </div>
@@ -363,43 +363,41 @@ function SubscribeSection() {
                 <h5 className="text-4xl leading-16 font-bold">
                     Frequently Asked <span className="bg-primary h-fit rounded-sm">Questions</span>
                 </h5>
-                <p className="text-base">
-                    Find quick answers to common questions about our programs, applications, schedules, and support.
-                </p>
+                <p className="text-lg">Find quick answers to common questions about our programs, applications, schedules, and support.</p>
                 <Accordion type="single" collapsible className="text-lg">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>1. How long is the internship?</AccordionTrigger>
-                        <AccordionContent>8–12 weeks, based on your schedule.</AccordionContent>
+                        <AccordionTrigger className="text-lg">1. How long is the internship?</AccordionTrigger>
+                        <AccordionContent className="text-lg">8–12 weeks, based on your schedule.</AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-2">
-                        <AccordionTrigger>2. Who can apply?</AccordionTrigger>
-                        <AccordionContent>Students in psychology or related fields.</AccordionContent>
+                        <AccordionTrigger className="text-lg">2. Who can apply?</AccordionTrigger>
+                        <AccordionContent className="text-lg">Students in psychology or related fields.</AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-3">
-                        <AccordionTrigger>3. How do I apply?</AccordionTrigger>
-                        <AccordionContent>Fill out the form on our website.</AccordionContent>
+                        <AccordionTrigger className="text-lg">3. How do I apply?</AccordionTrigger>
+                        <AccordionContent className="text-lg">Fill out the form on our website.</AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-4">
-                        <AccordionTrigger>4. Are sessions live or recorded?</AccordionTrigger>
-                        <AccordionContent>Both options are available.</AccordionContent>
+                        <AccordionTrigger className="text-lg">4. Are sessions live or recorded?</AccordionTrigger>
+                        <AccordionContent className="text-lg">Both options are available.</AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-5">
-                        <AccordionTrigger>5. What do courses cover?</AccordionTrigger>
-                        <AccordionContent>Therapy skills, ethics, assessments, and more.</AccordionContent>
+                        <AccordionTrigger className="text-lg">5. What do courses cover?</AccordionTrigger>
+                        <AccordionContent className="text-lg">Therapy skills, ethics, assessments, and more.</AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-6">
-                        <AccordionTrigger>6. Do I get a certificate?</AccordionTrigger>
-                        <AccordionContent>Yes, after successful completion.</AccordionContent>
+                        <AccordionTrigger className="text-lg">6. Do I get a certificate?</AccordionTrigger>
+                        <AccordionContent className="text-lg">Yes, after successful completion.</AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-7">
-                        <AccordionTrigger>7. Are coaching sessions paid?</AccordionTrigger>
-                        <AccordionContent>Yes, pricing is listed per course. Internships are free.</AccordionContent>
+                        <AccordionTrigger className="text-lg">7. Are coaching sessions paid?</AccordionTrigger>
+                        <AccordionContent className="text-lg">Yes, pricing is listed per course. Internships are free.</AccordionContent>
                     </AccordionItem>
                 </Accordion>
             </div>

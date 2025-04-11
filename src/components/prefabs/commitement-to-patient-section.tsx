@@ -20,7 +20,7 @@ export default function CommitmentToPatientSection() {
         },
     ];
     return (
-        <section className="section flex flex-col gap-12 py-12">
+        <section className="section flex flex-col gap-12 py-16">
             <div className="font-popins flex w-full flex-col gap-4">
                 <h2 className="relative w-full text-center text-3xl font-semibold tracking-normal break-normal md:text-5xl">
                     Our Commitment to <br className="md:hidden" />

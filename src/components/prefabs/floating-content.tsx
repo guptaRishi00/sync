@@ -24,7 +24,7 @@ export default function FloatingContent() {
         <div
             className={cn(
                 "fixed right-12 bottom-12 z-40 flex w-fit flex-col-reverse items-end justify-start gap-4",
-                visible ? "opacity-100" : "opacity-0 transition-opacity duration-300",
+                visible ? "opacity-100" : "hidden",
             )}
         >
             <BookAppointmentButton className="shadow" />

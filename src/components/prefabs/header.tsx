@@ -17,7 +17,7 @@ export default function Header() {
     return (
         <div className="flex items-center justify-between">
             {/* logo */}
-            <div className="relative aspect-3454/574 w-20 cursor-pointer md:w-34" onClick={onLogoClick}>
+            <div className="relative aspect-3454/574 w-20 cursor-pointer md:w-64" onClick={onLogoClick}>
                 <Image src="/images/logo.png" alt="SYNC" fill className="object-contain" />
             </div>
 

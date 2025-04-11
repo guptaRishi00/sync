@@ -45,7 +45,7 @@ export default function EvaluationMethodologiesSection() {
                             value={item.section}
                             key={item.section}
                         >
-                            {item.section}
+                            {item.title}
                         </TabsTrigger>
                     ))}
 
@@ -77,7 +77,7 @@ export default function EvaluationMethodologiesSection() {
                         </ul>
 
                         <div className="border-primary absolute bottom-0 left-1/2 w-78 -translate-x-1/2 translate-y-1/2 rounded-2xl border-3 bg-white p-3 text-center">
-                            {item.title}
+                            {item.section}
                         </div>
 
                         <DecorImage

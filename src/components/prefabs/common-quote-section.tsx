@@ -1,5 +1,4 @@
 import DecorImage from "@/components/prefabs/decor-image";
-import { Button } from "@/components/ui/button";
 import { Quote } from "lucide-react";
 import Image from "next/image";
 
@@ -7,15 +6,15 @@ export default function CommonQuoteSection() {
     return (
         <section className="section relative flex flex-col items-center gap-6 py-8 md:flex-row">
             <div className="relative aspect-519/352 h-fit w-full grow md:m-16">
-                <Image src="/images/academy-quote-bg.jpg" alt="Hero Thumbnail" fill className="right-0 left-0 rounded-2xl object-cover" />
+                <Image src="/images/home-quote-img.jpg" alt="Hero Thumbnail" fill className="right-0 left-0 rounded-2xl object-cover" />
             </div>
 
             <div className="flex w-full grow flex-col justify-center gap-8 md:max-w-1/2">
                 <Quote className="fill-foreground size-14" />
                 <p className="font-popins relative text-lg font-medium">
-                    Taking inspiration directly from the founders of Positive Psychology Abraham Maslow and Martin Seligman, we believe in
-                    human greatness and the ability of each person to realize their best self. We will support you to live your life to the
-                    fullest.
+                    At SyNC Positive Psychiatry Foundation, we believe that every individual has the inner strength to grow, heal, and
+                    thrive. Our approach is centered on empowering you to discover your potential, cultivate resilience, and lead a life
+                    filled with purpose and well-being.
                     <DecorImage
                         src="/images/decor-underline.png"
                         alt="Decor Smile"
@@ -23,7 +22,10 @@ export default function CommonQuoteSection() {
                         className="bottom-0 left-0 translate-y-2/3"
                     />
                 </p>
-                <Button className="font-inter mt-2 w-fit font-medium">SyNC Positive.</Button>
+                <span className="font-inter mt-2 w-fit font-medium">
+                    <b>Dr. Vinod Kumar,</b>
+                    <br /> Founder, SyNC Positive Psychiatry Foundation
+                </span>
             </div>
 
             <DecorImage

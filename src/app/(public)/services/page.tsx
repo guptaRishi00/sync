@@ -75,7 +75,7 @@ function HeroSection() {
             <div className="grid grow grid-cols-1 grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1">
                 <div className="flex grow flex-col gap-10">
                     <div className="">
-                        <h2 className="font-popins relative inline text-5xl leading-24 font-semibold md:text-7xl">
+                        <h2 className="font-popins relative inline text-5xl leading-18 font-semibold md:text-5xl">
                             What we do
                             <br />
                             At{" "}
@@ -92,7 +92,7 @@ function HeroSection() {
                     </div>
                     <div className="bg-primary relative grow rounded-2xl p-8">
                         <h2 className="font-popins hidden text-3xl font-semibold md:text-5xl">Lorem Ipsum</h2>
-                        <p className="font-popins z-50 mt-6 text-2xl leading-10 font-medium md:pb-24">
+                        <p className="font-popins z-50 mt-6 text-lg leading-8 font-medium text-balance md:pb-24">
                             We unlock the true brilliance of your mind and guide you toward your best self. Our first step in developing
                             personalised care for every individual is understanding and discovering their inner self. We back our reflection
                             by drawing upon the guided discovery that aligns with your essence. Our dedicated team ensures personalized and
@@ -119,7 +119,7 @@ function HeroSection() {
 
 function ConsultationSection() {
     return (
-        <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-8 md:gap-12">
+        <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
             <h2 className="relative text-3xl font-bold md:mb-4 md:text-5xl">
                 <span className="bg-primary font-popins rounded-sm px-4 text-5xl font-semibold">Counseling and Therapy</span>
             </h2>
@@ -159,28 +159,28 @@ function ConsultationSection() {
                         className="top-0 left-0 -translate-y-full"
                     />
                     <div className="flex flex-col">
-                        <p className="font-popins inline text-justify text-base font-medium md:leading-7">
+                        <p className="font-popins inline text-justify text-lg font-medium md:leading-7">
                             Personalized mental health support designed to help individuals, couples, and groups navigate emotional
                             challenges, improve communication, and build lasting resilience.
                         </p>
-                        <ul className="mt-4">
+                        <ul className="mt-4 space-y-4">
                             <li className="font-bold">
-                                1. Individual Psychotherapy
-                                <p className="font-normal">
+                                Individual Psychotherapy
+                                <p className="text-lg font-normal">
                                     Explore your thoughts, emotions, and behaviors in a safe, one-on-one space with a licensed therapist to
                                     enhance self-awareness and well-being.
                                 </p>
                             </li>
                             <li className="font-bold">
-                                2. Marriage and Couples Counselling
-                                <p className="font-normal">
+                                Marriage and Couples Counselling
+                                <p className="text-lg font-normal">
                                     Work through relationship challenges and everyday stressors with your partner in a supportive setting
                                     guided by a professional counselor.
                                 </p>
                             </li>
                             <li className="font-bold">
-                                3. Group Coaching for ADHD
-                                <p className="font-normal">
+                                Group Coaching for ADHD
+                                <p className="text-lg font-normal">
                                     Join a focused, coach-led group to strengthen executive functioning, reduce procrastination, and manage
                                     ADHD-related struggles effectively.
                                 </p>
@@ -188,7 +188,7 @@ function ConsultationSection() {
                         </ul>
                     </div>
 
-                    <div className="relative">
+                    <div className="relative hidden">
                         <DecorImage
                             src="/images/decor-arrow.png"
                             alt="Decor Butterfly"
@@ -214,7 +214,7 @@ function ConsultationSection() {
 
 function PsychiatricConsultationsSection() {
     return (
-        <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-8 md:gap-12">
+        <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
             <h2 className="font-popins relative text-3xl font-semibold md:mb-4 md:text-5xl">
                 Psychiatric <span className="bg-primary rounded-sm px-4">Consultations</span>
             </h2>
@@ -239,50 +239,50 @@ function PsychiatricConsultationsSection() {
                     />
                     <div className="flex">
                         <div className="flex flex-col">
-                            <p className="font-popins inline text-justify text-base font-medium md:leading-7">
+                            <p className="font-popins inline text-justify text-lg font-medium md:leading-7">
                                 Comprehensive psychiatric care tailored to individuals across all life stages—children, adults, and the
                                 elderly—focused on diagnosing, treating, and managing a wide range of mental health conditions.
                             </p>
-                            <ul className="mt-4">
+                            <ul className="mt-4 space-y-4">
                                 <li className="font-bold">
-                                    1. Child Psychiatry
-                                    <p className="font-normal">
+                                    Child Psychiatry
+                                    <p className="text-lg font-normal">
                                         Specialized support for emotional, behavioral, and developmental issues in children and
                                         adolescents—from early childhood through teenage years.
                                     </p>
                                 </li>
                                 <li className="font-bold">
-                                    2. Adult Psychiatry
-                                    <p className="font-normal">
+                                    Adult Psychiatry
+                                    <p className="text-lg font-normal">
                                         Clinical evaluation and treatment for a wide spectrum of adult mental health concerns, including
                                         anxiety, depression, mood disorders, and more.
                                     </p>
                                 </li>
                                 <li className="font-bold">
-                                    3. Neurodivergence
-                                    <p className="font-normal">
+                                    Neurodivergence
+                                    <p className="text-lg font-normal">
                                         Support for conditions like Adult ADHD, OCD, Autism Spectrum Disorder, Dyslexia, and Tourette
                                         Syndrome, recognizing and respecting different ways of thinking and processing.
                                     </p>
                                 </li>
 
                                 <li className="font-bold">
-                                    4. Eating Disorders and Obesity
-                                    <p className="font-normal">
+                                    Eating Disorders and Obesity
+                                    <p className="text-lg font-normal">
                                         Psychiatric care for disordered eating patterns such as anorexia and bulimia, with an emphasis on
                                         both mental and physical health recovery.
                                     </p>
                                 </li>
 
                                 <li className="font-bold">
-                                    5. Psychiatry of the Elderly
+                                    Psychiatry of the Elderly
                                     <p className="font-normal">
                                         Geriatric-focused mental health services to manage conditions like dementia, late-life depression,
                                         anxiety, and substance misuse in older adults.
                                     </p>
                                 </li>
                             </ul>
-                            <div className="relative mt-8 w-fit">
+                            <div className="relative mt-8 hidden w-fit">
                                 <DecorImage
                                     src="/images/decor-arrow.png"
                                     alt="Decor Butterfly"
@@ -324,7 +324,7 @@ function PsychiatricConsultationsSection() {
 
 function CounsellingAndPsychotherapy() {
     return (
-        <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-8 md:gap-12">
+        <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
             <h2 className="relative text-3xl font-bold md:mb-4 md:text-5xl">
                 <span className="bg-primary font-popins rounded-sm px-4 text-5xl font-semibold">Psychological Assessments</span>
             </h2>
@@ -364,34 +364,34 @@ function CounsellingAndPsychotherapy() {
                         className="top-0 left-0 -translate-y-full"
                     />
                     <div className="flex flex-col">
-                        <p className="font-popins inline text-justify text-base font-medium md:leading-7">
+                        <p className="font-popins inline text-justify text-lg font-medium md:leading-7">
                             Scientifically designed tools to help uncover patterns in your thoughts, emotions, and behavior—offering
                             valuable insights for diagnosis, treatment planning, and personal understanding.
                         </p>
-                        <ul className="mt-4">
+                        <ul className="mt-4 space-y-4">
                             <li className="font-bold">
-                                1. Cognitive and Intelligence Testing
-                                <p className="font-normal">
+                                Cognitive and Intelligence Testing
+                                <p className="text-lg font-normal">
                                     Assess intellectual functioning, learning abilities, memory, and problem-solving skills.
                                 </p>
                             </li>
                             <li className="font-bold">
-                                2. Personality Assessments
-                                <p className="font-normal">
+                                Personality Assessments
+                                <p className="text-lg font-normal">
                                     Understand personality traits, emotional functioning, and behavioral tendencies that influence your
                                     day-to-day life.
                                 </p>
                             </li>
                             <li className="font-bold">
-                                3. Neuropsychological Assessments
-                                <p className="font-normal">
+                                Neuropsychological Assessments
+                                <p className="text-lg font-normal">
                                     In-depth evaluation of brain function related to conditions such as ADHD, dementia, or brain injury.
                                 </p>
                             </li>
 
                             <li className="font-bold">
-                                4. Emotional and Behavioral Assessments
-                                <p className="font-normal">
+                                Emotional and Behavioral Assessments
+                                <p className="text-lg font-normal">
                                     Identify emotional challenges, mood disorders, or behavioral patterns that may impact personal and
                                     social functioning.
                                 </p>
@@ -399,7 +399,7 @@ function CounsellingAndPsychotherapy() {
                         </ul>
                     </div>
 
-                    <div className="relative">
+                    <div className="relative hidden">
                         <DecorImage
                             src="/images/decor-arrow.png"
                             alt="Decor Butterfly"

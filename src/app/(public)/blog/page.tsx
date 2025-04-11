@@ -1,6 +1,6 @@
 import { BlogPost, getAllPosts } from "@/actions/blog.action";
 import { BlogCard } from "@/components/prefabs/blog-card";
-import { BlogHeaderCard } from "@/components/prefabs/blog-card-header";
+import BlogHeroCard from "@/components/prefabs/blog-hero-card";
 import CommonQuoteSection from "@/components/prefabs/common-quote-section";
 import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
 import DecorImage from "@/components/prefabs/decor-image";
@@ -24,7 +24,7 @@ export default async function BlogPage() {
                 {latestPost && <HeroSection latestPost={latestPost} />}
             </main>
 
-            <main className="main py-8">
+            <main className="main py-8 md:min-h-fit!">
                 <BlogListSection posts={sorted} />
             </main>
 
@@ -36,7 +36,7 @@ export default async function BlogPage() {
                 <VibeSection />
             </main>
 
-            <main className="main overflow-hidden py-8">
+            <main className="main hidden overflow-hidden py-8">
                 <HealthRequirementSection />
             </main>
 
@@ -75,12 +75,7 @@ function HeroSection({ latestPost }: { latestPost: BlogPost }) {
             </div>
 
             <div className="">
-                <div className="relative aspect-4/5 md:aspect-1212/600">
-                    <Image src={latestPost.image} fill alt={latestPost.title} className="rounded-2xl object-cover" />
-                    <div className="absolute bottom-0 flex flex-col gap-4 overflow-hidden rounded-2xl bg-white p-4 md:left-6 md:w-96 md:translate-y-1/6 lg:w-112">
-                        <BlogHeaderCard post={latestPost} />
-                    </div>
-                </div>
+                <BlogHeroCard latestPost={latestPost} />
             </div>
         </section>
     );

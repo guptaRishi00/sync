@@ -4,7 +4,7 @@ import { addConnectDetails } from "@/actions/google-sheet.action";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function ConnectToSyncSection() {
     const [name, setName] = useState("");
@@ -12,9 +12,24 @@ export default function ConnectToSyncSection() {
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
 
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [isProcessing, setIsProcessing] = useState(false);
+
+    useEffect(() => {
+        if (isSuccess) {
+            setName("");
+            setEmail("");
+            setSubject("");
+            setMessage("");
+        }
+    }, [isSuccess]);
+
     const handleSubmit = useCallback(async (email: string, name: string, subject: string, message: string) => {
         if (email) {
-            await addConnectDetails(email, name, subject, message);
+            setIsProcessing(true);
+            const status = await addConnectDetails(email, name, subject, message);
+            setIsProcessing(false);
+            setIsSuccess(status);
         }
     }, []);
 
@@ -93,9 +108,17 @@ export default function ConnectToSyncSection() {
                         onChange={(e) => setMessage(e.target.value)}
                     />
 
-                    <Button className="w-full py-6 text-base" onClick={() => handleSubmit(email, name, subject, message)}>
+                    <Button
+                        className="w-full py-6 text-base"
+                        disabled={isProcessing || isSuccess}
+                        onClick={() => handleSubmit(email, name, subject, message)}
+                    >
                         Send your message
                     </Button>
+
+                    <span className="text-center text-base">
+                        {isSuccess ? "We have recieved your message, we will get back to you shortly" : " "}
+                    </span>
                 </div>
             </div>
         </section>

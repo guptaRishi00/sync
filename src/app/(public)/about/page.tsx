@@ -297,17 +297,18 @@ function VisionSection() {
         "Trusted space to grow and thrive.",
     ];
     return (
-        <section className="section grid min-h-svh grid-flow-col grid-cols-1 grid-rows-6 gap-6 py-12 md:grid-cols-3 md:grid-rows-2 [&>div]:overflow-hidden [&>div]:rounded-2xl">
+        <section className="section grid min-h-svh grid-flow-col grid-cols-1 grid-rows-[auto_1fr] gap-6 py-12 md:grid-cols-[30%_30%_40%] [&>div]:overflow-hidden [&>div]:rounded-2xl">
             <div className="bg-primary-light flex flex-col items-start justify-start gap-4 p-6 md:p-12">
-                <h2 className="font-popins text-3xl font-semibold md:text-5xl">Mission</h2>
-                <p className="font-popins text-lg font-normal">
+                <h2 className="font-popins text-xl font-semibold md:text-2xl">Mission</h2>
+                <p className="font-popins text-base font-normal">
                     Revolutionize brain health and emotional wellness. We have accessible and sustainable care solutions, empowering
                     individuals to achieve peace, productivity, and prosperity.
                 </p>
             </div>
-            <div className="col-span-2 flex flex-col items-start justify-between gap-8 bg-white p-6 md:p-12">
+
+            <div className="col-span-2 flex flex-col items-start gap-8 bg-white p-6 md:p-12">
                 <div className="flex flex-col items-start justify-start gap-8">
-                    <h2 className="font-popins text-3xl font-semibold md:text-5xl">Why Choose Us?</h2>
+                    <h2 className="font-popins text-xl font-semibold md:text-2xl">Why Choose Us?</h2>
 
                     <ul className="flex list-none flex-col items-start gap-3">
                         {whyChooseUsList.map((item, index) => (
@@ -321,13 +322,15 @@ function VisionSection() {
 
                 <BookAppointmentButton className="place-self-start" />
             </div>
+
             <div className="bg-primary flex flex-col items-start justify-start gap-4 p-6 md:p-12">
-                <h2 className="font-popins text-3xl font-semibold md:text-5xl">Vision</h2>
-                <p className="font-popins text-lg font-normal">
+                <h2 className="font-popins text-xl font-semibold md:text-2xl">Vision</h2>
+                <p className="font-popins text-base font-normal">
                     To be a global leader in brain health optimization and emotional wellness, fostering innovation and community engagement
                     to create a healthier, more resilient world.
                 </p>
             </div>
+
             <div className="relative row-span-2">
                 <Image src="/images/decor-missin-bg.png" alt="Hero Vision" fill className="object-cover" />
             </div>

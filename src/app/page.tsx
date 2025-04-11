@@ -3,9 +3,10 @@ import DecorImage from "@/components/prefabs/decor-image";
 import ExportServiceCard from "@/components/prefabs/export-service-card";
 import Header from "@/components/prefabs/header";
 import { Button } from "@/components/ui/button";
-import { Play, Quote } from "lucide-react";
+import { Play } from "lucide-react";
 import Image from "next/image";
 
+import CommonQuoteSection from "@/components/prefabs/common-quote-section";
 import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
 import EvaluationMethodologiesSection from "@/components/prefabs/evalidation-methodologies-section";
 import FeedbackSection from "@/components/prefabs/feedback-section";
@@ -44,7 +45,7 @@ export default function HomePage() {
             </main>
 
             <main className="main bg-secondary/20 md:min-h-fit!">
-                <QuoteSection />
+                <CommonQuoteSection />
             </main>
 
             <main className="main overflow-hidden py-8">
@@ -238,8 +239,8 @@ function ExpertServicesSection() {
                     </Button>
                     <h2 className="font-inter text-2xl font-semibold md:text-4xl">Together, We Grow!!</h2>
                     <p className="text-foreground font-inter text-justify text-sm font-normal md:text-lg">
-                        We trust that seeking help is a sign of strength, a truth we understand from our own experiences. We will partner
-                        with you to reconnect with your best self and achieve a happy, meaningful life. We are here to help because everyone
+                        We trust that seeking help is a sign of strength, a truth we understand from our own experiences. We partner with
+                        you to reconnect with your best self and achieve a happy, meaningful life. We are here to help because everyone
                         needs a nudge sometimes.
                     </p>
 
@@ -269,7 +270,7 @@ function ExpertServicesSection() {
                     <div className="to-secondary from-secondary-light absolute bottom-0 left-0 z-10 w-68 rounded-2xl bg-linear-to-r px-8 py-12 text-white md:w-122 md:gap-16">
                         <h4 className="font-inter pb-4 text-lg font-extrabold md:text-2xl">Rejuvenate. Reconnect. Recharge.</h4>
                         <p className="font-inter text-sm font-normal md:text-sm">
-                            We will help you get re-connected to your best self and lead a happy and meaningful life.
+                            We help you get re-connected to your best self and lead a happy and meaningful life.
                         </p>
                     </div>
                 </div>
@@ -290,32 +291,6 @@ function ExpertServicesSection() {
                     <h4 className="font-sora text-5xl font-bold lg:text-7xl">100+</h4>
                     <p className="font-popins text-lg font-normal text-wrap">Advanced Diagnostics Performed</p>
                 </Button>
-            </div>
-        </section>
-    );
-}
-
-function QuoteSection() {
-    return (
-        <section className="section flex flex-col items-center gap-6 py-8 md:flex-row">
-            <div className="relative aspect-519/352 h-fit w-full grow md:m-16">
-                <Image src="/images/home-quote-img.jpg" alt="Hero Thumbnail" fill className="right-0 left-0 rounded-2xl object-cover" />
-            </div>
-
-            <div className="flex w-full grow flex-col justify-center gap-8 md:max-w-1/2">
-                <Quote className="fill-foreground size-14" />
-                <p className="font-popins relative text-lg font-medium">
-                    Taking inspiration directly from the founders of Positive Psychology Abraham Maslow and Martin Seligman, we believe in
-                    human greatness and the ability of each person to realize their best self. We will support you to live your life to the
-                    fullest.
-                    <DecorImage
-                        src="/images/decor-underline.png"
-                        alt="Decor Smile"
-                        size={[240, 240]}
-                        className="bottom-0 left-0 translate-y-2/3"
-                    />
-                </p>
-                <Button className="font-inter mt-2 w-fit font-medium">SyNC Positive</Button>
             </div>
         </section>
     );
