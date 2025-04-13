@@ -121,7 +121,7 @@ function ConsultationSection() {
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
             <h2 className="relative text-3xl font-bold md:mb-4 md:text-5xl">
-                <span className="bg-primary font-popins rounded-sm px-4 text-2xl md:text-5xl font-semibold">Counseling and Therapy</span>
+                <span className="bg-primary font-popins rounded-sm px-4 text-2xl font-semibold md:text-5xl">Counseling and Therapy</span>
             </h2>
 
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">

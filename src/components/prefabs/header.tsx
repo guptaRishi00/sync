@@ -31,7 +31,7 @@ export default function Header() {
                         <span className="h-1 w-4/5 rounded-full bg-slate-950" />
                     </div>
                 </SheetTrigger>
-                <SheetContent className="flex md:w-1/3 w-full flex-col justify-center sm:max-w-none">
+                <SheetContent className="flex w-full flex-col justify-center sm:max-w-none md:w-1/3">
                     <SheetHeader>
                         <SheetTitle className="hidden"></SheetTitle>
                         <SheetDescription className="hidden"></SheetDescription>

@@ -7,7 +7,7 @@ export default function HealthRequirementSection() {
         <section className="section flex flex-col items-center justify-center gap-16 md:min-h-screen">
             <div className="flex w-full flex-col-reverse items-start justify-between gap-4 md:flex-row">
                 <div className="flex w-full flex-col gap-4 md:max-w-1/2">
-                    <h2 className="font-popins relative text-3xl md:leading-16 mt-6 md:mt-0 font-medium md:text-5xl">
+                    <h2 className="font-popins relative mt-6 text-3xl font-medium md:mt-0 md:text-5xl md:leading-16">
                         Your well-being <br /> is our priority
                         <DecorImage
                             src="/images/decor-smile.png"

@@ -99,7 +99,7 @@ function HeroSection() {
                         <br />
                         <span className="text-accent relative">Mental Health!</span>
                     </h2>
-                    <p className="text-muted font-popins md:pr-16 pb-6 text-justify text-sm font-medium md:text-lg">
+                    <p className="text-muted font-popins pb-6 text-justify text-sm font-medium md:pr-16 md:text-lg">
                         Discover a dynamic learning environment designed to shape the next generation of mental health professionals.
                         Whether you&apos;re starting your journey or seeking to deepen your expertise, our programs offer the guidance,
                         tools, and mentorship you need.
@@ -244,7 +244,7 @@ function WhatToGetSection() {
                         <Image src="/images/decor-learning-tutor.png" alt="User 1" fill className="h-full w-full" />
                     </div>
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Learning Materials</h6>
-                    <p className="font-popins md:w-1/2 text-left text-lg font-medium text-balance">
+                    <p className="font-popins text-left text-lg font-medium text-balance md:w-1/2">
                         Access curated notes, toolkits, and mental health resources tailored for students and professionals alike.
                     </p>
                     <DecorImage
@@ -259,7 +259,7 @@ function WhatToGetSection() {
                         <Image src="/images/decor-learning-material.png" alt="User 1" fill className="h-full w-full" />
                     </div>
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Expert Guidance</h6>
-                    <p className="font-popins md:w-1/2 text-left text-lg font-medium text-balance">
+                    <p className="font-popins text-left text-lg font-medium text-balance md:w-1/2">
                         Connect with licensed professionals for support, mentorship, and answers to your clinical learning queries.
                     </p>
                     <DecorImage
@@ -300,7 +300,7 @@ function PointsToJoinSection() {
                             <span className="bg-primary grid size-12 shrink-0 place-items-center rounded-full text-lg font-semibold">
                                 {index + 1}
                             </span>
-                            <p className="text-lg text-justify text-balance break-all">
+                            <p className="text-justify text-lg text-balance break-all">
                                 <strong className="mb-4">{title}</strong> <br />
                                 {description}
                             </p>
@@ -351,7 +351,7 @@ function SubscribeSection() {
                     Don&apos;t miss any <br /> information from us<span className="text-accent h-fit rounded-sm">!</span>
                 </h2>
                 <p className="font-popins font-medium">Sign up to our regular newsletter for news, insight, new product releases & more.</p>
-                <div className="md:mr-26 flex">
+                <div className="flex md:mr-26">
                     <SudentSubscription />
                 </div>
                 <p className="font-popins hidden text-sm font-normal">

@@ -84,7 +84,7 @@ export default function EvaluationMethodologiesSection() {
                             src="/images/decor-plant-1.png"
                             alt="Decor Highlight"
                             size={[120, 120]}
-                            className="right-0 h-38 md:h-auto bottom-0 translate-y-1/6 object-contain"
+                            className="right-0 bottom-0 h-38 translate-y-1/6 object-contain md:h-auto"
                         />
 
                         <DecorImage
