@@ -204,7 +204,7 @@ function ExpertServicesSection() {
 
     return (
         <section className="section flex flex-col items-center gap-12 pt-4 md:gap-16">
-            <div className="font-popins flex items-center gap-4 text-xl font-semibold md:text-2xl md:text-4xl">
+            <div className="font-popins flex items-center gap-4 text-xl font-semibold md:text-4xl">
                 <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
                     <h2 className="">Expert Services</h2>
                 </div>
