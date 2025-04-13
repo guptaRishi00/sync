@@ -23,7 +23,7 @@ export default function FloatingContent() {
     return (
         <div
             className={cn(
-                "fixed right-12 bottom-12 z-40 flex w-fit flex-col-reverse items-end justify-start gap-4",
+                "fixed right-6 bottom-8 z-40 flex w-fit flex-col-reverse items-end justify-start gap-4 md:right-12 md:bottom-12",
                 visible ? "opacity-100" : "hidden",
             )}
         >

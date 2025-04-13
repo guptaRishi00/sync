@@ -6,7 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 export default function VibeSection() {
     return (
-        <section className="section flex flex-col items-center justify-center gap-12 p-8 md:min-h-dvh">
+        <section className="section flex flex-col items-center justify-center md:gap-12 gap-4 p-8 md:min-h-dvh">
             <div className="relative aspect-8/1 h-8 md:h-16">
                 <DecorImage src="/images/decor-vibes.png" alt="Decor New" size={[800, 100]} className="" />
             </div>
@@ -29,8 +29,8 @@ export default function VibeSection() {
                         ))}
                     </CarouselContent>
 
-                    <CarouselPrevious variant="default" className="size-12" />
-                    <CarouselNext variant="default" className="size-12" />
+                    <CarouselPrevious variant="default" className="md:size-12" />
+                    <CarouselNext variant="default" className="md:size-12" />
                 </Carousel>
             </div>
         </section>

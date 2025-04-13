@@ -28,20 +28,20 @@ export default function EvaluationMethodologiesSection() {
 
     return (
         <section className="section relative flex grow flex-col items-center justify-center gap-6 md:gap-12">
-            <h2 className="font-popins relative text-3xl font-semibold md:text-5xl">
+            <h2 className="font-popins relative text-2xl font-semibold md:text-5xl">
                 The Process, <span className="bg-primary rounded-sm px-1">Simplified</span>
             </h2>
-            <p className="text-muted font-popins text-center text-sm font-normal md:text-lg">
+            <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">
                 Your mental health journey doesn’t have to be overwhelming.
                 <br />
                 Here’s a simple, structured path to help you understand yourself better and begin healing.
             </p>
 
             <Tabs defaultValue="Screening" className="w-full md:w-146 lg:w-246">
-                <TabsList className="text-secondary relative mx-auto h-16 bg-white p-3 md:gap-12">
+                <TabsList className="text-secondary relative mx-auto flex h-56 flex-col bg-white p-3 md:h-16 md:flex-row md:gap-12">
                     {content.map((item) => (
                         <TabsTrigger
-                            className="data-[state=active]:bg-primary font-popins px-8 py-4 text-lg font-medium"
+                            className="data-[state=active]:bg-primary font-popins px-8 py-4 font-medium md:text-lg"
                             value={item.section}
                             key={item.section}
                         >
@@ -67,7 +67,7 @@ export default function EvaluationMethodologiesSection() {
                     <TabsContent
                         key={item.section}
                         value={item.section}
-                        className="from-primary-light to-primary font-popins relative min-h-80 w-full rounded-xl bg-linear-90 p-8 text-xl md:p-16"
+                        className="from-primary-light to-primary font-popins relative min-h-80 w-full rounded-xl bg-linear-90 p-8 text-sm md:p-16 md:text-xl"
                     >
                         <p className="mb-8 px-6">{item.description}</p>
                         <ul className="mt-2 list-none space-y-1.5">
@@ -84,7 +84,7 @@ export default function EvaluationMethodologiesSection() {
                             src="/images/decor-plant-1.png"
                             alt="Decor Highlight"
                             size={[120, 120]}
-                            className="right-0 bottom-0 z-40 translate-y-1/6"
+                            className="right-0 h-38 md:h-auto bottom-0 translate-y-1/6 object-contain"
                         />
 
                         <DecorImage
