@@ -252,9 +252,9 @@ function MeetOurExpertSection() {
     return (
         <section className="section flex flex-col items-center py-8">
             <div className="font-popins relative flex items-center gap-2 font-semibold">
-                <h2 className="text-2xl font-bold md:text-4xl">Meet Our</h2>
+                <h2 className="text-xl font-bold md:text-4xl">Meet Our</h2>
                 <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
-                    <h2 className="text-2xl font-bold md:text-4xl">Expert Doctors</h2>
+                    <h2 className="text-xl font-bold md:text-4xl">Expert Doctors</h2>
                 </div>
                 <DecorImage
                     src="/images/decor-love-primary.png"
@@ -297,8 +297,8 @@ function VisionSection() {
         "Trusted space to grow and thrive.",
     ];
     return (
-        <section className="section grid min-h-svh grid-flow-col grid-cols-1 grid-rows-[auto_1fr] gap-6 py-12 md:grid-cols-[30%_30%_40%] [&>div]:overflow-hidden [&>div]:rounded-2xl">
-            <div className="bg-primary-light flex flex-col items-start justify-start gap-4 p-6 md:p-12">
+        <section className="section grid min-h-svh grid-cols-1 grid-rows-[auto_1fr] gap-6 py-12 md:grid-flow-col md:grid-cols-3 [&>div]:overflow-hidden [&>div]:rounded-2xl">
+            <div className="bg-primary-light row-span-1 flex flex-col items-start justify-start gap-4 p-6 md:p-12">
                 <h2 className="font-popins text-xl font-semibold md:text-2xl">Mission</h2>
                 <p className="font-popins text-base font-normal">
                     Revolutionize brain health and emotional wellness. We have accessible and sustainable care solutions, empowering
@@ -306,7 +306,7 @@ function VisionSection() {
                 </p>
             </div>
 
-            <div className="col-span-2 flex flex-col items-start gap-8 bg-white p-6 md:p-12">
+            <div className="flex flex-col items-start gap-8 bg-white p-6 md:col-span-2 md:p-12">
                 <div className="flex flex-col items-start justify-start gap-8">
                     <h2 className="font-popins text-xl font-semibold md:text-2xl">Why Choose Us?</h2>
 
@@ -331,7 +331,7 @@ function VisionSection() {
                 </p>
             </div>
 
-            <div className="relative row-span-2">
+            <div className="relative row-span-2 hidden md:block">
                 <Image src="/images/decor-missin-bg.png" alt="Hero Vision" fill className="object-cover" />
             </div>
         </section>

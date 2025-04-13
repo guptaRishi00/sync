@@ -72,7 +72,7 @@ function HeroSection() {
 
             <div className="md:grow"></div>
 
-            <div className="grid grow grid-cols-1 grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1">
+            <div className="grid grow grid-cols-1 grid-rows-1 gap-12 md:grid-cols-2">
                 <div className="flex grow flex-col gap-10">
                     <div className="">
                         <h2 className="font-popins relative inline text-5xl leading-18 font-semibold md:text-5xl">
@@ -107,7 +107,7 @@ function HeroSection() {
                         />
                     </div>
                 </div>
-                <div className="relative h-auto w-full">
+                <div className="relative aspect-square h-auto w-full md:aspect-auto">
                     <Image src={"/images/services-hero.jpg"} alt="Hero Thumbnail" fill className="h-full w-full rounded-2xl object-cover" />
                 </div>
             </div>
@@ -121,7 +121,7 @@ function ConsultationSection() {
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
             <h2 className="relative text-3xl font-bold md:mb-4 md:text-5xl">
-                <span className="bg-primary font-popins rounded-sm px-4 text-5xl font-semibold">Counseling and Therapy</span>
+                <span className="bg-primary font-popins rounded-sm px-4 text-2xl md:text-5xl font-semibold">Counseling and Therapy</span>
             </h2>
 
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">

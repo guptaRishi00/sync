@@ -92,9 +92,9 @@ function HeroSection() {
                 <Header />
             </div>
 
-            <div className="grid grow auto-cols-min grid-cols-1 grid-rows-2 gap-6 md:grid-cols-2 md:grid-rows-1">
+            <div className="grid grid-flow-row auto-rows-min grid-cols-1 grid-rows-2 gap-6 md:grow md:grid-cols-2 md:grid-rows-1">
                 <div className="flex h-fit flex-col justify-center gap-6 md:mt-26 md:self-start">
-                    <h2 className="font-popins relative inline text-5xl leading-22 font-semibold md:text-7xl">
+                    <h2 className="font-popins relative inline text-4xl font-semibold md:text-7xl md:leading-22">
                         Grow Your Career in
                         <br />
                         <span className="text-accent relative">Mental Health!</span>
@@ -123,7 +123,7 @@ function HeroSection() {
                     />
                 </div>
 
-                <div className="relative order-first aspect-5/6 h-fit max-h-[80vh] shrink md:top-8 md:left-20 md:order-last md:grow">
+                <div className="relative aspect-5/6 h-fit max-h-[80vh] shrink md:top-8 md:left-20 md:order-last md:grow">
                     <div className="absolute top-1/8 left-1/8 flex flex-col items-start gap-4">
                         <div className="z-10 flex w-fit items-center gap-2 rounded-full bg-white px-3 py-1">
                             <Button variant="default" size="icon" className="rounded-full">
@@ -284,13 +284,13 @@ function PointsToJoinSection() {
     };
     return (
         <section className="section relative flex h-full flex-col items-center justify-center gap-4 py-12 md:flex-row">
-            <div className="relative aspect-square min-h-[65vh] grow">
+            <div className="relative aspect-square w-3/4 grow md:min-h-[65vh] md:w-auto">
                 <Image src="/images/academy-bg.png" alt="Academy BG" fill className="h-full w-full" />
             </div>
-            <div className="flex flex-col gap-4 pr-12">
-                <h2 className="font-popins relative text-3xl font-semibold md:text-5xl">Train . Certify . Grow</h2>
+            <div className="flex flex-col gap-4 md:pr-12">
+                <h2 className="font-popins relative text-2xl font-semibold md:text-5xl">Train . Certify . Grow</h2>
 
-                <p className="font-popins text-lg font-normal">
+                <p className="font-popins text-lg font-normal text-balance">
                     Explore expert-led programs designed for aspiring mental health professionals—practical, flexible, and career-focused.
                 </p>
 
@@ -300,8 +300,8 @@ function PointsToJoinSection() {
                             <span className="bg-primary grid size-12 shrink-0 place-items-center rounded-full text-lg font-semibold">
                                 {index + 1}
                             </span>
-                            <p className="text-lg text-balance break-all">
-                                <b className="mb-4">{title}</b> <br />
+                            <p className="text-lg text-justify text-balance break-all">
+                                <strong className="mb-4">{title}</strong> <br />
                                 {description}
                             </p>
                         </div>
@@ -351,7 +351,7 @@ function SubscribeSection() {
                     Don&apos;t miss any <br /> information from us<span className="text-accent h-fit rounded-sm">!</span>
                 </h2>
                 <p className="font-popins font-medium">Sign up to our regular newsletter for news, insight, new product releases & more.</p>
-                <div className="mr-26 flex">
+                <div className="md:mr-26 flex">
                     <SudentSubscription />
                 </div>
                 <p className="font-popins hidden text-sm font-normal">
