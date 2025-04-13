@@ -99,7 +99,7 @@ function HeroSection() {
                         <br />
                         <span className="text-accent relative">Mental Health!</span>
                     </h2>
-                    <p className="text-muted font-popins pr-16 pb-6 text-justify text-sm font-medium md:text-lg">
+                    <p className="text-muted font-popins md:pr-16 pb-6 text-justify text-sm font-medium md:text-lg">
                         Discover a dynamic learning environment designed to shape the next generation of mental health professionals.
                         Whether you&apos;re starting your journey or seeking to deepen your expertise, our programs offer the guidance,
                         tools, and mentorship you need.
@@ -244,14 +244,14 @@ function WhatToGetSection() {
                         <Image src="/images/decor-learning-tutor.png" alt="User 1" fill className="h-full w-full" />
                     </div>
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Learning Materials</h6>
-                    <p className="font-popins w-1/2 text-left text-lg font-medium">
+                    <p className="font-popins md:w-1/2 text-left text-lg font-medium text-balance">
                         Access curated notes, toolkits, and mental health resources tailored for students and professionals alike.
                     </p>
                     <DecorImage
                         src="/images/decor-plant-2.png"
                         alt="Decor Plant"
                         size={[160, 160]}
-                        className="absolute right-0 bottom-0 z-10"
+                        className="absolute right-0 bottom-0 z-10 opacity-60 md:opacity-100"
                     />
                 </div>
                 <div className="to-primary-light/50 from-primary-light/60 relative col-span-2 bg-gradient-to-r">
@@ -259,7 +259,7 @@ function WhatToGetSection() {
                         <Image src="/images/decor-learning-material.png" alt="User 1" fill className="h-full w-full" />
                     </div>
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Expert Guidance</h6>
-                    <p className="font-popins w-1/2 text-left text-lg font-medium">
+                    <p className="font-popins md:w-1/2 text-left text-lg font-medium text-balance">
                         Connect with licensed professionals for support, mentorship, and answers to your clinical learning queries.
                     </p>
                     <DecorImage
