@@ -95,12 +95,14 @@ function HeroSection() {
             </div>
 
             <div className="flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
-                <div className="flex flex-col gap-4 pr-16 text-center md:max-w-1/2 md:gap-5 md:text-start">
+                <div className="flex flex-col gap-4 text-center md:max-w-1/2 md:gap-5 md:pr-16 md:text-start">
                     <h3 className="font-popins text-xl md:text-3xl">
                         Come find your <b>best version </b> at
                     </h3>
-                    <h2 className="font-popins text-3xl leading-18 font-semibold md:text-5xl">
-                        SyNC <span className="text-accent">Positive</span> <br /> Psychiatry Foundation.
+                    <h2 className="font-popins text-3xl font-semibold md:text-5xl md:leading-18">
+                        SyNC <span className="text-accent">Positive</span>
+                        <br />
+                        Psychiatry Foundation.
                     </h2>
                     <h5 className="font-popins mb-2 text-sm font-medium opacity-80 md:text-lg">A holistic approach to your well-being.</h5>
                     <p className="text-muted font-popins mb-4 text-justify text-sm md:text-lg">
@@ -202,7 +204,7 @@ function ExpertServicesSection() {
 
     return (
         <section className="section flex flex-col items-center gap-12 pt-4 md:gap-16">
-            <div className="font-popins flex items-center gap-4 text-2xl font-semibold md:text-4xl">
+            <div className="font-popins flex items-center gap-4 text-xl font-semibold md:text-2xl md:text-4xl">
                 <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
                     <h2 className="">Expert Services</h2>
                 </div>
@@ -230,7 +232,7 @@ function ExpertServicesSection() {
             </div>
 
             <div className="my-6 flex flex-col-reverse items-start gap-4 md:flex-row">
-                <div className="relative mt-8 flex flex-col gap-54 pr-12 text-center md:max-w-1/2 md:gap-6 md:text-start">
+                <div className="relative mt-8 flex flex-col gap-6 pr-12 text-center md:max-w-1/2 md:text-start">
                     <Button
                         variant="outline"
                         className="hover:bg-background border-primary font-inter w-fit rounded-full bg-white font-normal"
