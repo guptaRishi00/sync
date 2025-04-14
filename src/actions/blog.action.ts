@@ -15,7 +15,7 @@ export interface BlogPost {
 
 const posts: BlogPost[] = [
     {
-        slug: "1",
+        slug: "understanding_obsessive_compulsive_related_disorders",
         authorImage: "/images/author-image-1.jpg",
         date: dayjs(),
         image: "/images/blog-post-1.jpeg",
@@ -25,7 +25,7 @@ const posts: BlogPost[] = [
         author: "SyNC Positive Psychiatry Foundation",
     },
     {
-        slug: "2",
+        slug: "signs_of_autism_in_adults_what_to_look_for",
         authorImage: "/images/author-image-2.jpg",
         date: dayjs(),
         image: "/images/blog-post-2.jpeg",
@@ -35,11 +35,11 @@ const posts: BlogPost[] = [
         author: "SyNC Positive Psychiatry Foundation",
     },
     {
-        slug: "kjh893g2j3",
+        slug: "how_to_get_an_adhd_diagnosis_a_step_by_step_guide",
         authorImage: "/images/author-image-7.jpg",
         date: dayjs(),
         image: "/images/blog-post-3.jpeg",
-        title: "Lorem Ipsum Dolor Sit Amet Consectetur",
+        title: "How to Get an ADHD Diagnosis: A Step-by-Step Guide",
         content: "Content",
         type: "Mental Health",
         author: "SyNC Positive Psychiatry Foundation",

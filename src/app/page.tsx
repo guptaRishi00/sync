@@ -95,7 +95,7 @@ function HeroSection() {
             </div>
 
             <div className="flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
-                <div className="flex flex-col gap-4 text-center md:max-w-1/2 md:gap-5 md:pr-16 md:text-start">
+                <div className="flex flex-col gap-4 text-start md:max-w-1/2 md:gap-5 md:pr-16">
                     <h3 className="font-popins text-xl md:text-3xl">
                         Come find your <b>best version </b> at
                     </h3>

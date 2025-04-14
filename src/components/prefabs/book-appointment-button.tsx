@@ -107,13 +107,8 @@ export default function BookAppointmentButton({ className }: Props) {
                         </DialogTitle>
 
                         <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
-                            <video
-                                controls
-                                preload="none"
-                                className="h-full overflow-hidden rounded-2xl object-cover"
-                                poster="/images/home-video.jpg"
-                            >
-                                <source src="/videos/what is sync yt.mp4" type="video/mp4" />
+                            <video controls preload="none" className="h-full overflow-hidden rounded-2xl object-cover">
+                                <source src="/videos/front-desk.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                         </div>
