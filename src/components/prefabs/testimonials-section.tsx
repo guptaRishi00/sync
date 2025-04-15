@@ -8,7 +8,8 @@ export default function TestimonialsSection() {
             profile: "/images/google-logo.png",
             name: "Bharat Agarwal",
             title: "Google Review",
-            description: "With every step you take toward healing, we’re committed to offering the care and space you need to thrive.",
+            description:
+                "I had a very nice experience at SyNC Positive Psychiatry. Dr. Vinod helped me understand my ADHD. The place is clean, calm, and has a soothing atmosphere. It's been a collaborative experience, in terms of choice of medication and lifestyle changes, and I feel more capable of tackling my ambitions after meeting him.",
             rating: 5,
         },
         {

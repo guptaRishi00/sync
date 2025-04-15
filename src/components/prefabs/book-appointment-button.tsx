@@ -107,7 +107,12 @@ export default function BookAppointmentButton({ className }: Props) {
                         </DialogTitle>
 
                         <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
-                            <video controls preload="none" className="h-full overflow-hidden rounded-2xl object-cover">
+                            <video
+                                controls
+                                preload="none"
+                                className="h-full overflow-hidden rounded-2xl object-cover"
+                                poster="/images/front-desk-thumbnail.jpeg"
+                            >
                                 <source src="/videos/front-desk.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
@@ -170,7 +175,7 @@ export default function BookAppointmentButton({ className }: Props) {
 
                     <div className="flex grow flex-col items-center justify-start gap-6 pt-12">
                         <div
-                            className="from-secondary-light flex h-30 w-2/3 cursor-pointer items-start justify-between rounded-2xl bg-linear-to-br to-[#69482D] px-8 py-4"
+                            className="flex w-2/3 cursor-pointer items-start justify-between rounded-2xl bg-[#A77039] px-8 py-4 md:h-30"
                             onClick={onNewPatientClick}
                         >
                             <div className="text-white">
@@ -184,7 +189,7 @@ export default function BookAppointmentButton({ className }: Props) {
                         </div>
 
                         <div
-                            className="flex h-30 w-2/3 cursor-pointer items-start justify-between rounded-2xl bg-linear-to-br from-[#1080F8] to-[#1365BE] px-8 py-4"
+                            className="flex w-2/3 cursor-pointer items-start justify-between rounded-2xl bg-[#AC9D81] px-8 py-4 md:h-30"
                             onClick={() => onBookTypeClick("follow-up")}
                         >
                             <div className="text-white">

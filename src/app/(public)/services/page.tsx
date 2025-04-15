@@ -75,7 +75,7 @@ function HeroSection() {
             <div className="grid grow grid-cols-1 grid-rows-1 gap-12 md:grid-cols-2">
                 <div className="flex grow flex-col gap-10">
                     <div className="">
-                        <h2 className="font-popins relative inline text-5xl leading-18 font-semibold md:text-5xl">
+                        <h2 className="font-popins relative inline text-3xl leading-10 font-semibold md:text-5xl md:leading-18">
                             What we do
                             <br />
                             At{" "}
@@ -103,7 +103,7 @@ function HeroSection() {
                             src="/images/home-decore-3.png"
                             alt="Decor Highlight"
                             size={[200, 200]}
-                            className="right-0 bottom-0 z-10 translate-x-1/3"
+                            className="right-0 bottom-0 z-10 hidden translate-x-1/3 md:block"
                         />
                     </div>
                 </div>
@@ -156,7 +156,7 @@ function ConsultationSection() {
                         src="/images/decor-smile-primary.png"
                         alt="Decor Smile"
                         size={[100, 100]}
-                        className="top-0 left-0 -translate-y-full"
+                        className="top-0 left-0 h-16! w-16! -translate-y-full md:h-auto md:w-auto"
                     />
                     <div className="flex flex-col">
                         <p className="font-popins inline text-justify text-lg font-medium md:leading-7">
@@ -215,7 +215,7 @@ function ConsultationSection() {
 function PsychiatricConsultationsSection() {
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
-            <h2 className="font-popins relative text-3xl font-semibold md:mb-4 md:text-5xl">
+            <h2 className="font-popins relative text-3xl leading-10 font-semibold md:mb-4 md:text-5xl md:leading-normal">
                 Psychiatric <span className="bg-primary rounded-sm px-4">Consultations</span>
             </h2>
 
@@ -235,13 +235,12 @@ function PsychiatricConsultationsSection() {
                         src="/images/decor-smile-primary.png"
                         alt="Decor Smile"
                         size={[100, 100]}
-                        className="top-0 left-0 -translate-y-full"
+                        className="top-0 left-0 h-16! w-16! -translate-y-full md:h-auto md:w-auto"
                     />
                     <div className="flex">
                         <div className="flex flex-col">
                             <p className="font-popins inline text-justify text-lg font-medium md:leading-7">
-                                Comprehensive psychiatric care tailored to individuals across all life stages—children, adults, and the
-                                elderly—focused on diagnosing, treating, and managing a wide range of mental health conditions.
+                                Comprehensive psychiatric care tailored to individuals across all life stages.
                             </p>
                             <ul className="mt-4 space-y-4">
                                 <li className="font-bold">
@@ -276,7 +275,7 @@ function PsychiatricConsultationsSection() {
 
                                 <li className="font-bold">
                                     Psychiatry of the Elderly
-                                    <p className="font-normal">
+                                    <p className="text-lg font-normal">
                                         Geriatric-focused mental health services to manage conditions like dementia, late-life depression,
                                         anxiety, and substance misuse in older adults.
                                     </p>
@@ -325,8 +324,8 @@ function PsychiatricConsultationsSection() {
 function CounsellingAndPsychotherapy() {
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
-            <h2 className="relative text-3xl font-bold md:mb-4 md:text-5xl">
-                <span className="bg-primary font-popins rounded-sm px-4 text-5xl font-semibold">Psychological Assessments</span>
+            <h2 className="font-popins relative text-3xl leading-10 font-semibold md:mb-4 md:text-5xl md:leading-normal">
+                <span className="bg-primary rounded-sm px-4">Psychological Assessments</span>
             </h2>
 
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">
@@ -361,7 +360,7 @@ function CounsellingAndPsychotherapy() {
                         src="/images/decor-smile-primary.png"
                         alt="Decor Smile"
                         size={[100, 100]}
-                        className="top-0 left-0 -translate-y-full"
+                        className="top-0 left-0 h-16! w-16! -translate-y-full md:h-auto md:w-auto"
                     />
                     <div className="flex flex-col">
                         <p className="font-popins inline text-justify text-lg font-medium md:leading-7">

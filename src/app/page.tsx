@@ -279,19 +279,19 @@ function ExpertServicesSection() {
             </div>
 
             <div className="mb-8 grid w-full grid-cols-1 gap-8 md:grid-cols-3 md:gap-16">
-                <Button className="flex h-58 w-full flex-col items-center justify-center rounded-2xl">
+                <Button className="flex h-42 w-full flex-col items-center justify-center rounded-2xl md:h-58">
+                    <h4 className="font-sora text-5xl font-bold lg:text-7xl">1.8K+</h4>
+                    <p className="font-popins text-lg font-normal text-wrap">Assessments</p>
+                </Button>
+
+                <Button className="flex h-42 flex-col items-center justify-center rounded-2xl md:h-58">
+                    <h4 className="font-sora text-5xl font-bold lg:text-7xl">2.3K+</h4>
+                    <p className="font-popins text-lg font-normal text-wrap">Clients</p>
+                </Button>
+
+                <Button className="flex h-42 flex-col items-center justify-center rounded-2xl md:h-58">
                     <h4 className="font-sora text-5xl font-bold lg:text-7xl">10+</h4>
-                    <p className="font-popins text-lg font-normal text-wrap">Certified Specialists.</p>
-                </Button>
-
-                <Button className="flex h-58 flex-col items-center justify-center rounded-2xl">
-                    <h4 className="font-sora text-5xl font-bold lg:text-7xl">10k+</h4>
-                    <p className="font-popins text-lg font-normal text-wrap">Satisfied Patients World-wide</p>
-                </Button>
-
-                <Button className="flex h-58 flex-col items-center justify-center rounded-2xl">
-                    <h4 className="font-sora text-5xl font-bold lg:text-7xl">100+</h4>
-                    <p className="font-popins text-lg font-normal text-wrap">Advanced Diagnostics Performed</p>
+                    <p className="font-popins text-lg font-normal text-wrap">Specialists</p>
                 </Button>
             </div>
         </section>

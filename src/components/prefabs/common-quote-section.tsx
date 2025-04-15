@@ -32,7 +32,7 @@ export default function CommonQuoteSection() {
                 src="/images/decor-light.png"
                 alt="Decor light"
                 size={[120, 120]}
-                className="right-0 bottom-0 opacity-40 lg:opacity-100"
+                className="right-0 bottom-0 hidden opacity-40 md:block lg:opacity-100"
             />
         </section>
     );

@@ -17,7 +17,7 @@ export default function HealthRequirementSection() {
                         />
                     </h2>
                     <p className="font-popins text-muted text-2xl">
-                        With every step you take toward healing, we’re committed to offering the care and space you need to thrive.
+                        With every step you take towards healing, we’re committed to offering the care and space you need to thrive.
                     </p>
                 </div>
 
@@ -35,7 +35,7 @@ export default function HealthRequirementSection() {
                 />
 
                 <SimpleCard
-                    title="Wellness that goes beyond therapy"
+                    title="Wellness beyond therapy"
                     description="We trust that the path to wholeness—harmonizing mind, body, emotion, and energy—leads to a life truly lived."
                     imagePath="/images/home-decore-3.png"
                     className="bg-[#AC9D81]"

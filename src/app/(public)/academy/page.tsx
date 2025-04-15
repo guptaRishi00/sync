@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { CirclePlay, Library, Users, Video } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import "./style.css";
 
 export default async function AcademyPage() {
@@ -32,7 +33,7 @@ export default async function AcademyPage() {
                     src="/images/decor-plant-grow.png"
                     alt="Decor Table"
                     size={[500, 500]}
-                    className="right-2 bottom-0 translate-y-1"
+                    className="right-2 bottom-0 hidden translate-y-1 md:block"
                 />
             </main>
 
@@ -58,7 +59,7 @@ export default async function AcademyPage() {
                 <HealthRequirementSection />
             </main>
 
-            <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
+            <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12" id="contact-us">
                 <ConnectToSyncSection />
 
                 <JoinNewsLetter />
@@ -101,14 +102,16 @@ function HeroSection() {
                     </h2>
                     <p className="text-muted font-popins pb-6 text-justify text-sm font-medium md:pr-16 md:text-lg">
                         Discover a dynamic learning environment designed to shape the next generation of mental health professionals.
-                        Whether you&apos;re starting your journey or seeking to deepen your expertise, our programs offer the guidance,
-                        tools, and mentorship you need.
+                        Whether you&apos;re starting your journey or seeking to deepen your expertise, our programs offer the tools and
+                        mentorship you need.
                     </p>
 
                     <div className="flex gap-2">
-                        <Button variant="secondary" className="text-background font-popins h-14 w-44 text-lg">
-                            Send Enquiry
-                        </Button>
+                        <Link href="#contact-us">
+                            <Button variant="secondary" className="text-background font-popins h-14 w-44 text-lg">
+                                Send Enquiry
+                            </Button>
+                        </Link>
 
                         <Button variant="default" size="icon" className="hidden h-14 w-14">
                             <CirclePlay className="scale-150" />
@@ -141,7 +144,7 @@ function HeroSection() {
                             </Button>
                             <div className="mr-4">
                                 <small className="text-muted font-popins text-sm font-medium">Learning Resources</small>
-                                <h6 className="font-popins text-base font-bold">203+</h6>
+                                <h6 className="font-popins hidden text-base font-bold">203+</h6>
                             </div>
                         </div>
                     </div>
@@ -153,12 +156,12 @@ function HeroSection() {
                                     <Users className="fill-white stroke-white" />
                                 </Button>
                                 <div className="mr-4">
-                                    <small className="text-muted font-popins text-sm font-medium">Online Students</small>
-                                    <h6 className="font-popins text-base font-bold">98</h6>
+                                    <small className="text-muted font-popins text-sm font-medium">Online Courses</small>
+                                    <h6 className="font-popins hidden text-base font-bold">98</h6>
                                 </div>
                             </div>
 
-                            <div className="flex px-2">
+                            <div className="flex hidden px-2">
                                 <div className="relative size-6 overflow-hidden rounded-full border-2 border-white">
                                     <Image src="/images/academy-user-1.png" alt="User 1" fill className="h-full w-full" />
                                 </div>
@@ -211,7 +214,7 @@ function WhatToGetSection() {
                     </div>
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Clinical Training</h6>
                     <p className="font-popins w-full text-left text-lg font-medium">
-                        Explore therapy sessions and counselor techniques through immersive, real-world video lessons.
+                        Explore therapy sessions and counselor techniques through immersive, interactive simulations.
                     </p>
                 </div>
                 <div className="relative col-span-2 bg-gradient-to-r from-white to-white">
@@ -245,7 +248,7 @@ function WhatToGetSection() {
                     </div>
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Learning Materials</h6>
                     <p className="font-popins text-left text-lg font-medium text-balance md:w-1/2">
-                        Access curated notes, toolkits, and mental health resources tailored for students and professionals alike.
+                        Access curated notes, toolkits, and mental health resources tailored for students and professionals.
                     </p>
                     <DecorImage
                         src="/images/decor-plant-2.png"
@@ -287,7 +290,7 @@ function PointsToJoinSection() {
             <div className="relative aspect-square w-3/4 grow md:min-h-[65vh] md:w-auto">
                 <Image src="/images/academy-bg.png" alt="Academy BG" fill className="h-full w-full" />
             </div>
-            <div className="flex flex-col gap-4 md:pr-12">
+            <div className="flex flex-col items-center gap-4 md:items-start md:pr-12">
                 <h2 className="font-popins relative text-2xl font-semibold md:text-5xl">Train . Certify . Grow</h2>
 
                 <p className="font-popins text-lg font-normal text-balance">
@@ -338,8 +341,8 @@ function SubscribeSection() {
     return (
         <section className="section relative flex h-full flex-col items-start justify-start gap-12 py-8 md:flex-row md:py-16">
             <div className="space-y-6">
-                <div className="relative aspect-1307/497 md:max-w-[30vw]">
-                    <Image src="/images/decor-frame.png" alt="Academy Frame" fill className="h-full w-full" />
+                <div className="relative aspect-1307/497 w-3/4 md:max-w-[30vw]">
+                    <Image src="/images/decor-frame.png" alt="Academy Frame" fill className="md:h-full md:w-full" />
                     <DecorImage
                         src="/images/decor-smile.png"
                         alt="Decor Butterfly"
@@ -347,10 +350,12 @@ function SubscribeSection() {
                         className="right-0 bottom-0 translate-y-full"
                     />
                 </div>
-                <h2 className="font-popins relative text-3xl leading-16 font-bold md:text-5xl">
+                <h2 className="font-popins relative text-3xl leading-10 font-bold md:text-5xl md:leading-16">
                     Don&apos;t miss any <br /> information from us<span className="text-accent h-fit rounded-sm">!</span>
                 </h2>
-                <p className="font-popins font-medium">Sign up to our regular newsletter for news, insight, new product releases & more.</p>
+                <p className="font-popins font-medium">
+                    Sign up for our newsletter and gain access to updates, insights, new product releases & more
+                </p>
                 <div className="flex md:mr-26">
                     <SudentSubscription />
                 </div>

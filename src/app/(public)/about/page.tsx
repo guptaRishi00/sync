@@ -116,8 +116,8 @@ function HeroSection() {
                             />
                         </h2>
                         <p className="text-muted font-popins text-justify text-sm font-normal md:text-lg">
-                            SyNC&apos; signifies the alignment of mind, body, and soul; it is our core philosophy. We prioritize
-                            synchronizing these elements for a harmonizing approach.
+                            SyNC signifies the alignment of mind, body, and soul; it is our core philosophy. We prioritize synchronizing
+                            these elements for a harmonizing approach.
                         </p>
                     </div>
                 </div>
@@ -212,7 +212,7 @@ function MeetOurExpertSection() {
         {
             name: "Dr. Harsh P Jain",
             designation: "Physician",
-            about: "Dr. Harsh P. Jain, MBBS, a physician on a path to pursue postgraduate studies in Psychiatry in the UK, is driven by a profound curiosity about the human mind and the mind-body-emotion-energ connection.  His warm, approachable demeanor, coupled with fluency in English, Hindi, Tamil, and Marwari, fosters strong client connections. Passionate about neurodivergence, Dr. Jain focuses on ADHD and related disorders, using his personal experience to connect with and empower clients. His goal is to guide individuals toward more fulfilling and balanced lives, helping them navigate their unique challenges. In his downtime, Dr. Jain enjoys swimming, badminton, and adventure sports, always seeking ways to embrace life with energy and enthusiasm.",
+            about: "Dr. Harsh P Jain, MBBS, a physician on a path to pursue postgraduate studies in Psychiatry in the UK, is driven by a profound curiosity about the human mind and believes in the mind-body-emotion-energy connection.  His warm, approachable demeanor, coupled with fluency in English, Hindi, Tamil, and Marwari, fosters strong client connections. Passionate about neurodivergence, Dr. Jain focuses on ADHD and related disorders, using his personal experience to connect with and empower clients. His goal is to guide individuals toward more fulfilling and balanced lives, helping them navigate their unique challenges. In his downtime, Dr. Jain enjoys swimming, badminton, and adventure sports, always seeking ways to embrace life with energy and enthusiasm.",
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
@@ -254,7 +254,7 @@ function MeetOurExpertSection() {
             <div className="font-popins relative flex items-center gap-2 font-semibold">
                 <h2 className="text-xl font-bold md:text-4xl">Meet Our</h2>
                 <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
-                    <h2 className="text-xl font-bold md:text-4xl">Expert Doctors</h2>
+                    <h2 className="text-xl font-bold md:text-4xl">Expert Team</h2>
                 </div>
                 <DecorImage
                     src="/images/decor-love-primary.png"

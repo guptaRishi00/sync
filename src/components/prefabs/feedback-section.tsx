@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import DecorImage from "./decor-image";
 
 export default function FeedbackSection() {
@@ -18,17 +19,19 @@ export default function FeedbackSection() {
                         <h4 className="font-inter text-background text-xl md:text-3xl">We Value Your Feedback!</h4>
                         <p className="font-lato text-base text-white md:text-xl">
                             Your opinion matters to us. If you&apos;ve enjoyed our services, we’d love to hear your thoughts! Share your
-                            experience by leaving a review—it helps us improve and continue providing the best for you.
+                            experience by leaving a review—it helps us improve and continue providing the best care for you.
                         </p>
 
-                        <div className="relative mt-4 aspect-square w-62">
-                            <Image
-                                src="/images/qr-code.png"
-                                alt="QR Code"
-                                fill
-                                className="stroke-primary absolute -z-50 rounded-2xl object-contain"
-                            />
-                        </div>
+                        <Link href="https://www.google.com/search?client=firefox-b-d&sca_esv=4f1f0cd305a72421&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzQHFwD8v-EdFoBLy4B87kCBXR6d1ehRTEZiHzJ8JZ_iksY85w8rw0ppbr4ikg1Aj7u1n2sOF0OhJi5aJi7VImEcdOUHiZisi2YiXTjI57ps_byA8Tmnirf5qNDS2WA5GB5zadrA%3D&q=SyNC-Positive+Psychiatry+Foundation+Reviews&sa=X&ved=2ahUKEwjV6MW3utqMAxVoSfEDHaRiG8UQ0bkNegQIJhAE&biw=1391&bih=673&dpr=2#lrd=0x3bae156fdb22aa43:0xe73b834380e395b5,3,,,,">
+                            <div className="relative mt-4 aspect-square w-52 md:w-62">
+                                <Image
+                                    src="/images/qr-code.png"
+                                    alt="QR Code"
+                                    fill
+                                    className="stroke-primary absolute -z-50 rounded-2xl object-contain"
+                                />
+                            </div>
+                        </Link>
                     </div>
 
                     <div className="bg-primary-light [&>h4]:font-inter [&>p]:font-popins relative -z-40 rounded-2xl px-16 py-12 shadow-2xl lg:w-136 [&>h4]:mb-2 [&>h4]:text-xl [&>h4]:font-semibold md:[&>h4]:text-3xl [&>p]:mb-4 [&>p]:text-base md:[&>p]:text-lg">
@@ -42,9 +45,14 @@ export default function FeedbackSection() {
                         <h4>Phone Number</h4>
                         <p>+91 9980539955</p>
                         <h4>E-Mail</h4>
-                        <p className="pb-42">Connect@SyNCpositivepsychiatry.com</p>
+                        <p className="pb-28 md:pb-42">Connect@SyNCpositivepsychiatry.com</p>
 
-                        <DecorImage src="/images/decor-cat.png" alt="Cat Decor" size={[200, 200]} className="right-0 bottom-0" />
+                        <DecorImage
+                            src="/images/decor-cat.png"
+                            alt="Cat Decor"
+                            size={[200, 200]}
+                            className="right-0 bottom-0 h-30! w-30! md:h-auto md:w-auto"
+                        />
                     </div>
                 </div>
             </div>

@@ -11,6 +11,7 @@ export function BlogHeaderCard({ post }: { post: BlogPost }) {
                     <Image src={post.authorImage} alt={post.author} fill />
                 </div>
                 <p className="font-popins text-sm font-normal">{post.author}</p>
+                <p className="font-popins text-sm font-normal">{post.reviewedBy}</p>
                 <p className="font-popins text-sm font-normal">{post.date.format("MMMM DD, YYYY")}</p>
             </div>
         </>

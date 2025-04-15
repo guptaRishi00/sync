@@ -7,12 +7,12 @@ export default function EvaluationMethodologiesSection() {
             section: "Screening",
             title: "Begin Your Journey",
             description:
-                "This 60-minute talk is designed to capture your genetic profile, neurobiological profile, and life story- in simple terms, the ‘hardware and software’ of your being. A session with a therapist, online or in-person, based on your convenience.",
+                "This 60-minute talk is designed to capture your genetic profile, neurobiological profile, and life story in simple terms, the ‘hardware and software’ of your being. A session with a therapist, online or in-person, based on your convenience.",
             points: [],
         },
         {
             section: "Assessments",
-            title: "Get Guided Discovery",
+            title: "Guided Discovery",
             description:
                 "An essential part of the process is to gain an understanding of your being. These check-ins help the therapist understand how you think, feel, and behave while capturing the nuances of your mind.",
             points: [],
@@ -53,7 +53,7 @@ export default function EvaluationMethodologiesSection() {
                         src="/images/decor-butterfly.png"
                         alt="Decor Butterfly"
                         size={[44, 44]}
-                        className="top-0 left-0 -translate-full"
+                        className="top-4 left-0 -translate-full md:top-0"
                     />
                     <DecorImage
                         src="/images/decor-highlight.png"
