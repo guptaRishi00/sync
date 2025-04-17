@@ -93,7 +93,7 @@ export default function BookAppointmentButton({ className }: Props) {
             </Button>
 
             <Dialog open={openLocationDialog} onOpenChange={setOpenLocationDialog}>
-                <DialogContent className="h-158 overflow-auto sm:max-w-[825px] md:overflow-hidden">
+                <DialogContent className="h-158 overflow-hidden sm:max-w-[825px]">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex flex-col items-center pt-8">
                         <DialogTitle className="font-popins relative text-2xl font-bold md:text-4xl">
@@ -155,7 +155,7 @@ export default function BookAppointmentButton({ className }: Props) {
             </Dialog>
 
             <Dialog open={openBookTypeDialog} onOpenChange={setOpenBookTypeDialog}>
-                <DialogContent className="flex h-158 flex-col overflow-hidden sm:max-w-[825px]">
+                <DialogContent className="flex h-158 flex-col overflow-clip sm:max-w-[825px]">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex flex-col items-center gap-2 pt-8 md:gap-6">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
@@ -173,9 +173,9 @@ export default function BookAppointmentButton({ className }: Props) {
                         </DialogDescription>
                     </DialogHeader>
 
-                    <div className="flex grow flex-col items-center justify-start gap-6 pt-12">
+                    <div className="flex grow flex-col items-center justify-start gap-6 overflow-auto pt-12">
                         <div
-                            className="flex w-2/3 cursor-pointer items-start justify-between rounded-2xl bg-[#A77039] px-8 py-4 md:h-30"
+                            className="flex w-9/10 cursor-pointer items-start justify-between rounded-2xl bg-[#A77039] px-8 py-4 md:h-30 md:w-2/3"
                             onClick={onNewPatientClick}
                         >
                             <div className="text-white">
@@ -189,7 +189,7 @@ export default function BookAppointmentButton({ className }: Props) {
                         </div>
 
                         <div
-                            className="flex w-2/3 cursor-pointer items-start justify-between rounded-2xl bg-[#AC9D81] px-8 py-4 md:h-30"
+                            className="flex w-9/10 cursor-pointer items-start justify-between rounded-2xl bg-[#AC9D81] px-8 py-4 md:h-30 md:w-2/3"
                             onClick={() => onBookTypeClick("follow-up")}
                         >
                             <div className="text-white">
@@ -231,7 +231,7 @@ export default function BookAppointmentButton({ className }: Props) {
             <Dialog open={openFollowupDialog} onOpenChange={setOpenFollowupDialog}>
                 <DialogContent className="h-158 overflow-auto sm:max-w-[825px] md:overflow-hidden">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
-                    <DialogHeader className="flex h-full flex-col items-center gap-6 p-12">
+                    <DialogHeader className="flex h-full flex-col items-center gap-6 md:p-12">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
                             Follow-Up Appointment
                             <DecorImage
@@ -244,7 +244,7 @@ export default function BookAppointmentButton({ className }: Props) {
                         <DialogDescription className="text-foreground font-popins text-center text-lg font-normal opacity-80 md:text-2xl">
                             We’re here to assist you with your follow-up scheduling
                         </DialogDescription>
-                        <div className="flex grow flex-col items-center justify-between gap-6 rounded-2xl bg-[#AC9D81] py-8 text-2xl text-white md:px-24">
+                        <div className="flex grow flex-col items-center justify-between gap-6 rounded-2xl bg-[#AC9D81] py-8 text-xl text-white md:px-24 md:text-2xl">
                             <span className="z-20 pt-6">
                                 For follow-up consultations, we kindly request you to reach out to our team via WhatsApp. This will help us
                                 assist you faster and find the most convenient slot for you.
@@ -298,7 +298,7 @@ export default function BookAppointmentButton({ className }: Props) {
                         src="/images/decor-plant.png"
                         alt="Decor Plant"
                         size={[286, 286]}
-                        className="bottom-0 left-0 z-0 -translate-x-1/4 opacity-70"
+                        className="bottom-0 left-0 z-0 -translate-x-1/4 opacity-30 md:opacity-70"
                     />
                 </DialogContent>
             </Dialog>
