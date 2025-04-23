@@ -8,12 +8,12 @@ export const redirectToTopperStage = async (urlType: string, country?: string) =
     process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 
     // Get the Auth Token
-    const authResponse = await fetch(`https://${domain}.topperstage.com/api/GenerateToken/${domain}/${key}`);
+    const authResponse = await fetch(`https://${domain}.pwens.com/api/GenerateToken/${domain}/${key}`);
     const authBody = await authResponse.json();
     const token = authBody["token"];
 
     // Fetch the URL
-    const apiResponse = await fetch(`https://${domain}.topperstage.com/api/GenerateURL`, {
+    const apiResponse = await fetch(`https://${domain}.pwens.com/api/GenerateURL/`, {
         method: "POST",
         headers: {
             Accept: "application/json",

@@ -51,7 +51,7 @@ export default function FeedbackSection() {
                             src="/images/decor-cat.png"
                             alt="Cat Decor"
                             size={[200, 200]}
-                            className="right-0 bottom-0 h-30! w-30! md:h-auto md:w-auto"
+                            className="right-0 bottom-0 h-30! w-30! md:h-50! md:w-50!"
                         />
                     </div>
                 </div>

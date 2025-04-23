@@ -108,7 +108,7 @@ function HeroSection() {
                     </div>
                 </div>
                 <div className="relative aspect-square h-auto w-full md:aspect-auto">
-                    <Image src={"/images/services-hero.jpg"} alt="Hero Thumbnail" fill className="h-full w-full rounded-2xl object-cover" />
+                    <Image src={"/jpeg/what we do.jpg"} alt="Hero Thumbnail" fill className="h-full w-full rounded-2xl object-cover" />
                 </div>
             </div>
 
@@ -127,7 +127,7 @@ function ConsultationSection() {
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">
                 <div className="relative mr-8 mb-16 aspect-49/50 w-full">
                     <Image
-                        src="/images/decor-missin-bg.png"
+                        src="/jpeg/counselling and therapy.jpg"
                         fill
                         sizes="100vw"
                         alt="Service BG"
@@ -295,7 +295,7 @@ function PsychiatricConsultationsSection() {
                 </div>
                 <div className="relative order-first mr-8 mb-16 aspect-49/50 w-full md:order-last">
                     <Image
-                        src="/images/patient-care-bg-2.png"
+                        src="/jpeg/Psychiatric consultations.jpg"
                         fill
                         sizes="100vw"
                         alt="Service BG"
@@ -331,7 +331,7 @@ function CounsellingAndPsychotherapy() {
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">
                 <div className="relative mr-8 mb-16 aspect-49/50 w-full">
                     <Image
-                        src="/images/decor-export-service-1.png"
+                        src="/jpeg/Psychological Assessments.jpg"
                         fill
                         sizes="100vw"
                         alt="Service BG"

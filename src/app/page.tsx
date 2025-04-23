@@ -113,10 +113,15 @@ function HeroSection() {
                     <BookAppointmentButton />
                 </div>
                 <div className="relative aspect-5/5 h-full w-full">
-                    <Image src="/images/home-hero-bg.jpg" alt="Hero Thumbnail" fill className="hero-video object-cover" />
+                    <Image
+                        src="/jpeg/Home page photo and faded background.jpg"
+                        alt="Hero Thumbnail"
+                        fill
+                        className="rounded-3xl object-cover"
+                    />
                     <Button
                         variant="secondary"
-                        className="from-secondary-light to-secondary text-background absolute right-0 bottom-0 flex gap-2 rounded-3xl bg-linear-to-br px-8 py-10 text-lg"
+                        className="from-secondary-light to-secondary text-background absolute right-0 bottom-0 hidden gap-2 rounded-3xl bg-linear-to-br px-8 py-10 text-lg"
                     >
                         <div className="bg-background grid h-fit scale-120 place-items-center rounded-full p-2">
                             <Play className="fill-foreground stroke-foreground" />
@@ -169,28 +174,28 @@ function FoundersNoteSection() {
 function ExpertServicesSection() {
     const cardDetails = [
         {
-            imagePath: "/images/decor-export-service-1.png",
+            imagePath: "/jpeg/Consultation.jpg",
             title: "Consultations",
             description: "Discuss your needs with a professional and learn about your care options.",
         },
         {
-            imagePath: "/images/decor-export-service-2.png",
+            imagePath: "/jpeg/Individual counselling.jpg",
             title: "Individual Counseling & Therapy",
             description: "A safe and empowering space to navigate life’s journey with guidance.",
         },
         {
-            imagePath: "/images/decor-export-service-3.png",
+            imagePath: "/jpeg/ADHD group coaching.jpg",
             title: "Adhd Group Coaching Sessions",
             description: "Develop resilience, organization, and management skills in a shared group setting.",
         },
         {
-            imagePath: "/images/decor-export-service-4.png",
+            imagePath: "/jpeg/Asessment and diagnosis.jpg",
             title: "Assessment & Diagnosis",
             description:
                 "A thoughtful conversation to explore your experiences, uncover their origins, and understand their impact on your well-being.",
         },
         {
-            imagePath: "/images/decor-export-service-5.png",
+            imagePath: "/jpeg/Psychiatric consultations.jpg",
             title: "Psychiatric Consultations",
             description:
                 "Expert psychiatric care for depression, anxiety, addiction, ADHD, neurodivergence, schizophrenia, mood disorders, and more.",
@@ -261,7 +266,7 @@ function ExpertServicesSection() {
                     <div className="pb-26 pl-16">
                         <div className="relative aspect-5/4 h-full w-full">
                             <Image
-                                src="/images/home-why-us.jpg"
+                                src="/jpeg/why choose us.jpg"
                                 alt="Hero Thumbnail"
                                 fill
                                 className="right-0 left-0 rounded-2xl object-cover"

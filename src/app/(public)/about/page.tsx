@@ -87,7 +87,7 @@ function HeroSection() {
             <div className="flex grow flex-col justify-center">
                 <div className="grid-row-4 grid grow auto-rows-fr grid-cols-1 gap-8 py-4 md:grid-cols-2 md:grid-rows-2 [&_img]:overflow-hidden [&>div]:rounded-2xl">
                     <div className="relative row-span-2">
-                        <Image src="/images/about-hero-1.jpg" alt="Hero Thumbnail" fill className="rounded-2xl object-cover" />
+                        <Image src="/jpeg/Main left. big.jpg" alt="Hero Thumbnail" fill className="rounded-2xl object-cover" />
 
                         <DecorImage
                             src="/images/decor-plant.png"
@@ -97,7 +97,7 @@ function HeroSection() {
                         />
                     </div>
                     <div className="relative grow">
-                        <Image src="/images/about-hero-2.jpg" alt="Hero Thumbnail" fill className="rounded-2xl object-cover" />
+                        <Image src="/jpeg/right side 1.jpg" alt="Hero Thumbnail" fill className="rounded-2xl object-cover" />
                         <DecorImage
                             src="/images/decor-highlight-1.png"
                             alt="Decor Highlight"
@@ -135,7 +135,16 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Dr.Vinod Kumar.png",
+            profileImage: "/jpeg/profiles/Dr Vinod.jpg",
+        },
+        {
+            name: "Dr. Balu, MBBS, MRCPsych, MBA",
+            designation: "Consultant Psychiatrist | Brain Health & Peak Performance",
+            about: "Dr. Balu is an internationally trained Consultant Psychiatrist with experience across the UK, UAE, and India. Known for his holistic, high-impact approach, he specializes in emotional wellness, neurodivergence, and high-performance mental health. With expertise in ADHD, ASD, anxiety, burnout, and behavioural patterns, he has supported over 25,000 individuals, particularly professionals and high achievers. He integrates Western psychiatry with insights from neuroeconomics, behavioural finance, and Eastern healing arts. A member of the Royal College of Psychiatrists and the American Psychiatric Association, Dr. Balu combines clinical care with functional wellness to promote sustainable brain and behavioural transformation.",
+            // facebook: "https://www.facebook.com",
+            // linkedin: "https://www.linkedin.com",
+            // instagram: "https://www.instagram.com",
+            profileImage: "/jpeg/profiles/Dr Balu.jpg",
         },
         {
             name: "Dr. Anupama Bajaj",
@@ -144,7 +153,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Dr. Anupama Bajaj.png",
+            profileImage: "/jpeg/profiles/Dr Anupama.jpg",
         },
         {
             name: "Dr Poornima Chandrashekar",
@@ -153,7 +162,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Dr Poornima.png",
+            profileImage: "/jpeg/profiles/Dr Poornima.jpg",
         },
         {
             name: "Kala Bhandari",
@@ -162,7 +171,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Kala.png",
+            profileImage: "/jpeg/profiles/Dr Kala.jpg",
         },
         {
             name: "Mehek Gill",
@@ -171,7 +180,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Mehek.png",
+            profileImage: "/jpeg/profiles/Dr Mehek.jpg",
         },
         {
             name: "Esha Jiani",
@@ -180,7 +189,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Esha.png",
+            profileImage: "/jpeg/profiles/Dr Esha.jpg",
         },
         {
             name: "P Kalyan",
@@ -189,7 +198,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Kalyan.png",
+            profileImage: "/jpeg/profiles/Dr Kalyan.jpg",
         },
         {
             name: "Vani Mitti",
@@ -198,7 +207,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Vani.png",
+            profileImage: "/jpeg/profiles/Dr Vani.jpg",
         },
         {
             name: "Raunak Jain",
@@ -207,7 +216,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Raunak.png",
+            profileImage: "/jpeg/profiles/Dr Raunak.jpg",
         },
         {
             name: "Dr. Harsh P Jain",
@@ -216,7 +225,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Dr. Harsh.png",
+            profileImage: "/jpeg/profiles/Dr. Harsh.jpg",
         },
         {
             name: "Anusha Kolloji",
@@ -225,7 +234,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Anusha Kolloji.png",
+            profileImage: "/jpeg/profiles/Dr Anusha.jpg",
         },
 
         {
@@ -235,7 +244,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Darshana.png",
+            profileImage: "/jpeg/profiles/Dr Darshana.jpg",
         },
 
         {
@@ -245,7 +254,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/images/profiles/Richa.png",
+            profileImage: "/jpeg/profiles/Dr Richa.jpg",
         },
     ];
 
@@ -332,7 +341,7 @@ function VisionSection() {
             </div>
 
             <div className="relative row-span-2 hidden md:block">
-                <Image src="/images/decor-missin-bg.png" alt="Hero Vision" fill className="object-cover" />
+                <Image src="/jpeg/mission and vision.jpg" alt="Hero Vision" fill className="object-cover" />
             </div>
         </section>
     );

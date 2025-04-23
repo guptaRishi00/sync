@@ -6,17 +6,17 @@ export default function CommitmentToPatientSection() {
         {
             title: "Comfort",
             description: "We prioritize patient safety and support, treating every patient like a family member.",
-            imagePath: "/images/patient-care-bg-1.png",
+            imagePath: "/jpeg/Comfort.jpg",
         },
         {
             title: "Ethical",
             description: "Healing is deeply personal. We only recommend care options that we’d trust for our own families.",
-            imagePath: "/images/patient-care-bg-2.png",
+            imagePath: "/jpeg/ethical.jpg",
         },
         {
             title: "Empathetic",
             description: "As professionals who have been in our clients' shoes, we deeply understand their needs.",
-            imagePath: "/images/patient-care-bg-3.png",
+            imagePath: "/jpeg/empathetic.jpg",
         },
     ];
     return (

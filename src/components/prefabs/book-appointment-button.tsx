@@ -93,7 +93,7 @@ export default function BookAppointmentButton({ className }: Props) {
             </Button>
 
             <Dialog open={openLocationDialog} onOpenChange={setOpenLocationDialog}>
-                <DialogContent className="h-158 overflow-hidden sm:max-w-[825px]">
+                <DialogContent className="h-164 overflow-hidden sm:max-w-[825px]">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex flex-col items-center pt-8">
                         <DialogTitle className="font-popins relative text-2xl font-bold md:text-4xl">
@@ -131,7 +131,9 @@ export default function BookAppointmentButton({ className }: Props) {
                                 onCheckedChange={(state) => setIsTermsAccepted(state === true)}
                             />
                             <label htmlFor="terms" className="text-[#9D6937]">
-                                I Agree to the Terms & Conditions
+                                I agree to share my current location to receive
+                                <br />
+                                location-based services and improved functionality.
                             </label>
                         </div>
                     </DialogHeader>
@@ -155,7 +157,7 @@ export default function BookAppointmentButton({ className }: Props) {
             </Dialog>
 
             <Dialog open={openBookTypeDialog} onOpenChange={setOpenBookTypeDialog}>
-                <DialogContent className="flex h-158 flex-col overflow-clip sm:max-w-[825px]">
+                <DialogContent className="flex h-164 flex-col overflow-clip sm:max-w-[825px]">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex flex-col items-center gap-2 pt-8 md:gap-6">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
@@ -174,30 +176,53 @@ export default function BookAppointmentButton({ className }: Props) {
                     </DialogHeader>
 
                     <div className="flex grow flex-col items-center justify-start gap-6 overflow-auto pt-12">
-                        <div
-                            className="flex w-9/10 cursor-pointer items-start justify-between rounded-2xl bg-[#A77039] px-8 py-4 md:h-30 md:w-2/3"
-                            onClick={onNewPatientClick}
-                        >
-                            <div className="text-white">
-                                <h6 className="mb-2 text-xl font-semibold">New Client</h6>
-                                <span className="opacity-90">
-                                    I&apos;m engaging with your services for the first time & would like to get started.
-                                </span>
+                        <div className="flex w-full items-center justify-center gap-4 px-0 md:px-16">
+                            <div className="relative -mr-10 hidden aspect-3/4 h-24 grow-0 md:block">
+                                <DecorImage
+                                    src="/images/decor-plant-1.png"
+                                    alt="Decor Highlight"
+                                    size={[60, 60]}
+                                    className="bottom-0 left-0 z-40 size-24 scale-125 object-contain"
+                                />
                             </div>
-                            <div className="grow"></div>
-                            <ArrowRight size={35} className="stroke-white" />
+
+                            <div
+                                className="flex w-9/10 shrink-0 grow cursor-pointer items-start justify-between rounded-2xl bg-[#A77039] px-8 py-4 md:h-30 md:w-2/3"
+                                onClick={onNewPatientClick}
+                            >
+                                <div className="text-white">
+                                    <h6 className="mb-2 text-xl font-semibold">New Client</h6>
+                                    <span className="opacity-90">
+                                        I&apos;m engaging with your services for the first time & would like to get started.
+                                    </span>
+                                </div>
+                                <div className="grow"></div>
+                                <ArrowRight size={35} className="stroke-white" />
+                            </div>
                         </div>
 
-                        <div
-                            className="flex w-9/10 cursor-pointer items-start justify-between rounded-2xl bg-[#AC9D81] px-8 py-4 md:h-30 md:w-2/3"
-                            onClick={() => onBookTypeClick("follow-up")}
-                        >
-                            <div className="text-white">
-                                <h6 className="mb-2 text-xl font-semibold">Existing Client</h6>
-                                <span className="opacity-90">I’ve been here before and would like to connect for a follow-up session</span>
+                        <div className="flex w-full items-center justify-center gap-4 px-0 md:px-16">
+                            <div className="relative -mr-10 hidden aspect-3/4 h-24 grow-0 md:block">
+                                <DecorImage
+                                    src="/images/decor-plant-2.png"
+                                    alt="Decor Highlight"
+                                    size={[60, 60]}
+                                    className="bottom-0 left-0 z-40 size-24 scale-125 object-contain"
+                                />
                             </div>
-                            <div className="grow"></div>
-                            <ArrowRight size={35} className="stroke-white" />
+                            <div
+                                className="flex w-9/10 shrink-0 grow cursor-pointer items-start justify-between rounded-2xl bg-[#AC9D81] px-8 py-4 md:h-30 md:w-2/3"
+                                onClick={() => onBookTypeClick("follow-up")}
+                            >
+                                <div className="text-white">
+                                    <h6 className="mb-2 text-xl font-semibold">Existing Client</h6>
+                                    <span className="opacity-90">
+                                        I’ve been here before and would like to connect for a follow-up session
+                                    </span>
+                                </div>
+                                <div className="grow"></div>
+                                <ArrowRight size={35} className="stroke-white" />
+                            </div>
                         </div>
                     </div>
                     {/* 
@@ -229,7 +254,7 @@ export default function BookAppointmentButton({ className }: Props) {
             </Dialog>
 
             <Dialog open={openFollowupDialog} onOpenChange={setOpenFollowupDialog}>
-                <DialogContent className="h-158 overflow-auto sm:max-w-[825px] md:overflow-hidden">
+                <DialogContent className="h-164 overflow-auto sm:max-w-[825px] md:overflow-hidden">
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex h-full flex-col items-center gap-6 md:p-12">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">

@@ -37,7 +37,7 @@ export default function ExportServiceCard({ imagePath, title, description, isBoo
                             src="/images/decor-leaves.png"
                             alt="Decor Leaves"
                             size={[260, 260]}
-                            className="right-0 bottom-0 z-20 translate-x-1/5 translate-y-1/4 opacity-80"
+                            className="right-0 bottom-0 z-20 size-44 translate-x-1/5 translate-y-1/4 opacity-80 md:size-[260px]"
                         />
                     </div>
                     <BookAppointmentButton className="mt-4 w-full" />
