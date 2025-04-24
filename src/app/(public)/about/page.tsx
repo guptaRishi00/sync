@@ -138,7 +138,7 @@ function MeetOurExpertSection() {
             profileImage: "/jpeg/profiles/Dr Vinod.jpg",
         },
         {
-            name: "Dr. Balu, MBBS, MRCPsych, MBA",
+            name: "Dr. Balu",
             designation: "Consultant Psychiatrist | Brain Health & Peak Performance",
             about: "Dr. Balu is an internationally trained Consultant Psychiatrist with experience across the UK, UAE, and India. Known for his holistic, high-impact approach, he specializes in emotional wellness, neurodivergence, and high-performance mental health. With expertise in ADHD, ASD, anxiety, burnout, and behavioural patterns, he has supported over 25,000 individuals, particularly professionals and high achievers. He integrates Western psychiatry with insights from neuroeconomics, behavioural finance, and Eastern healing arts. A member of the Royal College of Psychiatrists and the American Psychiatric Association, Dr. Balu combines clinical care with functional wellness to promote sustainable brain and behavioural transformation.",
             // facebook: "https://www.facebook.com",
