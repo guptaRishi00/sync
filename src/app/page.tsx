@@ -114,7 +114,7 @@ function HeroSection() {
                 </div>
                 <div className="relative aspect-5/5 h-full w-full">
                     <Image
-                        src="/jpeg/Home page updated1.jpg"
+                        src="/jpeg/Home page updated1.JPG"
                         alt="Hero Thumbnail"
                         fill
                         className="rounded-3xl object-cover"
