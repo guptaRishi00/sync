@@ -25,7 +25,7 @@ export default function FeedbackSection() {
                         <Link href="https://www.google.com/search?client=firefox-b-d&sca_esv=4f1f0cd305a72421&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzQHFwD8v-EdFoBLy4B87kCBXR6d1ehRTEZiHzJ8JZ_iksY85w8rw0ppbr4ikg1Aj7u1n2sOF0OhJi5aJi7VImEcdOUHiZisi2YiXTjI57ps_byA8Tmnirf5qNDS2WA5GB5zadrA%3D&q=SyNC-Positive+Psychiatry+Foundation+Reviews&sa=X&ved=2ahUKEwjV6MW3utqMAxVoSfEDHaRiG8UQ0bkNegQIJhAE&biw=1391&bih=673&dpr=2#lrd=0x3bae156fdb22aa43:0xe73b834380e395b5,3,,,,">
                             <div className="relative mt-4 aspect-square w-52 md:w-62">
                                 <Image
-                                    src="/images/qr-code.png"
+                                    src="/images/qr-code.jpeg"
                                     alt="QR Code"
                                     fill
                                     className="stroke-primary absolute -z-50 rounded-2xl object-contain"
@@ -51,7 +51,7 @@ export default function FeedbackSection() {
                             src="/images/decor-cat.png"
                             alt="Cat Decor"
                             size={[200, 200]}
-                            className="right-0 bottom-0 h-30! w-30! md:h-50! md:w-50!"
+                            className="right-0 bottom-0 h-34! w-30! md:h-56! md:w-50!"
                         />
                     </div>
                 </div>

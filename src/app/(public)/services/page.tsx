@@ -102,13 +102,13 @@ function HeroSection() {
                         <DecorImage
                             src="/images/home-decore-3.png"
                             alt="Decor Highlight"
-                            size={[200, 200]}
+                            size={[150, 150]}
                             className="right-0 bottom-0 z-10 hidden translate-x-1/3 md:block"
                         />
                     </div>
                 </div>
                 <div className="relative aspect-square h-auto w-full md:aspect-auto">
-                    <Image src={"/jpeg/what we do.jpg"} alt="Hero Thumbnail" fill className="h-full w-full rounded-2xl object-cover" />
+                    <Image src={"/jpeg/What we do-Services page.jpg"} alt="Hero Thumbnail" fill className="h-full w-full rounded-2xl object-cover" />
                 </div>
             </div>
 

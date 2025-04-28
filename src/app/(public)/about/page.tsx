@@ -85,27 +85,22 @@ function HeroSection() {
             </div>
 
             <div className="flex grow flex-col justify-center">
-                <div className="grid-row-4 grid grow auto-rows-fr grid-cols-1 gap-8 py-4 md:grid-cols-2 md:grid-rows-2 [&_img]:overflow-hidden [&>div]:rounded-2xl">
-                    <div className="relative row-span-2">
+                <div className="grid-row-4 grid auto-rows-fr grid-cols-1 gap-8 py-4 md:grid-cols-2 md:grid-rows-2 [&_img]:overflow-hidden [&>div]:rounded-2xl">
+                    <div className="relative row-span-2 h-80">
                         <Image src="/jpeg/Main left. big.jpg" alt="Hero Thumbnail" fill className="rounded-2xl object-cover" />
 
-                        <DecorImage
-                            src="/images/decor-plant.png"
-                            alt="Decor Plant"
-                            size={[286, 286]}
-                            className="md:Translate-y-1/8 bottom-0 left-0 z-0 -translate-x-1/2 translate-y-1/4 scale-50"
-                        />
                     </div>
-                    <div className="relative grow">
-                        <Image src="/jpeg/right side 1.jpg" alt="Hero Thumbnail" fill className="rounded-2xl object-cover" />
+                    <div className="relative h-[9rem] md:block hidden">
+                        <Image height={80} width={720} src="/jpeg/right side 1.jpg" alt="Hero Thumbnail" className="rounded-2xl object-cover h-80" />
                         <DecorImage
                             src="/images/decor-highlight-1.png"
                             alt="Decor Highlight"
-                            size={[52, 52]}
+                            size={[70, 70]}
                             className="top-0 right-0 translate-x-3/4 -translate-y-3/4"
                         />
                     </div>
-                    <div className="flex flex-col justify-center gap-4">
+                </div>
+                    <div className="flex flex-col justify-end py-7">
                         <h2 className="font-popins relative w-fit text-2xl font-semibold md:text-4xl">
                             About the clinic
                             <DecorImage
@@ -115,12 +110,11 @@ function HeroSection() {
                                 className="top-0 right-0 translate-x-full md:-translate-y-full"
                             />
                         </h2>
-                        <p className="text-muted font-popins text-justify text-sm font-normal md:text-lg">
+                        <p className="text-muted font-popins text-justify text-sm font-normal md:text-lg pt-3">
                             SyNC signifies the alignment of mind, body, and soul; it is our core philosophy. We prioritize synchronizing
                             these elements for a harmonizing approach.
                         </p>
                     </div>
-                </div>
             </div>
         </section>
     );
@@ -289,8 +283,8 @@ function MeetOurExpertSection() {
                     </CarouselContent>
 
                     <div className="bg-green flex items-center justify-center gap-4 [&>button]:relative! [&>button]:top-0! [&>button]:left-0! [&>button]:translate-0!">
-                        <CarouselPrevious variant="default" />
-                        <CarouselNext variant="default" />
+                        <CarouselPrevious variant="default"/>
+                        <CarouselNext variant="default"/>
                     </div>
                 </Carousel>
             </div>

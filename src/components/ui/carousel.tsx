@@ -170,7 +170,7 @@ function CarouselPrevious({ className, variant = "outline", size = "icon", ...pr
             onClick={scrollPrev}
             {...props}
         >
-            <ArrowLeft className="scale-110 stroke-white" />
+            <ArrowLeft className="scale-200 stroke-white" />
             <span className="sr-only">Previous slide</span>
         </Button>
     );
@@ -193,7 +193,7 @@ function CarouselNext({ className, variant = "outline", size = "icon", ...props 
             onClick={scrollNext}
             {...props}
         >
-            <ArrowRight className="scale-110 stroke-white" />
+            <ArrowRight className="scale-200 stroke-white" />
             <span className="sr-only">Next slide</span>
         </Button>
     );

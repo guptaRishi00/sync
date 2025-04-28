@@ -17,9 +17,9 @@ export default function Header() {
     return (
         <div className="flex items-center justify-between">
             {/* logo */}
-            <div className="relative aspect-3454/574 w-40 cursor-pointer md:w-64" onClick={onLogoClick}>
-                <Image src="/images/logo.png" alt="SYNC" fill className="object-contain" />
-            </div>
+            <div className="relative aspect-167/86 w-40 cursor-pointer md:w-64" onClick={onLogoClick}>
+                <Image src="/images/logo.png" alt="SYNC" fill className="h-86 w-67" />
+            </div> 
 
             {/* Menu */}
 
@@ -54,8 +54,8 @@ export default function Header() {
                             Academy
                         </Link>
                         <Separator className="bg-secondary h-[4px]! w-1/2!" />
-                        <Link className="hover:text-primary text-2xl md:text-3xl" href="/blog">
-                            Blog
+                        <Link className="hover:text-primary text-2xl md:text-3xl" href="/resources">
+                            Resources
                         </Link>
                     </div>
                 </SheetContent>

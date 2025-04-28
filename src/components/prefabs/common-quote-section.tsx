@@ -6,7 +6,7 @@ export default function CommonQuoteSection() {
     return (
         <section className="section relative flex flex-col items-center gap-6 py-8 md:flex-row">
             <div className="relative aspect-519/352 h-fit w-full grow md:m-16">
-                <Image src="/jpeg/slide 6.jpg" alt="Hero Thumbnail" fill className="right-0 left-0 rounded-2xl object-cover" />
+                <Image src="/jpeg/Dr-Vinod.jpg" alt="Hero Thumbnail" fill className="right-0 left-0 rounded-2xl object-contain" />
             </div>
 
             <div className="flex w-full grow flex-col justify-center gap-8 md:max-w-1/2">

@@ -13,12 +13,12 @@ export default function VibeSection() {
             <div className="aspect-5/3 w-4/5 md:w-3/4">
                 <Carousel className="h-full">
                     <CarouselContent className="h-full">
-                        {Array.from({ length: 10 }).map((_, index) => (
+                        {Array.from({ length: 9 }).map((_, index) => (
                             <CarouselItem key={index}>
                                 <Card className="h-full py-0">
                                     <CardContent className="relative flex h-full items-center justify-center">
                                         <Image
-                                            src={`/jpeg/slide_ (${index + 1}).jpg`}
+                                            src={`/jpeg/${index + 1}.jpg`}
                                             alt="Carousel Image"
                                             fill
                                             className="rounded-2xl object-cover"

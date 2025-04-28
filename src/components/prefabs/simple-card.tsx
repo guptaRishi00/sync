@@ -17,7 +17,7 @@ export default function SimpleCard({ title, description, imagePath, className }:
                 <p className="font-inter z-10 text-base font-normal md:text-xl">{description}</p>
             </div>
 
-            <span className="relative w-fit translate-x-[170%] -translate-y-1/9 scale-200">
+            <span className="relative w-fit translate-x-[170%] -translate-y-1/9 scale-170">
                 <Image src={imagePath} alt={title} className="object-cover" width={70} height={130} />
             </span>
         </div>

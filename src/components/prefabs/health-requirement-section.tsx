@@ -31,7 +31,7 @@ export default function HealthRequirementSection() {
                     title="Specialised care designed for you"
                     description="Specialized care on neurodivergence and related disorders “focused on you, by us. "
                     imagePath="/images/home-decore-2.png"
-                    className="from-secondary-light bg-linear-to-br to-[#69482D]"
+                    className="from-secondary-light bg-linear-to-br to-[#69482D] "
                 />
 
                 <SimpleCard

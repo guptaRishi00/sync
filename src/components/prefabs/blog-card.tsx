@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function BlogCard({ post }: { post: BlogPost }) {
     return (
-        <Link className="text-2xl md:text-3xl" href={`/blog/${post.slug}`}>
+        <Link className="text-2xl md:text-3xl" href={`/resources/${post.slug}`}>
             <div className="flex min-h-146 w-full flex-col gap-4 rounded-2xl bg-white px-3 py-5 transition-transform hover:scale-101 hover:cursor-pointer">
                 <div className="relative aspect-4/3">
                     <Image src={post.image} alt={post.author} fill className="rounded-lg object-cover" />

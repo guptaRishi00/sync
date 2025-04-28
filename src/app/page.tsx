@@ -114,7 +114,7 @@ function HeroSection() {
                 </div>
                 <div className="relative aspect-5/5 h-full w-full">
                     <Image
-                        src="/jpeg/Home page photo and faded background.jpg"
+                        src="/jpeg/Home page updated1.jpg"
                         alt="Hero Thumbnail"
                         fill
                         className="rounded-3xl object-cover"
@@ -179,7 +179,7 @@ function ExpertServicesSection() {
             description: "Discuss your needs with a professional and learn about your care options.",
         },
         {
-            imagePath: "/jpeg/Individual counselling.jpg",
+            imagePath: "/jpeg/Individual therapy.jpg",
             title: "Individual Counseling & Therapy",
             description: "A safe and empowering space to navigate life’s journey with guidance.",
         },
