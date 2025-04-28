@@ -296,7 +296,7 @@ function VisionSection() {
     const whyChooseUsList = [
         "Specialised care designed around you.",
         "Wellness beyond therapy.",
-        "Ongoing care and connection - because well-being is a journey.",
+        "Ongoing care and connection.",
         "Trusted space to grow and thrive.",
     ];
     return (
