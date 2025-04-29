@@ -147,7 +147,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/jpeg/profiles/Dr Anupama.jpg",
+            profileImage: "/jpeg/profiles/Dr. Anupama Bajaj.jpeg",
         },
         {
             name: "Dr Poornima Chandrashekar",
