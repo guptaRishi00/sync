@@ -81,7 +81,7 @@ function HeroSection() {
                         </p>
                     </div>
                     <div className="bg-primary relative grow rounded-2xl p-8">
-                        <h2 className="font-popins hidden text-3xl font-semibold md:text-5xl">About the clinic</h2>
+                        <h2 className="font-popins text-3xl font-semibold md:text-5xl">About the clinic</h2>
                         <p className="font-popins z-50 mt-6 text-lg leading-8 font-medium text-balance md:pb-24">
                             SyNC signifies the alignment of mind, body, and soul; it is our core philosophy. We prioritize synchronizing
                             these elements for a harmonizing approach.
