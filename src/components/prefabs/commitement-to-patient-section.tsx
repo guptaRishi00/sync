@@ -11,7 +11,7 @@ export default function CommitmentToPatientSection() {
         {
             title: "Ethical",
             description: "Healing is deeply personal. We only recommend care options that we’d trust for our own families.",
-            imagePath: "/jpeg/ethical.jpg",
+            imagePath: "/jpeg/right side 2.jpg",
         },
         {
             title: "Empathetic",

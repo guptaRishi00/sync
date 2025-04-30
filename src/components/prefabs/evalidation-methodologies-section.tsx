@@ -33,7 +33,17 @@ export default function EvaluationMethodologiesSection() {
             </h2>
             <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">
                 Your mental health journey doesn’t have to be overwhelming.
-                <br />
+            </p>
+            <video
+                controls
+                preload="none"
+                className="h-full overflow-hidden rounded-2xl object-cover w-5xl"
+                poster="/jpeg/Subtract (1).png"
+            >
+                <source src="/videos/front-desk.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">
                 Here’s a simple, structured path to help you understand yourself better and begin healing.
             </p>
 
@@ -85,13 +95,6 @@ export default function EvaluationMethodologiesSection() {
                             alt="Decor Highlight"
                             size={[120, 120]}
                             className="right-0 bottom-0 z-40 h-38 translate-y-1/6 object-contain md:h-auto"
-                        />
-
-                        <DecorImage
-                            src="/images/decor-butterfly-2.png"
-                            alt="Decor Smile"
-                            size={[100, 100]}
-                            className="border-primary top-1/3 right-0 z-20 translate-x-1/2 -translate-y-1/2 rounded-2xl border-3 bg-white p-4"
                         />
 
                         <DecorImage

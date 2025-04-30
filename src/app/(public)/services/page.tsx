@@ -81,12 +81,6 @@ function HeroSection() {
                             At{" "}
                             <span className="text-accent relative">
                                 SyNC!
-                                <DecorImage
-                                    src="/images/decor-butterfly-2.png"
-                                    alt="Decor Smile"
-                                    size={[60, 60]}
-                                    className="right-0 bottom-0 translate-x-full"
-                                />
                             </span>
                         </h2>
                     </div>

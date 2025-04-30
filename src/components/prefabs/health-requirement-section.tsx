@@ -39,6 +39,7 @@ export default function HealthRequirementSection() {
                     description="We trust that the path to wholeness—harmonizing mind, body, emotion, and energy—leads to a life truly lived."
                     imagePath="/images/home-decore-3.png"
                     className="bg-[#AC9D81]"
+                    scaleRatio="relative w-fit translate-x-[170%] -translate-y-1/9 scale-190"
                 />
 
                 <SimpleCard

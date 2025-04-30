@@ -10,7 +10,7 @@ export default function VibeSection() {
             <div className="relative aspect-8/1 h-8 md:h-16">
                 <DecorImage src="/images/decor-vibes.png" alt="Decor New" size={[800, 100]} className="" />
             </div>
-            <div className="aspect-5/3 w-4/5 md:w-3/4">
+            <div className="aspect-[3.75/3] w-4/5 md:w-3/4">
                 <Carousel className="h-full">
                     <CarouselContent className="h-full">
                         {Array.from({ length: 9 }).map((_, index) => (
@@ -21,7 +21,7 @@ export default function VibeSection() {
                                             src={`/jpeg/${index + 1}.jpg`}
                                             alt="Carousel Image"
                                             fill
-                                            className="rounded-2xl object-cover"
+                                            className="rounded-2xl object-contain"
                                         />
                                     </CardContent>
                                 </Card>

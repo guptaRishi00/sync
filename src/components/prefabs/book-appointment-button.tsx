@@ -187,7 +187,7 @@ export default function BookAppointmentButton({ className }: Props) {
                             </div>
 
                             <div
-                                className="flex w-9/10 shrink-0 grow cursor-pointer items-start justify-between rounded-2xl bg-[#A77039] px-8 py-4 md:h-30 md:w-2/3"
+                                className="flex w-9/10 shrink-0 grow cursor-pointer items-start justify-between rounded-2xl bg-[#f8b414] px-8 py-4 md:h-30 md:w-2/3"
                                 onClick={onNewPatientClick}
                             >
                                 <div className="text-white">

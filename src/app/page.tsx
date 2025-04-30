@@ -114,7 +114,7 @@ function HeroSection() {
                 </div>
                 <div className="relative aspect-5/5 h-full w-full">
                     <Image
-                        src="/jpeg/Home page updated1.JPG"
+                        src="/jpeg/Home page updated (2).jpg"
                         alt="Hero Thumbnail"
                         fill
                         className="rounded-3xl object-cover"
@@ -266,7 +266,7 @@ function ExpertServicesSection() {
                     <div className="pb-26 pl-16">
                         <div className="relative aspect-5/4 h-full w-full">
                             <Image
-                                src="/jpeg/why choose us.jpg"
+                                src="/jpeg/why choose us1.jpg"
                                 alt="Hero Thumbnail"
                                 fill
                                 className="right-0 left-0 rounded-2xl object-cover"
@@ -274,7 +274,7 @@ function ExpertServicesSection() {
                         </div>
                     </div>
 
-                    <div className="to-secondary from-secondary-light absolute bottom-0 left-0 z-10 w-68 rounded-2xl bg-linear-to-r px-8 py-12 text-white md:w-122 md:gap-16">
+                    <div className="to-secondary from-secondary-light absolute bottom-0 left-0 z-10 w-68 rounded-2xl bg-linear-to-r px-8 py-8 text-white md:w-122 md:gap-16">
                         <h4 className="font-inter pb-4 text-lg font-extrabold md:text-2xl">Rejuvenate. Reconnect. Recharge.</h4>
                         <p className="font-inter text-sm font-normal md:text-sm">
                             We help you get re-connected to your best self and lead a happy and meaningful life.

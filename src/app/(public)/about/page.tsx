@@ -62,60 +62,45 @@ export default async function AboutPage() {
 
 function HeroSection() {
     return (
-        <section className="section flex flex-col gap-4 py-8 md:min-h-dvh">
+        <section className="section relative flex flex-col gap-4 py-8 md:min-h-dvh">
             {/* Header */}
             <div className="mb-8 w-full">
                 <Header />
             </div>
 
-            <div className="flex flex-col items-start gap-5 md:items-start">
-                <h2 className="font-popins relative inline text-3xl font-semibold md:text-5xl">
-                    SyNC <span className="text-accent">Positive</span> Psychiatry Foundation
-                    <DecorImage
-                        src="/images/decor-smile.png"
-                        alt="Decor Smile"
-                        size={[42, 42]}
-                        className="top-0 right-0 -translate-y-full md:translate-x-full"
-                    />
-                </h2>
+            <div className="md:grow"></div>
 
-                <p className="text-muted font-popins text-justify text-sm font-medium md:text-lg">
-                    103-C, 30th Cross Rd, 7th Block, Jayanagar, Bengaluru, Karnataka 560070, India
-                </p>
-            </div>
-
-            <div className="flex grow flex-col justify-center">
-                <div className="grid-row-4 grid auto-rows-fr grid-cols-1 gap-8 py-4 md:grid-cols-2 md:grid-rows-2 [&_img]:overflow-hidden [&>div]:rounded-2xl">
-                    <div className="relative row-span-2 h-80">
-                        <Image src="/jpeg/Main left. big.jpg" alt="Hero Thumbnail" fill className="rounded-2xl object-cover" />
-
-                    </div>
-                    <div className="relative h-[9rem] md:block hidden">
-                        <Image height={80} width={720} src="/jpeg/right side 1.jpg" alt="Hero Thumbnail" className="rounded-2xl object-cover h-80" />
-                        <DecorImage
-                            src="/images/decor-highlight-1.png"
-                            alt="Decor Highlight"
-                            size={[70, 70]}
-                            className="top-0 right-0 translate-x-3/4 -translate-y-3/4"
-                        />
-                    </div>
-                </div>
-                    <div className="flex flex-col justify-end py-7">
-                        <h2 className="font-popins relative w-fit text-2xl font-semibold md:text-4xl">
-                            About the clinic
-                            <DecorImage
-                                src="/images/decor-love-primary.png"
-                                alt="Decor Love"
-                                size={[32, 32]}
-                                className="top-0 right-0 translate-x-full md:-translate-y-full"
-                            />
+            <div className="grid grow grid-cols-1 grid-rows-1 gap-12 md:grid-cols-2">
+                <div className="flex grow flex-col gap-10">
+                    <div className="">
+                        <h2 className="font-popins relative inline text-3xl leading-10 font-semibold md:text-5xl md:leading-18">
+                            SyNC <span className="text-accent">Positive</span> Psychiatry Foundation
                         </h2>
-                        <p className="text-muted font-popins text-justify text-sm font-normal md:text-lg pt-3">
+                        <p className="text-muted font-popins text-justify text-sm font-medium md:text-lg">
+                            103-C, 30th Cross Rd, 7th Block, Jayanagar, Bengaluru, Karnataka 560070, India
+                        </p>
+                    </div>
+                    <div className="bg-primary relative grow rounded-2xl p-8">
+                        <h2 className="font-popins hidden text-3xl font-semibold md:text-5xl">About the clinic</h2>
+                        <p className="font-popins z-50 mt-6 text-lg leading-8 font-medium text-balance md:pb-24">
                             SyNC signifies the alignment of mind, body, and soul; it is our core philosophy. We prioritize synchronizing
                             these elements for a harmonizing approach.
                         </p>
+
+                        <DecorImage
+                            src="/images/home-decore-3.png"
+                            alt="Decor Highlight"
+                            size={[150, 150]}
+                            className="right-0 bottom-0 z-10 hidden translate-x-1/3 md:block"
+                        />
                     </div>
+                </div>
+                <div className="relative aspect-square h-auto w-full md:aspect-auto">
+                    <Image src={"/jpeg/Main left. big.jpg"} alt="Hero Thumbnail" fill className="h-full w-full rounded-2xl object-cover" />
+                </div>
             </div>
+
+            <div className="md:grow"></div>
         </section>
     );
 }
@@ -302,7 +287,7 @@ function VisionSection() {
     return (
         <section className="section grid min-h-svh grid-cols-1 grid-rows-[auto_1fr] gap-6 py-12 md:grid-flow-col md:grid-cols-3 [&>div]:overflow-hidden [&>div]:rounded-2xl">
             <div className="bg-primary-light row-span-1 flex flex-col items-start justify-start gap-4 p-6 md:p-12">
-                <h2 className="font-popins text-xl font-semibold md:text-2xl">Mission</h2>
+                <h2 className="font-popins text-xl font-semibold md:text-3xl">Mission</h2>
                 <p className="font-popins text-base font-normal">
                     Revolutionize brain health and emotional wellness. We have accessible and sustainable care solutions, empowering
                     individuals to achieve peace, productivity, and prosperity.
@@ -311,7 +296,7 @@ function VisionSection() {
 
             <div className="flex flex-col items-start gap-8 bg-white p-6 md:col-span-2 md:p-12">
                 <div className="flex flex-col items-start justify-start gap-8">
-                    <h2 className="font-popins text-xl font-semibold md:text-2xl">Why Choose Us?</h2>
+                    <h2 className="font-popins text-xl font-semibold md:text-3xl">Why Choose Us?</h2>
 
                     <ul className="flex list-none flex-col items-start gap-3">
                         {whyChooseUsList.map((item, index) => (
@@ -327,7 +312,7 @@ function VisionSection() {
             </div>
 
             <div className="bg-primary flex flex-col items-start justify-start gap-4 p-6 md:p-12">
-                <h2 className="font-popins text-xl font-semibold md:text-2xl">Vision</h2>
+                <h2 className="font-popins text-xl font-semibold md:text-3xl">Vision</h2>
                 <p className="font-popins text-base font-normal">
                     To be a global leader in brain health optimization and emotional wellness, fostering innovation and community engagement
                     to create a healthier, more resilient world.
