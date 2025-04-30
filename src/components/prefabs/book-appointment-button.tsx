@@ -111,7 +111,7 @@ export default function BookAppointmentButton({ className }: Props) {
                                 controls
                                 preload="none"
                                 className="h-full overflow-hidden rounded-2xl object-cover"
-                                poster="/images/front-desk-thumbnail.jpeg"
+                                poster="/jpeg/Subtract (1).png"
                             >
                                 <source src="/videos/front-desk.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
