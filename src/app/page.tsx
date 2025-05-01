@@ -14,6 +14,7 @@ import Footer from "@/components/prefabs/footer";
 import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
 import LearnMoreNavButton from "@/components/prefabs/learn-more-nav-button";
+import Metrics from "@/components/prefabs/metrics";
 import TestimonialsSection from "@/components/prefabs/testimonials-section";
 import VibeSection from "@/components/prefabs/vibes-section";
 
@@ -113,12 +114,7 @@ function HeroSection() {
                     <BookAppointmentButton />
                 </div>
                 <div className="relative aspect-5/5 h-full w-full">
-                    <Image
-                        src="/jpeg/Home page updated (2).jpg"
-                        alt="Hero Thumbnail"
-                        fill
-                        className="rounded-3xl object-cover"
-                    />
+                    <Image src="/jpeg/Home page updated (2).jpg" alt="Hero Thumbnail" fill className="rounded-3xl object-cover" />
                     <Button
                         variant="secondary"
                         className="from-secondary-light to-secondary text-background absolute right-0 bottom-0 hidden gap-2 rounded-3xl bg-linear-to-br px-8 py-10 text-lg"
@@ -274,7 +270,7 @@ function ExpertServicesSection() {
                         </div>
                     </div>
 
-                    <div className="to-secondary from-secondary-light absolute bottom-0 left-0 z-10 w-68 rounded-2xl bg-linear-to-r px-5 py-5 md:px-8 md:py-8 text-white md:w-122 md:gap-16">
+                    <div className="to-secondary from-secondary-light absolute bottom-0 left-0 z-10 w-68 rounded-2xl bg-linear-to-r px-5 py-5 text-white md:w-122 md:gap-16 md:px-8 md:py-8">
                         <h4 className="font-inter pb-4 text-lg font-extrabold md:text-2xl">Rejuvenate. Reconnect. Recharge.</h4>
                         <p className="font-inter text-sm font-normal md:text-sm">
                             We help you get re-connected to your best self and lead a happy and meaningful life.
@@ -283,22 +279,7 @@ function ExpertServicesSection() {
                 </div>
             </div>
 
-            <div className="mb-8 grid w-full grid-cols-1 gap-8 md:grid-cols-3 md:gap-16">
-                <Button className="flex h-42 w-full flex-col items-center justify-center rounded-2xl md:h-58">
-                    <h4 className="font-sora text-5xl font-bold lg:text-7xl">1.8K+</h4>
-                    <p className="font-popins text-lg font-normal text-wrap">Assessments</p>
-                </Button>
-
-                <Button className="flex h-42 flex-col items-center justify-center rounded-2xl md:h-58">
-                    <h4 className="font-sora text-5xl font-bold lg:text-7xl">2.3K+</h4>
-                    <p className="font-popins text-lg font-normal text-wrap">Clients</p>
-                </Button>
-
-                <Button className="flex h-42 flex-col items-center justify-center rounded-2xl md:h-58">
-                    <h4 className="font-sora text-5xl font-bold lg:text-7xl">10+</h4>
-                    <p className="font-popins text-lg font-normal text-wrap">Specialists</p>
-                </Button>
-            </div>
+            <Metrics />
         </section>
     );
 }
