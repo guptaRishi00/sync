@@ -117,9 +117,9 @@ function MeetOurExpertSection() {
             profileImage: "/jpeg/profiles/Dr Vinod.jpg",
         },
         {
-            name: "Dr. Balu",
+            name: "Dr. Balu Pitchiah",
             designation: "Consultant Psychiatrist | Brain Health & Peak Performance",
-            about: "Dr. Balu is an internationally trained Consultant Psychiatrist with experience across the UK, UAE, and India. Known for his holistic, high-impact approach, he specializes in emotional wellness, neurodivergence, and high-performance mental health. With expertise in ADHD, ASD, anxiety, burnout, and behavioural patterns, he has supported over 25,000 individuals, particularly professionals and high achievers. He integrates Western psychiatry with insights from neuroeconomics, behavioural finance, and Eastern healing arts. A member of the Royal College of Psychiatrists and the American Psychiatric Association, Dr. Balu combines clinical care with functional wellness to promote sustainable brain and behavioural transformation.",
+            about: "Dr. Balu Pitchiah is an internationally trained Consultant Psychiatrist with experience across the UK, UAE, and India. Known for his holistic, high-impact approach, he specializes in emotional wellness, neurodivergence, and high-performance mental health. With expertise in ADHD, ASD, anxiety, burnout, and behavioural patterns, he has supported over 25,000 individuals, particularly professionals and high achievers. He integrates Western psychiatry with insights from neuroeconomics, behavioural finance, and Eastern healing arts. A member of the Royal College of Psychiatrists and the American Psychiatric Association, Dr. Balu Pitchiah combines clinical care with functional wellness to promote sustainable brain and behavioural transformation.",
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
@@ -141,7 +141,7 @@ function MeetOurExpertSection() {
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/jpeg/profiles/Dr Poornima.jpg",
+            profileImage: "/jpeg/profiles/Dr Poornima.jpeg",
         },
         {
             name: "Kala Bhandari",
@@ -153,7 +153,7 @@ function MeetOurExpertSection() {
             profileImage: "/jpeg/profiles/Dr Kala.jpg",
         },
         {
-            name: "Mehek Gill",
+            name: "Mehak Gill",
             designation: "Psychologist",
             about: "Mehak Gill, M.Sc. Clinical Psychology (Christ University) offers a joyful, compassionate, and empowering therapeutic approach. She creates a safe, supportive space where clients feel heard and valued, using an eclectic, solution-focused method that integrates empathy, self-care, and mindfulness. Tailoring sessions to build resilience and reshape thought patterns, she guides individuals through challenges like grief, anxiety, and ADHD, fostering clarity, strength, and well-being. With Mehak, therapy isn’t just about healing—it’s about thriving.",
             // facebook: "https://www.facebook.com",
