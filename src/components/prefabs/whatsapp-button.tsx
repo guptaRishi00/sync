@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 
-export const WHATSAPP_LINK = "https://wa.me/9980539955";
+export const WHATSAPP_LINK = "https://wa.me/+919980539955";
 
 export default function WhatsAppButton() {
     const router = useRouter();
