@@ -135,7 +135,7 @@ function MeetOurExpertSection() {
             profileImage: "/jpeg/profiles/Dr. Anupama Bajaj.jpeg",
         },
         {
-            name: "Dr Poornima Chandrashekar",
+            name: "Dr. Poornima Chandrashekar",
             designation: "Clinical Psychologist. Expert in Child, Adolescent & Family Mental Health",
             about: "Dr. Poornima C, a Clinical Psychologist with over 14+ years of experience, specializes in child, adolescent, and family mental health. Holding an M.Phil. and Ph.D. from NIMHANS, she has contributed significantly to research in OCD, child psychiatry, and caregiver stress. Her client-centered approach, utilizing CBT and family interventions, is personalized to meet each individual's needs. A recognized expert, she presents research papers at conferences and publishes on parenting styles, and is trained in SPACE, a parent-based treatment for child anxiety and OCD. Outside of her professional life, she enjoys traveling, dining, and spending time with family and her dogs.",
             // facebook: "https://www.facebook.com",
