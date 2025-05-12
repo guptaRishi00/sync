@@ -31,6 +31,8 @@ export default function Metrics() {
     const [specialistsValue, setSpecialistsValue] = useState(0);
     const [specialistsVisible, specialistsRef] = useIsVisible();
 
+    useEffect(() => setOdometerLoaded(true), []);
+
     useEffect(() => {
         if (!specialistsVisible || !odometerLoaded) {
             return;

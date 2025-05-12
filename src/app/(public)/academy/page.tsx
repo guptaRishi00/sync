@@ -303,7 +303,7 @@ function PointsToJoinSection() {
                             <span className="bg-primary grid size-12 shrink-0 place-items-center rounded-full text-lg font-semibold">
                                 {index + 1}
                             </span>
-                            <p className="text-justify text-lg text-balance break-all">
+                            <p className="text-left text-lg text-balance break-word">
                                 <strong className="mb-4">{title}</strong> <br />
                                 {description}
                             </p>

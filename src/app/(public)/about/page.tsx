@@ -126,15 +126,6 @@ function MeetOurExpertSection() {
             profileImage: "/jpeg/profiles/Dr Balu.jpg",
         },
         {
-            name: "Dr. Anupama Bajaj",
-            designation: "Psychologist",
-            about: "Anupama, with over 10+ years of experience, guides individuals, couples, and families through life's challenges, including ADHD, ASD, OCD, PTSD, anxiety, grief, sex, depression, phobias, insomnia, personality disorders, and relationship issues. Her journey, enriched by Art Therapy and a Ph.D. in Psychology, translates into a transformative, empathetic, and evidence-based approach, creating a safe space for clients. She empowers clients to break barriers and unlock self-growth, blending scientific knowledge with heartfelt support for a happier, healthier life.",
-            // facebook: "https://www.facebook.com",
-            // linkedin: "https://www.linkedin.com",
-            // instagram: "https://www.instagram.com",
-            profileImage: "/jpeg/profiles/Dr. Anupama Bajaj.jpeg",
-        },
-        {
             name: "Dr. Poornima Chandrashekar",
             designation: "Clinical Psychologist. Expert in Child, Adolescent & Family Mental Health",
             about: "Dr. Poornima C, a Clinical Psychologist with over 14+ years of experience, specializes in child, adolescent, and family mental health. Holding an M.Phil. and Ph.D. from NIMHANS, she has contributed significantly to research in OCD, child psychiatry, and caregiver stress. Her client-centered approach, utilizing CBT and family interventions, is personalized to meet each individual's needs. A recognized expert, she presents research papers at conferences and publishes on parenting styles, and is trained in SPACE, a parent-based treatment for child anxiety and OCD. Outside of her professional life, she enjoys traveling, dining, and spending time with family and her dogs.",
@@ -142,6 +133,15 @@ function MeetOurExpertSection() {
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
             profileImage: "/jpeg/profiles/Dr Poornima.jpeg",
+        },
+        {
+            name: "Dr. Anupama Bajaj",
+            designation: "Psychologist",
+            about: "Anupama, with over 10+ years of experience, guides individuals, couples, and families through life's challenges, including ADHD, ASD, OCD, PTSD, anxiety, grief, sex, depression, phobias, insomnia, personality disorders, and relationship issues. Her journey, enriched by Art Therapy and a Ph.D. in Psychology, translates into a transformative, empathetic, and evidence-based approach, creating a safe space for clients. She empowers clients to break barriers and unlock self-growth, blending scientific knowledge with heartfelt support for a happier, healthier life.",
+            // facebook: "https://www.facebook.com",
+            // linkedin: "https://www.linkedin.com",
+            // instagram: "https://www.instagram.com",
+            profileImage: "/jpeg/profiles/Dr. Anupama Bajaj.jpeg",
         },
         {
             name: "Kala Bhandari",
