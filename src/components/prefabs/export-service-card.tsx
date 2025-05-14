@@ -48,7 +48,7 @@ export default function ExportServiceCard({ imagePath, title, description, isBoo
                         <Image loading="lazy" alt={title} fill src={imagePath as string} className="object-cover" />
                     </div>
                     <h3 className="font-popins mt-4 text-lg font-semibold md:text-2xl">{title}</h3>
-                    <p className={cn("text-muted font-popins text-justify text-base font-medium", !title && "mt-2")}>{description}</p>
+                    <p className={cn("text-muted font-popins text-left text-base font-medium", !title && "mt-2")}>{description}</p>
                 </>
             )}
         </div>
