@@ -65,3 +65,14 @@ export function toSnakeCase(str: string): string {
         .replace(/-+/g, "_")
         .toLowerCase();
 }
+
+export function getStrapiURL() {
+    return process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:1337";
+}
+
+export function getStrapiMedia(url: string | null) {
+    if (url == null) return null;
+    if (url.startsWith("data:")) return url;
+    if (url.startsWith("http") || url.startsWith("//")) return url;
+    return `${getStrapiURL()}${url}`;
+}

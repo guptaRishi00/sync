@@ -5,6 +5,7 @@ import Header from "@/components/prefabs/header";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import Image from "next/image";
+import { StrapiImage } from "@/components/custom/StrapiImage";
 
 import CommonQuoteSection from "@/components/prefabs/common-quote-section";
 import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
@@ -18,12 +19,18 @@ import Metrics from "@/components/prefabs/metrics";
 import TestimonialsSection from "@/components/prefabs/testimonials-section";
 import VibeSection from "@/components/prefabs/vibes-section";
 
-export default function HomePage() {
+import { getHeroSectionData, getHeaderData, getFounderNoteSection } from "@/lib/strapi";
+
+export default async function HomePage() {
+    const heroSection = await getHeroSectionData();
+
+    const { background } = heroSection.hero_section;
+
     return (
         <>
             <main className="main relative">
-                <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                <HeroSection />
+                <StrapiImage src={background.url} alt="Hero" className="-z-50 object-cover opacity-10" />
+                <HeroSection heroSection={heroSection} />
             </main>
 
             <main className="main bg-secondary/20 relative overflow-hidden">
@@ -87,42 +94,40 @@ export default function HomePage() {
     );
 }
 
-function HeroSection() {
+async function HeroSection({ heroSection }: any) {
+    const { sub_title_one, title, sub_title_two, description, image } = heroSection.hero_section;
+
+    const headerLogo = await getHeaderData();
+
+    console.log(headerLogo.logo.url);
+
     return (
-        <section className="section flex flex-col py-8 md:min-h-dvh">
-            {/* Header */}
+        <section className="section flex flex-col py-8 md:min-h-screen">
             <div className="mb-8 w-full">
-                <Header />
+                <Header logoUrl={headerLogo.logo.url} />
             </div>
 
-            <div className="flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
+            <div className="mt-30 flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
                 <div className="flex flex-col gap-4 text-start md:max-w-1/2 md:gap-5 md:pr-16">
-                    <h3 className="font-popins text-xl md:text-3xl">
-                        Come find your <b>best version </b> at
-                    </h3>
-                    <h2 className="font-popins text-3xl font-semibold md:text-5xl md:leading-18">
-                        SyNC <span className="text-accent">Positive</span>
+                    <h3 className="font-popins text-xl md:text-3xl">{sub_title_one}</h3>
+                    <h2 className="font-popins text-3xl font-semibold md:text-5xl md:leading-tight">
+                        {title.split(" ")[0]} <span className="text-accent">{title.split(" ")[1]}</span>
                         <br />
-                        Psychiatry Foundation.
+                        {title.split(" ")[2] + " " + title.split(" ")[3]}
                     </h2>
-                    <h5 className="font-popins mb-2 text-sm font-medium opacity-80 md:text-lg">A holistic approach to your well-being.</h5>
-                    <p className="text-muted font-popins mb-4 text-justify text-sm md:text-lg">
-                        SyNC Positive Psychiatry is a space to become the best version of yourself. SyNC - To synergize, connect, and align
-                        your mind, body, emotions, and energy. We guide you on this journey for you to always be prepared when the universe
-                        comes knocking.
-                    </p>
+                    <h5 className="font-popins mb-2 text-sm font-medium opacity-80 md:text-lg">{sub_title_two}</h5>
+                    <p className="text-muted font-popins mb-4 text-justify text-sm md:text-lg">{description}</p>
                     <BookAppointmentButton />
                 </div>
-                <div className="relative aspect-5/5 h-full w-full">
-                    <Image src="/jpeg/Home page updated (2).jpg" alt="Hero Thumbnail" fill className="rounded-3xl object-cover" />
+                <div className="relative aspect-square h-full w-full md:w-1/2">
+                    <StrapiImage src={image.url} alt={image.url} width={1200} height={800} className="rounded-3xl object-cover" />
                     <Button
                         variant="secondary"
-                        className="from-secondary-light to-secondary text-background absolute right-0 bottom-0 hidden gap-2 rounded-3xl bg-linear-to-br px-8 py-10 text-lg"
+                        className="from-secondary-light to-secondary text-background absolute right-0 bottom-0 hidden gap-2 rounded-3xl bg-gradient-to-br px-8 py-6 text-lg md:flex"
                     >
-                        <div className="bg-background grid h-fit scale-120 place-items-center rounded-full p-2">
+                        <div className="bg-background grid h-10 w-10 place-items-center rounded-full">
                             <Play className="fill-foreground stroke-foreground" />
                         </div>
-                        {" "}
                         <span>Watch Now</span>
                     </Button>
                 </div>
@@ -131,7 +136,11 @@ function HeroSection() {
     );
 }
 
-function FoundersNoteSection() {
+async function FoundersNoteSection() {
+    const res = await getFounderNoteSection();
+
+    console.log("founder section: ", res);
+
     return (
         <section className="section flex flex-col items-center justify-center gap-2 py-8 md:min-h-dvh">
             <h2 className="font-popins relative mb-4 text-3xl font-semibold italic md:text-5xl">
