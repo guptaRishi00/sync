@@ -7,9 +7,10 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Checkbox } from "../ui/checkbox";
 import { WHATSAPP_LINK } from "./whatsapp-button";
+import { Play } from "lucide-react";
 
 type Props = {
     className?: string;
@@ -24,6 +25,35 @@ export default function BookAppointmentButton({ className }: Props) {
     const [isRedirecting, setIsRedirecting] = useState(false);
 
     const [country, setCountry] = useState<string | undefined>(undefined);
+    const [isPlaying, setIsPlaying] = useState(false);
+    // Fix TypeScript error by properly typing the videoRef
+    const videoRef = useRef<HTMLVideoElement | null>(null);
+
+    const handlePlayClick = () => {
+        if (videoRef.current) {
+            if (videoRef.current.paused) {
+                videoRef.current
+                    .play()
+                    .then(() => {
+                        setIsPlaying(true);
+                    })
+                    .catch((error) => {
+                        console.error("Error playing video:", error);
+                    });
+            } else {
+                videoRef.current.pause();
+                setIsPlaying(false);
+            }
+        }
+    };
+
+    const handleVideoPlay = () => {
+        setIsPlaying(true);
+    };
+
+    const handleVideoPause = () => {
+        setIsPlaying(false);
+    };
 
     const getCountryByIp = useCallback(() => {
         async function fetchAPI() {
@@ -97,7 +127,7 @@ export default function BookAppointmentButton({ className }: Props) {
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex flex-col items-center pt-8">
                         <DialogTitle className="font-popins relative text-2xl font-bold md:text-4xl">
-                            Help Us Personalize Your Care
+                            Let us take you on your treatment journey
                             <DecorImage
                                 src="/images/decor-smile.png"
                                 alt="Decor Smile"
@@ -108,14 +138,30 @@ export default function BookAppointmentButton({ className }: Props) {
 
                         <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
                             <video
+                                ref={videoRef}
                                 controls
-                                preload="none"
-                                className="h-full overflow-hidden rounded-2xl object-cover"
-                                poster="/jpeg/Subtract (1).png"
+                                preload="metadata"
+                                className="h-full w-full overflow-hidden rounded-2xl object-cover"
+                                poster="/video-thumbnail.jpg"
+                                onPlay={handleVideoPlay}
+                                onPause={handleVideoPause}
                             >
                                 <source src="/videos/front-desk.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
+
+                            {/* Custom play button overlay */}
+                            {!isPlaying && (
+                                <button
+                                    onClick={handlePlayClick}
+                                    className="focus:ring-opacity-50 absolute inset-0 flex h-full w-full items-center justify-center rounded-2xl bg-black/30 transition-opacity hover:bg-black/40 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    aria-label="Play video"
+                                >
+                                    <div className="flex h-20 w-20 transform items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform hover:scale-110">
+                                        <Play size={36} className="ml-1 text-blue-600" />
+                                    </div>
+                                </button>
+                            )}
                         </div>
 
                         <DialogDescription className="text-foreground font-popins my-5 aspect-1920/3 w-full text-center text-sm font-medium md:w-2/3 md:text-base">
@@ -190,10 +236,11 @@ export default function BookAppointmentButton({ className }: Props) {
                                 className="flex w-9/10 shrink-0 grow cursor-pointer items-start justify-between rounded-2xl bg-[#f8b414] px-8 py-4 md:h-30 md:w-2/3"
                                 onClick={onNewPatientClick}
                             >
-                                <div className="text-white">
+                                <div className="text-[#320001]">
                                     <h6 className="mb-2 text-xl font-semibold">New Client</h6>
                                     <span className="opacity-90">
-                                        I&apos;m engaging with your services for the first time & would like to get started.
+                                        Screening session with a therapist {">"} Assessments Session with the therapist {">"} Medical
+                                        review.
                                     </span>
                                 </div>
                                 <div className="grow"></div>
