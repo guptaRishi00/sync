@@ -1,6 +1,3 @@
-import DecorImage from "@/components/prefabs/decor-image";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
 export default function EvaluationMethodologiesSection() {
     const content = [
         {
