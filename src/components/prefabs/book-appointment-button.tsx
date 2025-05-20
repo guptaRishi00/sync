@@ -25,35 +25,6 @@ export default function BookAppointmentButton({ className }: Props) {
     const [isRedirecting, setIsRedirecting] = useState(false);
 
     const [country, setCountry] = useState<string | undefined>(undefined);
-    const [isPlaying, setIsPlaying] = useState(false);
-    // Fix TypeScript error by properly typing the videoRef
-    const videoRef = useRef<HTMLVideoElement | null>(null);
-
-    const handlePlayClick = () => {
-        if (videoRef.current) {
-            if (videoRef.current.paused) {
-                videoRef.current
-                    .play()
-                    .then(() => {
-                        setIsPlaying(true);
-                    })
-                    .catch((error) => {
-                        console.error("Error playing video:", error);
-                    });
-            } else {
-                videoRef.current.pause();
-                setIsPlaying(false);
-            }
-        }
-    };
-
-    const handleVideoPlay = () => {
-        setIsPlaying(true);
-    };
-
-    const handleVideoPause = () => {
-        setIsPlaying(false);
-    };
 
     const getCountryByIp = useCallback(() => {
         async function fetchAPI() {
@@ -138,30 +109,14 @@ export default function BookAppointmentButton({ className }: Props) {
 
                         <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
                             <video
-                                ref={videoRef}
                                 controls
                                 preload="metadata"
                                 className="h-full w-full overflow-hidden rounded-2xl object-cover"
                                 poster="/video-thumbnail.jpg"
-                                onPlay={handleVideoPlay}
-                                onPause={handleVideoPause}
                             >
                                 <source src="/videos/front-desk.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
-
-                            {/* Custom play button overlay */}
-                            {!isPlaying && (
-                                <button
-                                    onClick={handlePlayClick}
-                                    className="focus:ring-opacity-50 absolute inset-0 flex h-full w-full items-center justify-center rounded-2xl bg-black/30 transition-opacity hover:bg-black/40 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                                    aria-label="Play video"
-                                >
-                                    <div className="flex h-20 w-20 transform items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform hover:scale-110">
-                                        <Play size={36} className="ml-1 text-blue-600" />
-                                    </div>
-                                </button>
-                            )}
                         </div>
 
                         <DialogDescription className="text-foreground font-popins my-5 aspect-1920/3 w-full text-center text-sm font-medium md:w-2/3 md:text-base">
