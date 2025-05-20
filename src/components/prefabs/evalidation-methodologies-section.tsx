@@ -32,7 +32,7 @@ export default function EvaluationMethodologiesSection() {
                 The Process, <span className="bg-primary rounded-sm px-1">Simplified</span>
             </h2>
             <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">
-                Your mental health journey doesn't have to be overwhelming.
+                Your mental health journey doesn&apos;t have to be overwhelming.
             </p>
             <video
                 controls
@@ -44,7 +44,7 @@ export default function EvaluationMethodologiesSection() {
                 Your browser does not support the video tag.
             </video>
             <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">
-                Here's a simple, structured path to help you understand yourself better and begin healing.
+                Here&apos;s a simple, structured path to help you understand yourself better and begin healing.
             </p>
 
             <div className="rounded-xl lg:p-6">
