@@ -19,7 +19,7 @@ export default function Header() {
             {/* logo */}
             <div className="relative aspect-167/86 w-40 cursor-pointer md:w-64" onClick={onLogoClick}>
                 <Image src="/images/logo.png" alt="SYNC" fill className="h-86 w-67" />
-            </div> 
+            </div>
 
             {/* Menu */}
 
