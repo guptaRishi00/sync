@@ -7,10 +7,9 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Checkbox } from "../ui/checkbox";
 import { WHATSAPP_LINK } from "./whatsapp-button";
-import { Play } from "lucide-react";
 
 type Props = {
     className?: string;
