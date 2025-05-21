@@ -38,9 +38,6 @@ export default function EvaluationMethodologiesSection() {
                 <source src="/videos/front-desk.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-            <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">
-                Here&apos;s a simple, structured path to help you understand yourself better and begin healing.
-            </p>
 
             <div className="rounded-xl lg:p-6">
                 <div className="overflow-hidden rounded-xl bg-[#FEF5E8]">
