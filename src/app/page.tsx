@@ -162,7 +162,7 @@ function FoundersNoteSection() {
                     controls
                     preload="metadata"
                     className="h-full overflow-hidden rounded-2xl object-cover"
-                    poster="/video-thumbnail.jpg"
+                    poster="/images/home-video.jpg"
                 >
                     <source src="/videos/what is sync yt.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
