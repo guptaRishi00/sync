@@ -34,12 +34,7 @@ export default function EvaluationMethodologiesSection() {
             <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">
                 Your mental health journey doesn&apos;t have to be overwhelming.
             </p>
-            <video
-                controls
-                preload="none"
-                className="h-full w-5xl overflow-hidden rounded-2xl object-cover"
-                poster="/jpeg/Subtract (1).png"
-            >
+            <video controls preload="none" className="h-full w-5xl overflow-hidden rounded-2xl object-cover" poster="/video-thumbnail.jpg">
                 <source src="/videos/front-desk.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>

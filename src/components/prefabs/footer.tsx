@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 const YOUTUBE_URL = "https://youtube.com/@syncpositivepsychiatryfndtn";
-const INSTAGRAM_URL = "https://www.instagram.com/sync_postivepsychiatry?igsh=OTYwYmJhczVkcnJi";
+const INSTAGRAM_URL = "https://www.instagram.com/syncpositivepsychiatry/";
 const LINKEDIN_URL = "https://www.linkedin.com/in/sync-positive-psychiatry-927a812b4/?originalSubdomain=in";
 
 export default function Footer() {
