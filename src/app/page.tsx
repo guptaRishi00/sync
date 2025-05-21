@@ -95,7 +95,7 @@ function HeroSection() {
                 <Header />
             </div>
 
-            <div className="mt-30 flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
+            <div className="flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
                 <div className="flex flex-col gap-4 text-start md:max-w-1/2 md:gap-5 md:pr-16">
                     <h3 className="font-popins text-xl md:text-3xl">
                         Come find your <b>best version </b> at
@@ -162,7 +162,7 @@ function FoundersNoteSection() {
                     controls
                     preload="metadata"
                     className="h-full overflow-hidden rounded-2xl object-cover"
-                    poster="/images/home-video.jpg"
+                    poster="/video-thumbnail.jpg"
                 >
                     <source src="/videos/what is sync yt.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
