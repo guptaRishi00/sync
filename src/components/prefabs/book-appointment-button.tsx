@@ -97,7 +97,7 @@ export default function BookAppointmentButton({ className }: Props) {
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex flex-col items-center pt-8">
                         <DialogTitle className="font-popins relative text-2xl font-bold md:text-4xl">
-                            Help Us Personalize Your Care
+                            Let us take you on your treatment journey
                             <DecorImage
                                 src="/images/decor-smile.png"
                                 alt="Decor Smile"
@@ -109,9 +109,9 @@ export default function BookAppointmentButton({ className }: Props) {
                         <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
                             <video
                                 controls
-                                preload="none"
-                                className="h-full overflow-hidden rounded-2xl object-cover"
-                                poster="/jpeg/Subtract (1).png"
+                                preload="metadata"
+                                className="h-full w-full overflow-hidden rounded-2xl object-cover"
+                                poster="/video-thumbnail.jpg"
                             >
                                 <source src="/videos/front-desk.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
@@ -190,10 +190,11 @@ export default function BookAppointmentButton({ className }: Props) {
                                 className="flex w-9/10 shrink-0 grow cursor-pointer items-start justify-between rounded-2xl bg-[#f8b414] px-8 py-4 md:h-30 md:w-2/3"
                                 onClick={onNewPatientClick}
                             >
-                                <div className="text-white">
+                                <div className="text-[#320001]">
                                     <h6 className="mb-2 text-xl font-semibold">New Client</h6>
                                     <span className="opacity-90">
-                                        I&apos;m engaging with your services for the first time & would like to get started.
+                                        Screening session with a therapist {">"} Assessments Session with the therapist {">"} Medical
+                                        review.
                                     </span>
                                 </div>
                                 <div className="grow"></div>

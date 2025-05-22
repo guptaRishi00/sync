@@ -1,16 +1,21 @@
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { StrapiImage } from "../custom/StrapiImage";
 
 type Props = {
     title: string;
     description: string;
     imagePath: string;
-
     className?: string;
     scaleRatio?: string;
 };
 
-export default function SimpleCard({ title, description, imagePath, className, scaleRatio = "relative w-fit translate-x-[170%] -translate-y-1/9 scale-170" }: Props) {
+export default function SimpleCard({
+    title,
+    description,
+    imagePath,
+    className,
+    scaleRatio = "relative w-fit translate-x-[170%] -translate-y-1/9 scale-170",
+}: Props) {
     return (
         <div className={cn("relative flex h-full w-full flex-col items-center justify-between gap-2 rounded-2xl p-6", className)}>
             <div className="flex flex-col gap-6">
@@ -19,7 +24,7 @@ export default function SimpleCard({ title, description, imagePath, className, s
             </div>
 
             <span className={scaleRatio}>
-                <Image src={imagePath} alt={title} className="object-cover" width={70} height={130} />
+                <StrapiImage src={imagePath} alt={title} className="object-cover" width={70} height={130} />
             </span>
         </div>
     );

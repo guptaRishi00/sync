@@ -2,6 +2,7 @@ import BookAppointmentButton from "@/components/prefabs/book-appointment-button"
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import DecorImage from "./decor-image";
+import { StrapiImage } from "../custom/StrapiImage";
 
 type Props = {
     imagePath: string;
@@ -45,7 +46,7 @@ export default function ExportServiceCard({ imagePath, title, description, isBoo
             ) : (
                 <>
                     <div className="relative aspect-387/267 w-full overflow-hidden rounded-2xl">
-                        <Image loading="lazy" alt={title} fill src={imagePath as string} className="object-cover" />
+                        <StrapiImage alt={title} src={imagePath as string} className="object-cover" />
                     </div>
                     <h3 className="font-popins mt-4 text-lg font-semibold md:text-2xl">{title}</h3>
                     <p className={cn("text-muted font-popins text-left text-base font-medium", !title && "mt-2")}>{description}</p>

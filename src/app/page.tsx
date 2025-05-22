@@ -19,7 +19,8 @@ import Metrics from "@/components/prefabs/metrics";
 import TestimonialsSection from "@/components/prefabs/testimonials-section";
 import VibeSection from "@/components/prefabs/vibes-section";
 
-import { getHeroSectionData, getHeaderData, getFounderNoteSection } from "@/lib/strapi";
+import { getHeroSectionData, getHeaderData, getFounderNoteSection, getExpertService } from "@/lib/strapi";
+import { StrapiVideo } from "@/components/custom/StrapiVideo";
 
 export default async function HomePage() {
     const heroSection = await getHeroSectionData();
@@ -99,15 +100,13 @@ async function HeroSection({ heroSection }: any) {
 
     const headerLogo = await getHeaderData();
 
-    console.log(headerLogo.logo.url);
-
     return (
         <section className="section flex flex-col py-8 md:min-h-screen">
             <div className="mb-8 w-full">
                 <Header logoUrl={headerLogo.logo.url} />
             </div>
 
-            <div className="mt-30 flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
+            <div className="flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
                 <div className="flex flex-col gap-4 text-start md:max-w-1/2 md:gap-5 md:pr-16">
                     <h3 className="font-popins text-xl md:text-3xl">{sub_title_one}</h3>
                     <h2 className="font-popins text-3xl font-semibold md:text-5xl md:leading-tight">
@@ -139,12 +138,14 @@ async function HeroSection({ heroSection }: any) {
 async function FoundersNoteSection() {
     const res = await getFounderNoteSection();
 
-    console.log("founder section: ", res);
+    const { title, subtitle, video, poster } = res.founder_note_section;
+
+    const videoUrl = video[0].url;
 
     return (
         <section className="section flex flex-col items-center justify-center gap-2 py-8 md:min-h-dvh">
             <h2 className="font-popins relative mb-4 text-3xl font-semibold italic md:text-5xl">
-                Hear From Our Founder
+                {title}
                 <DecorImage
                     src="/images/decor-highlight.png"
                     alt="Decor Highlight"
@@ -158,7 +159,7 @@ async function FoundersNoteSection() {
                     className="bottom-0 left-3/4 translate-y-full rotate-180"
                 />
             </h2>
-            <p className="text-muted font-popins text-center text-sm md:pb-6 md:text-xl">Optimizing brain health like never before.</p>
+            <p className="text-muted font-popins text-center text-sm md:pb-6 md:text-xl">{subtitle}</p>
             <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
                 <DecorImage
                     src="/images/decor-new.png"
@@ -167,50 +168,52 @@ async function FoundersNoteSection() {
                     className="-translate-x-1/2 -translate-y-full md:-translate-full"
                 />
 
-                <video controls preload="none" className="h-full overflow-hidden rounded-2xl object-cover" poster="/images/home-video.jpg">
-                    <source src="/videos/what is sync yt.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+                <StrapiVideo src={videoUrl} poster={poster.url} className="h-full overflow-hidden rounded-2xl object-cover" />
             </div>
         </section>
     );
 }
 
-function ExpertServicesSection() {
-    const cardDetails = [
-        {
-            imagePath: "/jpeg/Consultation.jpg",
-            title: "Consultations",
-            description: "Discuss your needs with a professional and learn about your care options.",
-        },
-        {
-            imagePath: "/jpeg/Individual therapy.jpg",
-            title: "Individual Counseling & Therapy",
-            description: "A safe and empowering space to navigate life’s journey with guidance.",
-        },
-        {
-            imagePath: "/jpeg/ADHD group coaching.jpg",
-            title: "Adhd Group Coaching Sessions",
-            description: "Develop resilience, organization, and management skills in a shared group setting.",
-        },
-        {
-            imagePath: "/jpeg/Asessment and diagnosis.jpg",
-            title: "Assessment & Diagnosis",
-            description:
-                "A thoughtful conversation to explore your experiences, uncover their origins, and understand their impact on your well-being.",
-        },
-        {
-            imagePath: "/jpeg/Psychiatric consultations.jpg",
-            title: "Psychiatric Consultations",
-            description:
-                "Expert psychiatric care for depression, anxiety, addiction, ADHD, neurodivergence, schizophrenia, mood disorders, and more.",
-        },
-        {
-            imagePath: "/images/decor-export-service-1.png",
-            title: "Book an Appointment",
-            isBookAppointment: true,
-        },
-    ];
+async function ExpertServicesSection() {
+    const res = await getExpertService();
+
+    const { cardDetails } = res.expert_service;
+    const { title, description, image } = res.expert_service.why_us;
+
+    // const cardDetails = [
+    //     {
+    //         imagePath: "/jpeg/Consultation.jpg",
+    //         title: "Consultations",
+    //         description: "Discuss your needs with a professional and learn about your care options.",
+    //     },
+    //     {
+    //         imagePath: "/jpeg/Individual therapy.jpg",
+    //         title: "Individual Counseling & Therapy",
+    //         description: "A safe and empowering space to navigate life’s journey with guidance.",
+    //     },
+    //     {
+    //         imagePath: "/jpeg/ADHD group coaching.jpg",
+    //         title: "Adhd Group Coaching Sessions",
+    //         description: "Develop resilience, organization, and management skills in a shared group setting.",
+    //     },
+    //     {
+    //         imagePath: "/jpeg/Asessment and diagnosis.jpg",
+    //         title: "Assessment & Diagnosis",
+    //         description:
+    //             "A thoughtful conversation to explore your experiences, uncover their origins, and understand their impact on your well-being.",
+    //     },
+    //     {
+    //         imagePath: "/jpeg/Psychiatric consultations.jpg",
+    //         title: "Psychiatric Consultations",
+    //         description:
+    //             "Expert psychiatric care for depression, anxiety, addiction, ADHD, neurodivergence, schizophrenia, mood disorders, and more.",
+    //     },
+    //     {
+    //         imagePath: "/images/decor-export-service-1.png",
+    //         title: "Book an Appointment",
+    //         isBookAppointment: true,
+    //     },
+    // ];
 
     return (
         <section className="section flex flex-col items-center gap-12 pt-4 md:gap-16">
@@ -230,10 +233,10 @@ function ExpertServicesSection() {
             </div>
 
             <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
-                {cardDetails.map((card, index) => (
+                {cardDetails.map((card: any) => (
                     <ExportServiceCard
-                        key={index}
-                        imagePath={card.imagePath}
+                        key={card.id}
+                        imagePath={card.imagePath.url}
                         title={card.title}
                         description={card.description}
                         isBookAppointment={card.isBookAppointment}
@@ -247,14 +250,10 @@ function ExpertServicesSection() {
                         variant="outline"
                         className="hover:bg-background border-primary font-inter w-fit rounded-full bg-white font-normal"
                     >
-                        WHY US?
+                        Why us?
                     </Button>
-                    <h2 className="font-inter text-2xl font-semibold md:text-4xl">Together, We Grow!!</h2>
-                    <p className="text-foreground font-inter text-justify text-sm font-normal md:text-lg">
-                        We trust that seeking help is a sign of strength, a truth we understand from our own experiences. We partner with
-                        you to reconnect with your best self and achieve a happy, meaningful life. We are here to help because everyone
-                        needs a nudge sometimes.
-                    </p>
+                    <h2 className="font-inter text-2xl font-semibold md:text-4xl">{title}</h2>
+                    <p className="text-foreground font-inter text-justify text-sm font-normal md:text-lg">{description}</p>
 
                     <LearnMoreNavButton />
                     <DecorImage src="/images/decor-smile.png" alt="Decor Smile" size={[34, 34]} className="bottom-0 left-1/3" />
@@ -270,12 +269,7 @@ function ExpertServicesSection() {
                 <div className="relative h-fit w-full grow">
                     <div className="pb-26 pl-16">
                         <div className="relative aspect-5/4 h-full w-full">
-                            <Image
-                                src="/jpeg/why choose us1.jpg"
-                                alt="Hero Thumbnail"
-                                fill
-                                className="right-0 left-0 rounded-2xl object-cover"
-                            />
+                            <StrapiImage src={image.url} alt="Hero Thumbnail" className="right-0 left-0 rounded-2xl object-cover" />
                         </div>
                     </div>
 

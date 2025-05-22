@@ -15,5 +15,16 @@ export function StrapiImage({ src, alt, height, width, className }: Readonly<Str
     // const imageFallback = `https://placehold.co/${width}x${height}`;
     const imageFallback = `https://placehold.co`;
 
-    return <Image src={imageUrl ?? imageFallback} alt={alt} unoptimized={true} fill className={className} />;
+    const shouldFill = !width || !height;
+
+    return (
+        <Image
+            src={imageUrl ?? imageFallback}
+            loading="lazy"
+            alt={alt}
+            unoptimized
+            {...(shouldFill ? { fill: true } : { width, height })}
+            className={className}
+        />
+    );
 }
