@@ -1,30 +1,30 @@
 export default function EvaluationMethodologiesSection() {
-    const content = [
-        {
-            section: "Screening",
-            title: "Begin Your Journey",
-            titleColor: "text-[#F9B41E]",
-            description:
-                "This 60-minute talk is designed to capture your genetic profile, neurobiological profile, and life story in simple terms, the 'hardware and software' of your being. A session with a therapist, online or in-person, based on your convenience.",
-            points: [],
-        },
-        {
-            section: "Assessments",
-            title: "Guided Discovery",
-            titleColor: "text-[#F9B41E]",
-            description:
-                "An essential part of the process is to gain an understanding of your being. These check-ins help the therapist understand how you think, feel, and behave while capturing the nuances of your mind.",
-            points: [],
-        },
-        {
-            section: "Diagnosis",
-            title: "Breakthrough",
-            titleColor: "text-[#F9B41E]",
-            description:
-                "This is the moment of clarity in your journey—where patterns, challenges, and strengths come into focus. With this clarity, you and the therapist can optimize a path for your well-being.",
-            points: [],
-        },
-    ];
+    // const content = [
+    //     {
+    //         section: "Screening",
+    //         title: "Begin Your Journey",
+    //         titleColor: "text-[#F9B41E]",
+    //         description:
+    //             "This 60-minute talk is designed to capture your genetic profile, neurobiological profile, and life story in simple terms, the 'hardware and software' of your being. A session with a therapist, online or in-person, based on your convenience.",
+    //         points: [],
+    //     },
+    //     {
+    //         section: "Assessments",
+    //         title: "Guided Discovery",
+    //         titleColor: "text-[#F9B41E]",
+    //         description:
+    //             "An essential part of the process is to gain an understanding of your being. These check-ins help the therapist understand how you think, feel, and behave while capturing the nuances of your mind.",
+    //         points: [],
+    //     },
+    //     {
+    //         section: "Diagnosis",
+    //         title: "Breakthrough",
+    //         titleColor: "text-[#F9B41E]",
+    //         description:
+    //             "This is the moment of clarity in your journey—where patterns, challenges, and strengths come into focus. With this clarity, you and the therapist can optimize a path for your well-being.",
+    //         points: [],
+    //     },
+    // ];
 
     return (
         <section className="section relative flex grow flex-col items-center justify-center gap-6 md:gap-12">
