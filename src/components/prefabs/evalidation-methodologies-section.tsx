@@ -39,7 +39,7 @@ export default function EvaluationMethodologiesSection() {
                 Your browser does not support the video tag.
             </video>
 
-            <div className="rounded-xl lg:p-6">
+            {/* <div className="rounded-xl lg:p-6">
                 <div className="overflow-hidden rounded-xl bg-[#FEF5E8]">
                     <div className="grid grid-cols-1 divide-y divide-[#F4D080] md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-3">
                         {content.map((item, index) => (
@@ -53,7 +53,7 @@ export default function EvaluationMethodologiesSection() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 }
