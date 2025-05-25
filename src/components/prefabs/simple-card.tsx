@@ -9,13 +9,7 @@ type Props = {
     scaleRatio?: string;
 };
 
-export default function SimpleCard({
-    title,
-    description,
-    imagePath,
-    className,
-    scaleRatio = "relative w-fit translate-x-[170%] -translate-y-1/9 scale-170",
-}: Props) {
+export default function SimpleCard({ title, description, imagePath, className, scaleRatio }: Props) {
     return (
         <div className={cn("relative flex h-full w-full flex-col items-center justify-between gap-2 rounded-2xl p-6", className)}>
             <div className="flex flex-col gap-6">

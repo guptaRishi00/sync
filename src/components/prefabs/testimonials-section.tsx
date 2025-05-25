@@ -1,15 +1,10 @@
 import { Star } from "lucide-react";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
-import { getTestimonials } from "@/lib/strapi";
-import { StrapiImage } from "../custom/StrapiImage";
 
-export default async function TestimonialsSection() {
-    const res = await getTestimonials();
-    // const { testimonial } = res.testimonial;
-
-    const testimonials = res.testimonial;
-
+export default function TestimonialsSection(data: any) {
+    const { title, testimonials } = data.data;
+    // const testimonials = [
     //     {
     //         profile: "/images/google-logo.png",
     //         name: "Bharat Agarwal",
@@ -98,7 +93,7 @@ export default async function TestimonialsSection() {
                 <Carousel opts={{ align: "start" }} className="flex w-full flex-col gap-4">
                     <div className="relative flex items-center justify-between gap-4">
                         <div className="bg-primary font-popins inline w-fit rounded-md px-4 py-2 text-2xl font-semibold text-black">
-                            Testimonials
+                            {title}
                         </div>
 
                         <div className="bg-green flex gap-4 [&>button]:relative! [&>button]:top-0! [&>button]:left-0! [&>button]:translate-0!">
@@ -117,9 +112,10 @@ export default async function TestimonialsSection() {
                                 <div className="shadow-primary/20 flex h-full flex-col gap-4 rounded-md bg-white px-4 py-12 shadow-lg">
                                     <div className="flex flex-wrap items-end justify-between gap-4">
                                         <div className="relative size-12 shrink-0">
-                                            <StrapiImage
-                                                src={testimonial.profile.url}
+                                            <Image
+                                                src={testimonial.profile?.url}
                                                 alt={testimonial.name}
+                                                fill
                                                 className="rounded-full object-cover"
                                             />
                                         </div>

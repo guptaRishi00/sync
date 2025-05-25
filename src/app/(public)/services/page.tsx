@@ -6,14 +6,17 @@ import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
+import { getGlobalData, getHomePageData } from "@/data/loader";
 import Image from "next/image";
 
 export default async function ServicesPage() {
+    const globalres = await getGlobalData();
+    const { decor_tree, decor_chair, join_news_letter, header } = globalres;
     return (
         <>
             <main className="main relative overflow-x-clip">
                 <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                <HeroSection />
+                <HeroSection header={header} />
             </main>
 
             <main className="main flex flex-col overflow-hidden py-8">
@@ -32,14 +35,14 @@ export default async function ServicesPage() {
                 <CounsellingAndPsychotherapy />
             </main>
 
-            <main className="main hidden overflow-hidden py-8">
+            {/* <main className="main hidden overflow-hidden py-8">
                 <HealthRequirementSection />
-            </main>
+            </main> */}
 
             <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
 
-                <JoinNewsLetter />
+                <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"
@@ -62,12 +65,13 @@ export default async function ServicesPage() {
     );
 }
 
-function HeroSection() {
+function HeroSection(props: any) {
+    const { header } = props;
     return (
         <section className="section relative flex flex-col gap-4 py-8 md:min-h-dvh">
             {/* Header */}
             <div className="mb-8 w-full">
-                <Header />
+                <Header logo={header.logo.url} />
             </div>
 
             <div className="md:grow"></div>
@@ -78,10 +82,7 @@ function HeroSection() {
                         <h2 className="font-popins relative inline text-3xl leading-10 font-semibold md:text-5xl md:leading-18">
                             What we do
                             <br />
-                            At{" "}
-                            <span className="text-accent relative">
-                                SyNC!
-                            </span>
+                            At <span className="text-accent relative">SyNC!</span>
                         </h2>
                     </div>
                     <div className="bg-primary relative grow rounded-2xl p-8">
@@ -102,7 +103,12 @@ function HeroSection() {
                     </div>
                 </div>
                 <div className="relative aspect-square h-auto w-full md:aspect-auto">
-                    <Image src={"/jpeg/What we do-Services page.jpg"} alt="Hero Thumbnail" fill className="h-full w-full rounded-2xl object-cover" />
+                    <Image
+                        src={"/jpeg/What we do-Services page.jpg"}
+                        alt="Hero Thumbnail"
+                        fill
+                        className="h-full w-full rounded-2xl object-cover"
+                    />
                 </div>
             </div>
 

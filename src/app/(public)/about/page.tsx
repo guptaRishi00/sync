@@ -5,54 +5,60 @@ import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
 import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
-import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
 import ProfileCard from "@/components/prefabs/profile-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { getAboutHero, getAboutMeetExpert, getAboutVision } from "@/lib/strapi";
+import { getAboutData, getGlobalData } from "@/data/loader";
 import { CircleCheck } from "lucide-react";
 import Image from "next/image";
-export default async function AboutPage() {
-    const heroRes = await getAboutHero();
 
-    const { bg_image } = heroRes.hero_section;
+export default async function AboutPage() {
+    const globalres = await getGlobalData();
+    const { decor_tree, decor_chair, join_news_letter, header } = globalres;
+
+    const res = await getAboutData();
+
+    const herosection = res.blocks.find((block: any) => block.__component === "blocks.hero-section");
+    const meetExperts = res.blocks.find((block: any) => block.__component === "aboutpage.meet-experts");
+    const visionSection = res.blocks.find((block: any) => block.__component === "aboutpage.why-choose");
+    const commitmentSection = res.blocks.find((block: any) => block.__component === "aboutpage.commitment-section");
+
+    const { bg_image } = herosection;
 
     return (
         <>
             <main className="main relative overflow-x-clip">
-                <StrapiImage src={bg_image.url} alt="Hero" className="-z-50 object-cover opacity-10" />
-                <HeroSection />
+                <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
+                <HeroSection header={header} data={herosection} />
             </main>
 
             <main className="main relative overflow-x-clip md:min-h-fit!">
-                <MeetOurExpertSection />
+                <MeetOurExpertSection data={meetExperts} />
             </main>
 
             <main className="main bg-secondary/20 relative">
-                <VisionSection />
+                <VisionSection data={visionSection} />
             </main>
 
             <main className="main md:min-h-fit!">
-                <CommitmentToPatientSection />
+                <CommitmentToPatientSection data={commitmentSection} />
             </main>
 
-            <main className="main hidden overflow-hidden py-8">
-                <HealthRequirementSection />
-            </main>
+            {/* <main className="main hidden overflow-hidden py-8"><HealthRequirementSection /></main> */}
 
             <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
 
-                <JoinNewsLetter />
+                <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
-                    src="/images/home-decore-tree-branch.png"
+                    src={decor_tree?.url}
                     alt="Decor Butterfly"
                     size={[600, 600]}
                     className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
-                    src="/images/home-decore-5.png"
+                    src={decor_chair?.url}
                     alt="Home Decore 5"
                     size={[450, 450]}
                     className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"
@@ -66,15 +72,15 @@ export default async function AboutPage() {
     );
 }
 
-async function HeroSection() {
-    const res = await getAboutHero();
+function HeroSection(props: any) {
+    const { header, data } = props;
 
-    const { title, address, image, about_clinic } = res.hero_section;
+    const { title, description, image, decor_image, small_component } = data;
     return (
         <section className="section relative flex flex-col gap-4 py-8 md:min-h-dvh">
             {/* Header */}
             <div className="mb-8 w-full">
-                <Header />
+                <Header logo={header.logo.url} />
             </div>
 
             <div className="md:grow"></div>
@@ -83,19 +89,19 @@ async function HeroSection() {
                 <div className="flex grow flex-col gap-10">
                     <div className="">
                         <h2 className="font-popins relative inline text-3xl leading-10 font-semibold md:text-5xl md:leading-18">
-                            {title.split(" ")[0]} <span className="text-accent">{title.split(" ")[1]}</span>{" "}
-                            {title.split(" ").slice(2).join(" ")}
+                            {title.split(" ")[0] + " "} <span className="text-accent">{title.split(" ")[1] + " "}</span>{" "}
+                            {title.split(" ")[2] + " " + title.split(" ")[3]}
                         </h2>
-                        <p className="text-muted font-popins text-justify text-sm font-medium md:text-lg">{address}</p>
+                        <p className="text-muted font-popins text-justify text-sm font-medium md:text-lg">{description}</p>
                     </div>
                     <div className="bg-primary relative grow rounded-2xl p-8">
-                        <h2 className="font-popins text-3xl font-semibold md:text-5xl">{about_clinic.title}</h2>
+                        <h2 className="font-popins text-3xl font-semibold md:text-5xl">{small_component.title}</h2>
                         <p className="font-popins z-50 mt-6 text-lg leading-8 font-medium text-balance md:pb-24">
-                            {about_clinic.description}
+                            {small_component.description}
                         </p>
 
                         <DecorImage
-                            src="/images/home-decore-3.png"
+                            src={decor_image.image?.url}
                             alt="Decor Highlight"
                             size={[150, 150]}
                             className="right-0 bottom-0 z-10 hidden translate-x-1/3 md:block"
@@ -103,7 +109,7 @@ async function HeroSection() {
                     </div>
                 </div>
                 <div className="relative aspect-square h-auto w-full md:aspect-auto">
-                    <StrapiImage src={image.url} alt="Hero Thumbnail" className="h-full w-full rounded-2xl object-cover" />
+                    <StrapiImage src={image?.url} alt="Hero Thumbnail" className="h-full w-full rounded-2xl object-cover" />
                 </div>
             </div>
 
@@ -112,11 +118,8 @@ async function HeroSection() {
     );
 }
 
-async function MeetOurExpertSection() {
-    const res = await getAboutMeetExpert();
-
-    const { title, profiles } = res.meet_expert;
-
+function MeetOurExpertSection({ data }: any) {
+    // const profiles = [
     //     {
     //         name: "Dr.Vinod Kumar",
     //         designation: "Psychiatrist & Founder - SyNC Positive Psychiatry Foundation",
@@ -247,15 +250,17 @@ async function MeetOurExpertSection() {
     //     },
     // ];
 
+    const { title, subtitle, decor_image, profiles } = data;
+
     return (
         <section className="section flex flex-col items-center py-8">
             <div className="font-popins relative flex items-center gap-2 font-semibold">
-                <h2 className="text-xl font-bold md:text-4xl">{title.split(" ")[0] + " " + title.split(" ")[1]}</h2>
+                <h2 className="text-xl font-bold md:text-4xl">{title}</h2>
                 <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
-                    <h2 className="text-xl font-bold md:text-4xl">{title.split(" ")[2] + " " + title.split(" ")[3]}</h2>
+                    <h2 className="text-xl font-bold md:text-4xl">{subtitle}</h2>
                 </div>
                 <DecorImage
-                    src="/images/decor-love-primary.png"
+                    src={decor_image?.url}
                     alt="Decor Love"
                     size={[42, 42]}
                     className="top-0 -left-4 -translate-x-full rotate-y-180"
@@ -287,17 +292,8 @@ async function MeetOurExpertSection() {
     );
 }
 
-async function VisionSection() {
-    const res = await getAboutVision();
-
-    const { mission, vision, image, why } = res.vision_section;
-
-    const whyChooseUsList = [
-        "Specialised care designed around you.",
-        "Wellness beyond therapy.",
-        "Ongoing care and connection.",
-        "Trusted space to grow and thrive.",
-    ];
+function VisionSection({ data }: any) {
+    const { title, image, list, mission, vision } = data;
     return (
         <section className="section grid min-h-svh grid-cols-1 grid-rows-[auto_1fr] gap-6 py-12 md:grid-flow-col md:grid-cols-3 [&>div]:overflow-hidden [&>div]:rounded-2xl">
             <div className="bg-primary-light row-span-1 flex flex-col items-start justify-start gap-4 p-6 md:p-12">
@@ -307,13 +303,13 @@ async function VisionSection() {
 
             <div className="flex flex-col items-start gap-8 bg-white p-6 md:col-span-2 md:p-12">
                 <div className="flex flex-col items-start justify-start gap-8">
-                    <h2 className="font-popins text-xl font-semibold md:text-3xl">{why.title}</h2>
+                    <h2 className="font-popins text-xl font-semibold md:text-3xl">{title}</h2>
 
                     <ul className="flex list-none flex-col items-start gap-3">
-                        {whyChooseUsList.map((item, index) => (
-                            <li key={index} className="font-popins flex items-center gap-2 text-lg font-normal">
+                        {list.map((item: any) => (
+                            <li key={item.id} className="font-popins flex items-center gap-2 text-lg font-normal">
                                 <CircleCheck size={14} className="stroke-secondary-light" />
-                                {item}
+                                {item.text}
                             </li>
                         ))}
                     </ul>
@@ -328,7 +324,7 @@ async function VisionSection() {
             </div>
 
             <div className="relative row-span-2 hidden md:block">
-                <StrapiImage src={image.url} alt="Hero Vision" className="object-cover" />
+                <StrapiImage src={image?.url} alt="Hero Vision" className="object-cover" />
             </div>
         </section>
     );

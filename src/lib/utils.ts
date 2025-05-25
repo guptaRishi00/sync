@@ -74,5 +74,7 @@ export function getStrapiMedia(url: string | null | undefined) {
     if (!url || typeof url !== "string") return null;
     if (url.startsWith("data:")) return url;
     if (url.startsWith("http") || url.startsWith("//")) return url;
-    return `${getStrapiURL()}${url}`;
+    // Always ensure a single slash between host and path
+    const path = url.startsWith("/") ? url : `/${url}`;
+    return `${getStrapiURL()}${path}`;
 }

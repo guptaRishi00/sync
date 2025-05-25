@@ -1,14 +1,13 @@
 "use client";
 
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { Separator } from "../ui/separator";
 import { StrapiImage } from "../custom/StrapiImage";
 
-export default function Header({ logoUrl }: any) {
+export default function Header(props: any) {
     const router = useRouter();
 
     const onLogoClick = useCallback(() => {
@@ -19,7 +18,8 @@ export default function Header({ logoUrl }: any) {
         <div className="flex items-center justify-between">
             {/* logo */}
             <div className="relative aspect-167/86 w-40 cursor-pointer md:w-64" onClick={onLogoClick}>
-                <StrapiImage src={logoUrl} alt="SYNC" className="h-86 w-67" />
+                {/* <Image src="/images/logo.png" alt="SYNC" fill className="h-86 w-67" /> */}
+                <StrapiImage src={props?.logo} alt="logo" className="h-86 w-67" />
             </div>
 
             {/* Menu */}
