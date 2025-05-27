@@ -34,10 +34,14 @@ export default function EvaluationMethodologiesSection() {
             <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">
                 Your mental health journey doesn&apos;t have to be overwhelming.
             </p>
-            <video controls preload="none" className="h-full w-5xl overflow-hidden rounded-2xl object-cover" poster="/video-thumbnail.jpg">
-                <source src="/videos/front-desk.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+            <div className="h-[36rem] w-5xl overflow-hidden rounded-2xl object-cover">
+                <iframe
+                    src="https://www.youtube.com/embed/lEnrMfKN31c?si=Rg19byPh5ZUMq6q2"
+                    className="h-full w-full"
+                    allowFullScreen
+                    title="YouTube video player"
+                />
+            </div>
 
             {/* <div className="rounded-xl lg:p-6">
                 <div className="overflow-hidden rounded-xl bg-[#FEF5E8]">
