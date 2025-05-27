@@ -135,15 +135,6 @@ function MeetOurExpertSection() {
             profileImage: "/jpeg/profiles/Dr Poornima.jpeg",
         },
         {
-            name: "Dr. Anupama Bajaj",
-            designation: "Psychologist",
-            about: "Anupama, with over 10+ years of experience, guides individuals, couples, and families through life's challenges, including ADHD, ASD, OCD, PTSD, anxiety, grief, sex, depression, phobias, insomnia, personality disorders, and relationship issues. Her journey, enriched by Art Therapy and a Ph.D. in Psychology, translates into a transformative, empathetic, and evidence-based approach, creating a safe space for clients. She empowers clients to break barriers and unlock self-growth, blending scientific knowledge with heartfelt support for a happier, healthier life.",
-            // facebook: "https://www.facebook.com",
-            // linkedin: "https://www.linkedin.com",
-            // instagram: "https://www.instagram.com",
-            profileImage: "/jpeg/profiles/Dr. Anupama Bajaj.jpeg",
-        },
-        {
             name: "Kala Bhandari",
             designation: "Counselling Psychologist",
             about: "Ms. Kala Bhandari, a compassionate Counsellor & Therapist, specializes in Behavioral, Relationship, Marriage, and Family Counselling. Certified in CBT and Personal Counselling, she employs a holistic, client-centered, and trauma-informed approach, integrating narrative therapy, mindfulness, and behavioral techniques. With mentorship from Dr. Vinod Kumar and her extensive experience, she guides individuals, couples in their marriage and families through challenges like anxiety, depression, adolescent concerns, and career/goal setting, creating a safe space for healing and positive transformation.",
@@ -153,22 +144,31 @@ function MeetOurExpertSection() {
             profileImage: "/jpeg/profiles/Dr Kala.jpg",
         },
         {
-            name: "Mehak Gill",
-            designation: "Psychologist",
-            about: "Mehak Gill, M.Sc. Clinical Psychology (Christ University) offers a joyful, compassionate, and empowering therapeutic approach. She creates a safe, supportive space where clients feel heard and valued, using an eclectic, solution-focused method that integrates empathy, self-care, and mindfulness. Tailoring sessions to build resilience and reshape thought patterns, she guides individuals through challenges like grief, anxiety, and ADHD, fostering clarity, strength, and well-being. With Mehak, therapy isn’t just about healing—it’s about thriving.",
+            name: "Dr. Harsh P Jain",
+            designation: "Physician",
+            about: "Dr. Harsh P Jain, MBBS, a physician on a path to pursue postgraduate studies in Psychiatry in the UK, is driven by a profound curiosity about the human mind and believes in the mind-body-emotion-energy connection.  His warm, approachable demeanor, coupled with fluency in English, Hindi, Tamil, and Marwari, fosters strong client connections. Passionate about neurodivergence, Dr. Jain focuses on ADHD and related disorders, using his personal experience to connect with and empower clients. His goal is to guide individuals toward more fulfilling and balanced lives, helping them navigate their unique challenges. In his downtime, Dr. Jain enjoys swimming, badminton, and adventure sports, always seeking ways to embrace life with energy and enthusiasm.",
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/jpeg/profiles/Dr Mehek.jpg",
+            profileImage: "/jpeg/profiles/Dr. Harsh.jpg",
         },
         {
-            name: "Esha Jiani",
+            name: "Dr. Anupama Bajaj",
             designation: "Psychologist",
-            about: "Esha, holding a Master’s in Clinical Psychology, specializes in supporting young adults with relationship issues, anxiety, and emotional regulation. Her approach helps the client understand their experiences and provides them the skills to articulate their stories, fostering deeper self-awareness, self-compassion, and growth. Fluent in English and Hindi, she is passionate about guiding clients to achieve a more balanced and fulfilling life. Beyond therapy, Esha is deeply passionate about books in philosophy, psychology, fiction, art, nature, spirituality, and sports, believing that creativity and connection fuel emotional well-being—both in herself and in those she helps.",
+            about: "Anupama, with over 10+ years of experience, guides individuals, couples, and families through life's challenges, including ADHD, ASD, OCD, PTSD, anxiety, grief, sex, depression, phobias, insomnia, personality disorders, and relationship issues. Her journey, enriched by Art Therapy and a Ph.D. in Psychology, translates into a transformative, empathetic, and evidence-based approach, creating a safe space for clients. She empowers clients to break barriers and unlock self-growth, blending scientific knowledge with heartfelt support for a happier, healthier life.",
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/jpeg/profiles/Dr Esha.jpg",
+            profileImage: "/jpeg/profiles/Dr. Anupama Bajaj.jpeg",
+        },
+        {
+            name: "Raunak Jain",
+            designation: "Psychologist",
+            about: "Raunak Jain, with a postgraduate degree in Clinical Psychology and experience from NIMHANS, creates a safe, empathetic, and collaborative therapeutic space. Utilizing a biopsychosocial approach and emphasizing the mind-body connection, she provides personalized, holistic care. Her expertise spans ADHD coaching, anxiety, depression, and relationship issues, integrating design thinking, positive psychology, and postmodern therapies, including narrative therapy and mindfulness. Outside of therapy, she enjoys exploring coffee and herbal teas, reflecting her commitment to curiosity and growth.",
+            // facebook: "https://www.facebook.com",
+            // linkedin: "https://www.linkedin.com",
+            // instagram: "https://www.instagram.com",
+            profileImage: "/jpeg/profiles/Dr Raunak.jpg",
         },
         {
             name: "P Kalyan",
@@ -188,24 +188,26 @@ function MeetOurExpertSection() {
             // instagram: "https://www.instagram.com",
             profileImage: "/jpeg/profiles/Dr Vani.jpg",
         },
+
         {
-            name: "Raunak Jain",
+            name: "Mehak Gill",
             designation: "Psychologist",
-            about: "Raunak Jain, with a postgraduate degree in Clinical Psychology and experience from NIMHANS, creates a safe, empathetic, and collaborative therapeutic space. Utilizing a biopsychosocial approach and emphasizing the mind-body connection, she provides personalized, holistic care. Her expertise spans ADHD coaching, anxiety, depression, and relationship issues, integrating design thinking, positive psychology, and postmodern therapies, including narrative therapy and mindfulness. Outside of therapy, she enjoys exploring coffee and herbal teas, reflecting her commitment to curiosity and growth.",
+            about: "Mehak Gill, M.Sc. Clinical Psychology (Christ University) offers a joyful, compassionate, and empowering therapeutic approach. She creates a safe, supportive space where clients feel heard and valued, using an eclectic, solution-focused method that integrates empathy, self-care, and mindfulness. Tailoring sessions to build resilience and reshape thought patterns, she guides individuals through challenges like grief, anxiety, and ADHD, fostering clarity, strength, and well-being. With Mehak, therapy isn’t just about healing—it’s about thriving.",
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/jpeg/profiles/Dr Raunak.jpg",
+            profileImage: "/jpeg/profiles/Dr Mehek.jpg",
         },
         {
-            name: "Dr. Harsh P Jain",
-            designation: "Physician",
-            about: "Dr. Harsh P Jain, MBBS, a physician on a path to pursue postgraduate studies in Psychiatry in the UK, is driven by a profound curiosity about the human mind and believes in the mind-body-emotion-energy connection.  His warm, approachable demeanor, coupled with fluency in English, Hindi, Tamil, and Marwari, fosters strong client connections. Passionate about neurodivergence, Dr. Jain focuses on ADHD and related disorders, using his personal experience to connect with and empower clients. His goal is to guide individuals toward more fulfilling and balanced lives, helping them navigate their unique challenges. In his downtime, Dr. Jain enjoys swimming, badminton, and adventure sports, always seeking ways to embrace life with energy and enthusiasm.",
+            name: "Esha Jiani",
+            designation: "Psychologist",
+            about: "Esha, holding a Master’s in Clinical Psychology, specializes in supporting young adults with relationship issues, anxiety, and emotional regulation. Her approach helps the client understand their experiences and provides them the skills to articulate their stories, fostering deeper self-awareness, self-compassion, and growth. Fluent in English and Hindi, she is passionate about guiding clients to achieve a more balanced and fulfilling life. Beyond therapy, Esha is deeply passionate about books in philosophy, psychology, fiction, art, nature, spirituality, and sports, believing that creativity and connection fuel emotional well-being—both in herself and in those she helps.",
             // facebook: "https://www.facebook.com",
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
-            profileImage: "/jpeg/profiles/Dr. Harsh.jpg",
+            profileImage: "/jpeg/profiles/Dr Esha.jpg",
         },
+
         {
             name: "Anusha Kolloji",
             designation: "Psychologist",
@@ -214,6 +216,15 @@ function MeetOurExpertSection() {
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
             profileImage: "/jpeg/profiles/Dr Anusha.jpg",
+        },
+        {
+            name: "Richa Mehrotra",
+            designation: "Clinical Psychologist",
+            about: "Richa Mehrotra is an RCI-licensed Clinical Psychologist and Queer Affirmative Therapist with over four years of experience working with adolescents and adults. She specializes in depression, anxiety, obsessive-compulsive disorder (OCD), de-addiction, and interpersonal dynamics. She holds an M.Phil in Clinical Psychology from the Post Graduate Institute of Behaviour and Medical Sciences, Raipur. She has contributed to suicide prevention initiatives, including a project with the Mental Health Foundation, India, focused on Tihar Jail, Delhi. Richa adopts an eclectic therapeutic approach, tailoring interventions to meet the unique needs of clients and their families. She has a keen interest in cognitive, interpersonal, and diagnostic assessments. Fluent in English and Hindi, she is dedicated to providing a supportive and inclusive space for healing and growth.",
+            // facebook: "https://www.facebook.com",
+            // linkedin: "https://www.linkedin.com",
+            // instagram: "https://www.instagram.com",
+            profileImage: "/jpeg/profiles/Dr Richa.jpg",
         },
 
         {
@@ -224,16 +235,6 @@ function MeetOurExpertSection() {
             // linkedin: "https://www.linkedin.com",
             // instagram: "https://www.instagram.com",
             profileImage: "/jpeg/profiles/Dr Darshana.jpg",
-        },
-
-        {
-            name: "Richa Mehrotra",
-            designation: "Clinical Psychologist",
-            about: "Richa Mehrotra is an RCI-licensed Clinical Psychologist and Queer Affirmative Therapist with over four years of experience working with adolescents and adults. She specializes in depression, anxiety, obsessive-compulsive disorder (OCD), de-addiction, and interpersonal dynamics. She holds an M.Phil in Clinical Psychology from the Post Graduate Institute of Behaviour and Medical Sciences, Raipur. She has contributed to suicide prevention initiatives, including a project with the Mental Health Foundation, India, focused on Tihar Jail, Delhi. Richa adopts an eclectic therapeutic approach, tailoring interventions to meet the unique needs of clients and their families. She has a keen interest in cognitive, interpersonal, and diagnostic assessments. Fluent in English and Hindi, she is dedicated to providing a supportive and inclusive space for healing and growth.",
-            // facebook: "https://www.facebook.com",
-            // linkedin: "https://www.linkedin.com",
-            // instagram: "https://www.instagram.com",
-            profileImage: "/jpeg/profiles/Dr Richa.jpg",
         },
     ];
 
@@ -268,8 +269,8 @@ function MeetOurExpertSection() {
                     </CarouselContent>
 
                     <div className="bg-green flex items-center justify-center gap-4 [&>button]:relative! [&>button]:top-0! [&>button]:left-0! [&>button]:translate-0!">
-                        <CarouselPrevious variant="default"/>
-                        <CarouselNext variant="default"/>
+                        <CarouselPrevious variant="default" />
+                        <CarouselNext variant="default" />
                     </div>
                 </Carousel>
             </div>
