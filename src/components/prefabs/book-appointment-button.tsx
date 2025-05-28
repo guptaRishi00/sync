@@ -107,15 +107,12 @@ export default function BookAppointmentButton({ className }: Props) {
                         </DialogTitle>
 
                         <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
-                            <video
-                                controls
-                                preload="metadata"
-                                className="h-full w-full overflow-hidden rounded-2xl object-cover"
-                                poster="/video-thumbnail.jpg"
-                            >
-                                <source src="/videos/front-desk.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
+                            <iframe
+                                src="https://www.youtube.com/embed/lEnrMfKN31c?si=Rg19byPh5ZUMq6q2"
+                                className="h-full w-full"
+                                allowFullScreen
+                                title="YouTube video player"
+                            />
                         </div>
 
                         <DialogDescription className="text-foreground font-popins my-5 aspect-1920/3 w-full text-center text-sm font-medium md:w-2/3 md:text-base">
