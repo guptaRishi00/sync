@@ -41,11 +41,14 @@ export default async function EvaluationMethodologiesSection() {
                 <span className="bg-primary rounded-sm px-1">{title.split(" ")[2]}</span>
             </h2>
             <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">{description}</p>
-            <StrapiVideo
-                src={video.video?.url}
-                className="h-full w-5xl overflow-hidden rounded-2xl object-cover"
-                poster={video.poster?.url}
-            />
+            <div className="h-[36rem] w-5xl overflow-hidden rounded-2xl object-cover">
+                <iframe
+                    src="https://www.youtube.com/embed/lEnrMfKN31c?si=Rg19byPh5ZUMq6q2"
+                    className="h-full w-full"
+                    allowFullScreen
+                    title="YouTube video player"
+                />
+            </div>
 
             {/* <div className="rounded-xl lg:p-6">
                 <div className="overflow-hidden rounded-xl bg-[#FEF5E8]">

@@ -153,8 +153,6 @@ export function HeroSection(props: any) {
 }
 
 function FoundersNoteSection(data: any) {
-    console.log("FoundersNoteSection data:", data.data);
-
     const { title, video, decor_highlight, decor_highlight2, decor_new, subtitle } = data.data;
     return (
         <section className="section flex flex-col items-center justify-center gap-2 py-8 md:min-h-dvh">

@@ -1,6 +1,6 @@
 import BookAppointmentButton from "@/components/prefabs/book-appointment-button";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+// import Image from "next/image";
 import DecorImage from "./decor-image";
 import { StrapiImage } from "../custom/StrapiImage";
 

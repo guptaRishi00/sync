@@ -357,3 +357,158 @@ export async function getAboutData() {
     url.search = aboutQuery;
     return await fetchAPI(url.href);
 }
+
+const serviceQuery = qs.stringify({
+    populate: {
+        blocks: {
+            on: {
+                "blocks.hero-section": {
+                    populate: {
+                        bg_image: { fields: ["url", "alternativeText"] },
+                        image: { fields: ["url", "alternativeText"] },
+                        decor_image: {
+                            populate: { image: { fields: ["url", "alternativeText"] } },
+                        },
+                        // small_component is probably not a relation, remove or fix if necessary
+                    },
+                },
+                "elements.info-section": {
+                    populate: {
+                        decor_image1: { fields: ["url", "alternativeText"] },
+                        image: { fields: ["url", "alternativeText"] },
+                        decor_image2: { fields: ["url", "alternativeText"] },
+                        decor_image3: { fields: ["url", "alternativeText"] },
+                        // REMOVE list: true, and list_title: true
+                        list: true,
+                    },
+                },
+                "servicepage.consultations": {
+                    populate: {
+                        consultations: {
+                            populate: {
+                                decor_image1: { fields: ["url", "alternativeText"] },
+                                image: { fields: ["url", "alternativeText"] },
+                                decor_image2: { fields: ["url", "alternativeText"] },
+                                decor_image3: { fields: ["url", "alternativeText"] },
+                                // REMOVE list: true, and list_title: true
+                                list: true,
+                            },
+                        },
+                    },
+                },
+                "servicepage.assessments": {
+                    populate: {
+                        assessments: {
+                            populate: {
+                                decor_image1: { fields: ["url", "alternativeText"] },
+                                image: { fields: ["url", "alternativeText"] },
+                                decor_image2: { fields: ["url", "alternativeText"] },
+                                decor_image3: { fields: ["url", "alternativeText"] },
+                                // REMOVE list: true, and list_title: true
+                                list: true,
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
+});
+
+export async function getServiceData() {
+    const path = "/api/service-page";
+    const BASE_URL = getStrapiURL();
+    const url = new URL(path, BASE_URL);
+
+    url.search = serviceQuery;
+    return await fetchAPI(url.href);
+}
+
+const academyQuery = qs.stringify({
+    populate: {
+        blocks: {
+            on: {
+                "blocks.hero-section": {
+                    populate: {
+                        bg_image: { fields: ["url", "alternativeText"] },
+                        image: { fields: ["url", "alternativeText"] },
+                        decor_image: {
+                            populate: {
+                                image: { fields: ["url", "alternativeText"] },
+                            },
+                        },
+                        decor_image2: {
+                            populate: {
+                                image: { fields: ["url", "alternativeText"] },
+                            },
+                        },
+                    },
+                },
+                "academypage.what-to-get": {
+                    populate: {
+                        clinical_training: {
+                            populate: {
+                                image: { fields: ["url", "alternativeText"] },
+                                decor_image: { fields: ["url", "alternativeText"] }, // if you want decor_image too
+                            },
+                        },
+                        discussion_forum: {
+                            populate: {
+                                image: { fields: ["url", "alternativeText"] },
+                                decor_image: { fields: ["url", "alternativeText"] },
+                            },
+                        },
+                        practice: {
+                            populate: {
+                                image: { fields: ["url", "alternativeText"] },
+                            },
+                        },
+                        Learning: {
+                            populate: {
+                                image: { fields: ["url", "alternativeText"] },
+                                decor_image: { fields: ["url", "alternativeText"] },
+                            },
+                        },
+                        Expert: {
+                            populate: {
+                                image: { fields: ["url", "alternativeText"] },
+                                decor_image: { fields: ["url", "alternativeText"] },
+                            },
+                        },
+                    },
+                },
+                "academypage.points-to-join": {
+                    populate: {
+                        image: {
+                            fields: ["url", "alternativeText"],
+                        },
+                        decor_image: {
+                            fields: ["url", "alternativeText"],
+                        },
+                        points: true,
+                    },
+                },
+                "academypage.subscribe-section": {
+                    populate: {
+                        image: {
+                            fields: ["url", "alternativeText"],
+                        },
+                        decor_new: {
+                            fields: ["url", "alternativeText"],
+                        },
+                        faq: true,
+                    },
+                },
+            },
+        },
+    },
+});
+
+export async function getAcademyData() {
+    const path = "/api/academy";
+    const BASE_URL = getStrapiURL();
+    const url = new URL(path, BASE_URL);
+
+    url.search = academyQuery;
+    return await fetchAPI(url.href);
+}

@@ -6,16 +6,24 @@ import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
 import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
-import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
+// import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
 import VibeSection from "@/components/prefabs/vibes-section";
 import { Button } from "@/components/ui/button";
+import { getGlobalData, getHomePageData } from "@/data/loader";
 import Image from "next/image";
 
 export default async function BlogPage() {
     const posts = await getAllPosts();
     const sorted = posts.sort((a, b) => b.date.diff(a.date));
     const latestPost = sorted[0];
+
+    const homeres = await getHomePageData();
+    const commonQuote = homeres.blocks.find((block: any) => block.__component === "homepage.common-quote");
+    const vibeSection = homeres.blocks.find((block: any) => block.__component === "homepage.vibe-section");
+
+    const globalres = await getGlobalData();
+    const { decor_tree, decor_chair, join_news_letter, header } = globalres;
 
     return (
         <>
@@ -29,30 +37,30 @@ export default async function BlogPage() {
             </main>
 
             <main className="main bg-secondary/10 md:min-h-fit!">
-                <CommonQuoteSection />
+                <CommonQuoteSection data={commonQuote} />
             </main>
 
             <main className="main bg-secondary/20 md:min-h-fit!">
-                <VibeSection />
+                <VibeSection data={vibeSection} />
             </main>
 
-            <main className="main hidden overflow-hidden py-8">
+            {/* <main className="main hidden overflow-hidden py-8">
                 <HealthRequirementSection />
-            </main>
+            </main> */}
 
             <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
 
-                <JoinNewsLetter />
+                <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
-                    src="/images/home-decore-tree-branch.png"
+                    src={decor_tree?.url}
                     alt="Decor Butterfly"
                     size={[600, 600]}
                     className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
-                    src="/images/home-decore-5.png"
+                    src={decor_chair?.url}
                     alt="Home Decore 5"
                     size={[450, 450]}
                     className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"

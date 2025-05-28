@@ -10,7 +10,6 @@ import ProfileCard from "@/components/prefabs/profile-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { getAboutData, getGlobalData } from "@/data/loader";
 import { CircleCheck } from "lucide-react";
-import Image from "next/image";
 
 export default async function AboutPage() {
     const globalres = await getGlobalData();

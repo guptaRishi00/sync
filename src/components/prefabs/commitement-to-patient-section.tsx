@@ -1,27 +1,27 @@
 import CommitmentCard from "@/components/prefabs/commitment-card";
-import Image from "next/image";
+// import Image from "next/image";
 import { StrapiImage } from "../custom/StrapiImage";
 
 export default function CommitmentToPatientSection({ data }: any) {
     const { title, subtitle, commitment, decor_image } = data;
 
-    const commitments = [
-        {
-            title: "Comfort",
-            description: "We prioritize patient safety and support, treating every patient like a family member.",
-            imagePath: "/jpeg/Comfort.jpg",
-        },
-        {
-            title: "Ethical",
-            description: "Healing is deeply personal. We only recommend care options that we’d trust for our own families.",
-            imagePath: "/jpeg/right side 2.jpg",
-        },
-        {
-            title: "Empathetic",
-            description: "As professionals who have been in our clients' shoes, we deeply understand their needs.",
-            imagePath: "/jpeg/empathetic.jpg",
-        },
-    ];
+    // const commitments = [
+    //     {
+    //         title: "Comfort",
+    //         description: "We prioritize patient safety and support, treating every patient like a family member.",
+    //         imagePath: "/jpeg/Comfort.jpg",
+    //     },
+    //     {
+    //         title: "Ethical",
+    //         description: "Healing is deeply personal. We only recommend care options that we’d trust for our own families.",
+    //         imagePath: "/jpeg/right side 2.jpg",
+    //     },
+    //     {
+    //         title: "Empathetic",
+    //         description: "As professionals who have been in our clients' shoes, we deeply understand their needs.",
+    //         imagePath: "/jpeg/empathetic.jpg",
+    //     },
+    // ];
     return (
         <section className="section flex flex-col gap-12 py-16">
             <div className="font-popins flex w-full flex-col gap-4">
