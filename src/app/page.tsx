@@ -158,15 +158,14 @@ function FoundersNoteSection() {
                     className="-translate-x-1/2 -translate-y-full md:-translate-full"
                 />
 
-                <video
-                    controls
-                    preload="metadata"
-                    className="h-full overflow-hidden rounded-2xl object-cover"
-                    poster="/images/home-video.jpg"
-                >
-                    <source src="/videos/what is sync yt.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+                <div className="h-[36rem] w-5xl overflow-hidden rounded-2xl object-cover">
+                    <iframe
+                        src="https://youtu.be/0mECvrDaJPc?si=Mpw8-NpYmxLPAj3j"
+                        className="h-full w-full"
+                        allowFullScreen
+                        title="YouTube video player"
+                    />
+                </div>
             </div>
         </section>
     );
