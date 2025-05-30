@@ -158,9 +158,9 @@ function FoundersNoteSection() {
                     className="-translate-x-1/2 -translate-y-full md:-translate-full"
                 />
 
-                <div className="h-[36rem] w-5xl overflow-hidden rounded-2xl object-cover">
+                <div className="h-[36rem] w-full max-w-5xl overflow-hidden rounded-2xl">
                     <iframe
-                        src="https://youtu.be/0mECvrDaJPc?si=Mpw8-NpYmxLPAj3j"
+                        src="https://www.youtube.com/embed/0mECvrDaJPc?si=Mpw8-NpYmxLPAj3j"
                         className="h-full w-full"
                         allowFullScreen
                         title="YouTube video player"
