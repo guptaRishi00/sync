@@ -9,12 +9,9 @@ export function ContentOne({ post }: { post: BlogPost }) {
                 <Image src={post.image} alt={post.title} fill className="rounded-xl object-cover" />
             </div>
 
-            <BlogHeader>What is OCD?</BlogHeader>
-            <BlogP>
-                OCD, or Obsessive-Compulsive Disorder, is an anxiety-based disorder in which individuals experience unwanted and intrusive
-                thoughts, images, or urges.
-            </BlogP>
-            <BlogP>
+            <BlogHeader>{post.title}</BlogHeader>
+            <BlogP>{post.content}</BlogP>
+            {/* <BlogP>
                 These obsessions can cause extreme anxiety or discomfort, leading to the need to perform certain actions (compulsions) or
                 rituals to neutralize or counteract these thoughts.
             </BlogP>
@@ -109,7 +106,7 @@ export function ContentOne({ post }: { post: BlogPost }) {
                         reduce feelings of isolation.
                     </BlogP>
                 </li>
-            </ul>
+            </ul> */}
         </>
     );
 }

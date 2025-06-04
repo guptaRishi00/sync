@@ -295,6 +295,7 @@ function MeetOurExpertSection({ data }: any) {
 
 function VisionSection({ data }: any) {
     const { title, image, list, mission, vision } = data;
+
     return (
         <section className="section grid min-h-svh grid-cols-1 grid-rows-[auto_1fr] gap-6 py-12 md:grid-flow-col md:grid-cols-3 [&>div]:overflow-hidden [&>div]:rounded-2xl">
             <div className="bg-primary-light row-span-1 flex flex-col items-start justify-start gap-4 p-6 md:p-12">
@@ -310,7 +311,7 @@ function VisionSection({ data }: any) {
                         {list.map((item: any) => (
                             <li key={item.id} className="font-popins flex items-center gap-2 text-lg font-normal">
                                 <CircleCheck size={14} className="stroke-secondary-light" />
-                                {item.text}
+                                {item.list}
                             </li>
                         ))}
                     </ul>

@@ -116,7 +116,7 @@ export function HeroSection(props: any) {
         <section className="section flex flex-col py-8 md:min-h-dvh">
             {/* Header */}
             <div className="mb-8 w-full">
-                <Header logo={header.logo.url} />
+                <Header logo={header?.logo?.url} />
             </div>
 
             <div className="flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
@@ -180,13 +180,14 @@ function FoundersNoteSection(data: any) {
                     className="-translate-x-1/2 -translate-y-full md:-translate-full"
                 />
 
-                <StrapiVideo
-                    controls
-                    preload="metadata"
-                    className="h-full overflow-hidden rounded-2xl object-cover"
-                    poster={video.poster?.url}
-                    src={video.video?.url}
-                />
+                <div className="h-[36rem] w-full max-w-5xl overflow-hidden rounded-2xl">
+                    <iframe
+                        src="https://www.youtube.com/embed/0mECvrDaJPc?si=Mpw8-NpYmxLPAj3j"
+                        className="h-full w-full"
+                        allowFullScreen
+                        title="YouTube video player"
+                    />
+                </div>
             </div>
         </section>
     );

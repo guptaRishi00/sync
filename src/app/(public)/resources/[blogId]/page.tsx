@@ -1,14 +1,15 @@
-import { BlogPost, getAllPosts, getPost } from "@/actions/blog.action";
+import { getAllPosts } from "@/actions/blog.action";
 import { ContentOne, ContentThree, ContentTwo } from "@/app/(public)/resources/content";
 import { BlogCard } from "@/components/prefabs/blog-card";
-import CommonQuoteSection from "@/components/prefabs/common-quote-section";
+// import CommonQuoteSection from "@/components/prefabs/common-quote-section";
 import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
 import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
-import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
+// import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
-import VibeSection from "@/components/prefabs/vibes-section";
+// import VibeSection from "@/components/prefabs/vibes-section";
+import { getGlobalData, getPost } from "@/data/loader";
 import Image from "next/image";
 
 type Props = {
@@ -21,38 +22,37 @@ export default async function BlogDetailPage({ params }: Props) {
     const post = await getPost(blogId);
     const latestPosts = (await getAllPosts()).slice(1, 5);
 
+    console.log("slug: ", post);
+
+    const globalres = await getGlobalData();
+    const { decor_tree, decor_chair, join_news_letter, header } = globalres;
+
     return (
         <>
             <main className="main relative flex overflow-x-clip">
                 <Image src="/images/blog-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                {post && <HeroSection post={post} latestPosts={latestPosts} />}
+                {post && <HeroSection post={post} latestPosts={latestPosts} header={header} />}
             </main>
 
-            <main className="main bg-secondary/10 hidden md:min-h-fit!">
-                <CommonQuoteSection />
-            </main>
+            <main className="main bg-secondary/10 hidden md:min-h-fit!">{/* <CommonQuoteSection /> */}</main>
 
-            <main className="main bg-secondary/20 hidden md:min-h-fit!">
-                <VibeSection />
-            </main>
+            <main className="main bg-secondary/20 hidden md:min-h-fit!">{/* <VibeSection /> */}</main>
 
-            <main className="main hidden overflow-hidden py-8">
-                <HealthRequirementSection />
-            </main>
+            <main className="main hidden overflow-hidden py-8">{/* <HealthRequirementSection /> */}</main>
 
             <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
 
-                <JoinNewsLetter />
+                <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
-                    src="/images/home-decore-tree-branch.png"
+                    src={decor_tree?.url}
                     alt="Decor Butterfly"
                     size={[600, 600]}
                     className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
-                    src="/images/home-decore-5.png"
+                    src={decor_chair?.url}
                     alt="Home Decore 5"
                     size={[450, 450]}
                     className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"
@@ -66,12 +66,12 @@ export default async function BlogDetailPage({ params }: Props) {
     );
 }
 
-function HeroSection({ post, latestPosts }: { post: BlogPost; latestPosts: BlogPost[] }) {
+function HeroSection({ post, latestPosts, header }: any) {
     return (
         <section className="section relative flex min-h-full grow flex-col gap-4 py-8 sm:py-12 md:py-16">
             {/* Header */}
             <div className="mb-8 w-full">
-                <Header />
+                <Header logo={header.logo.url} />
             </div>
 
             <div className="flex grow flex-col gap-4">
@@ -85,16 +85,12 @@ function HeroSection({ post, latestPosts }: { post: BlogPost; latestPosts: BlogP
                     <p className="font-popins text-sm font-normal">{post.date.format("MMMM DD, YYYY")}</p>
                 </div>
                 <div className="flex h-fit flex-col gap-10 md:flex-row">
-                    <div className="flex h-fit grow flex-col gap-6">
-                        {post.slug === "understanding_obsessive_compulsive_related_disorders" && <ContentOne post={post} />}
-                        {post.slug === "signs_of_autism_in_adults_what_to_look_for" && <ContentTwo post={post} />}
-                        {post.slug === "how_to_get_an_adhd_diagnosis_a_step_by_step_guide" && <ContentThree post={post} />}
-                    </div>
+                    <div className="flex h-fit grow flex-col gap-6">{post.slug && <ContentOne post={post} />}</div>
                     <div className="flex min-w-1/4 flex-col gap-6">
                         <h3 className="font-popins text-xl font-semibold">Latest Post</h3>
 
                         <div className="grid-col-1 mb-4 grid gap-6">
-                            {latestPosts && latestPosts.map((post) => <BlogCard key={post.slug} post={post} />)}
+                            {latestPosts && latestPosts.map((post: any) => <BlogCard key={post.slug} post={post} />)}
                         </div>
                     </div>
                 </div>

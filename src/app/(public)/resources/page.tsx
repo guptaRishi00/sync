@@ -1,4 +1,4 @@
-import { BlogPost, getAllPosts } from "@/actions/blog.action";
+import { BlogPost, getAllPosts, getStrapiData } from "@/actions/blog.action";
 import { BlogCard } from "@/components/prefabs/blog-card";
 import BlogHeroCard from "@/components/prefabs/blog-hero-card";
 import CommonQuoteSection from "@/components/prefabs/common-quote-section";
@@ -29,7 +29,7 @@ export default async function BlogPage() {
         <>
             <main className="main relative overflow-x-clip md:min-h-fit!">
                 <Image src="/images/blog-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                {latestPost && <HeroSection latestPost={latestPost} />}
+                {latestPost && <HeroSection latestPost={latestPost} header={header} />}
             </main>
 
             <main className="main py-8 md:min-h-fit!">
@@ -74,12 +74,14 @@ export default async function BlogPage() {
     );
 }
 
-function HeroSection({ latestPost }: { latestPost: BlogPost }) {
+function HeroSection({ latestPost, header }: any) {
+    console.log(header.logo.url);
+
     return (
         <section className="section relative flex flex-col gap-4 py-8 sm:py-12 md:py-16">
             {/* Header */}
             <div className="mb-8 w-full">
-                <Header />
+                <Header logo={header.logo.url} />
             </div>
 
             <div className="">
@@ -90,6 +92,8 @@ function HeroSection({ latestPost }: { latestPost: BlogPost }) {
 }
 
 function BlogListSection({ posts }: { posts: BlogPost[] }) {
+    console.log("blogs: ", posts);
+
     return (
         <section className="section">
             <div className="mb-4">

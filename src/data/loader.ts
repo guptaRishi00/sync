@@ -1,6 +1,9 @@
 import qs from "qs";
 import { fetchAPI } from "@/utils/fetch-api";
 import { getStrapiURL } from "@/utils/get-strapi-url";
+import dayjs, { Dayjs } from "dayjs";
+import { BlogPost } from "@/actions/blog.action";
+import axios from "axios";
 
 const homePageQuery = qs.stringify({
     populate: {
@@ -512,3 +515,33 @@ export async function getAcademyData() {
     url.search = academyQuery;
     return await fetchAPI(url.href);
 }
+
+export const getPost = async (slug: string): Promise<BlogPost | null> => {
+    try {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blog-posts?filters[slug][$eq]=${slug}&populate=*`, {
+            headers: {
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`,
+            },
+        });
+
+        const post = response.data?.data?.[0];
+        if (!post) return null;
+
+        const attrs = post;
+
+        return {
+            title: attrs.title,
+            content: attrs.content,
+            author: attrs.author,
+            reviewedBy: attrs.reviewedBy,
+            slug: attrs.slug,
+            type: attrs.type,
+            date: dayjs(attrs.date),
+            image: attrs.image?.url || "", // or `attrs.image?.data?.attributes?.url`
+            authorImage: attrs.authorImage?.url || "", // or `attrs.authorImage?.data?.attributes?.url`
+        };
+    } catch (err) {
+        console.error("Error fetching post by slug:", err);
+        return null;
+    }
+};

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function BlogCard({ post }: { post: BlogPost }) {
+    console.log("blog card: ", post);
+
     return (
         <Link className="text-2xl md:text-3xl" href={`/resources/${post.slug}`}>
             <div className="flex min-h-146 w-full flex-col gap-4 rounded-2xl bg-white px-3 py-5 transition-transform hover:scale-101 hover:cursor-pointer">
