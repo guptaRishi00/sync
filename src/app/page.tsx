@@ -18,7 +18,7 @@ import TestimonialsSection from "@/components/prefabs/testimonials-section";
 import VibeSection from "@/components/prefabs/vibes-section";
 
 import { getGlobalData, getHomePageData } from "@/data/loader";
-import { StrapiVideo } from "@/components/custom/StrapiVideo";
+// import { StrapiVideo } from "@/components/custom/StrapiVideo";
 import { StrapiImage } from "@/components/custom/StrapiImage";
 
 export default async function HomePage() {
