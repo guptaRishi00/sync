@@ -108,7 +108,7 @@ export default async function HomePage() {
     );
 }
 
-export function HeroSection(props: any) {
+function HeroSection(props: any) {
     const { data, header } = props;
 
     const { subtitle_one, title, description, subtitle_two, image } = data;
