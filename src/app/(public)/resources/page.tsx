@@ -1,4 +1,4 @@
-import { BlogPost, getAllPosts, getStrapiData } from "@/actions/blog.action";
+import { BlogPost, getAllPosts } from "@/actions/blog.action";
 import { BlogCard } from "@/components/prefabs/blog-card";
 import BlogHeroCard from "@/components/prefabs/blog-hero-card";
 import CommonQuoteSection from "@/components/prefabs/common-quote-section";

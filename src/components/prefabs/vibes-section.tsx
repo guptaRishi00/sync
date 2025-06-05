@@ -1,5 +1,5 @@
 import DecorImage from "@/components/prefabs/decor-image";
-import Image from "next/image";
+// import Image from "next/image";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";

@@ -1,5 +1,5 @@
 import { getHomePageData } from "@/data/loader";
-import { StrapiVideo } from "../custom/StrapiVideo";
+// import { StrapiVideo } from "../custom/StrapiVideo";
 
 export default async function EvaluationMethodologiesSection() {
     // const content = [
