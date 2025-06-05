@@ -1,5 +1,5 @@
 import { getAllPosts } from "@/actions/blog.action";
-import { ContentOne, ContentThree, ContentTwo } from "@/app/(public)/resources/content";
+import { ContentOne } from "@/app/(public)/resources/content";
 import { BlogCard } from "@/components/prefabs/blog-card";
 // import CommonQuoteSection from "@/components/prefabs/common-quote-section";
 import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";

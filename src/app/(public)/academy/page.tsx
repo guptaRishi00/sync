@@ -31,7 +31,7 @@ export default async function AcademyPage() {
     const healthRequirement = homeres.blocks.find((block: any) => block.__component === "homepage.health-requirement");
 
     const globalres = await getGlobalData();
-    const { decor_tree, decor_chair, decor_butterfly1, join_news_letter, header } = globalres;
+    const { decor_tree, decor_chair, join_news_letter, header } = globalres;
 
     return (
         <>
@@ -178,7 +178,7 @@ function HeroSection(props: any) {
                                 </div>
                             </div>
 
-                            <div className="flex hidden px-2">
+                            <div className="hidden px-2">
                                 <div className="relative size-6 overflow-hidden rounded-full border-2 border-white">
                                     <Image src="/images/academy-user-1.png" alt="User 1" fill className="h-full w-full" />
                                 </div>
@@ -318,7 +318,7 @@ function PointsToJoinSection({ data }: any) {
     );
 }
 
-function DontMissInformationSection({ data }: any) {
+function DontMissInformationSection() {
     return (
         <section className="section relative flex grow flex-col items-center justify-center gap-6 py-8 md:gap-12">
             <h2 className="font-popins relative text-3xl font-semibold md:text-5xl">

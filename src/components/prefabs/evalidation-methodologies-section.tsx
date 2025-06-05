@@ -32,7 +32,7 @@ export default async function EvaluationMethodologiesSection() {
     const res = await getHomePageData();
     const evaluationMethodologies = res.blocks.find((block: any) => block.__component === "homepage.evaluation-methodologies");
 
-    const { title, description, video } = evaluationMethodologies || {};
+    const { title, description } = evaluationMethodologies || {};
 
     return (
         <section className="section relative flex grow flex-col items-center justify-center gap-6 md:gap-12">

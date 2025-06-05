@@ -12,7 +12,7 @@ export default function HealthRequirementSection(data: any) {
         "bg-linear-to-br from-[#1080F8] to-[#1365BE]",
     ];
 
-    const scaleRatio = ["", "relative w-fit translate-x-[170%] -translate-y-1/9 scale-190", "", ""];
+    // const scaleRatio = ["", "relative w-fit translate-x-[170%] -translate-y-1/9 scale-190", "", ""];
     return (
         <section className="section flex flex-col items-center justify-center gap-16 md:min-h-screen">
             <div className="flex w-full flex-col-reverse items-start justify-between gap-4 md:flex-row">
