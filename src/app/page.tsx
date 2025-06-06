@@ -153,7 +153,7 @@ function HeroSection(props: any) {
 }
 
 function FoundersNoteSection(data: any) {
-    const { title, decor_highlight, decor_new } = data.data;
+    const { title, decor_highlight, decor_new, youtube_link } = data.data;
     return (
         <section className="section flex flex-col items-center justify-center gap-2 py-8 md:min-h-dvh">
             <h2 className="font-popins relative mb-4 text-3xl font-semibold italic md:text-5xl">
@@ -181,12 +181,7 @@ function FoundersNoteSection(data: any) {
                 />
 
                 <div className="h-[36rem] w-full max-w-5xl overflow-hidden rounded-2xl">
-                    <iframe
-                        src="https://www.youtube.com/embed/0mECvrDaJPc?si=Mpw8-NpYmxLPAj3j"
-                        className="h-full w-full"
-                        allowFullScreen
-                        title="YouTube video player"
-                    />
+                    <iframe src={youtube_link} className="h-full w-full" allowFullScreen title="YouTube video player" />
                 </div>
             </div>
         </section>

@@ -32,7 +32,7 @@ export default async function EvaluationMethodologiesSection() {
     const res = await getHomePageData();
     const evaluationMethodologies = res.blocks.find((block: any) => block.__component === "homepage.evaluation-methodologies");
 
-    const { title, description } = evaluationMethodologies || {};
+    const { title, description, youtube_link } = evaluationMethodologies || {};
 
     return (
         <section className="section relative flex grow flex-col items-center justify-center gap-6 md:gap-12">
@@ -42,12 +42,7 @@ export default async function EvaluationMethodologiesSection() {
             </h2>
             <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">{description}</p>
             <div className="h-[36rem] w-5xl overflow-hidden rounded-2xl object-cover">
-                <iframe
-                    src="https://www.youtube.com/embed/lEnrMfKN31c?si=Rg19byPh5ZUMq6q2"
-                    className="h-full w-full"
-                    allowFullScreen
-                    title="YouTube video player"
-                />
+                <iframe src={youtube_link} className="h-full w-full" allowFullScreen title="YouTube video player" />
             </div>
 
             {/* <div className="rounded-xl lg:p-6">
