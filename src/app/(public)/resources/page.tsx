@@ -8,7 +8,7 @@ import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 // import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
-import SeoHead from "@/components/prefabs/SeoHead";
+// import SeoHead from "@/components/prefabs/SeoHead";
 import VibeSection from "@/components/prefabs/vibes-section";
 import { Button } from "@/components/ui/button";
 import { getGlobalData, getHomePageData } from "@/data/loader";
