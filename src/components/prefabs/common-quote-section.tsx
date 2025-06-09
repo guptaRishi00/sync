@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 import { StrapiImage } from "../custom/StrapiImage";
 
 export default function CommonQuoteSection(data: any) {
-    const { description, image, decor_underline, name, designation, decor_light } = data.data;
+    const { description, image, name, designation } = data.data;
     return (
         <section className="section relative flex flex-col items-center gap-6 py-8 md:flex-row">
             <div className="relative aspect-3/3 h-fit w-full grow md:m-16">
@@ -15,7 +15,7 @@ export default function CommonQuoteSection(data: any) {
                 <p className="font-popins relative text-lg font-medium">
                     {description}
                     <DecorImage
-                        src={decor_underline.image?.url}
+                        src="/images/decor-underline.png"
                         alt="Decor Smile"
                         size={[240, 240]}
                         className="bottom-0 left-0 translate-y-2/3"
@@ -28,7 +28,7 @@ export default function CommonQuoteSection(data: any) {
             </div>
 
             <DecorImage
-                src={decor_light.image?.url}
+                src="/images/decor-light.png"
                 alt="Decor light"
                 size={[120, 120]}
                 className="right-0 bottom-0 hidden opacity-40 md:block lg:opacity-100"

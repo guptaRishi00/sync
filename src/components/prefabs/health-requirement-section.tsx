@@ -3,7 +3,7 @@ import SimpleCard from "@/components/prefabs/simple-card";
 import Image from "next/image";
 
 export default function HealthRequirementSection(data: any) {
-    const { title, description, decor_smile, simple_card } = data.data;
+    const { title, description, simple_card } = data.data;
 
     const classArray = [
         "from-secondary-light bg-linear-to-br to-[#69482D]",
@@ -21,7 +21,7 @@ export default function HealthRequirementSection(data: any) {
                         {title.split(" ")[0] + " " + title.split(" ")[1] + " "} <br />{" "}
                         {title.split(" ")[2] + " " + title.split(" ")[3] + " " + title.split(" ")[4]}
                         <DecorImage
-                            src={decor_smile.image?.url}
+                            src="/images/decor-smile.png"
                             alt="Decor Smile"
                             size={[28, 28]}
                             className="right-0 bottom-0 -translate-x-full"

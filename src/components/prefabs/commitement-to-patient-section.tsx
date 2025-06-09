@@ -1,9 +1,10 @@
 import CommitmentCard from "@/components/prefabs/commitment-card";
 // import Image from "next/image";
-import { StrapiImage } from "../custom/StrapiImage";
+// import { StrapiImage } from "../custom/StrapiImage";
+import Image from "next/image";
 
 export default function CommitmentToPatientSection({ data }: any) {
-    const { title, subtitle, commitment, decor_image } = data;
+    const { title, subtitle, commitment } = data;
 
     // const commitments = [
     //     {
@@ -30,9 +31,11 @@ export default function CommitmentToPatientSection({ data }: any) {
                     <br className="md:hidden" />
                     <span className="relative">
                         {subtitle}
-                        <StrapiImage
-                            src={decor_image.image?.url}
+                        <Image
+                            src="/images/decor-highlight-2.png"
                             alt="Decor Highlight"
+                            fill
+                            sizes="100"
                             className="bottom-0 left-0 -z-10 translate-y-1/2 object-contain"
                         />
                     </span>

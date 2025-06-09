@@ -7,13 +7,14 @@ import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 // import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
+import SeoHead from "@/components/prefabs/SeoHead";
 import { getGlobalData, getServiceData } from "@/data/loader";
 import Image from "next/image";
 import React from "react";
 
 export default async function ServicesPage() {
     const globalres = await getGlobalData();
-    const { decor_tree, decor_chair, join_news_letter, header } = globalres;
+    const { join_news_letter, header } = globalres;
 
     const res = await getServiceData();
 
@@ -23,8 +24,10 @@ export default async function ServicesPage() {
     const assessment = res.blocks.find((block: any) => block.__component === "servicepage.assessments");
 
     const { bg_image } = herosection;
+    const seo = res?.seo;
     return (
         <>
+            <SeoHead {...(seo || {})} />
             <main className="main relative overflow-x-clip">
                 <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
                 <HeroSection header={header} data={herosection} />
@@ -56,13 +59,13 @@ export default async function ServicesPage() {
                 <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
-                    src={decor_tree?.url}
+                    src="/images/home-decore-tree-branch.png"
                     alt="Decor Butterfly"
                     size={[600, 600]}
                     className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
-                    src={decor_chair?.url}
+                    src="/images/home-decore-5.png"
                     alt="Home Decore 5"
                     size={[450, 450]}
                     className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"
@@ -78,7 +81,7 @@ export default async function ServicesPage() {
 
 function HeroSection(props: any) {
     const { header, data } = props;
-    const { title, image, decor_image, description } = data;
+    const { title, image, description } = data;
 
     return (
         <section className="section relative flex flex-col gap-4 py-8 md:min-h-dvh">
@@ -104,7 +107,7 @@ function HeroSection(props: any) {
                         <p className="font-popins z-50 mt-6 text-lg leading-8 font-medium text-balance md:pb-24">{description}</p>
 
                         <DecorImage
-                            src={decor_image.image?.url}
+                            src="/images/home-decore-3.png"
                             alt="Decor Highlight"
                             size={[150, 150]}
                             className="right-0 bottom-0 z-10 hidden translate-x-1/3 md:block"
@@ -122,7 +125,7 @@ function HeroSection(props: any) {
 }
 
 function ConsultationSection({ data }: any) {
-    const { title, decor_image1, decor_image2, image, decor_image3, list, list_title } = data;
+    const { title, image, list, list_title } = data;
 
     console.log(data);
 
@@ -141,7 +144,7 @@ function ConsultationSection({ data }: any) {
                     />
 
                     <DecorImage
-                        src={decor_image2?.url}
+                        src="/images/decor-matrix.png"
                         alt="Decor Butterfly"
                         size={[160, 160]}
                         className="right-0 bottom-0 z-10 -translate-x-1/8 translate-y-1/4 stroke-3 md:translate-y-1/2"
@@ -159,7 +162,7 @@ function ConsultationSection({ data }: any) {
                         />
                     </h2>
                     <DecorImage
-                        src={decor_image1?.url}
+                        src="/images/decor-smile-primary.png"
                         alt="Decor Smile"
                         size={[100, 100]}
                         className="top-0 left-0 h-16! w-16! -translate-y-full md:h-auto md:w-auto"
@@ -180,7 +183,7 @@ function ConsultationSection({ data }: any) {
 
                     <div className="relative hidden">
                         <DecorImage
-                            src={decor_image3?.url}
+                            src="/images/decor-arrow.png"
                             alt="Decor Butterfly"
                             size={[67, 67]}
                             className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
@@ -193,7 +196,7 @@ function ConsultationSection({ data }: any) {
             </div>
 
             <DecorImage
-                src={decor_image3?.url}
+                src="/images/decor-leaves-1.png"
                 alt="Decor Butterfly"
                 size={[240, 240]}
                 className="invisible bottom-0 left-0 z-10 translate-y-1/2 md:visible"
@@ -203,7 +206,7 @@ function ConsultationSection({ data }: any) {
 }
 
 function PsychiatricConsultationsSection({ data }: any) {
-    const { decor_image1, decor_image2, image, decor_image3, list, list_title } = data.consultations;
+    const { image, list, list_title } = data.consultations;
 
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
@@ -224,7 +227,7 @@ function PsychiatricConsultationsSection({ data }: any) {
                         />
                     </h2>
                     <DecorImage
-                        src={decor_image1?.url}
+                        src="/images/decor-smile-primary.png"
                         alt="Decor Smile"
                         size={[100, 100]}
                         className="top-0 left-0 h-16! w-16! -translate-y-full md:h-auto md:w-auto"
@@ -262,7 +265,7 @@ function PsychiatricConsultationsSection({ data }: any) {
                     />
 
                     <DecorImage
-                        src={decor_image2?.url}
+                        src="/images/decor-matrix.png"
                         alt="Decor Butterfly"
                         size={[160, 160]}
                         className="right-0 bottom-0 z-10 -translate-x-1/8 translate-y-1/4 stroke-3 md:left-0 md:translate-x-1/8 md:translate-y-1/2"
@@ -271,7 +274,7 @@ function PsychiatricConsultationsSection({ data }: any) {
             </div>
 
             <DecorImage
-                src={decor_image3?.url}
+                src="/images/decor-leaves-1.png"
                 alt="Decor Butterfly"
                 size={[240, 240]}
                 className="invisible right-0 bottom-0 z-10 translate-y-1/2 md:visible"
@@ -281,7 +284,7 @@ function PsychiatricConsultationsSection({ data }: any) {
 }
 
 function CounsellingAndPsychotherapy({ data }: any) {
-    const { title, decor_image1, decor_image2, image, decor_image3, list, list_title } = data.assessments;
+    const { title, image, list, list_title } = data.assessments;
 
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
@@ -298,7 +301,7 @@ function CounsellingAndPsychotherapy({ data }: any) {
                     />
 
                     <DecorImage
-                        src={decor_image2?.url}
+                        src="/images/decor-matrix.png"
                         alt="Decor Butterfly"
                         size={[160, 160]}
                         className="right-0 bottom-0 z-10 -translate-x-1/8 translate-y-1/4 stroke-3 md:translate-y-1/2"
@@ -316,7 +319,7 @@ function CounsellingAndPsychotherapy({ data }: any) {
                         />
                     </h2>
                     <DecorImage
-                        src={decor_image1?.url}
+                        src="/images/decor-smile-primary.png"
                         alt="Decor Smile"
                         size={[100, 100]}
                         className="top-0 left-0 h-16! w-16! -translate-y-full md:h-auto md:w-auto"
@@ -350,7 +353,7 @@ function CounsellingAndPsychotherapy({ data }: any) {
             </div>
 
             <DecorImage
-                src={decor_image3?.url}
+                src="/images/decor-leaves-1.png"
                 alt="Decor Butterfly"
                 size={[240, 240]}
                 className="invisible bottom-0 left-0 z-10 translate-y-1/2 md:visible"

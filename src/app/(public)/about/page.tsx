@@ -7,13 +7,14 @@ import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
 import ProfileCard from "@/components/prefabs/profile-card";
+import SeoHead from "@/components/prefabs/SeoHead";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { getAboutData, getGlobalData } from "@/data/loader";
 import { CircleCheck } from "lucide-react";
 
 export default async function AboutPage() {
     const globalres = await getGlobalData();
-    const { decor_tree, decor_chair, join_news_letter, header } = globalres;
+    const { join_news_letter, header } = globalres;
 
     const res = await getAboutData();
 
@@ -24,8 +25,13 @@ export default async function AboutPage() {
 
     const { bg_image } = herosection;
 
+    const seo = res?.seo;
+
+    // console.log(seo);
+
     return (
         <>
+            <SeoHead {...(seo || {})} />
             <main className="main relative overflow-x-clip">
                 <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
                 <HeroSection header={header} data={herosection} />
@@ -51,13 +57,13 @@ export default async function AboutPage() {
                 <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
-                    src={decor_tree?.url}
+                    src="/images/home-decore-tree-branch.png"
                     alt="Decor Butterfly"
                     size={[600, 600]}
                     className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
-                    src={decor_chair?.url}
+                    src="/images/home-decore-5.png"
                     alt="Home Decore 5"
                     size={[450, 450]}
                     className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"
@@ -74,7 +80,7 @@ export default async function AboutPage() {
 function HeroSection(props: any) {
     const { header, data } = props;
 
-    const { title, description, image, decor_image, small_component } = data;
+    const { title, description, image, small_component } = data;
     return (
         <section className="section relative flex flex-col gap-4 py-8 md:min-h-dvh">
             {/* Header */}
@@ -100,7 +106,7 @@ function HeroSection(props: any) {
                         </p>
 
                         <DecorImage
-                            src={decor_image.image?.url}
+                            src="/images/home-decore-3.png"
                             alt="Decor Highlight"
                             size={[150, 150]}
                             className="right-0 bottom-0 z-10 hidden translate-x-1/3 md:block"
@@ -249,7 +255,7 @@ function MeetOurExpertSection({ data }: any) {
     //     },
     // ];
 
-    const { title, subtitle, decor_image, profiles } = data;
+    const { title, subtitle, profiles } = data;
 
     return (
         <section className="section flex flex-col items-center py-8">
@@ -259,7 +265,7 @@ function MeetOurExpertSection({ data }: any) {
                     <h2 className="text-xl font-bold md:text-4xl">{subtitle}</h2>
                 </div>
                 <DecorImage
-                    src={decor_image?.url}
+                    src="/images/decor-love-primary.png"
                     alt="Decor Love"
                     size={[42, 42]}
                     className="top-0 -left-4 -translate-x-full rotate-y-180"

@@ -15,6 +15,7 @@ import Link from "next/link";
 import "./style.css";
 import { getAcademyData, getGlobalData, getHomePageData } from "@/data/loader";
 import { StrapiImage } from "@/components/custom/StrapiImage";
+import SeoHead from "@/components/prefabs/SeoHead";
 
 export default async function AcademyPage() {
     const res = await getAcademyData();
@@ -24,17 +25,18 @@ export default async function AcademyPage() {
     const pointsToget = res.blocks.find((block: any) => block.__component === "academypage.points-to-join");
     const subscribeSection = res.blocks.find((block: any) => block.__component === "academypage.subscribe-section");
 
-    const { decor_image } = pointsToget;
-
     const homeres = await getHomePageData();
     const commonQuote = homeres.blocks.find((block: any) => block.__component === "homepage.common-quote");
     const healthRequirement = homeres.blocks.find((block: any) => block.__component === "homepage.health-requirement");
 
     const globalres = await getGlobalData();
-    const { decor_tree, decor_chair, join_news_letter, header } = globalres;
+    const { join_news_letter, header } = globalres;
+
+    const seo = res?.seo;
 
     return (
         <>
+            <SeoHead {...(seo || {})} />
             <main className="main relative overflow-x-clip">
                 <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
                 <HeroSection header={header} data={herosection} />
@@ -48,7 +50,7 @@ export default async function AcademyPage() {
                 {/* academy-bg.png */}
                 <PointsToJoinSection data={pointsToget} />
                 <DecorImage
-                    src={decor_image?.url}
+                    src="/images/decor-plant-grow.png"
                     alt="Decor Table"
                     size={[500, 500]}
                     className="right-2 bottom-0 hidden translate-y-1 md:block"
@@ -83,13 +85,13 @@ export default async function AcademyPage() {
                 <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
-                    src={decor_tree?.url}
+                    src="/images/home-decore-tree-branch.png"
                     alt="Decor Butterfly"
                     size={[600, 600]}
                     className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
-                    src={decor_chair?.url}
+                    src="/images/home-decore-5.png"
                     alt="Home Decore 5"
                     size={[450, 450]}
                     className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"
@@ -106,7 +108,7 @@ export default async function AcademyPage() {
 function HeroSection(props: any) {
     const { header, data } = props;
 
-    const { title, description, image, decor_image2, decor_image } = data;
+    const { title, description, image } = data;
     return (
         <section className="section relative flex flex-col gap-4 py-8 md:min-h-dvh">
             {/* Header */}
@@ -136,7 +138,7 @@ function HeroSection(props: any) {
                     </div>
 
                     <DecorImage
-                        src={decor_image?.image?.url}
+                        src="/images/decor-stroke.png"
                         alt="Decor Butterfly"
                         size={[100, 100]}
                         className="relative bottom-0 left-0"
@@ -202,7 +204,7 @@ function HeroSection(props: any) {
             </div>
 
             <DecorImage
-                src={decor_image2?.image?.url}
+                src="/images/decor-table.png"
                 alt="Decor Table"
                 size={[100, 100]}
                 className="bottom-0 left-1/2 md:-translate-x-1/2"
@@ -238,7 +240,7 @@ function WhatToGetSection({ data }: any) {
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Discussion Forum</h6>
                     <p className="w-1/2 text-left text-lg">{discussion_forum.description}</p>
                     <DecorImage
-                        src={discussion_forum.decor_image?.url}
+                        src="/images/decor-plant.png"
                         alt="Decor Plant"
                         size={[160, 160]}
                         className="absolute right-0 bottom-0 z-10"
@@ -259,7 +261,7 @@ function WhatToGetSection({ data }: any) {
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">{Learning.title}</h6>
                     <p className="font-popins text-left text-lg font-medium text-balance md:w-1/2">{Learning.description}</p>
                     <DecorImage
-                        src={Learning.decor_image?.url}
+                        src="/images/decor-plant-2.png"
                         alt="Decor Plant"
                         size={[160, 160]}
                         className="absolute right-0 bottom-0 z-10 opacity-60 md:opacity-100"
@@ -271,7 +273,12 @@ function WhatToGetSection({ data }: any) {
                     </div>
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">{Expert.title}</h6>
                     <p className="font-popins text-left text-lg font-medium text-balance md:w-1/2">{Expert.description}</p>
-                    <DecorImage src={Expert.decor_image?.url} alt="Decor Plant" size={[500, 500]} className="absolute top-0 right-0 z-10" />
+                    <DecorImage
+                        src="/images/decor-plant-3.png"
+                        alt="Decor Plant"
+                        size={[500, 500]}
+                        className="absolute top-0 right-0 z-10"
+                    />
                 </div>
             </div>
         </section>
@@ -339,13 +346,18 @@ function DontMissInformationSection() {
 }
 
 function SubscribeSection({ data }: any) {
-    const { title, description, title2, description2, image, decor_new, faq } = data;
+    const { title, description, title2, description2, image, faq } = data;
     return (
         <section className="section relative flex h-full flex-col items-start justify-start gap-12 py-8 md:flex-row md:py-16">
             <div className="space-y-6">
                 <div className="relative aspect-1307/497 w-3/4 md:max-w-[30vw]">
                     <StrapiImage src={image?.url} alt="Academy Frame" className="md:h-full md:w-full" />
-                    <DecorImage src={decor_new?.url} alt="Decor Butterfly" size={[40, 40]} className="right-0 bottom-0 translate-y-full" />
+                    <DecorImage
+                        src="/images/decor-smile.png"
+                        alt="Decor Butterfly"
+                        size={[40, 40]}
+                        className="right-0 bottom-0 translate-y-full"
+                    />
                 </div>
                 <h2 className="font-popins relative text-3xl leading-10 font-bold md:text-5xl md:leading-16">
                     {title.split(" ").slice(0, 3).join(" ")} <br /> {title.split(" ").slice(3, 6).join(" ")}

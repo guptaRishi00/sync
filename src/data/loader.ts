@@ -28,27 +28,6 @@ const homePageQuery = qs.stringify({
                 },
                 "homepage.founder-note": {
                     populate: {
-                        decor_highlight: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
-                        decor_highlight2: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
-                        decor_new: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
                         video: {
                             populate: {
                                 poster: {
@@ -73,13 +52,6 @@ const homePageQuery = qs.stringify({
                 },
                 "homepage.expert-services": {
                     populate: {
-                        decor_image: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
                         cardDetails: {
                             populate: {
                                 imagePath: {
@@ -87,31 +59,7 @@ const homePageQuery = qs.stringify({
                                 },
                             },
                         },
-                        bookAppointment: {
-                            populate: {
-                                decor_smile: {
-                                    populate: {
-                                        image: {
-                                            fields: ["url", "alternativeText"],
-                                        },
-                                    },
-                                },
-                                decor_leaves: {
-                                    populate: {
-                                        image: {
-                                            fields: ["url", "alternativeText"],
-                                        },
-                                    },
-                                },
-                            },
-                        },
-                        decor_love: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
+                        bookAppointment: true,
                         why_us: {
                             populate: {
                                 image: {
@@ -127,53 +75,15 @@ const homePageQuery = qs.stringify({
                         image: {
                             fields: ["url", "alternativeText"],
                         },
-                        decor_underline: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
-                        decor_light: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
                     },
                 },
                 "homepage.health-requirement": {
                     populate: {
-                        decor_smile: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
-                        simple_card: {
-                            populate: {
-                                decor_image: {
-                                    populate: {
-                                        image: {
-                                            fields: ["url", "alternativeText"],
-                                        },
-                                    },
-                                },
-                            },
-                        },
+                        simple_card: true,
                     },
                 },
                 "homepage.vibe-section": {
                     populate: {
-                        decor_vibes: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
                         carousel: {
                             populate: {
                                 image: {
@@ -196,20 +106,6 @@ const homePageQuery = qs.stringify({
                 },
                 "homepage.feedback": {
                     populate: {
-                        bg_testimonial: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
-                        testimonial_mask: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
                         qr_code: {
                             populate: {
                                 image: {
@@ -222,6 +118,20 @@ const homePageQuery = qs.stringify({
                                 image: {
                                     fields: ["url", "alternativeText"],
                                 },
+                            },
+                        },
+                    },
+                },
+            },
+            seo: {
+                populate: {
+                    metaImage: {
+                        fields: ["url", "alternativeText"],
+                    },
+                    socialNetwork: {
+                        populate: {
+                            image: {
+                                fields: ["url", "alternativeText"],
                             },
                         },
                     },
@@ -295,21 +205,12 @@ const aboutQuery = qs.stringify({
                         image: {
                             fields: ["url", "alternativeText"],
                         },
-                        decor_image: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
+
                         small_component: true,
                     },
                 },
                 "aboutpage.meet-experts": {
                     populate: {
-                        decor_image: {
-                            fields: ["url", "alternativeText"],
-                        },
                         profiles: {
                             populate: {
                                 profileImage: {
@@ -338,12 +239,19 @@ const aboutQuery = qs.stringify({
                                 },
                             },
                         },
-                        decor_image: {
-                            populate: {
-                                image: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
+                    },
+                },
+            },
+        },
+        seo: {
+            populate: {
+                metaImage: {
+                    fields: ["url", "alternativeText"],
+                },
+                socialNetwork: {
+                    populate: {
+                        image: {
+                            fields: ["url", "alternativeText"],
                         },
                     },
                 },
@@ -369,19 +277,12 @@ const serviceQuery = qs.stringify({
                     populate: {
                         bg_image: { fields: ["url", "alternativeText"] },
                         image: { fields: ["url", "alternativeText"] },
-                        decor_image: {
-                            populate: { image: { fields: ["url", "alternativeText"] } },
-                        },
-                        // small_component is probably not a relation, remove or fix if necessary
                     },
                 },
                 "elements.info-section": {
                     populate: {
-                        decor_image1: { fields: ["url", "alternativeText"] },
                         image: { fields: ["url", "alternativeText"] },
-                        decor_image2: { fields: ["url", "alternativeText"] },
-                        decor_image3: { fields: ["url", "alternativeText"] },
-                        // REMOVE list: true, and list_title: true
+
                         list: true,
                     },
                 },
@@ -389,11 +290,8 @@ const serviceQuery = qs.stringify({
                     populate: {
                         consultations: {
                             populate: {
-                                decor_image1: { fields: ["url", "alternativeText"] },
                                 image: { fields: ["url", "alternativeText"] },
-                                decor_image2: { fields: ["url", "alternativeText"] },
-                                decor_image3: { fields: ["url", "alternativeText"] },
-                                // REMOVE list: true, and list_title: true
+
                                 list: true,
                             },
                         },
@@ -403,13 +301,24 @@ const serviceQuery = qs.stringify({
                     populate: {
                         assessments: {
                             populate: {
-                                decor_image1: { fields: ["url", "alternativeText"] },
                                 image: { fields: ["url", "alternativeText"] },
-                                decor_image2: { fields: ["url", "alternativeText"] },
-                                decor_image3: { fields: ["url", "alternativeText"] },
-                                // REMOVE list: true, and list_title: true
+
                                 list: true,
                             },
+                        },
+                    },
+                },
+            },
+        },
+        seo: {
+            populate: {
+                metaImage: {
+                    fields: ["url", "alternativeText"],
+                },
+                socialNetwork: {
+                    populate: {
+                        image: {
+                            fields: ["url", "alternativeText"],
                         },
                     },
                 },
@@ -435,16 +344,6 @@ const academyQuery = qs.stringify({
                     populate: {
                         bg_image: { fields: ["url", "alternativeText"] },
                         image: { fields: ["url", "alternativeText"] },
-                        decor_image: {
-                            populate: {
-                                image: { fields: ["url", "alternativeText"] },
-                            },
-                        },
-                        decor_image2: {
-                            populate: {
-                                image: { fields: ["url", "alternativeText"] },
-                            },
-                        },
                     },
                 },
                 "academypage.what-to-get": {
@@ -452,13 +351,11 @@ const academyQuery = qs.stringify({
                         clinical_training: {
                             populate: {
                                 image: { fields: ["url", "alternativeText"] },
-                                decor_image: { fields: ["url", "alternativeText"] }, // if you want decor_image too
                             },
                         },
                         discussion_forum: {
                             populate: {
                                 image: { fields: ["url", "alternativeText"] },
-                                decor_image: { fields: ["url", "alternativeText"] },
                             },
                         },
                         practice: {
@@ -469,13 +366,11 @@ const academyQuery = qs.stringify({
                         Learning: {
                             populate: {
                                 image: { fields: ["url", "alternativeText"] },
-                                decor_image: { fields: ["url", "alternativeText"] },
                             },
                         },
                         Expert: {
                             populate: {
                                 image: { fields: ["url", "alternativeText"] },
-                                decor_image: { fields: ["url", "alternativeText"] },
                             },
                         },
                     },
@@ -485,9 +380,7 @@ const academyQuery = qs.stringify({
                         image: {
                             fields: ["url", "alternativeText"],
                         },
-                        decor_image: {
-                            fields: ["url", "alternativeText"],
-                        },
+
                         points: true,
                     },
                 },
@@ -496,10 +389,22 @@ const academyQuery = qs.stringify({
                         image: {
                             fields: ["url", "alternativeText"],
                         },
-                        decor_new: {
+
+                        faq: true,
+                    },
+                },
+            },
+        },
+        seo: {
+            populate: {
+                metaImage: {
+                    fields: ["url", "alternativeText"],
+                },
+                socialNetwork: {
+                    populate: {
+                        image: {
                             fields: ["url", "alternativeText"],
                         },
-                        faq: true,
                     },
                 },
             },

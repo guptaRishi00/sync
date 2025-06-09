@@ -2,13 +2,13 @@ import Link from "next/link";
 import DecorImage from "./decor-image";
 import { StrapiImage } from "../custom/StrapiImage";
 import React from "react";
+import Image from "next/image";
 
 export default function FeedbackSection(data: any) {
     const {
         title,
         description,
-        bg_testimonial,
-        testimonial_mask,
+
         qr_code,
         cat,
         location,
@@ -21,8 +21,13 @@ export default function FeedbackSection(data: any) {
     return (
         <section className="section py-8 md:pt-12">
             <div className="relative z-10 w-full rounded-2xl bg-[#0059B8] md:aspect-video lg:bg-transparent">
-                <StrapiImage src={bg_testimonial.image?.url} alt="Testimonials Background" className="absolute -z-50 object-contain" />
-                <StrapiImage src={testimonial_mask.image?.url} alt="Testimonials Background" className="absolute -z-30 object-contain" />
+                <Image src="/images/home-bg-testimonial.png" alt="Testimonials Background" fill className="absolute -z-50 object-contain" />
+                <Image
+                    src="/images/home-bg-testimonial-mask.png"
+                    alt="Testimonials Background"
+                    fill
+                    className="absolute -z-30 object-contain"
+                />
 
                 <div className="flex h-full flex-col items-center justify-between gap-8 md:flex-row">
                     <div className="flex flex-col gap-4 p-12 md:max-w-1/2">

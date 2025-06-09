@@ -13,7 +13,7 @@ export default function JoinNewsLetter({ data }: any) {
     const [isSuccess, setIsSuccess] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
 
-    const { decor_circle, decor_circle2, disclaimer, subtitle, title } = data || {};
+    const { disclaimer, subtitle, title } = data || {};
 
     useEffect(() => {
         if (isSuccess) {
@@ -36,7 +36,7 @@ export default function JoinNewsLetter({ data }: any) {
                 <div className="relative">
                     <Mail className="fill-primary stroke-background size-16"></Mail>
                     <DecorImage
-                        src={decor_circle?.url}
+                        src="/images/decor-highlight-circle-2.png"
                         alt="Decor Highlight Circle 2"
                         size={[180, 180]}
                         className="absolute top-1/2 left-1/2 w-[160%] max-w-none -translate-1/2"
@@ -48,7 +48,7 @@ export default function JoinNewsLetter({ data }: any) {
                     <span className="relative">
                         {subtitle}
                         <DecorImage
-                            src={decor_circle2?.url}
+                            src="/images/decor-highlight-circle-1.png"
                             alt="Decor Highlight Circle 1"
                             size={[120, 120]}
                             className="absolute top-1/2 left-1/2 w-[110%] max-w-none -translate-1/2"

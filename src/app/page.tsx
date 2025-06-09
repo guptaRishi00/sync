@@ -20,6 +20,7 @@ import VibeSection from "@/components/prefabs/vibes-section";
 import { getGlobalData, getHomePageData } from "@/data/loader";
 // import { StrapiVideo } from "@/components/custom/StrapiVideo";
 import { StrapiImage } from "@/components/custom/StrapiImage";
+import SeoHead from "@/components/prefabs/SeoHead";
 
 export default async function HomePage() {
     const res = await getHomePageData();
@@ -38,10 +39,13 @@ export default async function HomePage() {
 
     const { bg_image } = herosection;
 
-    const { decor_tree, decor_chair, decor_butterfly1, join_news_letter, header } = globalres;
+    const { join_news_letter, header } = globalres;
+
+    const seo = res?.seo;
 
     return (
         <>
+            <SeoHead {...(seo || {})} />
             <main className="main relative">
                 <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
                 <HeroSection data={herosection} header={header} />
@@ -51,7 +55,7 @@ export default async function HomePage() {
                 <FoundersNoteSection data={founderNote} />
 
                 <DecorImage
-                    src={decor_butterfly1?.url}
+                    src="/images/decor-butterfly-large.png"
                     alt="Decor Butterfly"
                     size={[230, 230]}
                     className="right-0 bottom-0 translate-x-1/2 -rotate-45"
@@ -88,13 +92,13 @@ export default async function HomePage() {
                 <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
-                    src={decor_tree?.url}
+                    src="/images/home-decore-tree-branch.png"
                     alt="Decor Butterfly"
                     size={[600, 600]}
                     className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
-                    src={decor_chair?.url}
+                    src="/images/home-decore-5.png"
                     alt="Home Decore 5"
                     size={[450, 450]}
                     className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"
@@ -153,19 +157,19 @@ function HeroSection(props: any) {
 }
 
 function FoundersNoteSection(data: any) {
-    const { title, decor_highlight, decor_new, youtube_link } = data.data;
+    const { title, youtube_link } = data.data;
     return (
         <section className="section flex flex-col items-center justify-center gap-2 py-8 md:min-h-dvh">
             <h2 className="font-popins relative mb-4 text-3xl font-semibold italic md:text-5xl">
                 {title}
                 <DecorImage
-                    src={decor_highlight.image?.url}
+                    src="/images/decor-highlight.png"
                     alt="Decor Highlight"
                     size={[16, 16]}
                     className="top-0 left-1/4 -translate-y-full"
                 />
                 <DecorImage
-                    src={decor_highlight.image?.url}
+                    src="/images/decor-highlight.png"
                     alt="Decor Highlight"
                     size={[16, 16]}
                     className="bottom-0 left-3/4 translate-y-full rotate-180"
@@ -174,7 +178,7 @@ function FoundersNoteSection(data: any) {
             <p className="text-muted font-popins text-center text-sm md:pb-6 md:text-xl">Optimizing brain health like never before.</p>
             <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
                 <DecorImage
-                    src={decor_new.image?.url}
+                    src="/images/decor-new.png"
                     alt="Decor New"
                     size={[44, 44]}
                     className="-translate-x-1/2 -translate-y-full md:-translate-full"
@@ -189,42 +193,9 @@ function FoundersNoteSection(data: any) {
 }
 
 function ExpertServicesSection(data: any) {
-    const { title, decor_love, cardDetails, bookAppointment, why_us } = data.data;
+    const { title, cardDetails, bookAppointment, why_us } = data.data;
 
-    // const cardDetails = [
-    //     {
-    //         imagePath: "/jpeg/Consultation.jpg",
-    //         title: "Consultations",
-    //         description: "Discuss your needs with a professional and learn about your care options.",
-    //     },
-    //     {
-    //         imagePath: "/jpeg/Individual therapy.jpg",
-    //         title: "Individual Counseling & Therapy",
-    //         description: "A safe and empowering space to navigate life’s journey with guidance.",
-    //     },
-    //     {
-    //         imagePath: "/jpeg/ADHD group coaching.jpg",
-    //         title: "Adhd Group Coaching Sessions",
-    //         description: "Develop resilience, organization, and management skills in a shared group setting.",
-    //     },
-    //     {
-    //         imagePath: "/jpeg/Asessment and diagnosis.jpg",
-    //         title: "Assessment & Diagnosis",
-    //         description:
-    //             "A thoughtful conversation to explore your experiences, uncover their origins, and understand their impact on your well-being.",
-    //     },
-    //     {
-    //         imagePath: "/jpeg/Psychiatric consultations.jpg",
-    //         title: "Psychiatric Consultations",
-    //         description:
-    //             "Expert psychiatric care for depression, anxiety, addiction, ADHD, neurodivergence, schizophrenia, mood disorders, and more.",
-    //     },
-    //     {
-    //         imagePath: "/images/decor-export-service-1.png",
-    //         title: "Book an Appointment",
-    //         isBookAppointment: true,
-    //     },
-    // ];
+    console.log("card details: ", cardDetails);
 
     return (
         <section className="section flex flex-col items-center gap-12 pt-4 md:gap-16">
@@ -235,7 +206,7 @@ function ExpertServicesSection(data: any) {
                 <h2 className="relative">
                     {title.split(" ")[2] + " " + title.split(" ")[3] + " " + title.split(" ")[4]}
                     <DecorImage
-                        src={decor_love.image?.url}
+                        src="/images/decor-love.png"
                         alt="Decor Love"
                         size={[24, 24]}
                         className="top-0 right-0 translate-x-full -translate-y-full"

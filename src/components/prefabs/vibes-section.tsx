@@ -6,11 +6,11 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { StrapiImage } from "../custom/StrapiImage";
 
 export default function VibeSection(data: any) {
-    const { decor_vibes, carousel } = data.data;
+    const { carousel } = data.data;
     return (
         <section className="section flex flex-col items-center justify-center gap-4 p-8 md:min-h-dvh md:gap-12">
             <div className="relative aspect-8/1 h-8 md:h-16">
-                <DecorImage src={decor_vibes.image?.url} alt="Decor New" size={[800, 100]} className="" />
+                <DecorImage src="/images/decor-vibes.png" alt="Decor New" size={[800, 100]} className="" />
             </div>
             <div className="aspect-[3.75/3] w-4/5 md:w-3/4">
                 <Carousel className="h-full">
