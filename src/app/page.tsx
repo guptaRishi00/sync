@@ -43,6 +43,8 @@ export default async function HomePage() {
 
     const seo = res?.seo;
 
+    const footerLinks = globalres.footer;
+
     return (
         <>
             <SeoHead {...(seo || {})} />
@@ -106,7 +108,7 @@ export default async function HomePage() {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <Footer />
+                <Footer data={footerLinks} />
             </main>
         </>
     );

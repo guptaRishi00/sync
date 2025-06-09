@@ -27,6 +27,8 @@ export default async function AboutPage() {
 
     const seo = res?.seo;
 
+    const footerLinks = globalres.footer;
+
     // console.log(seo);
 
     return (
@@ -71,7 +73,7 @@ export default async function AboutPage() {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <Footer />
+                <Footer data={footerLinks} />
             </main>
         </>
     );

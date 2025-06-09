@@ -26,6 +26,8 @@ export default async function BlogPage() {
     const globalres = await getGlobalData();
     const { join_news_letter, header } = globalres;
 
+    const footerLinks = globalres.footer;
+
     return (
         <>
             <main className="main relative overflow-x-clip md:min-h-fit!">
@@ -69,7 +71,7 @@ export default async function BlogPage() {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <Footer />
+                <Footer data={footerLinks} />
             </main>
         </>
     );

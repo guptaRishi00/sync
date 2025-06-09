@@ -23,6 +23,8 @@ export default async function ServicesPage() {
     const consult = res.blocks.find((block: any) => block.__component === "servicepage.consultations");
     const assessment = res.blocks.find((block: any) => block.__component === "servicepage.assessments");
 
+    const footerLinks = globalres.footer;
+
     const { bg_image } = herosection;
     const seo = res?.seo;
     return (
@@ -73,7 +75,7 @@ export default async function ServicesPage() {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <Footer />
+                <Footer data={footerLinks} />
             </main>
         </>
     );
