@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import BookAppointmentButton from "./book-appointment-button";
 import WhatsAppButton from "./whatsapp-button";
 
-export default function FloatingContent() {
+export default function FloatingContent({ bookAppointmentButton }: any) {
     const scrollPosition = useScrollPosition();
 
     const [visible, setVisible] = useState(false);
@@ -27,7 +27,7 @@ export default function FloatingContent() {
                 visible ? "opacity-100" : "hidden",
             )}
         >
-            <BookAppointmentButton className="shadow" />
+            <BookAppointmentButton className="shadow" data={bookAppointmentButton} />
             <WhatsAppButton />
         </div>
     );
