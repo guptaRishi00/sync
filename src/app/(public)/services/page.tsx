@@ -8,7 +8,7 @@ import Header from "@/components/prefabs/header";
 // import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
 import SeoHead from "@/components/prefabs/SeoHead";
-import { getGlobalData, getServiceData } from "@/data/loader";
+import { getGlobalData, getHomePageData, getServiceData } from "@/data/loader";
 import Image from "next/image";
 import React from "react";
 
@@ -16,12 +16,15 @@ export default async function ServicesPage() {
     const globalres = await getGlobalData();
     const { join_news_letter, header } = globalres;
 
+    const homeres = await getHomePageData();
+
     const res = await getServiceData();
 
     const herosection = res.blocks.find((block: any) => block.__component === "blocks.hero-section");
     const info = res.blocks.find((block: any) => block.__component === "elements.info-section");
     const consult = res.blocks.find((block: any) => block.__component === "servicepage.consultations");
     const assessment = res.blocks.find((block: any) => block.__component === "servicepage.assessments");
+    const bookAppointmentButton = homeres.blocks.find((block: any) => block.__component === "homepage.book-appointment-button");
 
     const footerLinks = globalres.footer;
 
@@ -40,15 +43,15 @@ export default async function ServicesPage() {
             </main>
 
             <main className="main flex flex-col bg-[#AC9D81]/10">
-                <ConsultationSection data={info} />
+                <ConsultationSection data={info} bookAppointmentButton={bookAppointmentButton} />
             </main>
 
             <main className="main flex flex-col">
-                <PsychiatricConsultationsSection data={consult} />
+                <PsychiatricConsultationsSection data={consult} bookAppointmentButton={bookAppointmentButton} />
             </main>
 
             <main className="main flex flex-col bg-[#AC9D81]/10">
-                <CounsellingAndPsychotherapy data={assessment} />
+                <CounsellingAndPsychotherapy data={assessment} bookAppointmentButton={bookAppointmentButton} />
             </main>
 
             {/* <main className="main hidden overflow-hidden py-8">
@@ -126,7 +129,8 @@ function HeroSection(props: any) {
     );
 }
 
-function ConsultationSection({ data }: any) {
+function ConsultationSection(props: any) {
+    const { data, bookAppointmentButton } = props;
     const { title, image, list, list_title } = data;
 
     console.log(data);
@@ -190,7 +194,7 @@ function ConsultationSection({ data }: any) {
                             size={[67, 67]}
                             className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
                         />
-                        <BookAppointmentButton />
+                        <BookAppointmentButton data={bookAppointmentButton} />
                     </div>
                 </div>
 
@@ -207,7 +211,8 @@ function ConsultationSection({ data }: any) {
     );
 }
 
-function PsychiatricConsultationsSection({ data }: any) {
+function PsychiatricConsultationsSection(props: any) {
+    const { data, bookAppointmentButton } = props;
     const { image, list, list_title } = data.consultations;
 
     return (
@@ -254,7 +259,7 @@ function PsychiatricConsultationsSection({ data }: any) {
                                     size={[60, 60]}
                                     className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
                                 />
-                                <BookAppointmentButton />
+                                <BookAppointmentButton data={bookAppointmentButton} />
                             </div>
                         </div>
                     </div>
@@ -285,7 +290,8 @@ function PsychiatricConsultationsSection({ data }: any) {
     );
 }
 
-function CounsellingAndPsychotherapy({ data }: any) {
+function CounsellingAndPsychotherapy(props: any) {
+    const { data, bookAppointmentButton } = props;
     const { title, image, list, list_title } = data.assessments;
 
     return (
@@ -347,7 +353,7 @@ function CounsellingAndPsychotherapy({ data }: any) {
                             size={[67, 67]}
                             className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
                         />
-                        <BookAppointmentButton />
+                        <BookAppointmentButton data={bookAppointmentButton} />
                     </div>
                 </div>
 
