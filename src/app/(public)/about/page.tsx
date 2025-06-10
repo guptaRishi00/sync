@@ -9,11 +9,12 @@ import JoinNewsLetter from "@/components/prefabs/join-newsletter";
 import ProfileCard from "@/components/prefabs/profile-card";
 import SeoHead from "@/components/prefabs/SeoHead";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { getAboutData, getGlobalData } from "@/data/loader";
+import { getAboutData, getGlobalData, getHomePageData } from "@/data/loader";
 import { CircleCheck } from "lucide-react";
 
 export default async function AboutPage() {
     const globalres = await getGlobalData();
+    const homeres = await getHomePageData();
     const { join_news_letter, header } = globalres;
 
     const res = await getAboutData();
@@ -22,6 +23,7 @@ export default async function AboutPage() {
     const meetExperts = res.blocks.find((block: any) => block.__component === "aboutpage.meet-experts");
     const visionSection = res.blocks.find((block: any) => block.__component === "aboutpage.why-choose");
     const commitmentSection = res.blocks.find((block: any) => block.__component === "aboutpage.commitment-section");
+    const bookAppointmentButton = homeres.blocks.find((block: any) => block.__component === "homepage.book-appointment-button");
 
     const { bg_image } = herosection;
 
@@ -44,7 +46,7 @@ export default async function AboutPage() {
             </main>
 
             <main className="main bg-secondary/20 relative">
-                <VisionSection data={visionSection} />
+                <VisionSection data={visionSection} bookAppointmentButton={bookAppointmentButton} />
             </main>
 
             <main className="main md:min-h-fit!">
@@ -301,8 +303,14 @@ function MeetOurExpertSection({ data }: any) {
     );
 }
 
-function VisionSection({ data }: any) {
+function VisionSection(props: any) {
+    const { data, bookAppointmentButton } = props;
+
     const { title, image, list, mission, vision } = data;
+
+    // const bookAppointmentButton = data.bookAppointmentButton;
+
+    console.log("VisionSection:", bookAppointmentButton);
 
     return (
         <section className="section grid min-h-svh grid-cols-1 grid-rows-[auto_1fr] gap-6 py-12 md:grid-flow-col md:grid-cols-3 [&>div]:overflow-hidden [&>div]:rounded-2xl">
@@ -325,7 +333,7 @@ function VisionSection({ data }: any) {
                     </ul>
                 </div>
 
-                <BookAppointmentButton className="place-self-start" />
+                <BookAppointmentButton data={bookAppointmentButton} className="place-self-start" />
             </div>
 
             <div className="bg-primary flex flex-col items-start justify-start gap-4 p-6 md:p-12">
