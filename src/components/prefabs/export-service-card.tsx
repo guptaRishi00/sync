@@ -2,6 +2,7 @@ import BookAppointmentButton from "@/components/prefabs/book-appointment-button"
 import { cn } from "@/lib/utils";
 import DecorImage from "./decor-image";
 import { StrapiImage } from "../custom/StrapiImage";
+import { getHomePageData } from "@/data/loader";
 // import Image from "next/image";
 
 type Props = {
@@ -12,8 +13,11 @@ type Props = {
     bookAppointment: any;
 };
 
-export default function ExportServiceCard({ imagePath, title, description, isBookAppointment, bookAppointment }: Props) {
+export default async function ExportServiceCard({ imagePath, title, description, isBookAppointment, bookAppointment }: Props) {
     console.log("service card:", bookAppointment);
+
+    const res = await getHomePageData();
+    const bookAppointmentButton = res.blocks.find((block: any) => block.__component === "homepage.book-appointment-button");
 
     return (
         <div className="flex w-full flex-col justify-start gap-2">
@@ -44,7 +48,7 @@ export default function ExportServiceCard({ imagePath, title, description, isBoo
                             className="right-0 bottom-0 z-20 size-44 translate-x-1/5 translate-y-1/4 opacity-80 md:size-[260px]"
                         />
                     </div>
-                    <BookAppointmentButton className="mt-4 w-full" />
+                    <BookAppointmentButton data={bookAppointmentButton} className="mt-4 w-full" />
                 </>
             ) : (
                 <>
