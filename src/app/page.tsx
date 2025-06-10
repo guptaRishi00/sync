@@ -17,10 +17,20 @@ import Metrics from "@/components/prefabs/metrics";
 import TestimonialsSection from "@/components/prefabs/testimonials-section";
 import VibeSection from "@/components/prefabs/vibes-section";
 
+import { Suspense } from "react";
+
 import { getGlobalData, getHomePageData } from "@/data/loader";
 // import { StrapiVideo } from "@/components/custom/StrapiVideo";
 import { StrapiImage } from "@/components/custom/StrapiImage";
 import SeoHead from "@/components/prefabs/SeoHead";
+
+function Loader() {
+    return (
+        <div className="flex h-screen w-full items-center justify-center">
+            <div className="border-primary h-16 w-16 animate-spin rounded-full border-4 border-solid border-t-transparent"></div>
+        </div>
+    );
+}
 
 export default async function HomePage() {
     const res = await getHomePageData();
@@ -50,76 +60,78 @@ export default async function HomePage() {
     const footerLinks = globalres.footer;
 
     return (
-        <>
-            <SeoHead {...(seo || {})} />
-            <main className="main relative">
-                <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
-                <HeroSection
-                    data={herosection}
-                    header={header}
-                    link={globalres.youtube_link}
-                    bookAppointmentButton={bookAppointmentButton}
-                />
-            </main>
+        <Suspense fallback={<Loader />}>
+            <>
+                <SeoHead {...(seo || {})} />
+                <main className="main relative">
+                    <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
+                    <HeroSection
+                        data={herosection}
+                        header={header}
+                        link={globalres.youtube_link}
+                        bookAppointmentButton={bookAppointmentButton}
+                    />
+                </main>
 
-            <main className="main bg-secondary/20 relative overflow-hidden">
-                <FoundersNoteSection data={founderNote} />
+                <main className="main bg-secondary/20 relative overflow-hidden">
+                    <FoundersNoteSection data={founderNote} />
 
-                <DecorImage
-                    src="/images/decor-butterfly-large.png"
-                    alt="Decor Butterfly"
-                    size={[230, 230]}
-                    className="right-0 bottom-0 translate-x-1/2 -rotate-45"
-                />
-            </main>
+                    <DecorImage
+                        src="/images/decor-butterfly-large.png"
+                        alt="Decor Butterfly"
+                        size={[230, 230]}
+                        className="right-0 bottom-0 translate-x-1/2 -rotate-45"
+                    />
+                </main>
 
-            <main className="main flex flex-col overflow-hidden py-8">
-                <EvaluationMethodologiesSection />
-            </main>
+                <main className="main flex flex-col overflow-hidden py-8">
+                    <EvaluationMethodologiesSection />
+                </main>
 
-            <main className="main py-8">
-                <ExpertServicesSection data={expertServices} why={why_us} />
-            </main>
+                <main className="main py-8">
+                    <ExpertServicesSection data={expertServices} why={why_us} />
+                </main>
 
-            <main className="main bg-secondary/20 md:min-h-fit!">
-                <CommonQuoteSection data={commonQuote} />
-            </main>
+                <main className="main bg-secondary/20 md:min-h-fit!">
+                    <CommonQuoteSection data={commonQuote} />
+                </main>
 
-            <main className="main overflow-hidden py-8">
-                <HealthRequirementSection data={healthRequirement} />
-            </main>
+                <main className="main overflow-hidden py-8">
+                    <HealthRequirementSection data={healthRequirement} />
+                </main>
 
-            <main className="main bg-secondary/20 md:min-h-fit!">
-                <VibeSection data={vibeSection} />
-            </main>
+                <main className="main bg-secondary/20 md:min-h-fit!">
+                    <VibeSection data={vibeSection} />
+                </main>
 
-            <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
-                <ConnectToSyncSection />
+                <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
+                    <ConnectToSyncSection />
 
-                <TestimonialsSection data={testimonials} />
+                    <TestimonialsSection data={testimonials} />
 
-                <FeedbackSection data={feedback} />
+                    <FeedbackSection data={feedback} />
 
-                <JoinNewsLetter data={join_news_letter} />
+                    <JoinNewsLetter data={join_news_letter} />
 
-                <DecorImage
-                    src="/images/home-decore-tree-branch.png"
-                    alt="Decor Butterfly"
-                    size={[600, 600]}
-                    className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
-                />
-                <DecorImage
-                    src="/images/home-decore-5.png"
-                    alt="Home Decore 5"
-                    size={[450, 450]}
-                    className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"
-                />
-            </main>
+                    <DecorImage
+                        src="/images/home-decore-tree-branch.png"
+                        alt="Decor Butterfly"
+                        size={[600, 600]}
+                        className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
+                    />
+                    <DecorImage
+                        src="/images/home-decore-5.png"
+                        alt="Home Decore 5"
+                        size={[450, 450]}
+                        className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"
+                    />
+                </main>
 
-            <main className="main bg-primary py-8 md:min-h-0">
-                <Footer data={footerLinks} />
-            </main>
-        </>
+                <main className="main bg-primary py-8 md:min-h-0">
+                    <Footer data={footerLinks} />
+                </main>
+            </>
+        </Suspense>
     );
 }
 
