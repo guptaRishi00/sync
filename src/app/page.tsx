@@ -124,7 +124,7 @@ export default async function HomePage() {
 }
 
 function HeroSection(props: any) {
-    const { data, header, link, bookAppointmentButton } = props;
+    const { data, header, bookAppointmentButton } = props;
 
     const { subtitle_one, title, description, subtitle_two, image } = data;
     return (
