@@ -13,6 +13,7 @@ export interface BlogPost {
     type: string;
     slug: string;
     reviewedBy: string;
+    youtube_links?: string;
 }
 
 // Get raw Strapi response
@@ -41,6 +42,7 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
             date: dayjs(attrs.date),
             image: attrs.image?.url || "",
             authorImage: attrs.authorImage?.url || "",
+            youtube_links: attrs.youtube_links,
         };
     });
 };

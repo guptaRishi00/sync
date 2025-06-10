@@ -12,10 +12,45 @@ type BlogPost = {
     authorImage: {
         url: string;
     };
+    youtube_links?: string;
 };
 
 export function ContentOne({ post }: { post: BlogPost }) {
     console.log("blog personal: ", post);
+
+    // Function to extract YouTube video ID from URL
+    const getYouTubeVideoId = (url: string) => {
+        const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/;
+        const match = url.match(regex);
+        return match ? match[1] : null;
+    };
+
+    // Function to render video or image
+    const renderMediaContent = () => {
+        if (post.youtube_links) {
+            const videoId = getYouTubeVideoId(post.youtube_links);
+            if (videoId) {
+                return (
+                    <div className="relative aspect-video w-full">
+                        <iframe
+                            src={`https://www.youtube.com/embed/${videoId}`}
+                            title={post.title}
+                            className="absolute inset-0 h-full w-full rounded-xl"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        />
+                    </div>
+                );
+            }
+        }
+
+        // Fallback to image if no YouTube link or invalid link
+        return (
+            <div className="relative aspect-video w-full">
+                <Image src={post.image} alt={post.title} fill className="rounded-xl object-cover" />
+            </div>
+        );
+    };
 
     const formatContent = (content: string) => {
         // Split content into sections and format each part
@@ -62,13 +97,14 @@ export function ContentOne({ post }: { post: BlogPost }) {
             .filter(Boolean);
     };
 
+    console.log("single post: ", post.youtube_links);
+
     return (
         <div className="mx-auto max-w-4xl space-y-6">
             {/* Header Section */}
             <div className="space-y-4">
-                <div className="relative aspect-video w-full">
-                    <Image src={post.image} alt={post.title} fill className="rounded-xl object-cover" />
-                </div>
+                {/* Render YouTube video or image */}
+                {renderMediaContent()}
 
                 <div className="flex items-center gap-3">
                     <div>

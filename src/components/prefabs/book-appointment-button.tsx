@@ -13,10 +13,10 @@ import { WHATSAPP_LINK } from "./whatsapp-button";
 
 type Props = {
     className?: string;
-    link: string;
+    data: any;
 };
 
-export default function BookAppointmentButton({ className, link }: Props) {
+export default function BookAppointmentButton({ className, data }: Props) {
     const [openLocationDialog, setOpenLocationDialog] = useState(false);
     const [openBookTypeDialog, setOpenBookTypeDialog] = useState(false);
     const [openFollowupDialog, setOpenFollowupDialog] = useState(false);
@@ -84,6 +84,8 @@ export default function BookAppointmentButton({ className, link }: Props) {
         [country],
     );
 
+    console.log("bookAppointmentButton: ", data?.description.split(" ").slice(0, 7).join(" "));
+
     return (
         <>
             <Button
@@ -108,7 +110,7 @@ export default function BookAppointmentButton({ className, link }: Props) {
                         </DialogTitle>
 
                         <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
-                            <iframe src={link} className="h-full w-full" allowFullScreen title="YouTube video player" />
+                            <iframe src={data?.youtube_link} className="h-full w-full" allowFullScreen title="YouTube video player" />
                         </div>
 
                         <DialogDescription className="text-foreground font-popins my-5 aspect-1920/3 w-full text-center text-sm font-medium md:w-2/3 md:text-base">
@@ -154,7 +156,7 @@ export default function BookAppointmentButton({ className, link }: Props) {
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex flex-col items-center gap-2 pt-8 md:gap-6">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
-                            Choose How You’d Like to Book
+                            {data?.title}
                             <DecorImage
                                 src="/images/decor-smile.png"
                                 alt="Decor Smile"
@@ -163,8 +165,8 @@ export default function BookAppointmentButton({ className, link }: Props) {
                             />
                         </DialogTitle>
                         <DialogDescription className="text-foreground font-popins text-center text-lg leading-8 font-normal opacity-80 md:text-xl">
-                            To get you to the right place, <br />
-                            kindly let us know how you&apos;d like to continue:
+                            {data?.description.split(" ").slice(0, 6).join(" ")} <br />
+                            {data?.description.split(" ").slice(6, 16).join(" ")}
                         </DialogDescription>
                     </DialogHeader>
 
@@ -184,11 +186,8 @@ export default function BookAppointmentButton({ className, link }: Props) {
                                 onClick={onNewPatientClick}
                             >
                                 <div className="text-[#320001]">
-                                    <h6 className="mb-2 text-xl font-semibold">New Client</h6>
-                                    <span className="opacity-90">
-                                        Screening session with a therapist {">"} Assessments Session with the therapist {">"} Medical
-                                        review.
-                                    </span>
+                                    <h6 className="mb-2 text-xl font-semibold">{data?.newClient.title}</h6>
+                                    <span className="opacity-90">{data?.newClient.description}</span>
                                 </div>
                                 <div className="grow"></div>
                                 <ArrowRight size={35} className="stroke-white" />
@@ -209,10 +208,8 @@ export default function BookAppointmentButton({ className, link }: Props) {
                                 onClick={() => onBookTypeClick("follow-up")}
                             >
                                 <div className="text-white">
-                                    <h6 className="mb-2 text-xl font-semibold">Existing Client</h6>
-                                    <span className="opacity-90">
-                                        I’ve been here before and would like to connect for a follow-up session
-                                    </span>
+                                    <h6 className="mb-2 text-xl font-semibold">{data?.existingClient.title}</h6>
+                                    <span className="opacity-90">{data?.existingClient.description}</span>
                                 </div>
                                 <div className="grow"></div>
                                 <ArrowRight size={35} className="stroke-white" />
@@ -268,7 +265,7 @@ export default function BookAppointmentButton({ className, link }: Props) {
                                 For follow-up consultations, we kindly request you to reach out to our team via WhatsApp. This will help us
                                 assist you faster and find the most convenient slot for you.
                             </span>
-                            <Button className="z-10 mb-8 flex w-48 gap-4 py-6 text-lg" onClick={() => window.open(WHATSAPP_LINK)}>
+                            <Button className="z-10 mb-8 flex w-48 gap-4 py-6 text-lg" onClick={() => window.open(data?.whatsapp)}>
                                 <svg
                                     className="scale-200"
                                     xmlns="http://www.w3.org/2000/svg"

@@ -25,8 +25,8 @@ export default async function BlogDetailPage({ params }: Props) {
     console.log("slug: ", post);
 
     const globalres = await getGlobalData();
-    const { decor_tree, decor_chair, join_news_letter, header } = globalres;
-
+    const { join_news_letter, header } = globalres;
+    const footerLinks = globalres.footer;
     return (
         <>
             <main className="main relative flex overflow-x-clip">
@@ -46,13 +46,13 @@ export default async function BlogDetailPage({ params }: Props) {
                 <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
-                    src={decor_tree?.url}
+                    src="/images/home-decore-tree-branch.png"
                     alt="Decor Butterfly"
                     size={[600, 600]}
                     className="top-0 right-0 translate-x-1/6 -translate-y-1/3 opacity-70"
                 />
                 <DecorImage
-                    src={decor_chair?.url}
+                    src="/images/home-decore-5.png"
                     alt="Home Decore 5"
                     size={[450, 450]}
                     className="absolute right-0 bottom-0 translate-1/4 opacity-60 sm:translate-1/10"
@@ -60,7 +60,7 @@ export default async function BlogDetailPage({ params }: Props) {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <Footer />
+                <Footer data={footerLinks} />
             </main>
         </>
     );

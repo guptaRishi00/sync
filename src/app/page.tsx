@@ -25,6 +25,8 @@ import SeoHead from "@/components/prefabs/SeoHead";
 export default async function HomePage() {
     const res = await getHomePageData();
 
+    console.log(res);
+
     const globalres = await getGlobalData();
 
     const herosection = res.blocks.find((block: any) => block.__component === "blocks.hero-section");
@@ -36,6 +38,8 @@ export default async function HomePage() {
     const commonQuote = res.blocks.find((block: any) => block.__component === "homepage.common-quote");
     const testimonials = res.blocks.find((block: any) => block.__component === "homepage.testimonials");
     const feedback = res.blocks.find((block: any) => block.__component === "homepage.feedback");
+    const why_us = res.blocks.find((block: any) => block.__component === "homepage.why-us");
+    const bookAppointmentButton = res.blocks.find((block: any) => block.__component === "homepage.book-appointment-button");
 
     const { bg_image } = herosection;
 
@@ -50,7 +54,12 @@ export default async function HomePage() {
             <SeoHead {...(seo || {})} />
             <main className="main relative">
                 <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
-                <HeroSection data={herosection} header={header} link={globalres.youtube_link} />
+                <HeroSection
+                    data={herosection}
+                    header={header}
+                    link={globalres.youtube_link}
+                    bookAppointmentButton={bookAppointmentButton}
+                />
             </main>
 
             <main className="main bg-secondary/20 relative overflow-hidden">
@@ -69,7 +78,7 @@ export default async function HomePage() {
             </main>
 
             <main className="main py-8">
-                <ExpertServicesSection data={expertServices} />
+                <ExpertServicesSection data={expertServices} why={why_us} />
             </main>
 
             <main className="main bg-secondary/20 md:min-h-fit!">
@@ -115,7 +124,7 @@ export default async function HomePage() {
 }
 
 function HeroSection(props: any) {
-    const { data, header, link } = props;
+    const { data, header, link, bookAppointmentButton } = props;
 
     const { subtitle_one, title, description, subtitle_two, image } = data;
     return (
@@ -138,7 +147,7 @@ function HeroSection(props: any) {
                     </h2>
                     <h5 className="font-popins mb-2 text-sm font-medium opacity-80 md:text-lg"> {subtitle_two} </h5>
                     <p className="text-muted font-popins mb-4 text-justify text-sm md:text-lg">{description}</p>
-                    <BookAppointmentButton link={link} />
+                    <BookAppointmentButton data={bookAppointmentButton} />
                 </div>
                 <div className="relative aspect-5/5 h-full w-full">
                     <StrapiImage src={image?.url} alt="Hero Thumbnail" className="rounded-3xl object-cover" />
@@ -195,9 +204,11 @@ function FoundersNoteSection(data: any) {
 }
 
 function ExpertServicesSection(data: any) {
-    const { title, cardDetails, bookAppointment, why_us } = data.data;
+    const { title, cardDetails, bookAppointment } = data.data;
 
-    console.log("card details: ", cardDetails);
+    const { why_us } = data.why;
+
+    console.log("ExpertServicesSection: ", why_us);
 
     return (
         <section className="section flex flex-col items-center gap-12 pt-4 md:gap-16">

@@ -27,28 +27,10 @@ const homePageQuery = qs.stringify({
                     },
                 },
                 "homepage.founder-note": {
-                    populate: {
-                        video: {
-                            populate: {
-                                poster: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                                video: {
-                                    fields: ["url", "alternativeText"],
-                                },
-                            },
-                        },
-                    },
+                    populate: "*",
                 },
                 "homepage.evaluation-methodologies": {
-                    populate: {
-                        video: {
-                            populate: {
-                                poster: { fields: ["url", "alternativeText"] },
-                                video: { fields: ["url", "alternativeText"] },
-                            },
-                        },
-                    },
+                    populate: "*",
                 },
                 "homepage.expert-services": {
                     populate: {
@@ -60,6 +42,10 @@ const homePageQuery = qs.stringify({
                             },
                         },
                         bookAppointment: true,
+                    },
+                },
+                "homepage.why-us": {
+                    populate: {
                         why_us: {
                             populate: {
                                 image: {
@@ -121,6 +107,9 @@ const homePageQuery = qs.stringify({
                             },
                         },
                     },
+                },
+                "homepage.book-appointment-button": {
+                    populate: "*",
                 },
             },
             seo: {
@@ -443,7 +432,8 @@ export const getPost = async (slug: string): Promise<BlogPost | null> => {
             type: attrs.type,
             date: dayjs(attrs.date),
             image: attrs.image?.url || "", // or `attrs.image?.data?.attributes?.url`
-            authorImage: attrs.authorImage?.url || "", // or `attrs.authorImage?.data?.attributes?.url`
+            authorImage: attrs.authorImage?.url || "", // or `attrs.authorImage?.data?.attributes?.url`,
+            youtube_links: attrs.youtube_link,
         };
     } catch (err) {
         console.error("Error fetching post by slug:", err);
