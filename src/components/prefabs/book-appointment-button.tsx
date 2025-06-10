@@ -13,9 +13,10 @@ import { WHATSAPP_LINK } from "./whatsapp-button";
 
 type Props = {
     className?: string;
+    link: string;
 };
 
-export default function BookAppointmentButton({ className }: Props) {
+export default function BookAppointmentButton({ className, link }: Props) {
     const [openLocationDialog, setOpenLocationDialog] = useState(false);
     const [openBookTypeDialog, setOpenBookTypeDialog] = useState(false);
     const [openFollowupDialog, setOpenFollowupDialog] = useState(false);
@@ -107,12 +108,7 @@ export default function BookAppointmentButton({ className }: Props) {
                         </DialogTitle>
 
                         <div className="relative mt-4 aspect-1920/1080 w-full md:w-2/3">
-                            <iframe
-                                src="https://www.youtube.com/embed/lEnrMfKN31c?si=Rg19byPh5ZUMq6q2"
-                                className="h-full w-full"
-                                allowFullScreen
-                                title="YouTube video player"
-                            />
+                            <iframe src={link} className="h-full w-full" allowFullScreen title="YouTube video player" />
                         </div>
 
                         <DialogDescription className="text-foreground font-popins my-5 aspect-1920/3 w-full text-center text-sm font-medium md:w-2/3 md:text-base">

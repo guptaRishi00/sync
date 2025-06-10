@@ -50,7 +50,7 @@ export default async function HomePage() {
             <SeoHead {...(seo || {})} />
             <main className="main relative">
                 <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
-                <HeroSection data={herosection} header={header} />
+                <HeroSection data={herosection} header={header} link={globalres.youtube_link} />
             </main>
 
             <main className="main bg-secondary/20 relative overflow-hidden">
@@ -115,7 +115,7 @@ export default async function HomePage() {
 }
 
 function HeroSection(props: any) {
-    const { data, header } = props;
+    const { data, header, link } = props;
 
     const { subtitle_one, title, description, subtitle_two, image } = data;
     return (
@@ -138,7 +138,7 @@ function HeroSection(props: any) {
                     </h2>
                     <h5 className="font-popins mb-2 text-sm font-medium opacity-80 md:text-lg"> {subtitle_two} </h5>
                     <p className="text-muted font-popins mb-4 text-justify text-sm md:text-lg">{description}</p>
-                    <BookAppointmentButton />
+                    <BookAppointmentButton link={link} />
                 </div>
                 <div className="relative aspect-5/5 h-full w-full">
                     <StrapiImage src={image?.url} alt="Hero Thumbnail" className="rounded-3xl object-cover" />
