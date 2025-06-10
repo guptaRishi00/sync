@@ -9,7 +9,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { Checkbox } from "../ui/checkbox";
-import { WHATSAPP_LINK } from "./whatsapp-button";
+// import { WHATSAPP_LINK } from "./whatsapp-button";
 
 type Props = {
     className?: string;
