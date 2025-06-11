@@ -84,7 +84,7 @@ export default function BookAppointmentButton({ className, data }: Props) {
         [country],
     );
 
-    console.log("bookAppointmentButton: ", data?.description.split(" ").slice(0, 7).join(" "));
+    console.log("bookAppointmentButton: ", data);
 
     return (
         <>
@@ -126,9 +126,8 @@ export default function BookAppointmentButton({ className, data }: Props) {
                                 onCheckedChange={(state) => setIsTermsAccepted(state === true)}
                             />
                             <label htmlFor="terms" className="text-[#9D6937]">
-                                I agree to share my current location to receive
-                                <br />
-                                location-based services and improved functionality.
+                                {data.agreement.split(" ").slice(0, 10).join(" ")} <br />
+                                {data.agreement.split(" ").slice(11, 15).join(" ")}
                             </label>
                         </div>
                     </DialogHeader>
@@ -249,7 +248,7 @@ export default function BookAppointmentButton({ className, data }: Props) {
                     <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-5" />
                     <DialogHeader className="flex h-full flex-col items-center gap-6 md:p-12">
                         <DialogTitle className="font-popins relative text-xl font-bold md:text-4xl">
-                            Follow-Up Appointment
+                            {data.small_component.title}
                             <DecorImage
                                 src="/images/decor-smile.png"
                                 alt="Decor Smile"
@@ -258,13 +257,10 @@ export default function BookAppointmentButton({ className, data }: Props) {
                             />
                         </DialogTitle>
                         <DialogDescription className="text-foreground font-popins text-center text-lg font-normal opacity-80 md:text-2xl">
-                            We’re here to assist you with your follow-up scheduling
+                            {data.small_component.description}
                         </DialogDescription>
-                        <div className="flex grow flex-col items-center justify-between gap-6 rounded-2xl bg-[#AC9D81] py-8 text-xl text-white md:px-24 md:text-2xl">
-                            <span className="z-20 pt-6">
-                                For follow-up consultations, we kindly request you to reach out to our team via WhatsApp. This will help us
-                                assist you faster and find the most convenient slot for you.
-                            </span>
+                        <div className="text-align flex grow flex-col items-center justify-between gap-6 rounded-2xl bg-[#AC9D81] py-8 text-center text-white md:px-24 md:text-2xl">
+                            <span className="z-20 pt-6">{data.second_description}</span>
                             <Button className="z-10 mb-8 flex w-48 gap-4 py-6 text-lg" onClick={() => window.open(data?.whatsapp)}>
                                 <svg
                                     className="scale-200"
