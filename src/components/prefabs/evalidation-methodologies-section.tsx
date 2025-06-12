@@ -1,4 +1,7 @@
-export default function EvaluationMethodologiesSection() {
+import { getHomePageData } from "@/data/loader";
+// import { StrapiVideo } from "../custom/StrapiVideo";
+
+export default async function EvaluationMethodologiesSection() {
     // const content = [
     //     {
     //         section: "Screening",
@@ -26,21 +29,20 @@ export default function EvaluationMethodologiesSection() {
     //     },
     // ];
 
+    const res = await getHomePageData();
+    const evaluationMethodologies = res.blocks.find((block: any) => block.__component === "homepage.evaluation-methodologies");
+
+    const { title, description, youtube_link } = evaluationMethodologies || {};
+
     return (
         <section className="section relative flex grow flex-col items-center justify-center gap-6 md:gap-12">
             <h2 className="font-popins relative text-2xl font-semibold md:text-5xl">
-                The Process, <span className="bg-primary rounded-sm px-1">Simplified</span>
+                {title.split(" ")[0] + " " + title.split(" ")[1] + " "}{" "}
+                <span className="bg-primary rounded-sm px-1">{title.split(" ")[2]}</span>
             </h2>
-            <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">
-                Your mental health journey doesn&apos;t have to be overwhelming.
-            </p>
+            <p className="text-muted font-popins text-center text-sm font-normal text-balance md:text-lg">{description}</p>
             <div className="h-[36rem] w-5xl overflow-hidden rounded-2xl object-cover">
-                <iframe
-                    src="https://www.youtube.com/embed/lEnrMfKN31c?si=Rg19byPh5ZUMq6q2"
-                    className="h-full w-full"
-                    allowFullScreen
-                    title="YouTube video player"
-                />
+                <iframe src={youtube_link} className="h-full w-full" allowFullScreen title="YouTube video player" />
             </div>
 
             {/* <div className="rounded-xl lg:p-6">

@@ -1,19 +1,41 @@
+import { StrapiImage } from "@/components/custom/StrapiImage";
 import BookAppointmentButton from "@/components/prefabs/book-appointment-button";
 import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
 import DecorImage from "@/components/prefabs/decor-image";
 import EvaluationMethodologiesSection from "@/components/prefabs/evalidation-methodologies-section";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
-import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
+// import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
+import SeoHead from "@/components/prefabs/SeoHead";
+import { getGlobalData, getHomePageData, getServiceData } from "@/data/loader";
 import Image from "next/image";
+import React from "react";
 
 export default async function ServicesPage() {
+    const globalres = await getGlobalData();
+    const { join_news_letter, header } = globalres;
+
+    const homeres = await getHomePageData();
+
+    const res = await getServiceData();
+
+    const herosection = res.blocks.find((block: any) => block.__component === "blocks.hero-section");
+    const info = res.blocks.find((block: any) => block.__component === "elements.info-section");
+    const consult = res.blocks.find((block: any) => block.__component === "servicepage.consultations");
+    const assessment = res.blocks.find((block: any) => block.__component === "servicepage.assessments");
+    const bookAppointmentButton = homeres.blocks.find((block: any) => block.__component === "homepage.book-appointment-button");
+
+    const footerLinks = globalres.footer;
+
+    const { bg_image } = herosection;
+    const seo = res?.seo;
     return (
         <>
+            <SeoHead {...(seo || {})} />
             <main className="main relative overflow-x-clip">
-                <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                <HeroSection />
+                <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
+                <HeroSection header={header} data={herosection} />
             </main>
 
             <main className="main flex flex-col overflow-hidden py-8">
@@ -21,25 +43,25 @@ export default async function ServicesPage() {
             </main>
 
             <main className="main flex flex-col bg-[#AC9D81]/10">
-                <ConsultationSection />
+                <ConsultationSection data={info} bookAppointmentButton={bookAppointmentButton} />
             </main>
 
             <main className="main flex flex-col">
-                <PsychiatricConsultationsSection />
+                <PsychiatricConsultationsSection data={consult} bookAppointmentButton={bookAppointmentButton} />
             </main>
 
             <main className="main flex flex-col bg-[#AC9D81]/10">
-                <CounsellingAndPsychotherapy />
+                <CounsellingAndPsychotherapy data={assessment} bookAppointmentButton={bookAppointmentButton} />
             </main>
 
-            <main className="main hidden overflow-hidden py-8">
+            {/* <main className="main hidden overflow-hidden py-8">
                 <HealthRequirementSection />
-            </main>
+            </main> */}
 
             <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
 
-                <JoinNewsLetter />
+                <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"
@@ -56,18 +78,21 @@ export default async function ServicesPage() {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <Footer />
+                <Footer data={footerLinks} />
             </main>
         </>
     );
 }
 
-function HeroSection() {
+function HeroSection(props: any) {
+    const { header, data } = props;
+    const { title, image, description } = data;
+
     return (
         <section className="section relative flex flex-col gap-4 py-8 md:min-h-dvh">
             {/* Header */}
             <div className="mb-8 w-full">
-                <Header />
+                <Header logo={header.logo.url} />
             </div>
 
             <div className="md:grow"></div>
@@ -76,22 +101,15 @@ function HeroSection() {
                 <div className="flex grow flex-col gap-10">
                     <div className="">
                         <h2 className="font-popins relative inline text-3xl leading-10 font-semibold md:text-5xl md:leading-18">
-                            What we do
+                            {title.split(" ").slice(0, 3).join(" ")}
                             <br />
-                            At{" "}
-                            <span className="text-accent relative">
-                                SyNC!
-                            </span>
+                            {title.split(" ")[3] + " "}
+                            <span className="text-accent relative">{title.split(" ")[4]}</span>
                         </h2>
                     </div>
                     <div className="bg-primary relative grow rounded-2xl p-8">
                         <h2 className="font-popins hidden text-3xl font-semibold md:text-5xl">Lorem Ipsum</h2>
-                        <p className="font-popins z-50 mt-6 text-lg leading-8 font-medium text-balance md:pb-24">
-                            We unlock the true brilliance of your mind and guide you toward your best self. Our first step in developing
-                            personalised care for every individual is understanding and discovering their inner self. We back our reflection
-                            by drawing upon the guided discovery that aligns with your essence. Our dedicated team ensures personalized and
-                            effective care.
-                        </p>
+                        <p className="font-popins z-50 mt-6 text-lg leading-8 font-medium text-balance md:pb-24">{description}</p>
 
                         <DecorImage
                             src="/images/home-decore-3.png"
@@ -102,7 +120,7 @@ function HeroSection() {
                     </div>
                 </div>
                 <div className="relative aspect-square h-auto w-full md:aspect-auto">
-                    <Image src={"/jpeg/What we do-Services page.jpg"} alt="Hero Thumbnail" fill className="h-full w-full rounded-2xl object-cover" />
+                    <StrapiImage src={image?.url} alt="Hero Thumbnail" className="h-full w-full rounded-2xl object-cover" />
                 </div>
             </div>
 
@@ -111,19 +129,22 @@ function HeroSection() {
     );
 }
 
-function ConsultationSection() {
+function ConsultationSection(props: any) {
+    const { data, bookAppointmentButton } = props;
+    const { title, image, list, list_title } = data;
+
+    console.log(data);
+
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
             <h2 className="relative text-3xl font-bold md:mb-4 md:text-5xl">
-                <span className="bg-primary font-popins rounded-sm px-4 text-2xl font-semibold md:text-5xl">Counseling and Therapy</span>
+                <span className="bg-primary font-popins rounded-sm px-4 text-2xl font-semibold md:text-5xl">{title}</span>
             </h2>
 
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">
                 <div className="relative mr-8 mb-16 aspect-49/50 w-full">
-                    <Image
-                        src="/jpeg/counselling and therapy.jpg"
-                        fill
-                        sizes="100vw"
+                    <StrapiImage
+                        src={image?.url}
                         alt="Service BG"
                         className="z-20 h-full w-full overflow-hidden rounded-tr-[120px] rounded-bl-[120px] object-cover"
                     />
@@ -153,32 +174,16 @@ function ConsultationSection() {
                         className="top-0 left-0 h-16! w-16! -translate-y-full md:h-auto md:w-auto"
                     />
                     <div className="flex flex-col">
-                        <p className="font-popins inline text-justify text-lg font-medium md:leading-7">
-                            Personalized mental health support designed to help individuals, couples, and groups navigate emotional
-                            challenges, improve communication, and build lasting resilience.
-                        </p>
+                        <p className="font-popins inline text-justify text-lg font-medium md:leading-7">{list_title}</p>
                         <ul className="mt-4 space-y-4">
-                            <li className="font-bold">
-                                Individual Psychotherapy
-                                <p className="text-lg font-normal">
-                                    Explore your thoughts, emotions, and behaviors in a safe, one-on-one space with a licensed therapist to
-                                    enhance self-awareness and well-being.
-                                </p>
-                            </li>
-                            <li className="font-bold">
-                                Marriage and Couples Counselling
-                                <p className="text-lg font-normal">
-                                    Work through relationship challenges and everyday stressors with your partner in a supportive setting
-                                    guided by a professional counselor.
-                                </p>
-                            </li>
-                            <li className="font-bold">
-                                Group Coaching for ADHD
-                                <p className="text-lg font-normal">
-                                    Join a focused, coach-led group to strengthen executive functioning, reduce procrastination, and manage
-                                    ADHD-related struggles effectively.
-                                </p>
-                            </li>
+                            {list.map((item: any, index: number) => (
+                                <React.Fragment key={index}>
+                                    <li className="font-bold">
+                                        {item.title}
+                                        <p className="text-lg font-normal">{item.description}</p>
+                                    </li>
+                                </React.Fragment>
+                            ))}
                         </ul>
                     </div>
 
@@ -189,7 +194,7 @@ function ConsultationSection() {
                             size={[67, 67]}
                             className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
                         />
-                        <BookAppointmentButton />
+                        <BookAppointmentButton data={bookAppointmentButton} />
                     </div>
                 </div>
 
@@ -206,7 +211,10 @@ function ConsultationSection() {
     );
 }
 
-function PsychiatricConsultationsSection() {
+function PsychiatricConsultationsSection(props: any) {
+    const { data, bookAppointmentButton } = props;
+    const { image, list, list_title } = data.consultations;
+
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
             <h2 className="font-popins relative text-3xl leading-10 font-semibold md:mb-4 md:text-5xl md:leading-normal">
@@ -233,47 +241,16 @@ function PsychiatricConsultationsSection() {
                     />
                     <div className="flex">
                         <div className="flex flex-col">
-                            <p className="font-popins inline text-justify text-lg font-medium md:leading-7">
-                                Comprehensive psychiatric care tailored to individuals across all life stages.
-                            </p>
+                            <p className="font-popins inline text-justify text-lg font-medium md:leading-7">{list_title}</p>
                             <ul className="mt-4 space-y-4">
-                                <li className="font-bold">
-                                    Child Psychiatry
-                                    <p className="text-lg font-normal">
-                                        Specialized support for emotional, behavioral, and developmental issues in children and
-                                        adolescents—from early childhood through teenage years.
-                                    </p>
-                                </li>
-                                <li className="font-bold">
-                                    Adult Psychiatry
-                                    <p className="text-lg font-normal">
-                                        Clinical evaluation and treatment for a wide spectrum of adult mental health concerns, including
-                                        anxiety, depression, mood disorders, and more.
-                                    </p>
-                                </li>
-                                <li className="font-bold">
-                                    Neurodivergence
-                                    <p className="text-lg font-normal">
-                                        Support for conditions like Adult ADHD, OCD, Autism Spectrum Disorder, Dyslexia, and Tourette
-                                        Syndrome, recognizing and respecting different ways of thinking and processing.
-                                    </p>
-                                </li>
-
-                                <li className="font-bold">
-                                    Eating Disorders and Obesity
-                                    <p className="text-lg font-normal">
-                                        Psychiatric care for disordered eating patterns such as anorexia and bulimia, with an emphasis on
-                                        both mental and physical health recovery.
-                                    </p>
-                                </li>
-
-                                <li className="font-bold">
-                                    Psychiatry of the Elderly
-                                    <p className="text-lg font-normal">
-                                        Geriatric-focused mental health services to manage conditions like dementia, late-life depression,
-                                        anxiety, and substance misuse in older adults.
-                                    </p>
-                                </li>
+                                {list?.map((item: any, index: number) => (
+                                    <React.Fragment key={index}>
+                                        <li className="font-bold">
+                                            {item.title}
+                                            <p className="text-lg font-normal">{item.description}</p>
+                                        </li>
+                                    </React.Fragment>
+                                ))}
                             </ul>
                             <div className="relative mt-8 hidden w-fit">
                                 <DecorImage
@@ -282,16 +259,14 @@ function PsychiatricConsultationsSection() {
                                     size={[60, 60]}
                                     className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
                                 />
-                                <BookAppointmentButton />
+                                <BookAppointmentButton data={bookAppointmentButton} />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="relative order-first mr-8 mb-16 aspect-49/50 w-full md:order-last">
-                    <Image
-                        src="/jpeg/Psychiatric consultations.jpg"
-                        fill
-                        sizes="100vw"
+                    <StrapiImage
+                        src={image?.url}
                         alt="Service BG"
                         className="z-20 h-full w-full overflow-hidden rounded-tl-[120px] rounded-br-[120px] object-cover"
                     />
@@ -315,19 +290,20 @@ function PsychiatricConsultationsSection() {
     );
 }
 
-function CounsellingAndPsychotherapy() {
+function CounsellingAndPsychotherapy(props: any) {
+    const { data, bookAppointmentButton } = props;
+    const { title, image, list, list_title } = data.assessments;
+
     return (
         <section className="section relative flex h-full grow flex-col items-center justify-center gap-6 py-12 md:gap-12">
             <h2 className="font-popins relative text-3xl leading-10 font-semibold md:mb-4 md:text-5xl md:leading-normal">
-                <span className="bg-primary rounded-sm px-4">Psychological Assessments</span>
+                <span className="bg-primary rounded-sm px-4">{title}</span>
             </h2>
 
             <div className="relative mb-10 grid w-full grid-cols-1 md:grid-cols-[40fr_60fr] md:gap-12">
                 <div className="relative mr-8 mb-16 aspect-49/50 w-full">
-                    <Image
-                        src="/jpeg/Psychological Assessments.jpg"
-                        fill
-                        sizes="100vw"
+                    <StrapiImage
+                        src={image?.url}
                         alt="Service BG"
                         className="z-20 h-full w-full overflow-hidden rounded-tr-[120px] rounded-bl-[120px] object-cover"
                     />
@@ -357,38 +333,16 @@ function CounsellingAndPsychotherapy() {
                         className="top-0 left-0 h-16! w-16! -translate-y-full md:h-auto md:w-auto"
                     />
                     <div className="flex flex-col">
-                        <p className="font-popins inline text-justify text-lg font-medium md:leading-7">
-                            Scientifically designed tools to help uncover patterns in your thoughts, emotions, and behavior—offering
-                            valuable insights for diagnosis, treatment planning, and personal understanding.
-                        </p>
+                        <p className="font-popins inline text-justify text-lg font-medium md:leading-7">{list_title}</p>
                         <ul className="mt-4 space-y-4">
-                            <li className="font-bold">
-                                Cognitive and Intelligence Testing
-                                <p className="text-lg font-normal">
-                                    Assess intellectual functioning, learning abilities, memory, and problem-solving skills.
-                                </p>
-                            </li>
-                            <li className="font-bold">
-                                Personality Assessments
-                                <p className="text-lg font-normal">
-                                    Understand personality traits, emotional functioning, and behavioral tendencies that influence your
-                                    day-to-day life.
-                                </p>
-                            </li>
-                            <li className="font-bold">
-                                Neuropsychological Assessments
-                                <p className="text-lg font-normal">
-                                    In-depth evaluation of brain function related to conditions such as ADHD, dementia, or brain injury.
-                                </p>
-                            </li>
-
-                            <li className="font-bold">
-                                Emotional and Behavioral Assessments
-                                <p className="text-lg font-normal">
-                                    Identify emotional challenges, mood disorders, or behavioral patterns that may impact personal and
-                                    social functioning.
-                                </p>
-                            </li>
+                            {list?.map((item: any, index: number) => (
+                                <React.Fragment key={index}>
+                                    <li className="font-bold">
+                                        {item.title}
+                                        <p className="text-lg font-normal">{item.description}</p>
+                                    </li>
+                                </React.Fragment>
+                            ))}
                         </ul>
                     </div>
 
@@ -399,7 +353,7 @@ function CounsellingAndPsychotherapy() {
                             size={[67, 67]}
                             className="right-0 bottom-0 z-10 translate-x-[120%] stroke-3"
                         />
-                        <BookAppointmentButton />
+                        <BookAppointmentButton data={bookAppointmentButton} />
                     </div>
                 </div>
 

@@ -2,15 +2,15 @@
 
 import { cn } from "@/lib/utils";
 import { MoveUpRight } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { StrapiImage } from "../custom/StrapiImage";
 
 type Props = {
     name: string;
     designation: string;
     about: string;
-    profileImage: string;
+    profileImage: { url: string } | string;
 
     facebook?: string;
     linkedin?: string;
@@ -20,11 +20,13 @@ type Props = {
 export default function ProfileCard({ name, designation, about, profileImage, facebook, linkedin, instagram }: Props) {
     const [showDetails, setShowDetails] = useState(false);
 
+    const imgUrl = typeof profileImage === "string" ? profileImage : (profileImage?.url ?? "");
+
     return (
         <div className="flex aspect-3/4">
             <div className="group from-secondary to-secondary-light relative flex grow flex-col overflow-hidden rounded-2xl bg-radial p-2 transition-all duration-1000">
                 <div className="relative aspect-square h-fit w-full overflow-hidden rounded-2xl transition-all duration-500">
-                    <Image src={profileImage} alt={name} fill sizes="100w" className="absolute object-cover" />
+                    <StrapiImage src={imgUrl} alt={name} className="absolute object-cover" />
                 </div>
 
                 <div className="group-hover:text-secondary group-hover:fill-secondary relative z-20 flex h-fit grow flex-col items-start justify-between gap-2 rounded-2xl fill-white p-4 text-white group-hover:bg-white">
@@ -65,7 +67,7 @@ export default function ProfileCard({ name, designation, about, profileImage, fa
                     </Button>
                 </div>
 
-                <Image src={profileImage} alt={name} fill sizes="100w" className="absolute -z-10 object-cover group-hover:z-10" />
+                <StrapiImage src={imgUrl} alt={name} className="absolute -z-10 object-cover group-hover:z-10" />
             </div>
         </div>
     );

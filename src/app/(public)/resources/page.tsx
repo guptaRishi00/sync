@@ -6,10 +6,12 @@ import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
 import DecorImage from "@/components/prefabs/decor-image";
 import Footer from "@/components/prefabs/footer";
 import Header from "@/components/prefabs/header";
-import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
+// import HealthRequirementSection from "@/components/prefabs/health-requirement-section";
 import JoinNewsLetter from "@/components/prefabs/join-newsletter";
+// import SeoHead from "@/components/prefabs/SeoHead";
 import VibeSection from "@/components/prefabs/vibes-section";
 import { Button } from "@/components/ui/button";
+import { getGlobalData, getHomePageData } from "@/data/loader";
 import Image from "next/image";
 
 export default async function BlogPage() {
@@ -17,11 +19,20 @@ export default async function BlogPage() {
     const sorted = posts.sort((a, b) => b.date.diff(a.date));
     const latestPost = sorted[0];
 
+    const homeres = await getHomePageData();
+    const commonQuote = homeres.blocks.find((block: any) => block.__component === "homepage.common-quote");
+    const vibeSection = homeres.blocks.find((block: any) => block.__component === "homepage.vibe-section");
+
+    const globalres = await getGlobalData();
+    const { join_news_letter, header } = globalres;
+
+    const footerLinks = globalres.footer;
+
     return (
         <>
             <main className="main relative overflow-x-clip md:min-h-fit!">
                 <Image src="/images/blog-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                {latestPost && <HeroSection latestPost={latestPost} />}
+                {latestPost && <HeroSection latestPost={latestPost} header={header} />}
             </main>
 
             <main className="main py-8 md:min-h-fit!">
@@ -29,21 +40,21 @@ export default async function BlogPage() {
             </main>
 
             <main className="main bg-secondary/10 md:min-h-fit!">
-                <CommonQuoteSection />
+                <CommonQuoteSection data={commonQuote} />
             </main>
 
             <main className="main bg-secondary/20 md:min-h-fit!">
-                <VibeSection />
+                <VibeSection data={vibeSection} />
             </main>
 
-            <main className="main hidden overflow-hidden py-8">
+            {/* <main className="main hidden overflow-hidden py-8">
                 <HealthRequirementSection />
-            </main>
+            </main> */}
 
             <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
 
-                <JoinNewsLetter />
+                <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"
@@ -60,18 +71,20 @@ export default async function BlogPage() {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <Footer />
+                <Footer data={footerLinks} />
             </main>
         </>
     );
 }
 
-function HeroSection({ latestPost }: { latestPost: BlogPost }) {
+function HeroSection({ latestPost, header }: any) {
+    console.log(header.logo.url);
+
     return (
         <section className="section relative flex flex-col gap-4 py-8 sm:py-12 md:py-16">
             {/* Header */}
             <div className="mb-8 w-full">
-                <Header />
+                <Header logo={header.logo.url} />
             </div>
 
             <div className="">
@@ -82,6 +95,8 @@ function HeroSection({ latestPost }: { latestPost: BlogPost }) {
 }
 
 function BlogListSection({ posts }: { posts: BlogPost[] }) {
+    console.log("blogs: ", posts);
+
     return (
         <section className="section">
             <div className="mb-4">

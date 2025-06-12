@@ -13,22 +13,44 @@ import { CirclePlay, Library, Users, Video } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import "./style.css";
+import { getAcademyData, getGlobalData, getHomePageData } from "@/data/loader";
+import { StrapiImage } from "@/components/custom/StrapiImage";
+import SeoHead from "@/components/prefabs/SeoHead";
 
 export default async function AcademyPage() {
+    const res = await getAcademyData();
+
+    const herosection = res.blocks.find((block: any) => block.__component === "blocks.hero-section");
+    const whatToget = res.blocks.find((block: any) => block.__component === "academypage.what-to-get");
+    const pointsToget = res.blocks.find((block: any) => block.__component === "academypage.points-to-join");
+    const subscribeSection = res.blocks.find((block: any) => block.__component === "academypage.subscribe-section");
+
+    const homeres = await getHomePageData();
+    const commonQuote = homeres.blocks.find((block: any) => block.__component === "homepage.common-quote");
+    const healthRequirement = homeres.blocks.find((block: any) => block.__component === "homepage.health-requirement");
+
+    const globalres = await getGlobalData();
+    const { join_news_letter, header } = globalres;
+
+    const seo = res?.seo;
+
+    const footerLinks = globalres.footer;
+
     return (
         <>
+            <SeoHead {...(seo || {})} />
             <main className="main relative overflow-x-clip">
                 <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                <HeroSection />
+                <HeroSection header={header} data={herosection} />
             </main>
 
             <main className="main relative overflow-x-clip md:min-h-fit!">
-                <WhatToGetSection />
+                <WhatToGetSection data={whatToget} />
             </main>
 
             <main className="main bg-secondary/20 relative flex items-center">
                 {/* academy-bg.png */}
-                <PointsToJoinSection />
+                <PointsToJoinSection data={pointsToget} />
                 <DecorImage
                     src="/images/decor-plant-grow.png"
                     alt="Decor Table"
@@ -48,21 +70,21 @@ export default async function AcademyPage() {
 
             <main className="main relative flex items-start md:min-h-fit!">
                 {/* academy-bg.png */}
-                <SubscribeSection />
+                <SubscribeSection data={subscribeSection} />
             </main>
 
             <main className="main bg-secondary/20 md:min-h-fit!">
-                <CommonQuoteSection />
+                <CommonQuoteSection data={commonQuote} />
             </main>
 
             <main className="main hidden overflow-hidden py-8">
-                <HealthRequirementSection />
+                <HealthRequirementSection data={healthRequirement} />
             </main>
 
             <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12" id="contact-us">
                 <ConnectToSyncSection />
 
-                <JoinNewsLetter />
+                <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"
@@ -79,32 +101,31 @@ export default async function AcademyPage() {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <Footer />
+                <Footer data={footerLinks} />
             </main>
         </>
     );
 }
 
-function HeroSection() {
+function HeroSection(props: any) {
+    const { header, data } = props;
+
+    const { title, description, image } = data;
     return (
         <section className="section relative flex flex-col gap-4 py-8 md:min-h-dvh">
             {/* Header */}
             <div className="mb-8 w-full">
-                <Header />
+                <Header logo={header.logo?.url} />
             </div>
 
             <div className="grid grid-flow-row auto-rows-min grid-cols-1 grid-rows-2 gap-6 md:grow md:grid-cols-2 md:grid-rows-1">
                 <div className="flex h-fit flex-col justify-center gap-6 md:mt-26 md:self-start">
                     <h2 className="font-popins relative inline text-4xl font-semibold md:text-7xl md:leading-22">
-                        Grow Your Career in
+                        {title.split(" ").slice(0, 4).join(" ")}
                         <br />
-                        <span className="text-accent relative">Mental Health!</span>
+                        <span className="text-accent relative">{title.split(" ").slice(4, 6).join(" ")}</span>
                     </h2>
-                    <p className="text-muted font-popins pb-6 text-justify text-sm font-medium md:pr-16 md:text-lg">
-                        Discover a dynamic learning environment designed to shape the next generation of mental health professionals.
-                        Whether you&apos;re starting your journey or seeking to deepen your expertise, our programs offer the tools and
-                        mentorship you need.
-                    </p>
+                    <p className="text-muted font-popins pb-6 text-justify text-sm font-medium md:pr-16 md:text-lg">{description}</p>
 
                     <div className="flex gap-2">
                         <Link href="#contact-us">
@@ -161,7 +182,7 @@ function HeroSection() {
                                 </div>
                             </div>
 
-                            <div className="flex hidden px-2">
+                            <div className="hidden px-2">
                                 <div className="relative size-6 overflow-hidden rounded-full border-2 border-white">
                                     <Image src="/images/academy-user-1.png" alt="User 1" fill className="h-full w-full" />
                                 </div>
@@ -180,7 +201,7 @@ function HeroSection() {
                             </div>
                         </div>
                     </div>
-                    <Image src="/images/academy-hero.png" alt="Hero Thumbnail" fill className="absolute object-cover" />
+                    <StrapiImage src={image?.url} alt="Hero Thumbnail" className="absolute object-cover" />
                 </div>
             </div>
 
@@ -194,37 +215,32 @@ function HeroSection() {
     );
 }
 
-function WhatToGetSection() {
+function WhatToGetSection({ data }: any) {
+    const { title, description, clinical_training, discussion_forum, practice, Learning, Expert } = data;
     return (
         <section className="section flex flex-col gap-12 py-16">
             <div className="font-popins grid w-full grid-cols-1 gap-4 md:grid-cols-[40fr_60fr] md:gap-16">
                 <h2 className="relative inline text-2xl font-semibold md:text-4xl">
-                    What do you get at <span className="text-accent relative">SyNC Positive Academy?</span>
+                    {title.split(" ").slice(0, 5).join(" ")}{" "}
+                    <span className="text-accent relative">{title.split(" ").slice(5, 10).join(" ")}</span>
                 </h2>
-                <p className="text-muted font-popins text-justify text-sm font-medium md:text-lg">
-                    A thoughtfully designed learning environment where aspiring mental health professionals gain real-world insights,
-                    develop clinical confidence, and build meaningful connections within the field.
-                </p>
+                <p className="text-muted font-popins text-justify text-sm font-medium md:text-lg">{description}</p>
             </div>
 
             <div className="grid grid-flow-row grid-cols-2 grid-rows-2 gap-6 md:grid-cols-4 [&>div]:flex [&>div]:flex-col [&>div]:overflow-hidden [&>div]:rounded-2xl [&>div]:p-8">
                 <div className="to-primary from-primary-light col-span-2 items-center bg-gradient-to-r md:col-span-1">
                     <div className="relative mb-8 size-24">
-                        <Image src="/images/decor-learning-video.png" alt="User 1" fill className="h-full w-full" />
+                        <StrapiImage src={clinical_training.image?.url} alt="User 1" className="h-full w-full" />
                     </div>
-                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Clinical Training</h6>
-                    <p className="font-popins w-full text-left text-lg font-medium">
-                        Explore therapy sessions and counselor techniques through immersive, interactive simulations.
-                    </p>
+                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">{clinical_training.title}</h6>
+                    <p className="font-popins w-full text-left text-lg font-medium">{clinical_training.description}</p>
                 </div>
                 <div className="relative col-span-2 bg-gradient-to-r from-white to-white">
                     <div className="relative mb-8 size-24">
-                        <Image src="/images/decor-learning-quizzes.png" alt="User 1" fill className="h-full w-full" />
+                        <StrapiImage src={discussion_forum.image?.url} alt="User 1" className="h-full w-full" />
                     </div>
                     <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Discussion Forum</h6>
-                    <p className="w-1/2 text-left text-lg">
-                        Share ideas and experiences with fellow learners and mental health experts in a guided online community.
-                    </p>
+                    <p className="w-1/2 text-left text-lg">{discussion_forum.description}</p>
                     <DecorImage
                         src="/images/decor-plant.png"
                         alt="Decor Plant"
@@ -234,22 +250,18 @@ function WhatToGetSection() {
                 </div>
                 <div className="to-primary-light/50 from-primary-light/60 col-span-2 items-center bg-gradient-to-r md:col-span-1">
                     <div className="relative mb-8 size-24">
-                        <Image src="/images/decor-learning-forum.png" alt="User 1" fill className="h-full w-full" />
+                        <StrapiImage src={practice.image?.url} alt="User 1" className="h-full w-full" />
                     </div>
-                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Practice and Quizzes</h6>
-                    <p className="font-popins w-full text-left text-lg font-medium">
-                        Test your skills and knowledge with interactive case-based quizzes, reflections, and practical exercises.
-                    </p>
+                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">{practice.title}</h6>
+                    <p className="font-popins w-full text-left text-lg font-medium">{practice.description}</p>
                 </div>
 
                 <div className="to-primary from-primary-light relative col-span-2 bg-gradient-to-r">
                     <div className="relative mb-8 size-24">
-                        <Image src="/images/decor-learning-tutor.png" alt="User 1" fill className="h-full w-full" />
+                        <StrapiImage src={Learning.image?.url} alt="User 1" className="h-full w-full" />
                     </div>
-                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Learning Materials</h6>
-                    <p className="font-popins text-left text-lg font-medium text-balance md:w-1/2">
-                        Access curated notes, toolkits, and mental health resources tailored for students and professionals.
-                    </p>
+                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">{Learning.title}</h6>
+                    <p className="font-popins text-left text-lg font-medium text-balance md:w-1/2">{Learning.description}</p>
                     <DecorImage
                         src="/images/decor-plant-2.png"
                         alt="Decor Plant"
@@ -259,12 +271,10 @@ function WhatToGetSection() {
                 </div>
                 <div className="to-primary-light/50 from-primary-light/60 relative col-span-2 bg-gradient-to-r">
                     <div className="relative mb-8 size-24">
-                        <Image src="/images/decor-learning-material.png" alt="User 1" fill className="h-full w-full" />
+                        <StrapiImage src={Expert.image?.url} alt="User 1" className="h-full w-full" />
                     </div>
-                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">Expert Guidance</h6>
-                    <p className="font-popins text-left text-lg font-medium text-balance md:w-1/2">
-                        Connect with licensed professionals for support, mentorship, and answers to your clinical learning queries.
-                    </p>
+                    <h6 className="font-popins w-full pb-4 text-left text-lg font-bold">{Expert.title}</h6>
+                    <p className="font-popins text-left text-lg font-medium text-balance md:w-1/2">{Expert.description}</p>
                     <DecorImage
                         src="/images/decor-plant-3.png"
                         alt="Decor Plant"
@@ -277,35 +287,35 @@ function WhatToGetSection() {
     );
 }
 
-function PointsToJoinSection() {
-    const points = {
-        "Clinical Internships": "Apply your skills in real therapy environments under expert guidance.",
-        "Coaching Workshops": "Join live sessions to build confidence and sharpen your counseling skills.",
-        "Self-paced Modules": "Learn anytime with structured, easy-to-follow lessons.",
-        "Case Discussions": "Analyze real-world cases and improve decision-making.",
-        "Expert Mentorship": "Get guidance from seasoned professionals in mental health.",
-    };
+function PointsToJoinSection({ data }: any) {
+    const { title, description, points } = data;
+
+    // const points = {
+    //     "Clinical Internships": "Apply your skills in real therapy environments under expert guidance.",
+    //     "Coaching Workshops": "Join live sessions to build confidence and sharpen your counseling skills.",
+    //     "Self-paced Modules": "Learn anytime with structured, easy-to-follow lessons.",
+    //     "Case Discussions": "Analyze real-world cases and improve decision-making.",
+    //     "Expert Mentorship": "Get guidance from seasoned professionals in mental health.",
+    // };
     return (
         <section className="section relative flex h-full flex-col items-center justify-center gap-4 py-12 md:flex-row">
             <div className="relative aspect-square w-3/4 grow md:min-h-[65vh] md:w-auto">
                 <Image src="/images/academy-bg.png" alt="Academy BG" fill className="h-full w-full" />
             </div>
             <div className="flex flex-col items-center gap-4 md:items-start md:pr-12">
-                <h2 className="font-popins relative text-2xl font-semibold md:text-5xl">Train . Certify . Grow</h2>
+                <h2 className="font-popins relative text-2xl font-semibold md:text-5xl">{title}</h2>
 
-                <p className="font-popins text-lg font-normal text-balance">
-                    Explore expert-led programs designed for aspiring mental health professionals—practical, flexible, and career-focused.
-                </p>
+                <p className="font-popins text-lg font-normal text-balance">{description}</p>
 
                 <div className="flex flex-col gap-6">
-                    {Object.entries(points).map(([title, description], index) => (
+                    {points.map((point: any, index: number) => (
                         <div key={index} className="font-popins flex items-center gap-6 rounded-2xl bg-white p-4 text-base font-medium">
                             <span className="bg-primary grid size-12 shrink-0 place-items-center rounded-full text-lg font-semibold">
                                 {index + 1}
                             </span>
-                            <p className="text-left text-lg text-balance break-word">
-                                <strong className="mb-4">{title}</strong> <br />
-                                {description}
+                            <p className="break-word text-left text-lg text-balance">
+                                <strong className="mb-4">{point.title}</strong> <br />
+                                {point.description}
                             </p>
                         </div>
                     ))}
@@ -337,12 +347,13 @@ function DontMissInformationSection() {
     );
 }
 
-function SubscribeSection() {
+function SubscribeSection({ data }: any) {
+    const { title, description, title2, description2, image, faq } = data;
     return (
         <section className="section relative flex h-full flex-col items-start justify-start gap-12 py-8 md:flex-row md:py-16">
             <div className="space-y-6">
                 <div className="relative aspect-1307/497 w-3/4 md:max-w-[30vw]">
-                    <Image src="/images/decor-frame.png" alt="Academy Frame" fill className="md:h-full md:w-full" />
+                    <StrapiImage src={image?.url} alt="Academy Frame" className="md:h-full md:w-full" />
                     <DecorImage
                         src="/images/decor-smile.png"
                         alt="Decor Butterfly"
@@ -351,11 +362,10 @@ function SubscribeSection() {
                     />
                 </div>
                 <h2 className="font-popins relative text-3xl leading-10 font-bold md:text-5xl md:leading-16">
-                    Don&apos;t miss any <br /> information from us<span className="text-accent h-fit rounded-sm">!</span>
+                    {title.split(" ").slice(0, 3).join(" ")} <br /> {title.split(" ").slice(3, 6).join(" ")}
+                    <span className="text-accent h-fit rounded-sm">!</span>
                 </h2>
-                <p className="font-popins font-medium">
-                    Sign up for our newsletter and gain access to updates, insights, new product releases & more
-                </p>
+                <p className="font-popins font-medium">{description}</p>
                 <div className="flex md:mr-26">
                     <SudentSubscription />
                 </div>
@@ -366,44 +376,16 @@ function SubscribeSection() {
 
             <div className="font-popins flex grow flex-col gap-4">
                 <h5 className="text-4xl leading-16 font-bold">
-                    Frequently Asked <span className="bg-primary h-fit rounded-sm">Questions</span>
+                    {title2.split(" ").slice(0, 2).join(" ")} <span className="bg-primary h-fit rounded-sm">{title2.split(" ")[2]}</span>
                 </h5>
-                <p className="text-lg">Find quick answers to common questions about our programs, applications, schedules, and support.</p>
+                <p className="text-lg">{description2}</p>
                 <Accordion type="single" collapsible className="text-lg">
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger className="text-lg">1. How long is the internship?</AccordionTrigger>
-                        <AccordionContent className="text-lg">8–12 weeks, based on your schedule.</AccordionContent>
-                    </AccordionItem>
-
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger className="text-lg">2. Who can apply?</AccordionTrigger>
-                        <AccordionContent className="text-lg">Students in psychology or related fields.</AccordionContent>
-                    </AccordionItem>
-
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger className="text-lg">3. How do I apply?</AccordionTrigger>
-                        <AccordionContent className="text-lg">Fill out the form on our website.</AccordionContent>
-                    </AccordionItem>
-
-                    <AccordionItem value="item-4">
-                        <AccordionTrigger className="text-lg">4. Are sessions live or recorded?</AccordionTrigger>
-                        <AccordionContent className="text-lg">Both options are available.</AccordionContent>
-                    </AccordionItem>
-
-                    <AccordionItem value="item-5">
-                        <AccordionTrigger className="text-lg">5. What do courses cover?</AccordionTrigger>
-                        <AccordionContent className="text-lg">Therapy skills, ethics, assessments, and more.</AccordionContent>
-                    </AccordionItem>
-
-                    <AccordionItem value="item-6">
-                        <AccordionTrigger className="text-lg">6. Do I get a certificate?</AccordionTrigger>
-                        <AccordionContent className="text-lg">Yes, after successful completion.</AccordionContent>
-                    </AccordionItem>
-
-                    <AccordionItem value="item-7">
-                        <AccordionTrigger className="text-lg">7. Are coaching sessions paid?</AccordionTrigger>
-                        <AccordionContent className="text-lg">Yes, pricing is listed per course. Internships are free.</AccordionContent>
-                    </AccordionItem>
+                    {faq.map((item: any, index: number) => (
+                        <AccordionItem key={index} value={`item-${index}`}>
+                            <AccordionTrigger className="font-popins flex items-center justify-between">{item.title}</AccordionTrigger>
+                            <AccordionContent className="font-popins text-muted">{item.description}</AccordionContent>
+                        </AccordionItem>
+                    ))}
                 </Accordion>
             </div>
         </section>

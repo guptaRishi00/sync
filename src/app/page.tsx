@@ -4,7 +4,6 @@ import ExportServiceCard from "@/components/prefabs/export-service-card";
 import Header from "@/components/prefabs/header";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import Image from "next/image";
 
 import CommonQuoteSection from "@/components/prefabs/common-quote-section";
 import ConnectToSyncSection from "@/components/prefabs/connect-to-sync-section";
@@ -18,16 +17,53 @@ import Metrics from "@/components/prefabs/metrics";
 import TestimonialsSection from "@/components/prefabs/testimonials-section";
 import VibeSection from "@/components/prefabs/vibes-section";
 
-export default function HomePage() {
+import { getGlobalData, getHomePageData } from "@/data/loader";
+// import { StrapiVideo } from "@/components/custom/StrapiVideo";
+import { StrapiImage } from "@/components/custom/StrapiImage";
+import SeoHead from "@/components/prefabs/SeoHead";
+
+export default async function HomePage() {
+    const res = await getHomePageData();
+
+    console.log(res);
+
+    const globalres = await getGlobalData();
+
+    const herosection = res.blocks.find((block: any) => block.__component === "blocks.hero-section");
+    const founderNote = res.blocks.find((block: any) => block.__component === "homepage.founder-note");
+    // const evaluationMethodologies = res.blocks.find((block: any) => block.__component === "homepage.evaluation-methodologies");
+    const expertServices = res.blocks.find((block: any) => block.__component === "homepage.expert-services");
+    const healthRequirement = res.blocks.find((block: any) => block.__component === "homepage.health-requirement");
+    const vibeSection = res.blocks.find((block: any) => block.__component === "homepage.vibe-section");
+    const commonQuote = res.blocks.find((block: any) => block.__component === "homepage.common-quote");
+    const testimonials = res.blocks.find((block: any) => block.__component === "homepage.testimonials");
+    const feedback = res.blocks.find((block: any) => block.__component === "homepage.feedback");
+    const why_us = res.blocks.find((block: any) => block.__component === "homepage.why-us");
+    const bookAppointmentButton = res.blocks.find((block: any) => block.__component === "homepage.book-appointment-button");
+
+    const { bg_image } = herosection;
+
+    const { join_news_letter, header } = globalres;
+
+    const seo = res?.seo;
+
+    const footerLinks = globalres.footer;
+
     return (
         <>
+            <SeoHead {...(seo || {})} />
             <main className="main relative">
-                <Image src="/images/home-hero-bg.jpg" alt="Hero" fill className="-z-50 object-cover opacity-10" />
-                <HeroSection />
+                <StrapiImage src={bg_image?.url} alt="Hero" className="-z-50 object-cover opacity-10" />
+                <HeroSection
+                    data={herosection}
+                    header={header}
+                    link={globalres.youtube_link}
+                    bookAppointmentButton={bookAppointmentButton}
+                />
             </main>
 
             <main className="main bg-secondary/20 relative overflow-hidden">
-                <FoundersNoteSection />
+                <FoundersNoteSection data={founderNote} />
 
                 <DecorImage
                     src="/images/decor-butterfly-large.png"
@@ -42,29 +78,29 @@ export default function HomePage() {
             </main>
 
             <main className="main py-8">
-                <ExpertServicesSection />
+                <ExpertServicesSection data={expertServices} why={why_us} />
             </main>
 
             <main className="main bg-secondary/20 md:min-h-fit!">
-                <CommonQuoteSection />
+                <CommonQuoteSection data={commonQuote} />
             </main>
 
             <main className="main overflow-hidden py-8">
-                <HealthRequirementSection />
+                <HealthRequirementSection data={healthRequirement} />
             </main>
 
             <main className="main bg-secondary/20 md:min-h-fit!">
-                <VibeSection />
+                <VibeSection data={vibeSection} />
             </main>
 
             <main className="main relative flex flex-col gap-8 overflow-hidden py-12 md:gap-12">
                 <ConnectToSyncSection />
 
-                <TestimonialsSection />
+                <TestimonialsSection data={testimonials} />
 
-                <FeedbackSection />
+                <FeedbackSection data={feedback} />
 
-                <JoinNewsLetter />
+                <JoinNewsLetter data={join_news_letter} />
 
                 <DecorImage
                     src="/images/home-decore-tree-branch.png"
@@ -81,40 +117,40 @@ export default function HomePage() {
             </main>
 
             <main className="main bg-primary py-8 md:min-h-0">
-                <Footer />
+                <Footer data={footerLinks} />
             </main>
         </>
     );
 }
 
-function HeroSection() {
+function HeroSection(props: any) {
+    const { data, header, bookAppointmentButton } = props;
+
+    const { subtitle_one, title, description, subtitle_two, image } = data;
     return (
         <section className="section flex flex-col py-8 md:min-h-dvh">
             {/* Header */}
             <div className="mb-8 w-full">
-                <Header />
+                <Header logo={header?.logo?.url} />
             </div>
 
             <div className="flex grow flex-col items-center justify-normal gap-6 md:flex-row md:justify-between">
                 <div className="flex flex-col gap-4 text-start md:max-w-1/2 md:gap-5 md:pr-16">
                     <h3 className="font-popins text-xl md:text-3xl">
-                        Come find your <b>best version </b> at
+                        {subtitle_one.split(" ")[0] + " " + subtitle_one.split(" ")[1] + " " + subtitle_one.split(" ")[2]}{" "}
+                        <b>{subtitle_one.split(" ")[3] + " " + subtitle_one.split(" ")[4] + " "} </b> {subtitle_one.split(" ")[5]}
                     </h3>
                     <h2 className="font-popins text-3xl font-semibold md:text-5xl md:leading-18">
-                        SyNC <span className="text-accent">Positive</span>
+                        {title.split(" ")[0] + " "} <span className="text-accent"> {title.split(" ")[1] + " "} </span>
                         <br />
-                        Psychiatry Foundation.
+                        {title.split(" ")[2] + " " + title.split(" ")[3]}
                     </h2>
-                    <h5 className="font-popins mb-2 text-sm font-medium opacity-80 md:text-lg">A holistic approach to your well-being.</h5>
-                    <p className="text-muted font-popins mb-4 text-justify text-sm md:text-lg">
-                        SyNC Positive Psychiatry is a space to become the best version of yourself. SyNC - To synergize, connect, and align
-                        your mind, body, emotions, and energy. We guide you on this journey for you to always be prepared when the universe
-                        comes knocking.
-                    </p>
-                    <BookAppointmentButton />
+                    <h5 className="font-popins mb-2 text-sm font-medium opacity-80 md:text-lg"> {subtitle_two} </h5>
+                    <p className="text-muted font-popins mb-4 text-justify text-sm md:text-lg">{description}</p>
+                    <BookAppointmentButton data={bookAppointmentButton} />
                 </div>
                 <div className="relative aspect-5/5 h-full w-full">
-                    <Image src="/jpeg/Home page updated (2).jpg" alt="Hero Thumbnail" fill className="rounded-3xl object-cover" />
+                    <StrapiImage src={image?.url} alt="Hero Thumbnail" className="rounded-3xl object-cover" />
                     <Button
                         variant="secondary"
                         className="from-secondary-light to-secondary text-background absolute right-0 bottom-0 hidden gap-2 rounded-3xl bg-linear-to-br px-8 py-10 text-lg"
@@ -131,11 +167,12 @@ function HeroSection() {
     );
 }
 
-function FoundersNoteSection() {
+function FoundersNoteSection(data: any) {
+    const { title, youtube_link } = data.data;
     return (
         <section className="section flex flex-col items-center justify-center gap-2 py-8 md:min-h-dvh">
             <h2 className="font-popins relative mb-4 text-3xl font-semibold italic md:text-5xl">
-                Hear From Our Founder
+                {title}
                 <DecorImage
                     src="/images/decor-highlight.png"
                     alt="Decor Highlight"
@@ -159,62 +196,28 @@ function FoundersNoteSection() {
                 />
 
                 <div className="h-[36rem] w-full max-w-5xl overflow-hidden rounded-2xl">
-                    <iframe
-                        src="https://www.youtube.com/embed/0mECvrDaJPc?si=Mpw8-NpYmxLPAj3j"
-                        className="h-full w-full"
-                        allowFullScreen
-                        title="YouTube video player"
-                    />
+                    <iframe src={youtube_link} className="h-full w-full" allowFullScreen title="YouTube video player" />
                 </div>
             </div>
         </section>
     );
 }
 
-function ExpertServicesSection() {
-    const cardDetails = [
-        {
-            imagePath: "/jpeg/Consultation.jpg",
-            title: "Consultations",
-            description: "Discuss your needs with a professional and learn about your care options.",
-        },
-        {
-            imagePath: "/jpeg/Individual therapy.jpg",
-            title: "Individual Counseling & Therapy",
-            description: "A safe and empowering space to navigate life’s journey with guidance.",
-        },
-        {
-            imagePath: "/jpeg/ADHD group coaching.jpg",
-            title: "Adhd Group Coaching Sessions",
-            description: "Develop resilience, organization, and management skills in a shared group setting.",
-        },
-        {
-            imagePath: "/jpeg/Asessment and diagnosis.jpg",
-            title: "Assessment & Diagnosis",
-            description:
-                "A thoughtful conversation to explore your experiences, uncover their origins, and understand their impact on your well-being.",
-        },
-        {
-            imagePath: "/jpeg/Psychiatric consultations.jpg",
-            title: "Psychiatric Consultations",
-            description:
-                "Expert psychiatric care for depression, anxiety, addiction, ADHD, neurodivergence, schizophrenia, mood disorders, and more.",
-        },
-        {
-            imagePath: "/images/decor-export-service-1.png",
-            title: "Book an Appointment",
-            isBookAppointment: true,
-        },
-    ];
+function ExpertServicesSection(data: any) {
+    const { title, cardDetails, bookAppointment } = data.data;
+
+    const { why_us } = data.why;
+
+    console.log("ExpertServicesSection: ", why_us);
 
     return (
         <section className="section flex flex-col items-center gap-12 pt-4 md:gap-16">
             <div className="font-popins flex items-center gap-4 text-xl font-semibold md:text-4xl">
                 <div className="from-primary-light to-primary rounded-sm bg-linear-to-r p-4">
-                    <h2 className="">Expert Services</h2>
+                    <h2 className="">{title.split(" ")[0] + " " + title.split(" ")[1]}</h2>
                 </div>
                 <h2 className="relative">
-                    - At SyNC
+                    {title.split(" ")[2] + " " + title.split(" ")[3] + " " + title.split(" ")[4]}
                     <DecorImage
                         src="/images/decor-love.png"
                         alt="Decor Love"
@@ -225,13 +228,14 @@ function ExpertServicesSection() {
             </div>
 
             <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
-                {cardDetails.map((card, index) => (
+                {cardDetails.map((card: any) => (
                     <ExportServiceCard
-                        key={index}
-                        imagePath={card.imagePath}
+                        key={card.id}
+                        imagePath={card.imagePath?.url}
                         title={card.title}
                         description={card.description}
                         isBookAppointment={card.isBookAppointment}
+                        bookAppointment={bookAppointment}
                     />
                 ))}
             </div>
@@ -242,14 +246,10 @@ function ExpertServicesSection() {
                         variant="outline"
                         className="hover:bg-background border-primary font-inter w-fit rounded-full bg-white font-normal"
                     >
-                        WHY US?
+                        {why_us.subtitle_one}
                     </Button>
                     <h2 className="font-inter text-2xl font-semibold md:text-4xl">Together, We Grow!!</h2>
-                    <p className="text-foreground font-inter text-justify text-sm font-normal md:text-lg">
-                        We trust that seeking help is a sign of strength, a truth we understand from our own experiences. We partner with
-                        you to reconnect with your best self and achieve a happy, meaningful life. We are here to help because everyone
-                        needs a nudge sometimes.
-                    </p>
+                    <p className="text-foreground font-inter text-justify text-sm font-normal md:text-lg">{why_us.description}</p>
 
                     <LearnMoreNavButton />
                     <DecorImage src="/images/decor-smile.png" alt="Decor Smile" size={[34, 34]} className="bottom-0 left-1/3" />
@@ -265,20 +265,13 @@ function ExpertServicesSection() {
                 <div className="relative h-fit w-full grow">
                     <div className="pb-26 pl-16">
                         <div className="relative aspect-5/4 h-full w-full">
-                            <Image
-                                src="/jpeg/why choose us1.jpg"
-                                alt="Hero Thumbnail"
-                                fill
-                                className="right-0 left-0 rounded-2xl object-cover"
-                            />
+                            <StrapiImage src={why_us.image?.url} alt="Hero Thumbnail" className="right-0 left-0 rounded-2xl object-cover" />
                         </div>
                     </div>
 
                     <div className="to-secondary from-secondary-light absolute bottom-0 left-0 z-10 w-68 rounded-2xl bg-linear-to-r px-5 py-5 text-white md:w-122 md:gap-16 md:px-8 md:py-8">
-                        <h4 className="font-inter pb-4 text-lg font-extrabold md:text-2xl">Rejuvenate. Reconnect. Recharge.</h4>
-                        <p className="font-inter text-sm font-normal md:text-sm">
-                            We help you get re-connected to your best self and lead a happy and meaningful life.
-                        </p>
+                        <h4 className="font-inter pb-4 text-lg font-extrabold md:text-2xl">{why_us.small_component.title}</h4>
+                        <p className="font-inter text-sm font-normal md:text-sm">{why_us.small_component.description}</p>
                     </div>
                 </div>
             </div>

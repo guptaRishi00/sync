@@ -7,11 +7,13 @@ import { Input } from "@/components/ui/input";
 import { Mail } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
-export default function JoinNewsLetter() {
+export default function JoinNewsLetter({ data }: any) {
     const [inputValue, setInputValue] = useState("");
 
     const [isSuccess, setIsSuccess] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
+
+    const { disclaimer, subtitle, title } = data || {};
 
     useEffect(() => {
         if (isSuccess) {
@@ -41,10 +43,10 @@ export default function JoinNewsLetter() {
                     />
                 </div>
                 <h2 className="font-popins flex gap-4 text-2xl font-semibold md:text-4xl">
-                    Join
+                    {title}
                     <span className="text-secondary-light">SyNC</span>
                     <span className="relative">
-                        Newsletter
+                        {subtitle}
                         <DecorImage
                             src="/images/decor-highlight-circle-1.png"
                             alt="Decor Highlight Circle 1"
@@ -77,11 +79,7 @@ export default function JoinNewsLetter() {
             </div>
 
             <div>
-                <p className="font-popins text-secondary text-center text-sm font-normal italic">
-                    Disclaimer : We do not specialize in crisis intervention and emergency services.
-                    <br />
-                    We urge you to contact your nearest hospital if you experience distress or thoughts of suicide and self harm.
-                </p>
+                <p className="font-popins text-secondary text-center text-sm font-normal italic">{disclaimer} </p>
             </div>
         </section>
     );

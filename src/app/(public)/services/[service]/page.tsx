@@ -1,4 +1,4 @@
-import BookAppointmentButton from "@/components/prefabs/book-appointment-button";
+// import BookAppointmentButton from "@/components/prefabs/book-appointment-button";
 import Header from "@/components/prefabs/header";
 import Image from "next/image";
 
@@ -74,7 +74,7 @@ function HeroSection({ serviceDetail }: { serviceDetail: ServiceDetailContent })
                         A sollicitudin etiam imperdiet dui duis est. Consectetur facilisis diam vulputate nunc elit ornare. Gravida lorem
                         iaculis convallis quis in proin ultricies eget.
                     </p>
-                    <BookAppointmentButton />
+                    {/* <BookAppointmentButton /> */}
                 </div>
                 <div className="col-start-3 col-end-4 row-start-1 row-end-3 self-end">
                     <div className="relative aspect-square">

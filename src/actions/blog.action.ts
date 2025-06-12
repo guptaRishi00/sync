@@ -1,5 +1,6 @@
 "use server";
 
+import axios from "axios";
 import dayjs, { Dayjs } from "dayjs";
 
 export interface BlogPost {
@@ -12,43 +13,42 @@ export interface BlogPost {
     type: string;
     slug: string;
     reviewedBy: string;
+    youtube_links?: string;
 }
 
-const posts: BlogPost[] = [
-    {
-        slug: "understanding_obsessive_compulsive_related_disorders",
-        authorImage: "/images/author-image-1.jpg",
-        date: dayjs(),
-        image: "/images/blog-post-1.jpeg",
-        title: "Understanding Obsessive Compulsive related disorders.",
-        content: "Content",
-        type: "Mental Health",
-        author: "Muriel Dsouza Franky",
-        reviewedBy: "SyNC Positive Psychiatry Foundation",
-    },
-    {
-        slug: "signs_of_autism_in_adults_what_to_look_for",
-        authorImage: "/images/author-image-2.jpg",
-        date: dayjs(),
-        image: "/images/blog-post-2.jpeg",
-        title: "Signs of Autism in Adults: What to Look For",
-        content: "Content",
-        type: "Mental Health",
-        author: " Anusha Kolloji",
-        reviewedBy: "SyNC Positive Psychiatry Foundation",
-    },
-    {
-        slug: "how_to_get_an_adhd_diagnosis_a_step_by_step_guide",
-        authorImage: "/images/author-image-7.jpg",
-        date: dayjs(),
-        image: "/images/blog-post-3.jpeg",
-        title: "How to Get an ADHD Diagnosis: A Step-by-Step Guide",
-        content: "Content",
-        type: "Mental Health",
-        author: "Sanjana Mehta",
-        reviewedBy: "SyNC Positive Psychiatry Foundation",
-    },
-];
+// Get raw Strapi response
+export const getStrapiData = async () => {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blog-posts?populate=*`, {
+        headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`,
+        },
+    });
+    return response.data;
+};
 
-export const getAllPosts = async () => posts;
-export const getPost = async (slug: string) => posts.find((post) => post.slug === slug);
+// Transform to BlogPost[]
+export const getAllPosts = async (): Promise<BlogPost[]> => {
+    const { data } = await getStrapiData();
+
+    return data.map((item: any): BlogPost => {
+        const attrs = item;
+        return {
+            title: attrs.title,
+            content: attrs.content,
+            author: attrs.author,
+            reviewedBy: attrs.reviewedBy,
+            slug: attrs.slug,
+            type: attrs.type,
+            date: dayjs(attrs.date),
+            image: attrs.image?.url || "",
+            authorImage: attrs.authorImage?.url || "",
+            youtube_links: attrs.youtube_links,
+        };
+    });
+};
+
+// Filter by slug
+export const getPost = async (slug: string): Promise<BlogPost | undefined> => {
+    const allPosts = await getAllPosts();
+    return allPosts.find((post) => post.slug === slug);
+};
