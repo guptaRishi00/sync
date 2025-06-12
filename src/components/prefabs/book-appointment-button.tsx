@@ -48,15 +48,14 @@ export default function BookAppointmentButton({ className, data }: Props) {
         setOpenBookTypeDialog(true);
     }, [country, getCountryByIp]);
 
+    //continue
     const onContinueClick = useCallback(() => {
-        // Redirect
         if (isRedirecting) return;
         setIsRedirecting(true);
 
         (async function redirect() {
-            const urlType = "pa";
+            const urlType = "WAAppointment";
             await redirectToTopperStage(urlType, country);
-            // setOpenLocationDialog(false);
         })();
     }, [country, isRedirecting]);
 
