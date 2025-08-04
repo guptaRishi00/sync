@@ -49,6 +49,8 @@ export default async function HomePage() {
 
     const footerLinks = globalres.footer;
 
+    console.log("footerLinks: ", globalres);
+
     return (
         <>
             <SeoHead {...(seo || {})} />

@@ -8,6 +8,10 @@ import Script from "next/script"; // Add this import
 
 export const metadata: Metadata = frameMetadata("Home");
 
+// Force dynamic rendering to prevent caching
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 type Props = {
     children: React.ReactNode;
 };
